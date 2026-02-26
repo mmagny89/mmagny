@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Projets — Mylène Magny</title>
+    <meta name="description" content="Projets techniques réalisés par Mylène Magny — Développement Backend PHP / Drupal / Symfony." />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: "Inter", system-ui, sans-serif;
+            --pri: 14 165 233;
+            --acc: 99 102 241;
+        }
+
+        @layer base {
+            body { @apply bg-slate-50 text-slate-900 font-sans; }
+        }
+
+        @layer components {
+            .container-prose { @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; }
+            .btn {
+                @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium shadow transition;
+                @apply bg-[rgb(var(--pri))] text-white hover:brightness-110;
+            }
+            .chip {
+                @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium bg-slate-200 text-slate-700;
+            }
+            .card {
+                @apply rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition;
+            }
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="sticky top-0 bg-white border-b border-slate-200 z-40">
+    <nav class="container-prose flex justify-between items-center h-16">
+        <a href="./index.html" class="font-semibold text-lg">← Accueil</a>
+        <h1 class="text-sm text-slate-500">Projets techniques</h1>
+    </nav>
+</header>
+
+<!-- Hero -->
+<section class="container-prose py-16">
+    <h2 class="text-3xl sm:text-4xl font-semibold mb-4">
+        Projets & réalisations
+    </h2>
+    <p class="text-slate-600 max-w-2xl">
+        Sélection de projets sur lesquels j’ai contribué en tant que développeuse backend.
+        Focus sur l’architecture, les modules sur-mesure, les migrations et la structuration technique.
+    </p>
+</section>
+
+<!-- Filtres -->
+<section class="container-prose mb-10">
+    <div class="flex flex-wrap gap-3">
+        <button class="chip filter-btn" data-filter="all">Tous</button>
+        <button class="chip filter-btn" data-filter="drupal">Drupal</button>
+        <button class="chip filter-btn" data-filter="symfony">Symfony</button>
+        <button class="chip filter-btn" data-filter="wordpress">WordPress</button>
+    </div>
+</section>
+
+<!-- Grille projets -->
+<section class="container-prose pb-20">
+    <div class="grid md:grid-cols-2 gap-8" id="projectsGrid">
+
+        <!-- Projet -->
+        <article class="card p-6 project-item" data-category="drupal">
+            <h3 class="text-lg font-semibold mb-2">École Polytechnique</h3>
+            <p class="text-sm text-slate-600 mb-4">
+                Usine à sites Drupal institutionnelle.
+            </p>
+            <div class="flex justify-between items-center">
+                <span class="chip">Drupal</span>
+                <button class="btn open-modal" data-project="polytechnique">Détails</button>
+            </div>
+        </article>
+
+        <article class="card p-6 project-item" data-category="symfony">
+            <h3 class="text-lg font-semibold mb-2">Quartiers Plus</h3>
+            <p class="text-sm text-slate-600 mb-4">
+                Application métier de gestion de programmes.
+            </p>
+            <div class="flex justify-between items-center">
+                <span class="chip">Symfony</span>
+                <button class="btn open-modal" data-project="quartiers">Détails</button>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- MODALS -->
+
+<!-- Modal Polytechnique -->
+<div id="modal-polytechnique" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-8 relative">
+        <button class="absolute top-4 right-4 text-slate-500 close-modal">✕</button>
+
+        <h3 class="text-2xl font-semibold mb-4">École Polytechnique — Drupal</h3>
+
+        <div class="space-y-4 text-sm text-slate-700">
+            <p><strong>Contexte :</strong> Portail institutionnel multi-sites.</p>
+
+            <p><strong>Interventions backend :</strong></p>
+            <ul class="list-disc ml-6 space-y-1">
+                <li>Développement modules personnalisés</li>
+                <li>Migrations complexes D7 → D9/10</li>
+                <li>Workflows éditoriaux avancés</li>
+                <li>Optimisation cache & performance</li>
+            </ul>
+
+            <p><strong>Stack :</strong> PHP 8, Drupal, Drush, Docker, GitLab CI</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Quartiers -->
+<div id="modal-quartiers" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-8 relative">
+        <button class="absolute top-4 right-4 text-slate-500 close-modal">✕</button>
+
+        <h3 class="text-2xl font-semibold mb-4">Quartiers Plus — Symfony</h3>
+
+        <div class="space-y-4 text-sm text-slate-700">
+            <p><strong>Contexte :</strong> Application métier dédiée au suivi de programmes.</p>
+
+            <p><strong>Interventions backend :</strong></p>
+            <ul class="list-disc ml-6 space-y-1">
+                <li>Conception entités & architecture métier</li>
+                <li>API internes</li>
+                <li>Exports CSV & reporting</li>
+                <li>Gestion droits utilisateurs</li>
+            </ul>
+
+            <p><strong>Stack :</strong> Symfony, Doctrine, MySQL</p>
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script>
+    // Filtres
+    const buttons = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".project-item");
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const filter = btn.dataset.filter;
+
+            items.forEach(item => {
+                if (filter === "all" || item.dataset.category === filter) {
+                    item.classList.remove("hidden");
+                } else {
+                    item.classList.add("hidden");
+                }
+            });
+        });
+    });
+
+    // Modals
+    document.querySelectorAll(".open-modal").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const id = btn.dataset.project;
+            document.getElementById("modal-" + id).classList.remove("hidden");
+            document.getElementById("modal-" + id).classList.add("flex");
+        });
+    });
+
+    document.querySelectorAll(".close-modal").forEach(btn => {
+        btn.addEventListener("click", () => {
+            btn.closest("[id^='modal-']").classList.add("hidden");
+            btn.closest("[id^='modal-']").classList.remove("flex");
+        });
+    });
+
+    // fermeture clic fond
+    document.querySelectorAll("[id^='modal-']").forEach(modal => {
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
