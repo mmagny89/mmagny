@@ -1,434 +1,813 @@
 <!doctype html>
-<html lang="fr" class="scroll-smooth scheme-light">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        <title>Mylène Magny — Développeuse Back‑End (PHP/Drupal/Symfony)</title>
+    <title>Mylène Magny — Développeuse Back-End (PHP/Drupal/Symfony)</title>
 
-        <meta name="description"
-              content="Développeuse back‑end spécialisée PHP, Drupal & Symfony. Projets, compétences, expériences et contact."/>
-        <meta property="og:title" content="Mylène Magny — Développeuse Back‑End (PHP/Drupal/Symfony)">
-        <meta property="og:description"
-              content="Projets menés, compétences techniques, et expériences. Disponible pour missions PHP/Drupal/Symfony.">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://mmagny.fr/">
-        <meta name="theme-color" content="#0f172a"/>
+    <meta name="description"
+          content="Développeuse back-end spécialisée PHP, Drupal & Symfony. Projets, compétences, expériences, formations et contact."/>
+    <meta property="og:title" content="Mylène Magny — Développeuse Back-End (PHP/Drupal/Symfony)">
+    <meta property="og:description"
+          content="Projets, compétences techniques, expérience et formations. Développement PHP/Drupal/Symfony.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mmagny.fr/">
+    <meta name="theme-color" content="#0f172a"/>
 
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <style type="text/tailwindcss">
-            @custom-variant dark (&:where(.dark, .dark *));
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-            @theme {
-                --font-sans: "Inter", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: "Inter", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+            --bg: 248 250 252;     /* slate-50 */
+            --panel: 255 255 255;  /* white */
+            --txt: 15 23 42;       /* slate-900 */
+            --muted: 71 85 105;    /* slate-600 */
+            --pri: 14 165 233;     /* sky-500 */
+            --acc: 99 102 241;     /* indigo-500 */
+        }
 
-                /* (exemple) tes couleurs en variables pour arbitraires */
-                --bg: 247 250 252;
-                --bg-dark: 15 23 42;
-                --txt: 15 23 42;
-                --txt-dark: 226 232 240;
-                --pri: 14 165 233;
-                --pri-dark: 56 189 248;
-                --acc: 99 102 241;
-                --acc-dark: 129 140 248;
+        @layer base {
+            html { @apply font-sans antialiased; }
+            body { @apply bg-[rgb(var(--bg))] text-[rgb(var(--txt))]; }
+            ::selection { @apply bg-sky-200; }
+        }
+
+        @layer components {
+            .container-prose { @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; }
+            .card { @apply rounded-3xl border border-black/5 bg-[rgb(var(--panel))] shadow-sm; }
+
+            .btn {
+                @apply inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium shadow-sm transition;
+                @apply bg-[rgb(var(--pri))] text-white hover:brightness-110 active:translate-y-px;
+            }
+            .btn-soft {
+                @apply inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium transition;
+                @apply bg-slate-900 text-white hover:brightness-110 active:translate-y-px;
+            }
+            .btn-outline {
+                @apply inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium transition border;
+                @apply border-black/10 text-slate-800 hover:bg-black/5;
             }
 
-            @layer base {
-                html { @apply font-sans antialiased; }
-                body {
-                    @apply bg-[rgb(var(--bg))] text-[rgb(var(--txt))]
-                    dark:bg-[rgb(var(--bg-dark))] dark:text-[rgb(var(--txt-dark))];
-                }
+            .chip {
+                @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium
+                bg-slate-100 text-slate-700 border border-black/5;
             }
 
-            @layer components {
-                .container-prose { @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; }
+            .section-title { @apply text-2xl sm:text-3xl font-semibold tracking-tight; }
+            .muted { @apply text-slate-600; }
+            .kbd { @apply px-2 py-1 rounded border border-black/10 text-xs font-mono bg-black/5; }
+        }
 
-                .btn {
-                    @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium shadow-sm transition;
-                    @apply bg-[rgb(var(--pri))] text-white hover:brightness-110 active:translate-y-px;
-                }
-                .btn-outline {
-                    @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium transition border;
-                    @apply border-white/20 dark:border-white/20 text-white/90 hover:bg-white/10;
-                }
-                .chip {
-                    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium
-                    bg-white/70 text-slate-700
-                    dark:bg-white/10 dark:text-white/80
-                    border border-black/5 dark:border-white/10;
-                }
-                .card { @apply rounded-3xl border border-black/5 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur shadow-sm; }
-                .section-title { @apply text-2xl sm:text-3xl font-semibold tracking-tight; }
-                .kbd { @apply px-2 py-1 rounded border border-black/10 dark:border-white/20 text-xs font-mono bg-black/5 dark:bg-white/10; }
-            }
+        .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.in { opacity: 1; transform: translateY(0); }
+    </style>
 
-            @layer utilities {
-                .text-shadow-sm { text-shadow: 0 1px 2px rgb(0 0 0 / .25); }
-            }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
 
-            .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
-            .reveal.in { opacity: 1; transform: translateY(0); }
-        </style>
+<body>
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-[rgb(var(--bg))]/80 backdrop-blur border-b border-black/5">
+    <nav class="container-prose flex items-center justify-between h-16">
+        <a href="./index.html#top" class="flex items-center gap-2" aria-label="Accueil">
+            <svg xmlns="http://www.w3.org/2000/svg" width="62" height="38" viewBox="0 0 1000 600" aria-hidden="true">
+                <rect width="1000" height="600" fill="#ffffff"/>
+                <g transform="translate(500,300)">
+                    <rect x="-400" y="-200" width="800" height="400" rx="55" ry="55" fill="#0f172a"/>
+                    <text x="-220" y="20" text-anchor="middle" dominant-baseline="middle" fill="#ffffff"
+                          font-size="250" font-weight="600"
+                          font-family="JetBrains Mono, Menlo, Consolas, monospace">{</text>
+                    <text x="0" y="20" text-anchor="middle" dominant-baseline="middle" fill="#ffffff"
+                          font-size="180" font-weight="600"
+                          font-family="JetBrains Mono, Menlo, Consolas, monospace"
+                          letter-spacing="10">mM</text>
+                    <text x="220" y="20" text-anchor="middle" dominant-baseline="middle" fill="#ffffff"
+                          font-size="250" font-weight="600"
+                          font-family="JetBrains Mono, Menlo, Consolas, monospace">}</text>
+                </g>
+            </svg>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap"
-              rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    </head>
+            <span class="font-semibold text-lg">Mylène Magny</span>
+        </a>
 
-    <body>
-        <!-- Header / Nav sticky -->
-        <header class="sticky top-0 z-40 bg-[rgb(var(--bg))]/80 dark:bg-[rgb(var(--bg-dark))]/70 backdrop-blur border-b border-black/5 dark:border-white/10">
-            <nav class="container-prose flex items-center justify-between h-16">
-                <a href="#top" class="flex items-center" aria-label="Accueil">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 1000 600">
-                        <title>mM Logo</title>
-                        <desc>Texte blanc "{ mM }" dans fond rectangulaire arrondi bleu foncé, centré.</desc>
+        <ul class="hidden md:flex items-center gap-6 text-sm">
+            <li><a class="hover:underline" href="./projets.html">Projets</a></li>
+            <li><a class="hover:underline" href="./index.html#competences">Compétences</a></li>
+            <li><a class="hover:underline" href="./index.html#experiences">Expérience</a></li>
+            <li><a class="hover:underline" href="./index.html#parcours">Formations</a></li>
+            <li><a class="hover:underline" href="./index.html#contact">Contact</a></li>
+        </ul>
 
-                        <!-- Fond blanc -->
-                        <rect width="1000" height="600" fill="#ffffff"/>
+        <div class="flex items-center gap-2">
+            <a href="./projets.html" class="btn-outline hidden sm:inline-flex">
+                Voir les projets <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="./index.html#contact" class="btn hidden sm:inline-flex">Me contacter</a>
+        </div>
+    </nav>
+</header>
 
-                        <g transform="translate(500,300)">
-                            <!-- Rectangle bleu centré -->
-                            <rect x="-400" y="-200" width="800" height="400" rx="55" ry="55" fill="#0f172a"/>
+<!-- Hero -->
+<section id="top" class="relative overflow-hidden">
+    <div aria-hidden="true"
+         class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgb(var(--pri))]/10 via-transparent to-transparent"></div>
 
-                            <!-- Texte gauche "{" -->
-                            <text x="-220" y="20"
-                                  text-anchor="middle"
-                                  dominant-baseline="middle"
-                                  fill="#ffffff"
-                                  font-size="250"
-                                  font-weight="600"
-                                  font-family="Fira Code, JetBrains Mono, DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace">{</text>
+    <div class="container-prose py-16 sm:py-24">
+        <div class="grid md:grid-cols-12 gap-10 items-start">
 
-                            <!-- Texte central "mM" -->
-                            <text x="0" y="20"
-                                  text-anchor="middle"
-                                  dominant-baseline="middle"
-                                  fill="#ffffff"
-                                  font-size="180"
-                                  font-weight="600"
-                                  font-family="Fira Code, JetBrains Mono, DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace"
-                                  letter-spacing="10">mM</text>
+            <!-- Colonne gauche -->
+            <div class="md:col-span-7 reveal">
+                <h1 class="text-3xl sm:text-5xl font-semibold leading-tight tracking-tight">
+                    Mylène Magny
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[rgb(var(--pri))] to-[rgb(var(--acc))]">
+            Développeuse Web Back-End
+          </span>
+                </h1>
 
-                            <!-- Texte droite "}" -->
-                            <text x="220" y="20"
-                                  text-anchor="middle"
-                                  dominant-baseline="middle"
-                                  fill="#ffffff"
-                                  font-size="250"
-                                  font-weight="600"
-                                  font-family="Fira Code, JetBrains Mono, DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace">}</text>
-                        </g>
-                    </svg>
-
-                    <span class="ml-2 font-semibold text-lg">Mylène Magny</span>
-                </a>
-
-                <ul class="hidden md:flex items-center gap-6 text-sm">
-                    <li><a class="hover:underline" href="#projets">Projets</a></li>
-                    <li><a class="hover:underline" href="#competences">Compétences</a></li>
-                    <li><a class="hover:underline" href="#experiences">Expériences</a></li>
-                    <li><a class="hover:underline" href="#contact">Contact</a></li>
-                </ul>
-
-                <div class="flex items-center gap-2">
-                    <button id="themeToggle" class="rounded-xl p-2 hover:bg-black/5 dark:hover:bg-white/10"
-                            aria-label="Basculer le thème">
-
-                        <svg id="iconSun" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                             stroke-width="1.5">
-                            <circle cx="12" cy="12" r="4"/>
-                            <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.54 6.46-1.42-1.42M7.88 7.88 6.46 6.46m10.96 0-1.42 1.42M7.88 16.12 6.46 17.54"/>
-                        </svg>
-
-                        <svg id="iconMoon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                             stroke-width="1.5">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                        </svg>
-                    </button>
-
-                    <a href="#contact" class="btn hidden sm:inline-flex">Me contacter</a>
-                </div>
-            </nav>
-        </header>
-
-        <!-- Hero -->
-        <section id="top" class="relative overflow-hidden">
-            <div aria-hidden="true"
-                 class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgb(var(--pri))]/10 via-transparent to-transparent"></div>
-            <div class="container-prose py-14 sm:py-20">
-                <div class="grid md:grid-cols-12 gap-8 items-center">
-                    <div class="md:col-span-7 reveal">
-                        <h1 class="text-3xl sm:text-5xl font-semibold leading-tight tracking-tight">
-                            Mylène Magny
-                            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[rgb(var(--pri))] to-[rgb(var(--acc))]">Développeuse Web<br>Back‑End</span>
-                        </h1>
-
-                        <div class="mt-6 flex flex-wrap gap-3">
-                            <span class="chip">PHP</span>
-                            <span class="chip">Drupal</span>
-                            <span class="chip">Symfony</span>
-                            <span class="chip">WordPress</span>
-                            <span class="chip">Shopify</span>
-                        </div>
-
-                        <div class="mt-8 flex items-center gap-3">
-                            <a href="#projets" class="btn">Mes projets phares</a>
-                            <a href="#competences" class="btn">Mes compétences</a>
-                        </div>
+                <!-- Mini stats (aéré + scannable) -->
+                <div class="mt-6 grid grid-cols-3 gap-3 max-w-xl">
+                    <div class="card p-4">
+                        <p class="text-xs text-slate-500">Expérience</p>
+                        <p class="text-lg font-semibold">14+ ans</p>
                     </div>
-
-                    <div class="md:col-span-5 reveal md:justify-self-end">
-                        <div class="card p-6">
-                            <div class="flex items-center gap-3">
-                                <div class="h-12 w-12 rounded-2xl bg-[rgb(var(--pri))]/15 grid place-items-center">
-                                    <span class="text-2xl">{ }</span>
-                                </div>
-
-                                <div>
-                                    <p class="font-medium">Disponibilité</p>
-                                </div>
-                            </div>
-
-                            <ul class="mt-4 space-y-2 text-sm">
-                                <li><span class="font-medium">Statut :</span> En poste</li>
-                                <li><span class="font-medium">Basée :</span> Yonne • Télétravail et sur site</li>
-                            </ul>
-
-                            <div class="mt-4 flex gap-3">
-                                <a href="https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/" class="chip" target="_blank"
-                                   rel="noreferrer">LinkedIn</a>
-                            </div>
-                        </div>
+                    <div class="card p-4">
+                        <p class="text-xs text-slate-500">Spécialisation</p>
+                        <p class="text-lg font-semibold">Back-end</p>
+                    </div>
+                    <div class="card p-4">
+                        <p class="text-xs text-slate-500">Rôle</p>
+                        <p class="text-lg font-semibold">Réf. Drupal</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
+                <!-- Pitch (court) -->
+                <p class="mt-6 text-base sm:text-lg text-slate-700 max-w-xl">
+                    PHP / Drupal 8+ / Symfony — modules sur-mesure, usines à sites, migrations et qualité de livraison.
+                </p>
 
-        <!-- Projets phares -->
-        <section id="projets" class="container-prose py-16 sm:py-20">
-            <div class="flex items-end justify-between mb-8">
-                <h2 class="section-title">Projets phares</h2>
-                <a href="#contact" class="btn">Travaillons ensemble</a>
+                <!-- Chips -->
+                <div class="mt-6 flex flex-wrap gap-2">
+                    <span class="chip">Drupal 8+</span>
+                    <span class="chip">Modules & thèmes</span>
+                    <span class="chip">Usines à sites</span>
+                    <span class="chip">Migrations</span>
+                    <span class="chip">Symfony</span>
+                    <span class="chip">Docker</span>
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-9 flex flex-wrap items-center gap-3">
+                    <a href="./projets.html" class="btn">Voir mes projets</a>
+                    <a href="#experiences" class="btn-outline">Mon parcours</a>
+                    <a href="https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/"
+                       class="btn-outline" target="_blank" rel="noreferrer">
+                        LinkedIn <i class="fa-solid fa-up-right-from-square"></i>
+                    </a>
+                </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Projet 1 -->
-                <article class="card p-6 reveal">
-                    <div class="space-y-4">
-                        <img src="/assets/img/polytechnique.png" alt="Capture École Polytechnique de Paris" class="rounded-lg w-full mx-auto">
+
+            <!-- Colonne droite -->
+            <div class="md:col-span-5 reveal md:justify-self-end">
+                <div class="card p-7">
+                    <div class="flex items-start gap-3">
+                        <div class="h-12 w-12 rounded-2xl bg-[rgb(var(--pri))]/15 grid place-items-center">
+                            <i class="fa-solid fa-layer-group text-sky-700"></i>
+                        </div>
                         <div>
-                            <header class="flex items-center justify-between">
-                            <h3 class="text-lg font-semibold">École Polytechnique de Paris</h3>
-                            <span class="chip">Drupal</span>
-                            </header>
-                            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Portail institutionnel de l'École Polytechnique de Paris, conçu sous Drupal.</p>
-                            <a href="https://www.polytechnique.edu/" target="_blank" rel="noreferrer" class="btn mt-3 inline-flex items-center gap-2">Voir le site <i class="fa-solid fa-up-right-from-square"></i></a>
+                            <p class="font-semibold">Ce que j’apporte</p>
+                            <p class="text-sm text-slate-600 mt-1">Des livrables fiables, maintenables, et industrialisés.</p>
                         </div>
                     </div>
-                </article>
-                <!-- Projet 2 -->
-                <article class="card p-6 reveal">
-                <div class="space-y-4">
-                    <img src="/assets/img/polytechnique.png" alt="Capture Espaces collaboratifs USH" class="rounded-lg w-full mx-auto">
-                    <div>
-                        <header class="flex items-center justify-between">
-                        <h3 class="text-lg font-semibold">Espaces collaboratifs de l'Union Sociale pour l'Habitat</h3>
-                        <span class="chip">Drupal</span>
-                        </header>
-                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Plateforme collaborative multi‑sites de l'Union Sociale pour l'Habitat.</p>
-                        <a href="https://www.union-habitat.org/espaces-collaboratifs" target="_blank" rel="noreferrer" class="btn mt-3 inline-flex items-center gap-2">Accéder à la liste <i class="fa-solid fa-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                </article>
-                <!-- Projet 3 -->
-                <article class="card p-6 reveal">
-                <div class="space-y-4">
-                    <img src="/assets/img/polytechnique.png" alt="Capture Quartiers Plus" class="rounded-lg w-full mx-auto">
-                    <div>
-                        <header class="flex items-center justify-between">
-                        <h3 class="text-lg font-semibold">Quartiers Plus</h3>
-                        <span class="chip">Symfony</span>
-                        </header>
-                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Application métier de suivi et gestion des programmes pour les quartiers prioritaires.</p>
-                        <a href="https://www.quartiersplus.fr/" target="_blank" rel="noreferrer" class="btn mt-3 inline-flex items-center gap-2">Voir le site <i class="fa-solid fa-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                </article>
-                <!-- Projet 4 -->
-                <article class="card p-6 reveal">
-                <div class="space-y-4">
-                    <img src="/assets/img/polytechnique.png" alt="Capture École Centrale de Lyon" class="rounded-lg w-full mx-auto">
-                    <div>
-                        <header class="flex items-center justify-between">
-                        <h3 class="text-lg font-semibold">École Centrale de Lyon</h3>
-                        <span class="chip">Drupal</span>
-                        </header>
-                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Sites institutionnels de l'École Centrale de Lyon réalisés avec Drupal.</p>
-                        <a href="https://www.ec-lyon.fr/" target="_blank" rel="noreferrer" class="btn mt-3 inline-flex items-center gap-2">Voir le site <i class="fa-solid fa-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                </article>
-            </div>
-            <p class="mt-8 text-sm text-slate-600 dark:text-slate-300 text-center">L’ensemble de ces projets ont été réalisés dans le cadre de mon poste de développeuse back‑end au sein de l’agence <strong>Net.Com</strong>.</p>
-        </section>
 
-        <!-- Compétences -->
-        <section id="competences" class="container-prose py-16 sm:py-20">
-            <h2 class="section-title mb-6">Compétences</h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="card p-5 reveal">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-brands fa-drupal text-white"></i>
-                        <i class="fa-brands fa-wordpress text-white"></i>
-                        <h3 class="font-semibold">Drupal / WordPress</h3>
+                    <!-- 3 items (au lieu de 4) pour alléger -->
+                    <div class="mt-5 grid gap-3">
+                        <div class="rounded-2xl border border-black/10 bg-white p-4">
+                            <div class="flex gap-3">
+                                <i class="fa-solid fa-cubes mt-0.5 text-sky-600"></i>
+                                <div>
+                                    <p class="text-sm font-medium">Drupal 8+ & usines à sites</p>
+                                    <p class="text-xs text-slate-600 mt-1">Modules sur-mesure, theming, maintenance.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-black/10 bg-white p-4">
+                            <div class="flex gap-3">
+                                <i class="fa-solid fa-truck-fast mt-0.5 text-indigo-600"></i>
+                                <div>
+                                    <p class="text-sm font-medium">Migrations & reprises</p>
+                                    <p class="text-xs text-slate-600 mt-1">Contenus, médias, multi-langue, URLs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-black/10 bg-white p-4">
+                            <div class="flex gap-3">
+                                <i class="fa-solid fa-shield mt-0.5 text-emerald-600"></i>
+                                <div>
+                                    <p class="text-sm font-medium">Qualité de livraison</p>
+                                    <p class="text-xs text-slate-600 mt-1">Relectures, recette interne, accompagnement.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="card p-5 reveal">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-brands fa-symfony text-white"></i>
-                        <h3 class="font-semibold">Symfony</h3>
-                    </div>
-                </div>
-                <div class="card p-5 reveal">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-brands fa-shopify text-white"></i>
-                        <h3 class="font-semibold">Shopify</h3>
-                    </div>
-                </div>
-                <div class="card p-5 reveal">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-brands fa-html5 text-white"></i>
-                        <i class="fa-solid fa-code text-white"></i>
-                        <h3 class="font-semibold">HTML / Twig / Liquid</h3>
-                    </div>
-                </div>
-                <div class="card p-5 reveal">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-brands fa-css3-alt text-white"></i>
-                        <h3 class="font-semibold">CSS</h3>
-                    </div>
-                </div>
-                <div class="card p-5 reveal">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-brands fa-js text-white"></i>
-                        <h3 class="font-semibold">JavaScript</h3>
-                    </div>
-                </div>
-                <div class="card p-5 reveal">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-database text-white"></i>
-                        <h3 class="font-semibold">SQL</h3>
-                    </div>
-                </div>
-                <div class="card p-5 reveal">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-brands fa-docker text-white"></i>
-                        <h3 class="font-semibold">Docker</h3>
-                    </div>
-                </div>
-                <div class="card p-5 reveal">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-brands fa-github text-white"></i>
-                        <i class="fa-brands fa-gitlab text-white"></i>
-                        <h3 class="font-semibold">GitHub / GitLab</h3>
+
+                    <!-- Localisation / mode de travail -->
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="chip"><i class="fa-solid fa-location-dot"></i> Yonne</span>
+                        <span class="chip"><i class="fa-solid fa-house-laptop"></i> Télétravail</span>
+                        <span class="chip"><i class="fa-solid fa-person-walking"></i> Sur site</span>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Expériences -->
-        <section id="experiences" class="container-prose py-16 sm:py-20">
-            <h2 class="section-title mb-6">Expérience</h2>
-            <ol class="relative border-s border-black/10 dark:border-white/10 space-y-8">
-                <li class="relative pl-8 reveal">
-                    <div class="absolute left-2.5 top-1.5 h-3 w-3 rounded-full bg-[rgb(var(--pri))]"></div>
-                    <div class="text-sm text-slate-600 dark:text-slate-300">
-                        <span class="font-bold">Développeuse Web Back-End</span><br>
-                        <span class="font-medium">Agence Net.Com — <time>2019 à aujourd'hui</time></span>
+        </div>
+    </div>
+</section>
+
+<!-- Projets phares -->
+<section class="container-prose py-16 sm:py-20" aria-labelledby="projets-phares">
+    <div class="flex items-end justify-between gap-4 mb-8">
+        <div class="reveal">
+            <h2 id="projets-phares" class="section-title">Projets phares</h2>
+            <p class="muted mt-2">Quelques exemples — la page Projets contient la liste complète + détails.</p>
+        </div>
+
+        <a href="./projets.html" class="btn-soft hidden sm:inline-flex">
+            Tous les projets <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+        <article class="card p-6 reveal">
+            <div class="flex items-start justify-between gap-4">
+                <div>
+                    <h3 class="text-lg font-semibold">École Polytechnique</h3>
+                    <p class="text-sm text-slate-600 mt-1">Drupal • institutionnel • usine à sites</p>
+                </div>
+                <span class="chip">Drupal</span>
+            </div>
+
+            <ul class="mt-4 text-sm space-y-2">
+                <li class="flex gap-2"><i class="fa-solid fa-circle-dot mt-1 text-sky-600 text-xs"></i><span>Modules sur-mesure & workflows</span></li>
+                <li class="flex gap-2"><i class="fa-solid fa-circle-dot mt-1 text-sky-600 text-xs"></i><span>Migrations & industrialisation</span></li>
+            </ul>
+
+            <a href="./projets.html#polytechnique" class="btn-outline mt-5">Voir le détail</a>
+        </article>
+
+        <article class="card p-6 reveal">
+            <div class="flex items-start justify-between gap-4">
+                <div>
+                    <h3 class="text-lg font-semibold">Quartiers Plus</h3>
+                    <p class="text-sm text-slate-600 mt-1">Symfony • application métier</p>
+                </div>
+                <span class="chip">Symfony</span>
+            </div>
+
+            <ul class="mt-4 text-sm space-y-2">
+                <li class="flex gap-2"><i class="fa-solid fa-circle-dot mt-1 text-indigo-600 text-xs"></i><span>Règles métier & gestion des droits</span></li>
+                <li class="flex gap-2"><i class="fa-solid fa-circle-dot mt-1 text-indigo-600 text-xs"></i><span>Exports / consolidation de données</span></li>
+            </ul>
+
+            <a href="./projets.html#quartiers-plus" class="btn-outline mt-5">Voir le détail</a>
+        </article>
+    </div>
+
+    <div class="mt-8 text-center">
+        <a href="./projets.html" class="btn">Voir tous les projets</a>
+        <p class="mt-3 text-xs text-slate-500">
+            Projets réalisés dans le cadre de mon poste au sein de l’agence <strong>Net.Com</strong>.
+        </p>
+    </div>
+</section>
+
+<!-- Compétences -->
+<section id="competences" class="container-prose py-16 sm:py-20">
+    <div class="reveal">
+        <h2 class="section-title">Compétences</h2>
+        <p class="muted mt-2">
+            Mes technos du quotidien • Backend/CMS, front & templating, outillage & DevOps
+        </p>
+    </div>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-6">
+        <!-- Catégorie 1 -->
+        <div class="card p-6 reveal">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-2xl bg-sky-100 grid place-items-center">
+                    <i class="fa-solid fa-server text-sky-700"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Back-end & CMS</h3>
+                    <p class="text-xs text-slate-600 mt-0.5">Dév, architecture, intégrations</p>
+                </div>
+            </div>
+
+            <div class="mt-5 grid grid-cols-2 gap-3">
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-php text-slate-700"></i><span class="text-sm font-medium">PHP</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-drupal text-slate-700"></i><span class="text-sm font-medium">Drupal 8+</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-symfony text-slate-700"></i><span class="text-sm font-medium">Symfony</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-wordpress text-slate-700"></i><span class="text-sm font-medium">WordPress</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-shopify text-slate-700"></i><span class="text-sm font-medium">Shopify</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-database text-slate-700"></i><span class="text-sm font-medium">SQL (MySQL / PostgreSQL)</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2 col-span-2">
+                    <i class="fa-solid fa-plug text-slate-700"></i><span class="text-sm font-medium">API (REST / GraphQL)</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2 col-span-2">
+                    <i class="fa-solid fa-file-lines text-slate-700"></i>
+                    <span class="text-sm font-medium">Formats : JSON / XML / CSV</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catégorie 2 -->
+        <div class="card p-6 reveal">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-2xl bg-indigo-100 grid place-items-center">
+                    <i class="fa-solid fa-code text-indigo-700"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Front & Templating</h3>
+                    <p class="text-xs text-slate-600 mt-0.5">Intégration, composants, thèmes</p>
+                </div>
+            </div>
+
+            <div class="mt-5 grid grid-cols-2 gap-3">
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-html5 text-slate-700"></i><span class="text-sm font-medium">HTML</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-css3-alt text-slate-700"></i><span class="text-sm font-medium">CSS / SCSS</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-js text-slate-700"></i><span class="text-sm font-medium">JavaScript</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-bolt text-slate-700"></i><span class="text-sm font-medium">jQuery</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-wind text-slate-700"></i><span class="text-sm font-medium">Tailwind CSS</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-bootstrap text-slate-700"></i><span class="text-sm font-medium">Bootstrap</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-file-code text-slate-700"></i><span class="text-sm font-medium">Twig</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-droplet text-slate-700"></i><span class="text-sm font-medium">Liquid</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2 col-span-2">
+                    <i class="fa-solid fa-diagram-project text-slate-700"></i><span class="text-sm font-medium">YAML</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catégorie 3 -->
+        <div class="card p-6 reveal">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-2xl bg-slate-200 grid place-items-center">
+                    <i class="fa-solid fa-screwdriver-wrench text-slate-800"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Outils & DevOps</h3>
+                    <p class="text-xs text-slate-600 mt-0.5">Workflow, build, qualité, delivery</p>
+                </div>
+            </div>
+
+            <div class="mt-5 grid grid-cols-2 gap-3">
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-git-alt text-slate-700"></i><span class="text-sm font-medium">Git (GitHub / GitLab)</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-arrows-spin text-slate-700"></i><span class="text-sm font-medium">CI/CD</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-brands fa-docker text-slate-700"></i><span class="text-sm font-medium">Docker</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-boxes-stacked text-slate-700"></i><span class="text-sm font-medium">Webpack</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-terminal text-slate-700"></i><span class="text-sm font-medium">CLI / Bash</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-box-open text-slate-700"></i>
+                    <span class="text-sm font-medium">Composer</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-terminal text-slate-700"></i>
+                    <span class="text-sm font-medium">Drush</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2">
+                    <i class="fa-solid fa-laptop-code text-slate-700"></i><span class="text-sm font-medium">PhpStorm</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2 col-span-2">
+                    <i class="fa-solid fa-wand-magic-sparkles text-slate-700"></i>
+                    <span class="text-sm font-medium">IA (ChatGPT / Mistral)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Expérience -->
+<section id="experiences" class="container-prose py-16 sm:py-20">
+    <div class="reveal">
+        <h2 class="section-title">Expérience</h2>
+
+        <!-- Ligne résumé -->
+        <p class="mt-3 text-sm sm:text-base font-medium text-slate-800">
+            14+ ans en agence web • Experte Drupal en contexte institutionnel • Lead technique back-end
+        </p>
+    </div>
+
+    <!-- Timeline (ligne via pseudo-élément pour un rendu propre) -->
+    <ol class="mt-8 relative space-y-10
+             before:absolute before:top-0 before:left-0 before:h-full before:w-px before:bg-slate-300">
+
+        <!-- 2017 -> today -->
+        <li class="relative pl-10 reveal">
+            <!-- Point aligné sur la ligne -->
+            <span class="absolute -left-[7px] top-2 h-4 w-4 rounded-full bg-[rgb(var(--pri))] border-4 border-[rgb(var(--bg))]"></span>
+
+            <div class="text-sm">
+                <span class="font-bold">Développeuse Web Back-End PHP — Référente Drupal 8+</span><br>
+                <span class="font-medium text-slate-600">Agence Net.Com — <time>2017 à aujourd’hui</time></span>
+            </div>
+
+            <div class="mt-3 grid lg:grid-cols-2 gap-6">
+                <div class="card p-5">
+                    <p class="text-xs text-slate-500">Responsabilités techniques</p>
+                    <ul class="mt-3 text-sm space-y-3">
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-cubes mt-0.5 text-sky-600"></i><span><strong>Référente Drupal 8+</strong> : modules & thèmes sur-mesure, usines à sites, maintenance</span></li>
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-code mt-0.5 text-indigo-600"></i><span>Développement & support technique WordPress et Symfony</span></li><li class="flex gap-3 items-start"><i class="fa-solid fa-file-circle-check mt-0.5 text-emerald-600"></i><span>Relectures techniques des cahiers fonctionnels</span></li>
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-flask-vial mt-0.5 text-slate-700"></i><span>Recettes internes techniques avant livraison</span></li>
+                    </ul>
+                </div>
+
+                <div class="card p-5">
+                    <p class="text-xs text-slate-500">Rôle transverse</p>
+                    <ul class="mt-3 text-sm space-y-2">
+                        <li class="flex gap-2"><i class="fa-solid fa-user-group mt-0.5 text-indigo-600"></i><span>Accompagnement des nouvelles recrues développeur back-end</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-leaf mt-0.5 text-emerald-600"></i><span>Pilote de projets dans la démarche RSE de l’agence</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-shield-halved mt-0.5 text-slate-700"></i><span>Culture qualité/sécurité côté serveur</span></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+
+        <!-- 2011 -> 2017 -->
+        <li class="relative pl-10 reveal">
+            <span class="absolute -left-[7px] top-2 h-4 w-4 rounded-full bg-[rgb(var(--pri))] border-4 border-[rgb(var(--bg))]"></span>
+
+            <div class="text-sm">
+                <span class="font-bold">Développeuse Web Full-Stack</span><br>
+                <span class="font-medium text-slate-600">Agence Net.Com — <time>2011 à 2017</time></span>
+            </div>
+
+            <div class="mt-3 grid lg:grid-cols-2 gap-6">
+                <div class="card p-5">
+                    <p class="text-xs text-slate-500">Stack & production</p>
+                    <ul class="mt-3 text-sm space-y-2">
+                        <li class="flex gap-2"><i class="fa-solid fa-code mt-0.5 text-sky-600"></i><span>Développement sur Joomla, WordPress, Drupal 7, CodeIgniter</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-palette mt-0.5 text-indigo-600"></i><span>Intégration & theming (HTML/CSS/JS)</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-screwdriver-wrench mt-0.5 text-slate-700"></i><span>Support client & maintenance</span></li>
+                    </ul>
+                </div>
+
+                <div class="card p-5">
+                    <p class="text-xs text-slate-500">Relation & gestion</p>
+                    <ul class="mt-3 text-sm space-y-2">
+                        <li class="flex gap-2"><i class="fa-solid fa-comments mt-0.5 text-emerald-600"></i><span>Recueil des besoins & échanges clients</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-list-check mt-0.5 text-sky-600"></i><span>Gestion de projet : cadrage & suivi</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-chalkboard-user mt-0.5 text-indigo-600"></i><span>Formation et accompagnement des clients</span></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+
+        <!-- STAGES -->
+        <li class="relative pl-10 reveal">
+            <span class="absolute -left-[7px] top-2 h-4 w-4 rounded-full bg-slate-300 border-4 border-[rgb(var(--bg))]"></span>
+
+            <div class="text-sm">
+                <span class="font-bold">Stages</span>
+            </div>
+
+            <div class="mt-3 grid lg:grid-cols-2 gap-6">
+                <!-- Eveil'O'Goût (2011) -->
+                <div class="card p-5">
+                    <p class="text-xs text-slate-500">Éveil’O’Goût — Dijon • <time>2011</time></p>
+                    <ul class="mt-3 text-sm space-y-2">
+                        <li class="flex gap-2"><i class="fa-solid fa-globe mt-0.5 text-sky-600"></i><span>Création d’un site sous Joomla</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-arrows-rotate mt-0.5 text-indigo-600"></i><span>Refonte ultérieure sous WordPress</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-bullhorn mt-0.5 text-emerald-600"></i><span>Communication print & assistance formations</span></li>
+                    </ul>
+                </div>
+
+                <!-- Guernet -->
+                <div class="card p-5">
+                    <p class="text-xs text-slate-500">Guernet — Joigny • <time>2009 & 2010</time></p>
+                    <ul class="mt-3 text-sm space-y-2">
+                        <li class="flex gap-2"><i class="fa-solid fa-headset mt-0.5 text-slate-700"></i><span>Support matériel & assistance interne</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-network-wired mt-0.5 text-sky-600"></i><span>Amélioration intranet / extranet</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-gear mt-0.5 text-indigo-600"></i><span>Travaux autour de l’intégration SAGE (gestion commerciale)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+
+    </ol>
+</section>
+
+<!-- Formations & Études -->
+<section id="parcours" class="container-prose py-16 sm:py-20">
+    <div class="reveal">
+        <h2 class="section-title">Formations & études</h2>
+        <p class="muted mt-2">Formations, montée en compétences continue, et parcours académique.</p>
+    </div>
+
+    <!-- Formations + Certifications (fusionnées) -->
+    <div class="mt-8 grid lg:grid-cols-2 gap-6">
+        <div class="card p-6 reveal lg:col-span-2">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-2xl bg-sky-100 grid place-items-center">
+                    <i class="fa-solid fa-graduation-cap text-sky-700"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Formations & certifications</h3>
+                </div>
+            </div>
+
+            <ol class="mt-5 grid md:grid-cols-2 gap-4">
+                <!-- FormYou -->
+                <li class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="flex items-start gap-3">
+                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
+                            <i class="fa-solid fa-kit-medical text-emerald-700"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Sauveteur Secouriste du Travail (SST)</p>
+                            <p class="text-sm text-slate-600">FormYou • nov. 2023 <span class="text-xs text-slate-500 mt-1">Expiration : nov. 2025</span></p>
+                        </div>
                     </div>
-                    <p class="text-sm">
-                        Spécialisée en développement Back-End, avec un focus sur Drupal (versions 8 à 12) et Symfony.
-                        Réalisation de modules sur-mesure, migrations de contenu complexes, optimisation des performances
-                        et contribution aux usines à sites de clients institutionnels.
-                    </p>
                 </li>
 
-                <li class="relative pl-8 reveal">
-                    <div class="absolute left-2.5 top-1.5 h-3 w-3 rounded-full bg-[rgb(var(--pri))]"></div>
-                    <div class="text-sm text-slate-600 dark:text-slate-300">
-                        <span class="font-bold">Développeuse Web Full-Stack</span><br>
-                        <span class="font-medium">Agence Net.Com — <time>2011 à 2019</time></span>
+                <!-- Udemy -->
+                <li class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="flex items-start gap-3">
+                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
+                            <i class="fa-solid fa-clock text-indigo-700"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Gestion du temps : productivité & organisation</p>
+                            <p class="text-sm text-slate-600">Udemy • oct. 2023</p>
+                        </div>
                     </div>
-                    <p class="text-sm">
-                        Intervention sur l’ensemble du cycle de vie des projets : analyse des besoins, rédaction de cahiers
-                        fonctionnels, développement Front-End et Back-End, intégration de CMS (Drupal, WordPress),
-                        accompagnement et formation des clients. Gestion technique de projets variés pour des acteurs publics
-                        et privés.
-                    </p>
                 </li>
 
+                <!-- Dyma Docker -->
+                <li class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="flex items-start gap-3">
+                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
+                            <i class="fa-brands fa-docker text-slate-800"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Docker 23</p>
+                            <p class="text-sm text-slate-600">Dyma • juil. 2023</p>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Dyma Symfony -->
+                <li class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="flex items-start gap-3">
+                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
+                            <i class="fa-brands fa-symfony text-slate-800"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Symfony 6.2</p>
+                            <p class="text-sm text-slate-600">Dyma • mai 2023</p>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Trained People Drupal 8 -->
+                <li class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="flex items-start gap-3">
+                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
+                            <i class="fa-brands fa-drupal text-slate-800"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Drupal 8 — Développeur</p>
+                            <p class="text-sm text-slate-600">Trained People • fév. 2017</p>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Dawan Drupal 7 + Commerce -->
+                <li class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="flex items-start gap-3">
+                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
+                            <i class="fa-brands fa-drupal text-slate-800"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Drupal 7 & Drupal Commerce</p>
+                            <p class="text-sm text-slate-600">Dawan • nov. 2013 & janv. 2014</p>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Formations en cours -->
+                <li class="rounded-2xl border border-black/10 bg-white p-5 md:col-span-2 md:mx-auto md:max-w-xl">
+                    <div class="flex items-start gap-4">
+                        <div class="h-9 w-9 rounded-xl grid place-items-center shrink-0">
+                            <i class="fa-solid fa-spinner text-amber-700 text-sm"></i>
+                        </div>
+
+                        <div class="flex-1">
+                            <p class="font-medium">Formations en cours — Dyma</p>
+
+                            <div class="mt-3 grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+
+                                <!-- Consolidation -->
+                                <div>
+                                    <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">
+                                        Consolidation
+                                    </p>
+                                    <ul class="space-y-1">
+                                        <li class="flex items-center gap-2">
+                                            <i class="fa-brands fa-git-alt text-slate-700 text-sm"></i>
+                                            <span>Git</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i class="fa-brands fa-php text-slate-700 text-sm"></i>
+                                            <span>PHP</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i class="fa-brands fa-js text-slate-700 text-sm"></i>
+                                            <span>JavaScript</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Élargissement -->
+                                <div>
+                                    <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">
+                                        Élargissement
+                                    </p>
+                                    <ul class="space-y-1">
+                                        <li class="flex items-center gap-2">
+                                            <i class="fa-brands fa-node-js text-slate-700 text-sm"></i>
+                                            <span>Node.js</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i class="fa-brands fa-react text-slate-700 text-sm"></i>
+                                            <span>React</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <p class="text-xs text-slate-500 mt-3">
+                                Veille technique & montée en compétences continue.
+                            </p>
+                        </div>
+                    </div>
+                </li>
             </ol>
-        </section>
+        </div>
+    </div>
 
-        <!-- Hobbies / perso -->
-        <section id="hobbies" class="container-prose py-16 sm:py-20">
-            <div class="mt-8 card p-6 reveal">
-                <h3 class="font-semibold mb-2">Hobbies</h3>
-
-                <p class="text-sm text-slate-600 dark:text-slate-300 mb-3">Un peu plus perso :</p>
-
-                <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="chip">Espace</span>
-                    <span class="chip">Jeux vidéo</span>
-                    <span class="chip">Jeux de rôle</span>
-                    <span class="chip">Jeux de société</span>
-                    <span class="chip">Jardinage</span>
-                    <span class="chip">Petits travaux</span>
-                    <span class="chip">Chats 🐱</span>
-                </div>
+    <!-- Études -->
+    <div class="mt-6 card p-6 reveal">
+        <div class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-2xl bg-slate-200 grid place-items-center">
+                <i class="fa-solid fa-building-columns text-slate-800"></i>
             </div>
-        </section>
+            <h3 class="font-semibold">Études</h3>
+        </div>
 
-        <!-- Contact -->
-        <section id="contact" class="container-prose py-16 sm:py-20">
-            <div class="card p-6 reveal">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div>
-                        <h2 class="section-title">Contact</h2>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Mon profil vous intéresse ?</p>
-                    </div>
+        <ol class="mt-6 space-y-6">
 
-                    <div class="flex gap-3">
-                        <a href="mailto:contact@mmagny.fr" class="btn" aria-label="Envoyer un email">contact@mmagny.fr</a>
-                        <a href="https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/" target="_blank" rel="noreferrer"
-                           class="btn">LinkedIn</a>
-                    </div>
+            <!-- IUT -->
+            <li class="flex gap-3 items-start">
+                <i class="fa-solid fa-laptop-code text-sky-600 mt-1 text-base shrink-0"></i>
+                <div>
+                    <p class="font-medium">IUT Dijon-Auxerre-Nevers • Dijon</p>
+                    <p class="text-sm text-slate-700">
+                        Licence professionnelle — Activité et Technique de Communication
+                    </p>
+                    <p class="text-sm text-slate-600">sept. 2010 – juin 2011</p>
                 </div>
+            </li>
+
+            <!-- BTS -->
+            <li class="flex gap-3 items-start">
+                <i class="fa-solid fa-code text-indigo-600 mt-1 text-base shrink-0"></i>
+                <div>
+                    <p class="font-medium">Lycée Le Castel • Dijon</p>
+                    <p class="text-sm text-slate-700">
+                        BTS Informatique de gestion — Développeur d’application
+                    </p>
+                    <p class="text-sm text-slate-600">sept. 2008 – juin 2010</p>
+                </div>
+            </li>
+
+            <!-- Université -->
+            <li class="flex gap-3 items-start">
+                <i class="fa-solid fa-palette text-amber-600 mt-1 text-base shrink-0"></i>
+                <div>
+                    <p class="font-medium">Université Bourgogne Europe • Dijon</p>
+                    <p class="text-sm text-slate-700">
+                        Licence — Histoire de l’art et Archéologie
+                    </p>
+                    <p class="text-sm text-slate-600">sept. 2007 – juin 2008</p>
+                </div>
+            </li>
+
+        </ol>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="container-prose py-16 sm:py-20">
+    <div class="card p-6 reveal">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+                <h2 class="section-title">Contact</h2>
+                <p class="text-sm text-slate-600 mt-1">Un projet Drupal/Symfony/PHP ? Parlons-en.</p>
             </div>
-        </section>
 
-        <footer class="container-prose py-10 border-t border-black/5 dark:border-white/10 text-center text-sm text-slate-600 dark:text-slate-400">
-            <p>© <span id="year"></span> Mylène Magny — Développeuse Web Back‑End</p>
-        </footer>
+            <div class="flex flex-wrap gap-3">
+                <a href="mailto:contact@mmagny.fr" class="btn" aria-label="Envoyer un email">contact@mmagny.fr</a>
+                <a href="https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/" target="_blank" rel="noreferrer"
+                   class="btn-outline">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <script src="/assets/js/app.js" type="application/javascript"></script>
+<footer class="container-prose py-10 border-t border-black/5 text-center text-sm text-slate-600">
+    <p>© <span id="year"></span> Mylène Magny — Développeuse Web Back-End</p>
+</footer>
 
-        <!-- SEO : JSON‑LD minimal -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Person",
-                "name": "Mylène Magny",
-                "jobTitle": "Développeuse Web Back‑End (Drupal/Symfony)",
-                "url": "https://mmagny.fr/",
-                "sameAs": [
-                    "https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/"
-                ]
-            }
-        </script>
-    </body>
+<script src="../assets/js/app.js" type="application/javascript"></script>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mylène Magny",
+        "jobTitle": "Développeuse Web Back-End (Drupal/Symfony)",
+        "url": "https://mmagny.fr/",
+        "sameAs": ["https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/"]
+    }
+</script>
+</body>
 </html>
