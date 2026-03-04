@@ -17,6 +17,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <link rel="icon" href="./assets/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <meta name="theme-color" content="#0f172a">
+
     <style type="text/tailwindcss">
         @theme {
             --font-sans: "Inter", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
@@ -78,7 +85,7 @@
     <nav class="container-prose flex items-center justify-between h-16">
         <a href="./index.html#top" class="flex items-center gap-2" aria-label="Accueil">
             <svg xmlns="http://www.w3.org/2000/svg" width="62" height="38" viewBox="0 0 1000 600" aria-hidden="true">
-                <rect width="1000" height="600" fill="#ffffff"/>
+                <rect width="1000" height="600" fill="transparent"/>
                 <g transform="translate(500,300)">
                     <rect x="-400" y="-200" width="800" height="400" rx="55" ry="55" fill="#0f172a"/>
                     <text x="-220" y="20" text-anchor="middle" dominant-baseline="middle" fill="#ffffff"
@@ -98,7 +105,7 @@
         </a>
 
         <ul class="hidden md:flex items-center gap-6 text-sm">
-            <li><a class="hover:underline" href="./projets.html">Projets</a></li>
+            <li><a class="hover:underline" href="./index.html#projets-phares">Projets</a></li>
             <li><a class="hover:underline" href="./index.html#competences">Compétences</a></li>
             <li><a class="hover:underline" href="./index.html#experiences">Expérience</a></li>
             <li><a class="hover:underline" href="./index.html#parcours">Formations</a></li>
@@ -106,9 +113,6 @@
         </ul>
 
         <div class="flex items-center gap-2">
-            <a href="./projets.html" class="btn-outline hidden sm:inline-flex">
-                Voir les projets <i class="fa-solid fa-arrow-right"></i>
-            </a>
             <a href="./index.html#contact" class="btn hidden sm:inline-flex">Me contacter</a>
         </div>
     </nav>
@@ -127,11 +131,11 @@
                 <h1 class="text-3xl sm:text-5xl font-semibold leading-tight tracking-tight">
                     Mylène Magny
                     <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[rgb(var(--pri))] to-[rgb(var(--acc))]">
-            Développeuse Web Back-End
-          </span>
+                    Développeuse Web Back-End
+                  </span>
                 </h1>
 
-                <!-- Mini stats (aéré + scannable) -->
+                <!-- Mini stats -->
                 <div class="mt-6 grid grid-cols-3 gap-3 max-w-xl">
                     <div class="card p-4">
                         <p class="text-xs text-slate-500">Expérience</p>
@@ -147,11 +151,6 @@
                     </div>
                 </div>
 
-                <!-- Pitch (court) -->
-                <p class="mt-6 text-base sm:text-lg text-slate-700 max-w-xl">
-                    PHP / Drupal 8+ / Symfony — modules sur-mesure, usines à sites, migrations et qualité de livraison.
-                </p>
-
                 <!-- Chips -->
                 <div class="mt-6 flex flex-wrap gap-2">
                     <span class="chip">Drupal 8+</span>
@@ -161,33 +160,13 @@
                     <span class="chip">Symfony</span>
                     <span class="chip">Docker</span>
                 </div>
-
-                <!-- CTA -->
-                <div class="mt-9 flex flex-wrap items-center gap-3">
-                    <a href="./projets.html" class="btn">Voir mes projets</a>
-                    <a href="#experiences" class="btn-outline">Mon parcours</a>
-                    <a href="https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/"
-                       class="btn-outline" target="_blank" rel="noreferrer">
-                        LinkedIn <i class="fa-solid fa-up-right-from-square"></i>
-                    </a>
-                </div>
             </div>
 
             <!-- Colonne droite -->
             <div class="md:col-span-5 reveal md:justify-self-end">
                 <div class="card p-7">
-                    <div class="flex items-start gap-3">
-                        <div class="h-12 w-12 rounded-2xl bg-[rgb(var(--pri))]/15 grid place-items-center">
-                            <i class="fa-solid fa-layer-group text-sky-700"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold">Ce que j’apporte</p>
-                            <p class="text-sm text-slate-600 mt-1">Des livrables fiables, maintenables, et industrialisés.</p>
-                        </div>
-                    </div>
-
-                    <!-- 3 items (au lieu de 4) pour alléger -->
-                    <div class="mt-5 grid gap-3">
+                    <!-- 3 items -->
+                    <div class="grid gap-3">
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex gap-3">
                                 <i class="fa-solid fa-cubes mt-0.5 text-sky-600"></i>
@@ -213,7 +192,7 @@
                                 <i class="fa-solid fa-shield mt-0.5 text-emerald-600"></i>
                                 <div>
                                     <p class="text-sm font-medium">Qualité de livraison</p>
-                                    <p class="text-xs text-slate-600 mt-1">Relectures, recette interne, accompagnement.</p>
+                                    <p class="text-xs text-slate-600 mt-1">Relectures, recette, accompagnement.</p>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +216,9 @@
     <div class="flex items-end justify-between gap-4 mb-8">
         <div class="reveal">
             <h2 id="projets-phares" class="section-title">Projets phares</h2>
-            <p class="muted mt-2">Quelques exemples — la page Projets contient la liste complète + détails.</p>
+            <p class="muted mt-2">
+                4 projets représentatifs — sur la page Projets : contexte, rôle, stack, et détails par mission.
+            </p>
         </div>
 
         <a href="./projets.html" class="btn-soft hidden sm:inline-flex">
@@ -246,6 +227,7 @@
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
+        <!-- Projet 1 -->
         <article class="card p-6 reveal">
             <div class="flex items-start justify-between gap-4">
                 <div>
@@ -256,34 +238,111 @@
             </div>
 
             <ul class="mt-4 text-sm space-y-2">
-                <li class="flex gap-2"><i class="fa-solid fa-circle-dot mt-1 text-sky-600 text-xs"></i><span>Modules sur-mesure & workflows</span></li>
-                <li class="flex gap-2"><i class="fa-solid fa-circle-dot mt-1 text-sky-600 text-xs"></i><span>Migrations & industrialisation</span></li>
+                <li class="flex gap-2">
+                    <i class="fa-solid fa-cubes mt-0.5 text-sky-600"></i>
+                    <span>Modules sur-mesure & workflows</span>
+                </li>
+                <li class="flex gap-2">
+                    <i class="fa-solid fa-truck-fast mt-0.5 text-sky-600"></i>
+                    <span>Migrations & industrialisation</span>
+                </li>
             </ul>
 
             <a href="./projets.html#polytechnique" class="btn-outline mt-5">Voir le détail</a>
         </article>
 
+        <!-- Projet 2 -->
+        <article class="card p-6 reveal">
+            <div class="flex items-start justify-between gap-4">
+                <div>
+                    <h3 class="text-lg font-semibold">Espaces collaboratifs — USH</h3>
+                    <p class="text-sm text-slate-600 mt-1">Drupal • multi-sites • plateforme collaborative</p>
+                </div>
+                <span class="chip">Drupal</span>
+            </div>
+
+            <ul class="mt-4 text-sm space-y-2">
+                <li class="flex gap-2">
+                    <i class="fa-solid fa-diagram-project mt-0.5 text-sky-600"></i>
+                    <span>Usine à sites & gouvernance de contenus</span>
+                </li>
+                <li class="flex gap-2">
+                    <i class="fa-solid fa-screwdriver-wrench mt-0.5 text-sky-600"></i>
+                    <span>Maintenance, évolutions & support technique</span>
+                </li>
+            </ul>
+
+            <a href="./projets.html#ush" class="btn-outline mt-5">Voir le détail</a>
+        </article>
+
+        <!-- Projet 3 -->
         <article class="card p-6 reveal">
             <div class="flex items-start justify-between gap-4">
                 <div>
                     <h3 class="text-lg font-semibold">Quartiers Plus</h3>
-                    <p class="text-sm text-slate-600 mt-1">Symfony • application métier</p>
+                    <p class="text-sm text-slate-600 mt-1">Symfony • application métier • données</p>
                 </div>
                 <span class="chip">Symfony</span>
             </div>
 
             <ul class="mt-4 text-sm space-y-2">
-                <li class="flex gap-2"><i class="fa-solid fa-circle-dot mt-1 text-indigo-600 text-xs"></i><span>Règles métier & gestion des droits</span></li>
-                <li class="flex gap-2"><i class="fa-solid fa-circle-dot mt-1 text-indigo-600 text-xs"></i><span>Exports / consolidation de données</span></li>
+                <li class="flex gap-2">
+                    <i class="fa-solid fa-scale-balanced mt-0.5 text-indigo-600"></i>
+                    <span>Règles métier & gestion des droits</span>
+                </li>
+                <li class="flex gap-2">
+                    <i class="fa-solid fa-file-export mt-0.5 text-indigo-600"></i>
+                    <span>Exports / consolidation de données</span>
+                </li>
             </ul>
 
             <a href="./projets.html#quartiers-plus" class="btn-outline mt-5">Voir le détail</a>
         </article>
+
+        <!-- Projet 4 -->
+        <article class="card p-6 reveal">
+            <div class="flex items-start justify-between gap-4">
+                <div>
+                    <h3 class="text-lg font-semibold">École Centrale de Lyon</h3>
+                    <p class="text-sm text-slate-600 mt-1">Drupal • institutionnel • templates & maintenance</p>
+                </div>
+                <span class="chip">Drupal</span>
+            </div>
+
+            <ul class="mt-4 text-sm space-y-2">
+                <li class="flex gap-2">
+                    <i class="fa-solid fa-paintbrush mt-0.5 text-sky-600"></i>
+                    <span>Thèmes & intégration (Twig / UI)</span>
+                </li>
+                <li class="flex gap-2">
+                    <i class="fa-solid fa-gauge-high mt-0.5 text-sky-600"></i>
+                    <span>Optimisations & suivi technique</span>
+                </li>
+            </ul>
+
+            <a href="./projets.html#centrale-lyon" class="btn-outline mt-5">Voir le détail</a>
+        </article>
     </div>
 
-    <div class="mt-8 text-center">
-        <a href="./projets.html" class="btn">Voir tous les projets</a>
-        <p class="mt-3 text-xs text-slate-500">
+    <!-- CTA bas de section -->
+    <div class="mt-10 card p-6 reveal">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+                <p class="font-semibold">Envie de voir plus ?</p>
+                <p class="text-sm text-slate-600 mt-1">
+                    La page Projets détaille mon rôle, le contexte, les technos et des exemples concrets de livrables.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+                <a href="./projets.html" class="btn">
+                    Explorer tous les projets <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn-outline">Me contacter</a>
+            </div>
+        </div>
+
+        <p class="mt-4 text-xs text-slate-500">
             Projets réalisés dans le cadre de mon poste au sein de l’agence <strong>Net.Com</strong>.
         </p>
     </div>
@@ -294,7 +353,7 @@
     <div class="reveal">
         <h2 class="section-title">Compétences</h2>
         <p class="muted mt-2">
-            Mes technos du quotidien • Backend/CMS, front & templating, outillage & DevOps
+            Mes technos du quotidien
         </p>
     </div>
 
@@ -465,13 +524,12 @@
         </p>
     </div>
 
-    <!-- Timeline (ligne via pseudo-élément pour un rendu propre) -->
+    <!-- Timeline -->
     <ol class="mt-8 relative space-y-10
              before:absolute before:top-0 before:left-0 before:h-full before:w-px before:bg-slate-300">
 
         <!-- 2017 -> today -->
         <li class="relative pl-10 reveal">
-            <!-- Point aligné sur la ligne -->
             <span class="absolute -left-[7px] top-2 h-4 w-4 rounded-full bg-[rgb(var(--pri))] border-4 border-[rgb(var(--bg))]"></span>
 
             <div class="text-sm">
@@ -571,7 +629,7 @@
         <p class="muted mt-2">Formations, montée en compétences continue, et parcours académique.</p>
     </div>
 
-    <!-- Formations + Certifications (fusionnées) -->
+    <!-- Formations + Certifications -->
     <div class="mt-8 grid lg:grid-cols-2 gap-6">
         <div class="card p-6 reveal lg:col-span-2">
             <div class="flex items-center gap-3">
@@ -771,23 +829,186 @@
                 </div>
             </li>
 
+            <!-- Bac -->
+            <li class="flex gap-3 items-start">
+                <i class="fa-solid fa-school text-rose-600 mt-1 text-base shrink-0"></i>
+                <div>
+                    <p class="font-medium">Lycée Louis Davier • Joigny</p>
+                    <p class="text-sm text-slate-700">
+                        Baccalauréat STG — Option Gestion des Ressources Humaines
+                    </p>
+                    <p class="text-sm text-slate-600">Obtenu en 2007</p>
+                </div>
+            </li>
+
         </ol>
     </div>
 </section>
 
+<!-- Hobbies -->
+<section id="hobbies" class="container-prose py-16 sm:py-20">
+    <div class="reveal">
+        <h2 class="section-title">En dehors du code</h2>
+        <p class="muted mt-2">
+            Quelques centres d’intérêt qui nourrissent aussi ma manière de travailler.
+        </p>
+    </div>
+
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="card p-5 reveal">
+            <div class="flex items-start gap-3">
+                <i class="fa-solid fa-rocket text-sky-600 mt-1"></i>
+                <div>
+                    <p class="font-medium text-sm">Espace & exploration</p>
+                    <p class="text-xs text-slate-600 mt-1">
+                        Curiosité scientifique, technologies spatiales, prospective.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-5 reveal">
+            <div class="flex items-start gap-3">
+                <i class="fa-solid fa-gamepad text-indigo-600 mt-1"></i>
+                <div>
+                    <p class="font-medium text-sm">Jeux vidéo</p>
+                    <p class="text-xs text-slate-600 mt-1">
+                        Univers immersifs, mécaniques de gameplay, narration interactive.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-5 reveal">
+            <div class="flex items-start gap-3">
+                <i class="fa-solid fa-dice text-emerald-600 mt-1"></i>
+                <div>
+                    <p class="font-medium text-sm">Jeux de société & rôle</p>
+                    <p class="text-xs text-slate-600 mt-1">
+                        Organisation, stratégie, logique, travail collaboratif.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-5 reveal">
+            <div class="flex items-start gap-3">
+                <i class="fa-solid fa-seedling text-amber-600 mt-1"></i>
+                <div>
+                    <p class="font-medium text-sm">Jardinage & bricolage</p>
+                    <p class="text-xs text-slate-600 mt-1">
+                        Patience, méthode, amélioration continue.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="mt-8 text-xs text-slate-500 text-center">
+        Et bien sûr… <i class="fa-solid fa-cat text-slate-700"></i> les chats 🐾
+    </p>
+</section>
+
 <!-- Contact -->
 <section id="contact" class="container-prose py-16 sm:py-20">
-    <div class="card p-6 reveal">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div>
-                <h2 class="section-title">Contact</h2>
-                <p class="text-sm text-slate-600 mt-1">Un projet Drupal/Symfony/PHP ? Parlons-en.</p>
+    <div class="reveal">
+        <h2 class="section-title">Contact</h2>
+        <p class="muted mt-2">
+            Mon profil vous intéresse ? Échangeons.
+        </p>
+    </div>
+
+    <div class="mt-8 grid lg:grid-cols-12 gap-6 items-stretch">
+        <!-- Carte principale -->
+        <div class="lg:col-span-7 card p-7 reveal">
+            <div class="flex items-start gap-3">
+                <div class="h-12 w-12 rounded-2xl bg-[rgb(var(--pri))]/15 grid place-items-center">
+                    <i class="fa-solid fa-message text-sky-700"></i>
+                </div>
+                <div>
+                    <p class="font-semibold text-lg">Discutons de votre contexte</p>
+                    <p class="text-sm text-slate-600 mt-1">
+                        Développement back-end PHP, spécialisée Drupal 8+ et Symfony (modules sur-mesure, migrations, qualité de livraison).
+                    </p>
+                </div>
             </div>
 
-            <div class="flex flex-wrap gap-3">
-                <a href="mailto:contact@mmagny.fr" class="btn" aria-label="Envoyer un email">contact@mmagny.fr</a>
-                <a href="https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/" target="_blank" rel="noreferrer"
-                   class="btn-outline">LinkedIn</a>
+            <!-- Raisons de contacter -->
+            <div class="mt-6 grid sm:grid-cols-3 gap-4">
+                <div class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-briefcase mt-0.5 text-sky-600"></i>
+                        <div>
+                            <p class="text-sm font-medium">Opportunité</p>
+                            <p class="text-xs text-slate-600 mt-1">Poste, mobilité, évolution de mission.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-people-group mt-0.5 text-indigo-600"></i>
+                        <div>
+                            <p class="text-sm font-medium">Collaboration</p>
+                            <p class="text-xs text-slate-600 mt-1">Projet d’équipe, organisation, méthode.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl border border-black/10 bg-white p-4">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-code mt-0.5 text-emerald-600"></i>
+                        <div>
+                            <p class="text-sm font-medium">Échange tech</p>
+                            <p class="text-xs text-slate-600 mt-1">Drupal, migrations, bonnes pratiques.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-7 flex flex-wrap gap-3">
+                <a href="mailto:contact@mmagny.fr"
+                   class="btn inline-flex items-center gap-2"
+                   aria-label="Envoyer un email">
+                    <i class="fa-solid fa-envelope"></i>
+                    contact@mmagny.fr
+                </a>
+
+                <a href="https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/"
+                   target="_blank" rel="noreferrer"
+                   class="btn-outline inline-flex items-center gap-2">
+                    <i class="fa-brands fa-linkedin"></i>
+                    LinkedIn
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Carte secondaire : rappel + lien projets -->
+        <div class="lg:col-span-5 grid gap-6 reveal">
+            <div class="card p-6">
+                <p class="text-sm font-semibold">Avant de me contacter</p>
+                <p class="text-sm text-slate-600 mt-1">
+                    Vous pouvez aussi parcourir la page Projets pour voir des exemples concrets (contexte, rôle, livrables).
+                </p>
+                <div class="mt-4">
+                    <a href="./projets.html" class="btn-outline inline-flex items-center gap-2">
+                        Voir les projets <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card p-6">
+                <p class="text-sm font-semibold">Points forts</p>
+                <div class="mt-3 flex flex-wrap gap-2">
+                    <span class="chip"><i class="fa-solid fa-cubes"></i> Drupal 8+</span>
+                    <span class="chip"><i class="fa-solid fa-truck-fast"></i> Migrations</span>
+                    <span class="chip"><i class="fa-solid fa-shield-check"></i> Qualité</span>
+                    <span class="chip"><i class="fa-solid fa-gear"></i> Industrialisation</span>
+                </div>
             </div>
         </div>
     </div>

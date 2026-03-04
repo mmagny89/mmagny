@@ -5,194 +5,669 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Projets — Mylène Magny</title>
-    <meta name="description" content="Projets techniques réalisés par Mylène Magny — Développement Backend PHP / Drupal / Symfony." />
+    <meta name="description" content="Projets techniques réalisés par Mylène Magny — Drupal / WordPress / Symfony — développement back-end, migrations, mises en production et maintenance." />
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style type="text/tailwindcss">
-        @theme {
+        @theme{
             --font-sans: "Inter", system-ui, sans-serif;
             --pri: 14 165 233;
             --acc: 99 102 241;
         }
-
-        @layer base {
-            body { @apply bg-slate-50 text-slate-900 font-sans; }
+        @layer base{
+            html{ @apply font-sans; }
+            body{ @apply bg-slate-50 text-slate-900; }
         }
+        @layer components{
+            .container-prose{ @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; }
+            .section-title{ @apply text-2xl sm:text-3xl font-semibold tracking-tight; }
+            .muted{ @apply text-slate-600; }
 
-        @layer components {
-            .container-prose { @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; }
-            .btn {
-                @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium shadow transition;
-                @apply bg-[rgb(var(--pri))] text-white hover:brightness-110;
+            .card{ @apply rounded-3xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition; }
+            .chip{ @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200; }
+
+            .btn{
+                @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium shadow-sm transition;
+                @apply bg-[rgb(var(--pri))] text-white hover:brightness-110 active:translate-y-px;
             }
-            .chip {
-                @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium bg-slate-200 text-slate-700;
+            .btn-soft{ @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium bg-slate-100 text-slate-800 hover:bg-slate-200 transition; }
+            .btn-outline{ @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium border border-slate-200 text-slate-800 hover:bg-slate-100 transition; }
+
+            .filter{
+                @apply inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium border transition;
+                @apply border-slate-200 bg-white text-slate-700 hover:bg-slate-100;
             }
-            .card {
-                @apply rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition;
+            .filter.is-active{
+                @apply bg-slate-900 text-white border-slate-900;
             }
+            .kbd{ @apply px-2 py-1 rounded border border-slate-200 text-xs font-mono bg-slate-100; }
         }
     </style>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <!-- Header -->
-<header class="sticky top-0 bg-white border-b border-slate-200 z-40">
+<header class="sticky top-0 bg-white/85 backdrop-blur border-b border-slate-200 z-40">
     <nav class="container-prose flex justify-between items-center h-16">
-        <a href="./index.html" class="font-semibold text-lg">← Accueil</a>
-        <h1 class="text-sm text-slate-500">Projets techniques</h1>
+        <a href="./index.html" class="btn-soft"><i class="fa-solid fa-arrow-left"></i> Accueil</a>
+        <div class="flex items-center gap-2 text-sm text-slate-500">
+            <i class="fa-solid fa-diagram-project"></i><span>Projets</span>
+        </div>
     </nav>
 </header>
 
 <!-- Hero -->
-<section class="container-prose py-16">
-    <h2 class="text-3xl sm:text-4xl font-semibold mb-4">
-        Projets & réalisations
-    </h2>
-    <p class="text-slate-600 max-w-2xl">
-        Sélection de projets sur lesquels j’ai contribué en tant que développeuse backend.
-        Focus sur l’architecture, les modules sur-mesure, les migrations et la structuration technique.
-    </p>
-</section>
+<section class="container-prose py-14 sm:py-18">
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-8">
+            <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight">Projets & réalisations</h1>
+            <p class="muted mt-3 max-w-3xl">
+                Sélection de projets réalisés en agence : Drupal et WordPress (avec ponctuellement Symfony).
+                Mon rôle est souvent transverse : cadrage, échanges client, développement back-end, intégration, mises en production,
+                traitement des retours de recette, maintenance et évolutions.
+            </p>
 
-<!-- Filtres -->
-<section class="container-prose mb-10">
-    <div class="flex flex-wrap gap-3">
-        <button class="chip filter-btn" data-filter="all">Tous</button>
-        <button class="chip filter-btn" data-filter="drupal">Drupal</button>
-        <button class="chip filter-btn" data-filter="symfony">Symfony</button>
-        <button class="chip filter-btn" data-filter="wordpress">WordPress</button>
+            <div class="mt-6 flex flex-wrap gap-2">
+                <span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>
+                <span class="chip"><i class="fa-brands fa-wordpress"></i> WordPress</span>
+                <span class="chip"><i class="fa-brands fa-symfony"></i> Symfony</span>
+                <span class="chip"><i class="fa-solid fa-truck-fast"></i> Migrations</span>
+                <span class="chip"><i class="fa-solid fa-rocket"></i> MEP / stabilisation</span>
+                <span class="chip"><i class="fa-solid fa-screwdriver-wrench"></i> Maintenance</span>
+            </div>
+
+            <p class="mt-6 text-sm text-slate-600">
+                Outils fréquents : <span class="kbd">Drush</span> <span class="kbd">Composer</span> <span class="kbd">Git</span> <span class="kbd">Docker</span>
+            </p>
+        </div>
+
+        <div class="lg:col-span-4">
+            <div class="card p-6">
+                <p class="text-sm font-semibold">Comment lire cette page</p>
+                <ul class="mt-3 text-sm text-slate-700 space-y-2">
+                    <li class="flex gap-3 items-start"><i class="fa-solid fa-filter mt-0.5 text-slate-600"></i><span>Filtre par techno / secteur / format</span></li>
+                    <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-info mt-0.5 text-slate-600"></i><span>Chaque carte a un “Détails” (contexte, rôle, actions)</span></li>
+                    <li class="flex gap-3 items-start"><i class="fa-solid fa-pen-to-square mt-0.5 text-slate-600"></i><span>On pourra raffiner chaque projet ensuite</span></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Grille projets -->
+<!-- Filters -->
+<section class="container-prose pb-6">
+    <div class="card p-6">
+        <div class="grid lg:grid-cols-12 gap-5 items-start">
+            <div class="lg:col-span-4">
+                <p class="text-sm font-semibold">Filtres</p>
+                <p class="text-xs text-slate-500 mt-1">Combine techno + secteur + format.</p>
+            </div>
+
+            <div class="lg:col-span-8 space-y-4">
+                <div class="flex flex-wrap gap-2" id="filtersTech">
+                    <button class="filter is-active" data-type="tech" data-value="all"><i class="fa-solid fa-layer-group"></i> Tous</button>
+                    <button class="filter" data-type="tech" data-value="drupal"><i class="fa-brands fa-drupal"></i> Drupal</button>
+                    <button class="filter" data-type="tech" data-value="wordpress"><i class="fa-brands fa-wordpress"></i> WordPress</button>
+                    <button class="filter" data-type="tech" data-value="symfony"><i class="fa-brands fa-symfony"></i> Symfony</button>
+                </div>
+
+                <div class="flex flex-wrap gap-2" id="filtersSector">
+                    <button class="filter is-active" data-type="sector" data-value="all"><i class="fa-solid fa-globe"></i> Tous secteurs</button>
+                    <button class="filter" data-type="sector" data-value="education"><i class="fa-solid fa-graduation-cap"></i> Éducation</button>
+                    <button class="filter" data-type="sector" data-value="sante"><i class="fa-solid fa-hospital"></i> Santé</button>
+                    <button class="filter" data-type="sector" data-value="public"><i class="fa-solid fa-landmark"></i> Public</button>
+                    <button class="filter" data-type="sector" data-value="asso"><i class="fa-solid fa-people-group"></i> Associatif</button>
+                </div>
+
+                <div class="flex flex-wrap gap-2" id="filtersFormat">
+                    <button class="filter is-active" data-type="format" data-value="all"><i class="fa-solid fa-shapes"></i> Tous formats</button>
+                    <button class="filter" data-type="format" data-value="usine"><i class="fa-solid fa-diagram-project"></i> Usine à sites</button>
+                    <button class="filter" data-type="format" data-value="intranet"><i class="fa-solid fa-lock"></i> Intranet</button>
+                    <button class="filter" data-type="format" data-value="carriere"><i class="fa-solid fa-briefcase"></i> Carrière</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects grid -->
 <section class="container-prose pb-20">
-    <div class="grid md:grid-cols-2 gap-8" id="projectsGrid">
+    <div id="projectsGrid" class="grid md:grid-cols-2 gap-8"></div>
 
-        <!-- Projet -->
-        <article class="card p-6 project-item" data-category="drupal">
-            <h3 class="text-lg font-semibold mb-2">École Polytechnique</h3>
-            <p class="text-sm text-slate-600 mb-4">
-                Usine à sites Drupal institutionnelle.
-            </p>
-            <div class="flex justify-between items-center">
-                <span class="chip">Drupal</span>
-                <button class="btn open-modal" data-project="polytechnique">Détails</button>
-            </div>
-        </article>
-
-        <article class="card p-6 project-item" data-category="symfony">
-            <h3 class="text-lg font-semibold mb-2">Quartiers Plus</h3>
-            <p class="text-sm text-slate-600 mb-4">
-                Application métier de gestion de programmes.
-            </p>
-            <div class="flex justify-between items-center">
-                <span class="chip">Symfony</span>
-                <button class="btn open-modal" data-project="quartiers">Détails</button>
-            </div>
-        </article>
-
+    <div class="mt-10 text-center text-xs text-slate-500">
+        Projets réalisés dans le cadre de mon poste au sein de l’agence <strong>Net.Com</strong>.
     </div>
 </section>
 
-<!-- MODALS -->
+<!-- Single modal -->
+<div id="projectModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50" role="dialog" aria-modal="true">
+    <div class="bg-white rounded-3xl max-w-3xl w-full p-7 sm:p-8 relative border border-slate-200">
+        <button id="modalClose" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800" aria-label="Fermer">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
 
-<!-- Modal Polytechnique -->
-<div id="modal-polytechnique" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50">
-    <div class="bg-white rounded-2xl max-w-2xl w-full p-8 relative">
-        <button class="absolute top-4 right-4 text-slate-500 close-modal">✕</button>
+        <div class="flex items-start justify-between gap-4">
+            <div class="min-w-0">
+                <h2 id="modalTitle" class="text-2xl font-semibold"></h2>
+                <p id="modalSubtitle" class="text-sm text-slate-600 mt-1"></p>
+            </div>
+            <div id="modalBadges" class="flex flex-wrap gap-2 justify-end"></div>
+        </div>
 
-        <h3 class="text-2xl font-semibold mb-4">École Polytechnique — Drupal</h3>
+        <div class="mt-6 grid sm:grid-cols-12 gap-6 text-sm text-slate-700">
+            <div class="sm:col-span-7 space-y-4">
+                <div>
+                    <p class="text-xs text-slate-500">Contexte</p>
+                    <p id="modalContext"></p>
+                </div>
 
-        <div class="space-y-4 text-sm text-slate-700">
-            <p><strong>Contexte :</strong> Portail institutionnel multi-sites.</p>
+                <div>
+                    <p class="text-xs text-slate-500">Mon rôle</p>
+                    <p id="modalRole"></p>
+                </div>
 
-            <p><strong>Interventions backend :</strong></p>
-            <ul class="list-disc ml-6 space-y-1">
-                <li>Développement modules personnalisés</li>
-                <li>Migrations complexes D7 → D9/10</li>
-                <li>Workflows éditoriaux avancés</li>
-                <li>Optimisation cache & performance</li>
-            </ul>
+                <div>
+                    <p class="text-xs text-slate-500">Actions / livrables</p>
+                    <ul id="modalActions" class="mt-2 space-y-2"></ul>
+                </div>
+            </div>
 
-            <p><strong>Stack :</strong> PHP 8, Drupal, Drush, Docker, GitLab CI</p>
+            <div class="sm:col-span-5 space-y-4">
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                    <p class="text-xs text-slate-500">Stack / outils</p>
+                    <div id="modalStack" class="mt-3 flex flex-wrap gap-2"></div>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                    <p class="text-xs text-slate-500">Ce que ça illustre</p>
+                    <p id="modalHighlight" class="mt-2 text-sm text-slate-700"></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- Modal Quartiers -->
-<div id="modal-quartiers" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50">
-    <div class="bg-white rounded-2xl max-w-2xl w-full p-8 relative">
-        <button class="absolute top-4 right-4 text-slate-500 close-modal">✕</button>
-
-        <h3 class="text-2xl font-semibold mb-4">Quartiers Plus — Symfony</h3>
-
-        <div class="space-y-4 text-sm text-slate-700">
-            <p><strong>Contexte :</strong> Application métier dédiée au suivi de programmes.</p>
-
-            <p><strong>Interventions backend :</strong></p>
-            <ul class="list-disc ml-6 space-y-1">
-                <li>Conception entités & architecture métier</li>
-                <li>API internes</li>
-                <li>Exports CSV & reporting</li>
-                <li>Gestion droits utilisateurs</li>
-            </ul>
-
-            <p><strong>Stack :</strong> Symfony, Doctrine, MySQL</p>
-        </div>
-    </div>
-</div>
-
-<!-- JS -->
 <script>
-    // Filtres
-    const buttons = document.querySelectorAll(".filter-btn");
-    const items = document.querySelectorAll(".project-item");
+    // ---- Data (à affiner plus tard) ----
+    // tech: drupal|wordpress
+    // sector: education|sante|public|asso
+    // format: usine|intranet|carriere (ou [])
+    const PROJECTS = [
+        // --- Éducation ---
+        { id:"polytechnique", title:"École Polytechnique", tech:"drupal", sector:"education", format:["usine"], subtitle:"Drupal • institutionnel • usine à sites",
+            context:"Portail institutionnel avec plusieurs sites rattachés. Besoin de cohérence, d’industrialisation et de stabilité dans la durée.",
+            role:"Développement back-end et référente Drupal sur une partie des chantiers : cadrage technique, dev, migrations, recette et accompagnement.",
+            actions:[
+                { icon:"fa-cubes", color:"text-sky-600", text:"Modules sur-mesure, workflows, outillage interne." },
+                { icon:"fa-truck-fast", color:"text-sky-600", text:"Migrations et reprises de contenus (dont multi-langue selon besoins)." },
+                { icon:"fa-check-double", color:"text-sky-600", text:"Relectures techniques, recette interne, corrections avant livraison." },
+            ],
+            stack:["PHP","Drupal","Drush","Composer","Git","Docker"],
+            highlight:"Plateforme Drupal structurée : industrialisation, migration, qualité de livraison."
+        },
+        { id:"ip-paris", title:"IP Paris", tech:"drupal", sector:"education", format:["usine"], subtitle:"Drupal • institutionnel • écosystème multi-sites",
+            context:"Ensemble de sites d’établissement avec contraintes d’harmonisation (modèles, composants, règles éditoriales) et de maintenabilité.",
+            role:"Développement back-end, support technique, contributions aux modules/standard agence et accompagnement sur les phases de recette.",
+            actions:[
+                { icon:"fa-diagram-project", color:"text-sky-600", text:"Contribution aux bases “usine à sites” (mutualisation, patterns, bonnes pratiques)." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance, évolutions, mises à jour Drupal & modules." },
+                { icon:"fa-user-gear", color:"text-sky-600", text:"Support technique et conseil côté client/projet." },
+            ],
+            stack:["Drupal","PHP","Drush","Composer","GitLab","Docker"],
+            highlight:"Travail récurrent sur usine à sites : durabilité, mutualisation, support et qualité."
+        },
+        { id:"enpc", title:"ENPC — École nationale des ponts et chaussées", tech:"drupal", sector:"education", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site institutionnel : besoins éditoriaux, structuration des contenus et maintenabilité.",
+            role:"Développement back-end, intégration des découpes front, recette et évolutions.",
+            actions:[
+                { icon:"fa-code", color:"text-sky-600", text:"Intégration Twig / gabarits à partir des découpes." },
+                { icon:"fa-cubes", color:"text-sky-600", text:"Dév de modules / réglages pour besoins spécifiques." },
+                { icon:"fa-rocket", color:"text-sky-600", text:"Livraison, mise en production, corrections post-recette." },
+            ],
+            stack:["Drupal","Twig","PHP","Git"],
+            highlight:"Exemple de cycle complet : intégration → dev back → livraison → maintenance."
+        },
+        { id:"ensae", title:"ENSAE", tech:"drupal", sector:"education", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site institutionnel avec exigences de cohérence et d’évolutivité.",
+            role:"Développement back-end, support et suivi des évolutions.",
+            actions:[
+                { icon:"fa-cubes", color:"text-sky-600", text:"Back-end Drupal : config, contenus, modules sur-mesure." },
+                { icon:"fa-check-double", color:"text-sky-600", text:"Recette interne et corrections." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et mises à jour." },
+            ],
+            stack:["Drupal","PHP","Composer","Drush"],
+            highlight:"Maintenance + évolution continue dans un contexte institutionnel."
+        },
+        { id:"ensea", title:"ENSEA", tech:"drupal", sector:"education", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site institutionnel avec besoins éditoriaux et contraintes de livraison.",
+            role:"Dev back-end, intégration, support client.",
+            actions:[
+                { icon:"fa-code", color:"text-sky-600", text:"Intégration (Twig) et composants." },
+                { icon:"fa-user-gear", color:"text-sky-600", text:"Support et conseil." },
+                { icon:"fa-rocket", color:"text-sky-600", text:"Mise en production et suivi." },
+            ],
+            stack:["Drupal","Twig","Git"],
+            highlight:"Orientation “qualité de livraison” et support."
+        },
+        { id:"centrale-lyon", title:"École Centrale de Lyon", tech:"drupal", sector:"education", format:[], subtitle:"Drupal • institutionnel • maintenance",
+            context:"Site institutionnel et composants partagés dans la durée.",
+            role:"Développement, maintenance et recette interne.",
+            actions:[
+                { icon:"fa-paintbrush", color:"text-sky-600", text:"Thèmes / Twig : intégration, corrections UI." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance : correctifs et évolutions." },
+                { icon:"fa-check-double", color:"text-sky-600", text:"Relectures techniques et recette." },
+            ],
+            stack:["Drupal","Twig","Drush"],
+            highlight:"Exemple “maintenance + qualité” sur Drupal."
+        },
 
-    buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const filter = btn.dataset.filter;
+        // --- Santé ---
+        { id:"chu-grenoble", title:"CHU Grenoble (CHUGA)", tech:"drupal", sector:"sante", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site institutionnel santé : exigences de stabilité, accessibilité et contenu riche.",
+            role:"Dev back-end, intégration, recette et maintenance.",
+            actions:[
+                { icon:"fa-shield", color:"text-emerald-600", text:"Qualité : relectures, recette, stabilisation." },
+                { icon:"fa-cubes", color:"text-emerald-600", text:"Évolutions back-end et ajustements fonctionnels." },
+                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Mises à jour CMS/modules selon projet." },
+            ],
+            stack:["Drupal","PHP","Git"],
+            highlight:"Robustesse et qualité dans un contexte santé."
+        },
+        { id:"ch-niort-web", title:"CH Niort (Internet)", tech:"drupal", sector:"sante", format:[], subtitle:"Drupal • site public",
+            context:"Site public d’établissement : structuration et mise à jour régulière des contenus.",
+            role:"Dev back-end et maintenance.",
+            actions:[
+                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et évolutions." },
+                { icon:"fa-rocket", color:"text-emerald-600", text:"Mise en production et suivi." },
+                { icon:"fa-user-gear", color:"text-emerald-600", text:"Support et conseil." },
+            ],
+            stack:["Drupal","Drush","Composer"],
+            highlight:"Cycle maintenance + support."
+        },
+        { id:"ch-niort-intranet", title:"CH Niort (Intranet)", tech:"drupal", sector:"sante", format:["intranet"], subtitle:"Drupal • intranet",
+            context:"Intranet : besoins de contenus internes et gestion d’accès.",
+            role:"Dev back-end, ajustements d’accès, support.",
+            actions:[
+                { icon:"fa-lock", color:"text-emerald-600", text:"Accès / rôles selon besoins." },
+                { icon:"fa-cubes", color:"text-emerald-600", text:"Développements et réglages spécifiques." },
+                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et évolutions." },
+            ],
+            stack:["Drupal","PHP","Git"],
+            highlight:"Intranet : gestion d’accès + maintenance."
+        },
+        { id:"ch-pgv", title:"CH PGV — Villejuif", tech:"drupal", sector:"sante", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site institutionnel : contenus, templates, maintenance.",
+            role:"Dev back-end, intégration, recette.",
+            actions:[
+                { icon:"fa-code", color:"text-emerald-600", text:"Intégration des découpes front." },
+                { icon:"fa-check-double", color:"text-emerald-600", text:"Recette interne et corrections." },
+                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et mises à jour." },
+            ],
+            stack:["Drupal","Twig","Composer"],
+            highlight:"Livraison maîtrisée + maintenance."
+        },
 
-            items.forEach(item => {
-                if (filter === "all" || item.dataset.category === filter) {
-                    item.classList.remove("hidden");
-                } else {
-                    item.classList.add("hidden");
-                }
-            });
+        // --- Public / institutionnel ---
+        { id:"epsf", title:"EPSF", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site institutionnel : cadrage, évolutions et maintien en condition opérationnelle.",
+            role:"Dev back-end, support client, MEP.",
+            actions:[
+                { icon:"fa-people-group", color:"text-indigo-600", text:"Réunions / échanges client et cadrage technique." },
+                { icon:"fa-rocket", color:"text-indigo-600", text:"Mise en production et suivi." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et évolutions." },
+            ],
+            stack:["Drupal","Git","Drush"],
+            highlight:"Projet institutionnel : cycle long et évolutif."
+        },
+        { id:"onera", title:"ONERA", tech:"drupal", sector:"public", format:["usine"], subtitle:"Drupal • institutionnel • écosystème",
+            context:"Sites/sections multiples avec besoin d’harmonisation, d’évolutions continues et de mise à jour maîtrisée.",
+            role:"Dev back-end, contributions aux briques communes, support et MEP.",
+            actions:[
+                { icon:"fa-diagram-project", color:"text-indigo-600", text:"Harmonisation / mutualisation selon patterns." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance & mises à jour Drupal/modules." },
+                { icon:"fa-check-double", color:"text-indigo-600", text:"Recettes et corrections." },
+            ],
+            stack:["Drupal","PHP","Composer","Drush"],
+            highlight:"Approche “plateforme” : mutualisation, maintenance, qualité."
+        },
+        { id:"onera-carriere", title:"ONERA Carrières", tech:"drupal", sector:"public", format:["carriere"], subtitle:"Drupal • site carrières",
+            context:"Espace orienté recrutement : contenus, formulaires, structuration.",
+            role:"Dev back-end, intégration, support et évolutions.",
+            actions:[
+                { icon:"fa-briefcase", color:"text-indigo-600", text:"Mise en place et ajustements fonctionnels." },
+                { icon:"fa-code", color:"text-indigo-600", text:"Intégration et templates." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Évolutions et maintenance." },
+            ],
+            stack:["Drupal","Twig","Git"],
+            highlight:"Projet “carrières” : mise en valeur contenu + fiabilité."
+        },
+        { id:"onera-iris", title:"ONERA — IRIS", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site/section spécifique au sein d’un écosystème institutionnel.",
+            role:"Dev back-end, maintenance, support.",
+            actions:[
+                { icon:"fa-cubes", color:"text-indigo-600", text:"Back-end et réglages spécifiques." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance." },
+                { icon:"fa-user-gear", color:"text-indigo-600", text:"Support et conseil." },
+            ],
+            stack:["Drupal","Drush","Composer"],
+            highlight:"Interventions ciblées au sein d’une plateforme."
+        },
+        { id:"asp-public", title:"ASP Public", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • site public",
+            context:"Site public avec besoins éditoriaux et maintenance.",
+            role:"Dev back-end, intégration, recette, support.",
+            actions:[
+                { icon:"fa-code", color:"text-indigo-600", text:"Intégration des découpes front." },
+                { icon:"fa-check-double", color:"text-indigo-600", text:"Recette et corrections." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour." },
+            ],
+            stack:["Drupal","Twig","Git"],
+            highlight:"Cycle complet : intégration + back + maintenance."
+        },
+        { id:"arb-cvl", title:"ARB Centre-Val de Loire", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site institutionnel / portail : évolutions et support.",
+            role:"Dev back-end, support client, maintenance.",
+            actions:[
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Évolutions et maintenance." },
+                { icon:"fa-people-group", color:"text-indigo-600", text:"Échanges client / cadrage." },
+                { icon:"fa-rocket", color:"text-indigo-600", text:"Livraisons et mises en production." },
+            ],
+            stack:["Drupal","Composer","Drush"],
+            highlight:"Maintenance + conseil, sur un site institutionnel."
+        },
+        { id:"ihemi", title:"IHEMI", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site institutionnel : structuration de contenu et maintenance.",
+            role:"Dev back-end, intégration, recette.",
+            actions:[
+                { icon:"fa-cubes", color:"text-indigo-600", text:"Back-end Drupal (config, modules si besoin)." },
+                { icon:"fa-check-double", color:"text-indigo-600", text:"Recette interne et corrections." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Mises à jour et maintenance." },
+            ],
+            stack:["Drupal","PHP","Git"],
+            highlight:"Structuration + durabilité."
+        },
+        { id:"mnhn", title:"MNHN", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site institutionnel riche en contenus, maintenance et évolutions.",
+            role:"Dev back-end, support et suivi.",
+            actions:[
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et évolutions." },
+                { icon:"fa-shield", color:"text-indigo-600", text:"Qualité et stabilisation." },
+                { icon:"fa-user-gear", color:"text-indigo-600", text:"Support client." },
+            ],
+            stack:["Drupal","Drush","Composer"],
+            highlight:"Fiabilité et maintenance sur le long terme."
+        },
+        { id:"cdg69", title:"cdg69", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
+            context:"Site institutionnel : évolutions, maintenance et mises à jour.",
+            role:"Dev back-end, MEP, support.",
+            actions:[
+                { icon:"fa-rocket", color:"text-indigo-600", text:"Mises en production et suivi." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour." },
+                { icon:"fa-people-group", color:"text-indigo-600", text:"Cadrage et échanges client." },
+            ],
+            stack:["Drupal","Git","Composer"],
+            highlight:"Exemple de maintien en condition opérationnelle."
+        },
+
+        // --- WordPress ---
+        { id:"cd-vosges", title:"CD Vosges", tech:"wordpress", sector:"public", format:[], subtitle:"WordPress • institutionnel",
+            context:"Site WordPress institutionnel : évolutions, intégration, maintenance.",
+            role:"Support technique, intégration, évolutions, mises à jour.",
+            actions:[
+                { icon:"fa-code", color:"text-slate-700", text:"Intégration des découpes front." },
+                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour WordPress & extensions." },
+                { icon:"fa-user-gear", color:"text-slate-700", text:"Support et conseil." },
+            ],
+            stack:["WordPress","PHP","Git"],
+            highlight:"WordPress : intégration + maintenance + support."
+        },
+        { id:"ght-gpne", title:"GHT GPNE", tech:"wordpress", sector:"sante", format:[], subtitle:"WordPress • santé",
+            context:"Site WordPress pour un contexte santé : contenus et maintenance.",
+            role:"Support, intégration, mises à jour.",
+            actions:[
+                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Maintenance et mises à jour." },
+                { icon:"fa-code", color:"text-slate-700", text:"Intégration des évolutions." },
+                { icon:"fa-rocket", color:"text-slate-700", text:"Livraison et suivi." },
+            ],
+            stack:["WordPress","PHP"],
+            highlight:"WordPress en contexte santé : stabilité et suivi."
+        },
+        { id:"smitom", title:"SMITOM-LOMBRIC", tech:"wordpress", sector:"public", format:[], subtitle:"WordPress • institutionnel",
+            context:"Site institutionnel WordPress : contenus, évolutions, maintenance.",
+            role:"Dev/support, mises à jour, intégration.",
+            actions:[
+                { icon:"fa-code", color:"text-slate-700", text:"Intégration & templates." },
+                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour WP & extensions." },
+                { icon:"fa-user-gear", color:"text-slate-700", text:"Support et conseil." },
+            ],
+            stack:["WordPress","PHP","Git"],
+            highlight:"WordPress : maintenance et qualité."
+        },
+        { id:"unml", title:"UNML", tech:"wordpress", sector:"asso", format:[], subtitle:"WordPress • associatif",
+            context:"Site WordPress : publication et contenus, maintenance.",
+            role:"Support technique et évolutions.",
+            actions:[
+                { icon:"fa-people-group", color:"text-slate-700", text:"Échanges et support client." },
+                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Maintenance / mises à jour." },
+                { icon:"fa-code", color:"text-slate-700", text:"Évolutions / intégration." },
+            ],
+            stack:["WordPress","PHP"],
+            highlight:"WordPress : support et maintien."
+        },
+        { id:"charot", title:"Charot", tech:"wordpress", sector:"public", format:[], subtitle:"WordPress • site vitrine",
+            context:"Site vitrine WordPress : contenus et maintenance.",
+            role:"Intégration, évolutions, support.",
+            actions:[
+                { icon:"fa-code", color:"text-slate-700", text:"Intégration front." },
+                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour." },
+                { icon:"fa-user-gear", color:"text-slate-700", text:"Support." },
+            ],
+            stack:["WordPress","PHP"],
+            highlight:"WordPress : intégration + maintenance."
+        },
+
+        // --- USH Boutique (Drupal) ---
+        { id:"ush-boutique", title:"USH Boutique", tech:"drupal", sector:"asso", format:[], subtitle:"Drupal • plateforme / boutique",
+            context:"Espace de diffusion de ressources (type boutique/catalogue) dans un écosystème existant.",
+            role:"Dev back-end, évolutions, maintenance, support.",
+            actions:[
+                { icon:"fa-cubes", color:"text-sky-600", text:"Évolutions back-end selon besoins." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et mises à jour." },
+                { icon:"fa-people-group", color:"text-sky-600", text:"Échanges client / support." },
+            ],
+            stack:["Drupal","PHP","Composer"],
+            highlight:"Drupal : évolutions + maintenance sur une plateforme."
+        },
+        { id:"ush-collab", title:"USH — Espaces Collaboratifs", tech:"drupal", sector:"asso", format:["usine"], subtitle:"Drupal • plateforme collaborative",
+            context:"Plateforme collaborative multi-espaces (gouvernance, accès, maintenance).",
+            role:"Dev back-end et maintenance.",
+            actions:[
+                { icon:"fa-diagram-project", color:"text-sky-600", text:"Structuration multi-sites / mutualisation." },
+                { icon:"fa-user-shield", color:"text-sky-600", text:"Accès / rôles selon espaces." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance & évolutions." },
+            ],
+            stack:["Drupal","Drush","GitLab"],
+            highlight:"Plateforme collaborative : gouvernance, accès, maintenance."
+        },
+        {
+            id: "quartiers-plus",
+            title: "Quartiers Plus",
+            tech: "symfony",
+            sector: "public",
+            format: [],
+            subtitle: "Symfony • application métier • données",
+            context: "Application métier de suivi et gestion de programmes, avec profils utilisateurs, droits, et besoins d’exports/reporting.",
+            role: "Développement back-end : règles métier, données, droits, et outillage d’export. Participation au cadrage technique et au suivi des retours.",
+            actions: [
+                { icon: "fa-scale-balanced", color: "text-indigo-600", text: "Règles métier & gestion des droits / profils utilisateurs." },
+                { icon: "fa-file-export", color: "text-indigo-600", text: "Exports CSV (consolidation, formats, contrôles) et reporting." },
+                { icon: "fa-database", color: "text-indigo-600", text: "Requêtes & optimisation : extraction et fiabilisation des données." }
+            ],
+            stack: ["Symfony", "PHP", "SQL", "Doctrine", "Git"],
+            highlight: "Projet représentatif de mon travail Symfony : métier, données, exports et fiabilité."
+        },
+    ];
+
+    // ---- Rendering ----
+    const grid = document.getElementById("projectsGrid");
+
+    const ICON_TECH = {
+        drupal: '<i class="fa-brands fa-drupal"></i>',
+        wordpress: '<i class="fa-brands fa-wordpress"></i>',
+    };
+
+    function fmtBadges(p) {
+        const techLabel = p.tech === "drupal" ? "Drupal" : "WordPress";
+        const techBadge = `<span class="chip">${ICON_TECH[p.tech] ?? ""} ${techLabel}</span>`;
+
+        const sectorMap = {
+            education: '<span class="chip"><i class="fa-solid fa-graduation-cap"></i> Éducation</span>',
+            sante: '<span class="chip"><i class="fa-solid fa-hospital"></i> Santé</span>',
+            public: '<span class="chip"><i class="fa-solid fa-landmark"></i> Public</span>',
+            asso: '<span class="chip"><i class="fa-solid fa-people-group"></i> Associatif</span>',
+        };
+
+        const formatBadges = (p.format || []).map(f => {
+            if (f === "usine") return '<span class="chip"><i class="fa-solid fa-diagram-project"></i> Usine à sites</span>';
+            if (f === "intranet") return '<span class="chip"><i class="fa-solid fa-lock"></i> Intranet</span>';
+            if (f === "carriere") return '<span class="chip"><i class="fa-solid fa-briefcase"></i> Carrières</span>';
+            return '';
+        }).join("");
+
+        return techBadge + (sectorMap[p.sector] ?? "") + formatBadges;
+    }
+
+    function render() {
+        grid.innerHTML = PROJECTS.map(p => {
+            // data attributes for filtering
+            const fmt = (p.format || []).join(" ");
+            return `
+        <article class="card p-6 project-item"
+                 data-tech="${p.tech}"
+                 data-sector="${p.sector}"
+                 data-format="${fmt}">
+          <div class="flex items-start justify-between gap-4">
+            <div class="min-w-0">
+              <h3 class="text-lg font-semibold">${p.title}</h3>
+              <p class="text-sm text-slate-600 mt-1">${p.subtitle}</p>
+            </div>
+            <div class="shrink-0">${ICON_TECH[p.tech] ? `<span class="chip">${ICON_TECH[p.tech]} ${p.tech === "drupal" ? "Drupal" : "WordPress"}</span>` : ""}</div>
+          </div>
+
+          <div class="mt-4 flex flex-wrap gap-2">
+            ${fmtBadges(p)}
+          </div>
+
+          <ul class="mt-4 text-sm space-y-2 text-slate-700">
+            ${(p.actions || []).slice(0, 2).map(a => `
+              <li class="flex gap-3 items-start">
+                <i class="fa-solid ${a.icon} mt-0.5 ${a.color}"></i>
+                <span>${a.text}</span>
+              </li>
+            `).join("")}
+          </ul>
+
+          <div class="mt-5 flex items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-2">
+              ${(p.stack || []).slice(0, 4).map(s => `<span class="chip">${s}</span>`).join("")}
+            </div>
+            <button class="btn open-modal" data-project="${p.id}">Détails</button>
+          </div>
+        </article>
+      `;
+        }).join("");
+    }
+
+    // ---- Filtering ----
+    const filters = { tech: "all", sector: "all", format: "all" };
+    function applyFilters() {
+        document.querySelectorAll(".project-item").forEach(item => {
+            const okTech = (filters.tech === "all") || (item.dataset.tech === filters.tech);
+            const okSector = (filters.sector === "all") || (item.dataset.sector === filters.sector);
+            const fmt = (item.dataset.format || "").split(" ").filter(Boolean);
+            const okFormat = (filters.format === "all") || fmt.includes(filters.format);
+
+            item.classList.toggle("hidden", !(okTech && okSector && okFormat));
         });
+    }
+
+    function setActive(btn) {
+        const type = btn.dataset.type;
+        btn.parentElement.querySelectorAll(".filter").forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        filters[type] = btn.dataset.value;
+        applyFilters();
+    }
+
+    document.querySelectorAll(".filter").forEach(btn => {
+        btn.addEventListener("click", () => setActive(btn));
     });
 
-    // Modals
-    document.querySelectorAll(".open-modal").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const id = btn.dataset.project;
-            document.getElementById("modal-" + id).classList.remove("hidden");
-            document.getElementById("modal-" + id).classList.add("flex");
-        });
+    // ---- Modal ----
+    const modal = document.getElementById("projectModal");
+    const modalClose = document.getElementById("modalClose");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSubtitle = document.getElementById("modalSubtitle");
+    const modalBadges = document.getElementById("modalBadges");
+    const modalContext = document.getElementById("modalContext");
+    const modalRole = document.getElementById("modalRole");
+    const modalActions = document.getElementById("modalActions");
+    const modalStack = document.getElementById("modalStack");
+    const modalHighlight = document.getElementById("modalHighlight");
+
+    let lastActive = null;
+    function openModal(id) {
+        const p = PROJECTS.find(x => x.id === id);
+        if (!p) return;
+
+        lastActive = document.activeElement;
+
+        modalTitle.textContent = p.title;
+        modalSubtitle.textContent = p.subtitle;
+        modalBadges.innerHTML = fmtBadges(p);
+
+        modalContext.textContent = p.context;
+        modalRole.textContent = p.role;
+
+        modalActions.innerHTML = (p.actions || []).map(a => `
+      <li class="flex gap-3 items-start">
+        <i class="fa-solid ${a.icon} mt-0.5 ${a.color}"></i>
+        <span>${a.text}</span>
+      </li>
+    `).join("");
+
+        modalStack.innerHTML = (p.stack || []).map(s => `<span class="chip">${s}</span>`).join("");
+        modalHighlight.textContent = p.highlight || "";
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.classList.add("overflow-hidden");
+        modalClose.focus();
+    }
+
+    function closeModal() {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.classList.remove("overflow-hidden");
+        if (lastActive && typeof lastActive.focus === "function") lastActive.focus();
+    }
+
+    document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".open-modal");
+        if (btn) openModal(btn.dataset.project);
     });
 
-    document.querySelectorAll(".close-modal").forEach(btn => {
-        btn.addEventListener("click", () => {
-            btn.closest("[id^='modal-']").classList.add("hidden");
-            btn.closest("[id^='modal-']").classList.remove("flex");
-        });
-    });
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("flex")) closeModal(); });
 
-    // fermeture clic fond
-    document.querySelectorAll("[id^='modal-']").forEach(modal => {
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.classList.add("hidden");
-                modal.classList.remove("flex");
-            }
-        });
-    });
+    // Init
+    render();
+    applyFilters();
 </script>
 
 </body>
