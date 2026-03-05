@@ -12,6 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <link rel="icon" href="./assets/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <meta name="theme-color" content="#0f172a">
+
     <style type="text/tailwindcss">
         @theme{
             --font-sans: "Inter", system-ui, sans-serif;
@@ -67,28 +74,58 @@
         <div class="lg:col-span-8">
             <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight">Projets & réalisations</h1>
             <p class="muted mt-3 max-w-3xl">
-                Sélection de projets réalisés en agence : Drupal et WordPress (avec ponctuellement Symfony).
-                Mon rôle est souvent transverse : cadrage, échanges client, développement back-end, intégration, mises en production,
-                traitement des retours de recette, maintenance et évolutions.
+                Drupal, WordPress, Symfony — principalement en back-end, sur des projets institutionnels, de recherche ou de santé.
+                Selon les projets, j'interviens en lead technique ou en appui d'une équipe : développement, intégration, migrations de contenus, mises en production et maintenance évolutive.
             </p>
 
-            <div class="mt-6 flex flex-wrap gap-2">
+            <div class="mt-5 flex flex-wrap gap-2">
                 <span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>
                 <span class="chip"><i class="fa-brands fa-wordpress"></i> WordPress</span>
                 <span class="chip"><i class="fa-brands fa-symfony"></i> Symfony</span>
                 <span class="chip"><i class="fa-solid fa-truck-fast"></i> Migrations</span>
                 <span class="chip"><i class="fa-solid fa-rocket"></i> MEP / stabilisation</span>
                 <span class="chip"><i class="fa-solid fa-screwdriver-wrench"></i> Maintenance</span>
+                <span class="chip"><i class="fa-solid fa-graduation-cap"></i> Enseignement</span>
+                <span class="chip"><i class="fa-solid fa-hospital"></i> Santé</span>
+                <span class="chip"><i class="fa-solid fa-flask"></i> Recherche</span>
+                <span class="chip"><i class="fa-solid fa-landmark"></i> Institutions</span>
             </div>
         </div>
 
         <div class="lg:col-span-4">
-            <div class="card p-6">
-                <p class="text-sm font-semibold">Comment lire cette page</p>
-                <ul class="mt-3 text-sm text-slate-700 space-y-2">
-                    <li class="flex gap-3 items-start"><i class="fa-solid fa-filter mt-0.5 text-slate-600"></i><span>Filtre par techno / secteur / format</span></li>
-                    <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-info mt-0.5 text-slate-600"></i><span>Chaque carte a un “Détails” (contexte, rôle, actions)</span></li>
-                </ul>
+            <div class="card p-6 space-y-4">
+                <div>
+                    <p class="text-3xl font-semibold">25+</p>
+                    <p class="text-sm text-slate-500 mt-0.5">projets présentés ici</p>
+                </div>
+
+                <div class="border-t border-slate-100 pt-4 space-y-2">
+                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Technos</p>
+                    <div class="flex items-center gap-3 text-sm">
+                        <i class="fa-brands fa-drupal text-sky-600"></i>
+                        <span class="font-medium">Drupal</span>
+                        <span class="ml-auto text-slate-500">18 projets</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <i class="fa-brands fa-wordpress text-slate-600"></i>
+                        <span class="font-medium">WordPress</span>
+                        <span class="ml-auto text-slate-500">5 projets</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <i class="fa-brands fa-symfony text-indigo-600"></i>
+                        <span class="font-medium">Symfony</span>
+                        <span class="ml-auto text-slate-500">1 projet</span>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-100 pt-4">
+                    <p class="text-3xl font-semibold">9</p>
+                    <p class="text-sm text-slate-500 mt-0.5">domaines couverts</p>
+                </div>
+
+                <p class="border-t border-slate-100 pt-4 text-xs text-slate-400">
+                    Sélection représentative — d'autres projets réalisés en agence ne sont pas listés ici.
+                </p>
             </div>
         </div>
     </div>
@@ -98,11 +135,11 @@
 <section class="container-prose pb-6">
     <div class="card p-6">
         <div class="grid lg:grid-cols-12 gap-5 items-start">
-            <div class="lg:col-span-4">
+            <div class="lg:col-span-2">
                 <p class="text-sm font-semibold">Filtres</p>
             </div>
 
-            <div class="lg:col-span-8 space-y-4">
+            <div class="lg:col-span-10 space-y-4">
                 <div class="flex flex-wrap gap-2" id="filtersTech">
                     <button class="filter is-active" data-type="tech" data-value="all"><i class="fa-solid fa-layer-group"></i> Tous</button>
                     <button class="filter" data-type="tech" data-value="drupal"><i class="fa-brands fa-drupal"></i> Drupal</button>
@@ -150,13 +187,6 @@
                     <button class="filter" data-type="domain" data-value="application_metier">
                         <i class="fa-solid fa-gears"></i> Application métier
                     </button>
-                </div>
-
-                <div class="flex flex-wrap gap-2" id="filtersFormat">
-                    <button class="filter is-active" data-type="format" data-value="all"><i class="fa-solid fa-shapes"></i> Tous formats</button>
-                    <button class="filter" data-type="format" data-value="usine"><i class="fa-solid fa-diagram-project"></i> Usine à sites</button>
-                    <button class="filter" data-type="format" data-value="intranet"><i class="fa-solid fa-lock"></i> Intranet</button>
-                    <button class="filter" data-type="format" data-value="carriere"><i class="fa-solid fa-briefcase"></i> Carrière</button>
                 </div>
             </div>
         </div>
