@@ -80,10 +80,6 @@
                 <span class="chip"><i class="fa-solid fa-rocket"></i> MEP / stabilisation</span>
                 <span class="chip"><i class="fa-solid fa-screwdriver-wrench"></i> Maintenance</span>
             </div>
-
-            <p class="mt-6 text-sm text-slate-600">
-                Outils fréquents : <span class="kbd">Drush</span> <span class="kbd">Composer</span> <span class="kbd">Git</span> <span class="kbd">Docker</span>
-            </p>
         </div>
 
         <div class="lg:col-span-4">
@@ -92,7 +88,6 @@
                 <ul class="mt-3 text-sm text-slate-700 space-y-2">
                     <li class="flex gap-3 items-start"><i class="fa-solid fa-filter mt-0.5 text-slate-600"></i><span>Filtre par techno / secteur / format</span></li>
                     <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-info mt-0.5 text-slate-600"></i><span>Chaque carte a un “Détails” (contexte, rôle, actions)</span></li>
-                    <li class="flex gap-3 items-start"><i class="fa-solid fa-pen-to-square mt-0.5 text-slate-600"></i><span>On pourra raffiner chaque projet ensuite</span></li>
                 </ul>
             </div>
         </div>
@@ -105,7 +100,6 @@
         <div class="grid lg:grid-cols-12 gap-5 items-start">
             <div class="lg:col-span-4">
                 <p class="text-sm font-semibold">Filtres</p>
-                <p class="text-xs text-slate-500 mt-1">Combine techno + secteur + format.</p>
             </div>
 
             <div class="lg:col-span-8 space-y-4">
@@ -116,12 +110,46 @@
                     <button class="filter" data-type="tech" data-value="symfony"><i class="fa-brands fa-symfony"></i> Symfony</button>
                 </div>
 
-                <div class="flex flex-wrap gap-2" id="filtersSector">
-                    <button class="filter is-active" data-type="sector" data-value="all"><i class="fa-solid fa-globe"></i> Tous secteurs</button>
-                    <button class="filter" data-type="sector" data-value="education"><i class="fa-solid fa-graduation-cap"></i> Éducation</button>
-                    <button class="filter" data-type="sector" data-value="sante"><i class="fa-solid fa-hospital"></i> Santé</button>
-                    <button class="filter" data-type="sector" data-value="public"><i class="fa-solid fa-landmark"></i> Public</button>
-                    <button class="filter" data-type="sector" data-value="asso"><i class="fa-solid fa-people-group"></i> Associatif</button>
+                <div class="flex flex-wrap gap-2" id="filtersDomain">
+                    <button class="filter is-active" data-type="domain" data-value="all">
+                        <i class="fa-solid fa-globe"></i> Tous domaines
+                    </button>
+
+                    <button class="filter" data-type="domain" data-value="enseignement">
+                        <i class="fa-solid fa-graduation-cap"></i> Enseignement
+                    </button>
+
+                    <button class="filter" data-type="domain" data-value="sante">
+                        <i class="fa-solid fa-hospital"></i> Santé
+                    </button>
+
+                    <button class="filter" data-type="domain" data-value="recherche">
+                        <i class="fa-solid fa-flask"></i> Recherche
+                    </button>
+
+                    <button class="filter" data-type="domain" data-value="institutions">
+                        <i class="fa-solid fa-landmark"></i> Institutions
+                    </button>
+
+                    <button class="filter" data-type="domain" data-value="collectivites">
+                        <i class="fa-solid fa-building-columns"></i> Collectivités
+                    </button>
+
+                    <button class="filter" data-type="domain" data-value="logement_social">
+                        <i class="fa-solid fa-house-chimney"></i> Logement social
+                    </button>
+
+                    <button class="filter" data-type="domain" data-value="associatif">
+                        <i class="fa-solid fa-people-group"></i> Associatif
+                    </button>
+
+                    <button class="filter" data-type="domain" data-value="industrie">
+                        <i class="fa-solid fa-industry"></i> Industrie
+                    </button>
+
+                    <button class="filter" data-type="domain" data-value="application_metier">
+                        <i class="fa-solid fa-gears"></i> Application métier
+                    </button>
                 </div>
 
                 <div class="flex flex-wrap gap-2" id="filtersFormat">
@@ -140,7 +168,7 @@
     <div id="projectsGrid" class="grid md:grid-cols-2 gap-8"></div>
 
     <div class="mt-10 text-center text-xs text-slate-500">
-        Projets réalisés dans le cadre de mon poste au sein de l’agence <strong>Net.Com</strong>.
+        Échantillon de projets réalisés dans le cadre de mon poste au sein de l’agence <strong>Net.Com</strong>.
     </div>
 </section>
 
@@ -193,311 +221,456 @@
 </div>
 
 <script>
-    // ---- Data (à affiner plus tard) ----
-    // tech: drupal|wordpress
-    // sector: education|sante|public|asso
-    // format: usine|intranet|carriere (ou [])
+    // ---- Data ----
     const PROJECTS = [
+
         // --- Éducation ---
-        { id:"polytechnique", title:"École Polytechnique", tech:"drupal", sector:"education", format:["usine"], subtitle:"Drupal • institutionnel • usine à sites",
-            context:"Portail institutionnel avec plusieurs sites rattachés. Besoin de cohérence, d’industrialisation et de stabilité dans la durée.",
-            role:"Développement back-end et référente Drupal sur une partie des chantiers : cadrage technique, dev, migrations, recette et accompagnement.",
+        { id:"polytechnique", title:"École Polytechnique", tech:"drupal", domain:"enseignement", format:["usine"], subtitle:"Drupal • multisite • plateforme institutionnelle",
+
+            context:"Plateforme institutionnelle Drupal en multisite regroupant 5 sites. Socle technique et graphique commun, avec des thèmes et des adaptations fonctionnelles spécifiques à chaque site selon les besoins éditoriaux.",
+
+            role:"Participation à la conception fonctionnelle et technique du projet. Lead developer sur la partie développement : architecture Drupal multisite, modules personnalisés, migrations de contenus, accompagnement lors des mises en production et maintenance de la plateforme.",
+
             actions:[
-                { icon:"fa-cubes", color:"text-sky-600", text:"Modules sur-mesure, workflows, outillage interne." },
-                { icon:"fa-truck-fast", color:"text-sky-600", text:"Migrations et reprises de contenus (dont multi-langue selon besoins)." },
-                { icon:"fa-check-double", color:"text-sky-600", text:"Relectures techniques, recette interne, corrections avant livraison." },
+                { icon:"fa-diagram-project", color:"text-sky-600", text:"Architecture Drupal multisite : socle commun (modules, configuration) et adaptations spécifiques par site." },
+                { icon:"fa-cubes", color:"text-sky-600", text:"Développement de modules personnalisés et fonctionnalités de partage de contenus entre sites." },
+                { icon:"fa-truck-fast", color:"text-sky-600", text:"Migration des anciens contenus et accompagnement aux mises en production." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance de la plateforme : mises à jour Drupal et modules, correctifs et évolutions." },
             ],
-            stack:["PHP","Drupal","Drush","Composer","Git","Docker"],
-            highlight:"Plateforme Drupal structurée : industrialisation, migration, qualité de livraison."
+
+            stack:["Drupal","PHP","Drush","Composer","Git"],
+
+            highlight:"Plateforme Drupal multisite pour un établissement d'enseignement majeur : architecture sur-mesure, modules personnalisés, migrations de contenus et maintenance continue."
         },
-        { id:"ip-paris", title:"IP Paris", tech:"drupal", sector:"education", format:["usine"], subtitle:"Drupal • institutionnel • écosystème multi-sites",
-            context:"Ensemble de sites d’établissement avec contraintes d’harmonisation (modèles, composants, règles éditoriales) et de maintenabilité.",
-            role:"Développement back-end, support technique, contributions aux modules/standard agence et accompagnement sur les phases de recette.",
+
+        { id:"ip-paris", title:"Institut Polytechnique de Paris", tech:"drupal", domain:"enseignement", format:["usine"], subtitle:"Drupal • plateforme institutionnelle • usine à sites",
+
+            context:"Plateforme web de l'Institut Polytechnique de Paris. Le site institutionnel initial a été étendu en une usine à sites Drupal permettant de créer et gérer une vingtaine de sites autonomes partageant un socle technique commun.",
+
+            role:"Développement back-end et contributions au socle technique de l'usine à sites : modules communs, évolutions fonctionnelles et maintenance de la plateforme. Intervention régulière sur les mises à jour Drupal et modules, et accompagnement technique des équipes.",
+
             actions:[
-                { icon:"fa-diagram-project", color:"text-sky-600", text:"Contribution aux bases “usine à sites” (mutualisation, patterns, bonnes pratiques)." },
-                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance, évolutions, mises à jour Drupal & modules." },
-                { icon:"fa-user-gear", color:"text-sky-600", text:"Support technique et conseil côté client/projet." },
+                { icon:"fa-diagram-project", color:"text-sky-600", text:"Contribution à l'architecture de l'usine à sites : mutualisation du socle technique et adaptations fonctionnelles pour les différents sites." },
+                { icon:"fa-magnifying-glass", color:"text-sky-600", text:"Intégration d'Algolia pour un moteur de recherche partagé entre les différents sites de la plateforme." },
+                { icon:"fa-cubes", color:"text-sky-600", text:"Développement et évolution de fonctionnalités spécifiques sur le thème et les modules de la plateforme." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance continue : mises à jour Drupal et modules, correctifs et évolutions fonctionnelles." },
             ],
-            stack:["Drupal","PHP","Drush","Composer","GitLab","Docker"],
-            highlight:"Travail récurrent sur usine à sites : durabilité, mutualisation, support et qualité."
+
+            stack:["Drupal","PHP","Algolia","Drush","Composer","GitLab"],
+
+            highlight:"Plateforme Drupal évolutive pour un grand établissement d'enseignement : usine à sites (~20 sites), recherche Algolia mutualisée et maintenance continue."
         },
-        { id:"enpc", title:"ENPC — École nationale des ponts et chaussées", tech:"drupal", sector:"education", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site institutionnel : besoins éditoriaux, structuration des contenus et maintenabilité.",
-            role:"Développement back-end, intégration des découpes front, recette et évolutions.",
+
+        { id:"enpc", title:"École nationale des ponts et chaussées", tech:"drupal", domain:"enseignement", format:[], subtitle:"Drupal • site institutionnel",
+
+            context:"Site institutionnel de l'École nationale des ponts et chaussées, membre de l'Institut Polytechnique de Paris. Le projet s'appuie sur le socle technique d'IP Paris pour une mise en ligne rapide, avec des adaptations graphiques et fonctionnelles propres à l'école.",
+
+            role:"Développement back-end, intégration des découpes front et adaptation du socle IP Paris aux besoins spécifiques du site. Travail important sur la migration des contenus existants, accompagnement lors de la mise en production et suivi des évolutions.",
+
             actions:[
-                { icon:"fa-code", color:"text-sky-600", text:"Intégration Twig / gabarits à partir des découpes." },
-                { icon:"fa-cubes", color:"text-sky-600", text:"Dév de modules / réglages pour besoins spécifiques." },
-                { icon:"fa-rocket", color:"text-sky-600", text:"Livraison, mise en production, corrections post-recette." },
+                { icon:"fa-paintbrush", color:"text-sky-600", text:"Adaptation graphique et intégration sur la base du socle IP Paris." },
+                { icon:"fa-truck-fast", color:"text-sky-600", text:"Reprise et migration d'une partie importante des contenus du site précédent." },
+                { icon:"fa-cubes", color:"text-sky-600", text:"Adaptations fonctionnelles spécifiques aux besoins éditoriaux de l'école." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et évolutions continues du site après mise en ligne." },
             ],
-            stack:["Drupal","Twig","PHP","Git"],
-            highlight:"Exemple de cycle complet : intégration → dev back → livraison → maintenance."
+
+            stack:["Drupal","PHP","Twig","Drush","Docker","Git"],
+
+            highlight:"Site institutionnel Drupal basé sur le socle IP Paris : adaptation graphique, migration de contenus et évolutions continues."
         },
-        { id:"ensae", title:"ENSAE", tech:"drupal", sector:"education", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site institutionnel avec exigences de cohérence et d’évolutivité.",
-            role:"Développement back-end, support et suivi des évolutions.",
+
+        { id:"ensae", title:"ENSAE Paris", tech:"drupal", domain:"enseignement", format:[], subtitle:"Drupal • institutionnel • intégration API",
+
+            context:"Site institutionnel de l'ENSAE Paris, école membre de l'Institut Polytechnique de Paris. Le projet s'appuie sur le socle technique d'IP Paris pour une mise en ligne rapide, avec des besoins fonctionnels propres à l'école : notamment l'exposition du corps enseignant et des formations.",
+
+            role:"Développement back-end, adaptation du socle IP Paris aux besoins spécifiques de l'ENSAE, intégration d'APIs internes et maintenance du site.",
+
             actions:[
-                { icon:"fa-cubes", color:"text-sky-600", text:"Back-end Drupal : config, contenus, modules sur-mesure." },
-                { icon:"fa-check-double", color:"text-sky-600", text:"Recette interne et corrections." },
-                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et mises à jour." },
+                { icon:"fa-diagram-project", color:"text-sky-600", text:"Adaptation du socle IP Paris : thème, configuration et modules ajustés aux besoins éditoriaux de l'ENSAE." },
+                { icon:"fa-plug", color:"text-sky-600", text:"Intégration des APIs internes de l'ENSAE : développement d'un module sur-mesure exposant dynamiquement le corps enseignant et les cours associés." },
+                { icon:"fa-truck-fast", color:"text-sky-600", text:"Mise en production et accompagnement client lors des phases de recette et de livraison." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et suivi des évolutions post-mise en ligne." },
             ],
-            stack:["Drupal","PHP","Composer","Drush"],
-            highlight:"Maintenance + évolution continue dans un contexte institutionnel."
+
+            stack:["Drupal","PHP","REST API","Composer","Drush","Git"],
+
+            highlight:"Réutilisation du socle IP Paris pour une mise en ligne rapide, avec développement sur-mesure d'une intégration API pour la gestion dynamique du corps enseignant et des formations."
         },
-        { id:"ensea", title:"ENSEA", tech:"drupal", sector:"education", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site institutionnel avec besoins éditoriaux et contraintes de livraison.",
-            role:"Dev back-end, intégration, support client.",
+
+        { id:"ensea", title:"École nationale supérieure de l'électronique et de ses applications", tech:"drupal", domain:"enseignement", format:[], subtitle:"Drupal • site institutionnel",
+
+            context:"Site institutionnel de l'École nationale supérieure de l'électronique et de ses applications (ENSEA). Projet mené en équipe, avec des besoins éditoriaux structurés et des exigences de qualité à la livraison.",
+
+            role:"Contribution en appui de l'équipe projet : relecture du cahier fonctionnel, développement back-end, intégration et support. Prise en charge de la maintenance évolutive et préventive du site après mise en ligne.",
+
             actions:[
-                { icon:"fa-code", color:"text-sky-600", text:"Intégration (Twig) et composants." },
-                { icon:"fa-user-gear", color:"text-sky-600", text:"Support et conseil." },
-                { icon:"fa-rocket", color:"text-sky-600", text:"Mise en production et suivi." },
+                { icon:"fa-file-lines", color:"text-sky-600", text:"Relecture du cahier fonctionnel et contribution aux échanges techniques en amont du développement." },
+                { icon:"fa-code", color:"text-sky-600", text:"Développement back-end et intégration Twig en appui de l'équipe." },
+                { icon:"fa-rocket", color:"text-sky-600", text:"Accompagnement lors de la mise en production et suivi des retours de recette." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance évolutive et préventive du site après mise en ligne." },
             ],
-            stack:["Drupal","Twig","Git"],
-            highlight:"Orientation “qualité de livraison” et support."
+
+            stack:["Drupal","PHP","Twig","Composer","Git"],
+
+            highlight:"Contribution transverse sur un projet en équipe : cadrage fonctionnel, développement, livraison et maintenance dans la durée."
         },
-        { id:"centrale-lyon", title:"École Centrale de Lyon", tech:"drupal", sector:"education", format:[], subtitle:"Drupal • institutionnel • maintenance",
-            context:"Site institutionnel et composants partagés dans la durée.",
-            role:"Développement, maintenance et recette interne.",
+
+        { id:"centrale-lyon", title:"École Centrale de Lyon", tech:"drupal", domain:"enseignement", format:["usine"], subtitle:"Drupal • multisite • plateforme institutionnelle",
+
+            context:"Plateforme institutionnelle Drupal en multisite regroupant 4 sites. Architecture pensée pour factoriser les développements : fonctionnalités communes mutualisées, thèmes enfants par site et synchronisation de contenus entre les différents sites. Plateforme multilingue avec intégration de DeepL pour la traduction automatique directement depuis le back-office.",
+
+            role:"Développement back-end sur l'ensemble de la plateforme : conception et développement des briques communes, modules personnalisés, intégration des thèmes enfants, migration des contenus existants et accompagnement lors des mises en production.",
+
             actions:[
-                { icon:"fa-paintbrush", color:"text-sky-600", text:"Thèmes / Twig : intégration, corrections UI." },
-                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance : correctifs et évolutions." },
-                { icon:"fa-check-double", color:"text-sky-600", text:"Relectures techniques et recette." },
+                { icon:"fa-diagram-project", color:"text-sky-600", text:"Architecture Drupal multisite : socle commun et thèmes enfants, avec un découpage fonctionnel permettant la réutilisation entre les 4 sites." },
+                { icon:"fa-cubes", color:"text-sky-600", text:"Développement de modules personnalisés et mise en place de la synchronisation de contenus entre les sites." },
+                { icon:"fa-language", color:"text-sky-600", text:"Intégration de DeepL pour la traduction automatique des contenus multilingues depuis le back-office Drupal." },
+                { icon:"fa-truck-fast", color:"text-sky-600", text:"Migration des anciens contenus et accompagnement aux mises en production." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et évolutions continues de la plateforme après mise en ligne." },
             ],
-            stack:["Drupal","Twig","Drush"],
-            highlight:"Exemple “maintenance + qualité” sur Drupal."
+
+            stack:["Drupal","PHP","Twig","DeepL API","Drush","Composer","Git"],
+
+            highlight:"Plateforme Drupal multisite pour l'École Centrale de Lyon : architecture mutualisée sur 4 sites, synchronisation de contenus, traduction automatique DeepL et migration des contenus existants."
         },
 
         // --- Santé ---
-        { id:"chu-grenoble", title:"CHU Grenoble (CHUGA)", tech:"drupal", sector:"sante", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site institutionnel santé : exigences de stabilité, accessibilité et contenu riche.",
-            role:"Dev back-end, intégration, recette et maintenance.",
+        { id:"chu-grenoble", title:"CHU Grenoble (CHUGA)", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site institutionnel",
+
+            context:"Site institutionnel du Centre Hospitalier Universitaire de Grenoble. Projet avec des exigences de stabilité, d'accessibilité et de richesse éditoriale propres au secteur de la santé.",
+
+            role:"Développement back-end, intégration, recette interne et maintenance du site.",
+
             actions:[
-                { icon:"fa-shield", color:"text-emerald-600", text:"Qualité : relectures, recette, stabilisation." },
-                { icon:"fa-cubes", color:"text-emerald-600", text:"Évolutions back-end et ajustements fonctionnels." },
-                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Mises à jour CMS/modules selon projet." },
+                { icon:"fa-shield", color:"text-emerald-600", text:"Relectures techniques, recette interne et stabilisation avant mise en production." },
+                { icon:"fa-cubes", color:"text-emerald-600", text:"Évolutions back-end et ajustements fonctionnels selon les besoins du client." },
+                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et mises à jour Drupal et modules." },
             ],
+
             stack:["Drupal","PHP","Git"],
-            highlight:"Robustesse et qualité dans un contexte santé."
-        },
-        { id:"ch-niort-web", title:"CH Niort (Internet)", tech:"drupal", sector:"sante", format:[], subtitle:"Drupal • site public",
-            context:"Site public d’établissement : structuration et mise à jour régulière des contenus.",
-            role:"Dev back-end et maintenance.",
-            actions:[
-                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et évolutions." },
-                { icon:"fa-rocket", color:"text-emerald-600", text:"Mise en production et suivi." },
-                { icon:"fa-user-gear", color:"text-emerald-600", text:"Support et conseil." },
-            ],
-            stack:["Drupal","Drush","Composer"],
-            highlight:"Cycle maintenance + support."
-        },
-        { id:"ch-niort-intranet", title:"CH Niort (Intranet)", tech:"drupal", sector:"sante", format:["intranet"], subtitle:"Drupal • intranet",
-            context:"Intranet : besoins de contenus internes et gestion d’accès.",
-            role:"Dev back-end, ajustements d’accès, support.",
-            actions:[
-                { icon:"fa-lock", color:"text-emerald-600", text:"Accès / rôles selon besoins." },
-                { icon:"fa-cubes", color:"text-emerald-600", text:"Développements et réglages spécifiques." },
-                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et évolutions." },
-            ],
-            stack:["Drupal","PHP","Git"],
-            highlight:"Intranet : gestion d’accès + maintenance."
-        },
-        { id:"ch-pgv", title:"CH PGV — Villejuif", tech:"drupal", sector:"sante", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site institutionnel : contenus, templates, maintenance.",
-            role:"Dev back-end, intégration, recette.",
-            actions:[
-                { icon:"fa-code", color:"text-emerald-600", text:"Intégration des découpes front." },
-                { icon:"fa-check-double", color:"text-emerald-600", text:"Recette interne et corrections." },
-                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et mises à jour." },
-            ],
-            stack:["Drupal","Twig","Composer"],
-            highlight:"Livraison maîtrisée + maintenance."
+
+            highlight:"Robustesse et qualité de livraison dans un contexte institutionnel santé."
         },
 
-        // --- Public / institutionnel ---
-        { id:"epsf", title:"EPSF", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site institutionnel : cadrage, évolutions et maintien en condition opérationnelle.",
-            role:"Dev back-end, support client, MEP.",
+        { id:"ch-niort-web", title:"CH Niort — Site public", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site public",
+
+            context:"Site public du Centre Hospitalier de Niort. Projet axé sur la structuration des contenus et leur mise à jour régulière.",
+
+            role:"Développement back-end et maintenance du site.",
+
             actions:[
-                { icon:"fa-people-group", color:"text-indigo-600", text:"Réunions / échanges client et cadrage technique." },
-                { icon:"fa-rocket", color:"text-indigo-600", text:"Mise en production et suivi." },
-                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et évolutions." },
+                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et évolutions du site après mise en ligne." },
+                { icon:"fa-rocket", color:"text-emerald-600", text:"Accompagnement lors des mises en production et suivi des retours." },
+                { icon:"fa-user-gear", color:"text-emerald-600", text:"Support et conseil auprès du client." },
             ],
-            stack:["Drupal","Git","Drush"],
-            highlight:"Projet institutionnel : cycle long et évolutif."
+
+            stack:["Drupal","PHP","Drush","Composer"],
+
+            highlight:"Maintenance et support continu sur un site public institutionnel."
         },
-        { id:"onera", title:"ONERA", tech:"drupal", sector:"public", format:["usine"], subtitle:"Drupal • institutionnel • écosystème",
-            context:"Sites/sections multiples avec besoin d’harmonisation, d’évolutions continues et de mise à jour maîtrisée.",
-            role:"Dev back-end, contributions aux briques communes, support et MEP.",
+
+        { id:"ch-niort-intranet", title:"CH Niort — Intranet", tech:"drupal", domain:"sante", format:["intranet"], subtitle:"Drupal • intranet",
+
+            context:"Intranet du Centre Hospitalier de Niort. Projet avec des besoins de gestion de contenus internes et de contrôle des accès par profil.",
+
+            role:"Développement back-end, gestion des accès et des rôles, support et maintenance.",
+
             actions:[
-                { icon:"fa-diagram-project", color:"text-indigo-600", text:"Harmonisation / mutualisation selon patterns." },
-                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance & mises à jour Drupal/modules." },
-                { icon:"fa-check-double", color:"text-indigo-600", text:"Recettes et corrections." },
+                { icon:"fa-lock", color:"text-emerald-600", text:"Gestion des accès et des rôles selon les besoins du client." },
+                { icon:"fa-cubes", color:"text-emerald-600", text:"Développements spécifiques et ajustements fonctionnels." },
+                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et évolutions du site après mise en ligne." },
             ],
+
+            stack:["Drupal","PHP","Git"],
+
+            highlight:"Intranet institutionnel : gestion des accès et maintenance dans la durée."
+        },
+
+        { id:"ch-pgv", title:"CH Paul-Guiraud — Villejuif", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site institutionnel",
+
+            context:"Site institutionnel du Centre Hospitalier Paul-Guiraud de Villejuif. Projet structuré autour de la livraison des gabarits de contenus et de la maintenance.",
+
+            role:"Développement back-end, intégration des découpes front et recette interne.",
+
+            actions:[
+                { icon:"fa-code", color:"text-emerald-600", text:"Intégration des découpes front en Twig." },
+                { icon:"fa-check-double", color:"text-emerald-600", text:"Recette interne et corrections avant mise en production." },
+                { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et mises à jour après mise en ligne." },
+            ],
+
+            stack:["Drupal","PHP","Twig","Composer"],
+
+            highlight:"Livraison maîtrisée et maintenance continue sur un site institutionnel santé."
+        },
+
+        // --- Recherche ---
+        { id:"onera", title:"ONERA", tech:"drupal", domain:"recherche", format:["usine"], subtitle:"Drupal • plateforme institutionnelle",
+
+            context:"Plateforme web de l'ONERA (Office national d'études et de recherches aérospatiales), composée de plusieurs sites et sections avec un besoin d'harmonisation technique, d'évolutions continues et de mises à jour maîtrisées.",
+
+            role:"Développement back-end, contributions aux briques communes de la plateforme, accompagnement lors des mises en production et maintenance.",
+
+            actions:[
+                { icon:"fa-diagram-project", color:"text-indigo-600", text:"Harmonisation et mutualisation des composants techniques entre les différents sites de la plateforme." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour Drupal et modules." },
+                { icon:"fa-check-double", color:"text-indigo-600", text:"Recette interne et corrections avant mise en production." },
+            ],
+
             stack:["Drupal","PHP","Composer","Drush"],
-            highlight:"Approche “plateforme” : mutualisation, maintenance, qualité."
-        },
-        { id:"onera-carriere", title:"ONERA Carrières", tech:"drupal", sector:"public", format:["carriere"], subtitle:"Drupal • site carrières",
-            context:"Espace orienté recrutement : contenus, formulaires, structuration.",
-            role:"Dev back-end, intégration, support et évolutions.",
-            actions:[
-                { icon:"fa-briefcase", color:"text-indigo-600", text:"Mise en place et ajustements fonctionnels." },
-                { icon:"fa-code", color:"text-indigo-600", text:"Intégration et templates." },
-                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Évolutions et maintenance." },
-            ],
-            stack:["Drupal","Twig","Git"],
-            highlight:"Projet “carrières” : mise en valeur contenu + fiabilité."
-        },
-        { id:"onera-iris", title:"ONERA — IRIS", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site/section spécifique au sein d’un écosystème institutionnel.",
-            role:"Dev back-end, maintenance, support.",
-            actions:[
-                { icon:"fa-cubes", color:"text-indigo-600", text:"Back-end et réglages spécifiques." },
-                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance." },
-                { icon:"fa-user-gear", color:"text-indigo-600", text:"Support et conseil." },
-            ],
-            stack:["Drupal","Drush","Composer"],
-            highlight:"Interventions ciblées au sein d’une plateforme."
-        },
-        { id:"asp-public", title:"ASP Public", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • site public",
-            context:"Site public avec besoins éditoriaux et maintenance.",
-            role:"Dev back-end, intégration, recette, support.",
-            actions:[
-                { icon:"fa-code", color:"text-indigo-600", text:"Intégration des découpes front." },
-                { icon:"fa-check-double", color:"text-indigo-600", text:"Recette et corrections." },
-                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour." },
-            ],
-            stack:["Drupal","Twig","Git"],
-            highlight:"Cycle complet : intégration + back + maintenance."
-        },
-        { id:"arb-cvl", title:"ARB Centre-Val de Loire", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site institutionnel / portail : évolutions et support.",
-            role:"Dev back-end, support client, maintenance.",
-            actions:[
-                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Évolutions et maintenance." },
-                { icon:"fa-people-group", color:"text-indigo-600", text:"Échanges client / cadrage." },
-                { icon:"fa-rocket", color:"text-indigo-600", text:"Livraisons et mises en production." },
-            ],
-            stack:["Drupal","Composer","Drush"],
-            highlight:"Maintenance + conseil, sur un site institutionnel."
-        },
-        { id:"ihemi", title:"IHEMI", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site institutionnel : structuration de contenu et maintenance.",
-            role:"Dev back-end, intégration, recette.",
-            actions:[
-                { icon:"fa-cubes", color:"text-indigo-600", text:"Back-end Drupal (config, modules si besoin)." },
-                { icon:"fa-check-double", color:"text-indigo-600", text:"Recette interne et corrections." },
-                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Mises à jour et maintenance." },
-            ],
-            stack:["Drupal","PHP","Git"],
-            highlight:"Structuration + durabilité."
-        },
-        { id:"mnhn", title:"MNHN", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site institutionnel riche en contenus, maintenance et évolutions.",
-            role:"Dev back-end, support et suivi.",
-            actions:[
-                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et évolutions." },
-                { icon:"fa-shield", color:"text-indigo-600", text:"Qualité et stabilisation." },
-                { icon:"fa-user-gear", color:"text-indigo-600", text:"Support client." },
-            ],
-            stack:["Drupal","Drush","Composer"],
-            highlight:"Fiabilité et maintenance sur le long terme."
-        },
-        { id:"cdg69", title:"cdg69", tech:"drupal", sector:"public", format:[], subtitle:"Drupal • institutionnel",
-            context:"Site institutionnel : évolutions, maintenance et mises à jour.",
-            role:"Dev back-end, MEP, support.",
-            actions:[
-                { icon:"fa-rocket", color:"text-indigo-600", text:"Mises en production et suivi." },
-                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour." },
-                { icon:"fa-people-group", color:"text-indigo-600", text:"Cadrage et échanges client." },
-            ],
-            stack:["Drupal","Git","Composer"],
-            highlight:"Exemple de maintien en condition opérationnelle."
+
+            highlight:"Approche plateforme : mutualisation des composants, maintenance et qualité de livraison."
         },
 
-        // --- WordPress ---
-        { id:"cd-vosges", title:"CD Vosges", tech:"wordpress", sector:"public", format:[], subtitle:"WordPress • institutionnel",
-            context:"Site WordPress institutionnel : évolutions, intégration, maintenance.",
-            role:"Support technique, intégration, évolutions, mises à jour.",
+        { id:"onera-carriere", title:"ONERA — Carrières", tech:"drupal", domain:"recherche", format:["carriere"], subtitle:"Drupal • site carrières",
+
+            context:"Espace carrières de l'ONERA : présentation des offres et des métiers, avec des besoins de structuration des contenus et de fiabilité des formulaires.",
+
+            role:"Développement back-end, intégration et maintenance de l'espace carrières.",
+
+            actions:[
+                { icon:"fa-briefcase", color:"text-indigo-600", text:"Mise en place et ajustements fonctionnels de l'espace carrières." },
+                { icon:"fa-code", color:"text-indigo-600", text:"Intégration des gabarits de contenus en Twig." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Évolutions et maintenance après mise en ligne." },
+            ],
+
+            stack:["Drupal","PHP","Twig","Git"],
+
+            highlight:"Site carrières : mise en valeur des contenus et fiabilité de la plateforme."
+        },
+
+        { id:"onera-iris", title:"ONERA — IRIS", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal • site institutionnel",
+
+            context:"Site ou section spécifique au sein de l'écosystème institutionnel de l'ONERA, avec des besoins de développement ciblé et de maintenance.",
+
+            role:"Développement back-end, maintenance et support au sein de la plateforme existante.",
+
+            actions:[
+                { icon:"fa-cubes", color:"text-indigo-600", text:"Développements back-end et ajustements spécifiques." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour." },
+                { icon:"fa-user-gear", color:"text-indigo-600", text:"Support et conseil auprès du client." },
+            ],
+
+            stack:["Drupal","PHP","Drush","Composer"],
+
+            highlight:"Interventions ciblées au sein d'une plateforme institutionnelle existante."
+        },
+
+        { id:"mnhn", title:"MNHN — Publications scientifiques", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal • boutique • publications",
+
+            context:"Boutique en ligne du Muséum national d'Histoire naturelle dédiée à la vente de publications scientifiques : périodiques et collections. Projet avec des besoins de structuration du catalogue, de gestion des contenus et de maintenance.",
+
+            role:"Développement back-end, suivi des évolutions et maintenance de la boutique.",
+
+            actions:[
+                { icon:"fa-book", color:"text-indigo-600", text:"Structuration du catalogue : périodiques et collections." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et évolutions fonctionnelles de la boutique." },
+                { icon:"fa-user-gear", color:"text-indigo-600", text:"Support et conseil auprès du client." },
+            ],
+
+            stack:["Drupal","PHP","Drush","Composer"],
+
+            highlight:"Boutique Drupal pour la vente de publications scientifiques : structuration du catalogue et maintenance."
+        },
+
+        // --- Institutions ---
+        { id:"epsf", title:"EPSF", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site institutionnel",
+
+            context:"Site institutionnel de l'EPSF (Établissement public de sécurité ferroviaire). Projet avec un cycle long, des besoins d'évolutions régulières et un maintien en condition opérationnelle.",
+
+            role:"Développement back-end, accompagnement client et mises en production.",
+
+            actions:[
+                { icon:"fa-people-group", color:"text-indigo-600", text:"Échanges client et cadrage technique des évolutions." },
+                { icon:"fa-rocket", color:"text-indigo-600", text:"Accompagnement lors des mises en production et suivi des retours." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et évolutions du site." },
+            ],
+
+            stack:["Drupal","PHP","Git","Drush"],
+
+            highlight:"Projet institutionnel sur cycle long : évolutions régulières et maintien en condition opérationnelle."
+        },
+
+        { id:"asp-public", title:"ASP — Site public", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site public",
+
+            context:"Site public de l'Agence de Services et de Paiement. Projet avec des besoins éditoriaux structurés et une maintenance régulière.",
+
+            role:"Développement back-end, intégration, recette interne et support.",
+
+            actions:[
+                { icon:"fa-code", color:"text-indigo-600", text:"Intégration des découpes front en Twig." },
+                { icon:"fa-check-double", color:"text-indigo-600", text:"Recette interne et corrections avant mise en production." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour après mise en ligne." },
+            ],
+
+            stack:["Drupal","PHP","Twig","Git"],
+
+            highlight:"Cycle complet : intégration, recette et maintenance sur un site public institutionnel."
+        },
+
+        { id:"ihemi", title:"IHEMI", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site institutionnel",
+
+            context:"Site institutionnel de l'Institut des Hautes Études du Ministère de l'Intérieur. Projet axé sur la structuration des contenus et la durabilité de la plateforme.",
+
+            role:"Développement back-end, intégration et recette interne.",
+
+            actions:[
+                { icon:"fa-cubes", color:"text-indigo-600", text:"Développement back-end Drupal : configuration et modules." },
+                { icon:"fa-check-double", color:"text-indigo-600", text:"Recette interne et corrections avant mise en production." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Mises à jour et maintenance du site." },
+            ],
+
+            stack:["Drupal","PHP","Git"],
+
+            highlight:"Structuration des contenus et durabilité sur un site institutionnel."
+        },
+
+        // --- Collectivités ---
+        { id:"arb-cvl", title:"ARB Centre-Val de Loire", tech:"drupal", domain:"collectivites", format:[], subtitle:"Drupal • site institutionnel",
+
+            context:"Site institutionnel de l'Agence Régionale de la Biodiversité Centre-Val de Loire. Projet avec des besoins d'évolutions régulières et de support.",
+
+            role:"Développement back-end, support client et maintenance.",
+
+            actions:[
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Évolutions fonctionnelles et maintenance du site." },
+                { icon:"fa-people-group", color:"text-indigo-600", text:"Échanges client et cadrage des évolutions." },
+                { icon:"fa-rocket", color:"text-indigo-600", text:"Accompagnement lors des mises en production." },
+            ],
+
+            stack:["Drupal","PHP","Composer","Drush"],
+
+            highlight:"Maintenance et conseil sur le long terme pour un site institutionnel de collectivité."
+        },
+
+        { id:"cdg69", title:"CDG 69", tech:"drupal", domain:"collectivites", format:[], subtitle:"Drupal • site institutionnel",
+
+            context:"Site institutionnel du Centre de Gestion de la Fonction Publique du Rhône. Projet axé sur le maintien en condition opérationnelle et les évolutions régulières.",
+
+            role:"Développement back-end, mises en production et support.",
+
+            actions:[
+                { icon:"fa-rocket", color:"text-indigo-600", text:"Accompagnement lors des mises en production et suivi des retours." },
+                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour Drupal et modules." },
+                { icon:"fa-people-group", color:"text-indigo-600", text:"Échanges client et cadrage des évolutions." },
+            ],
+
+            stack:["Drupal","PHP","Git","Composer"],
+
+            highlight:"Maintien en condition opérationnelle et évolutions régulières sur un site institutionnel."
+        },
+
+        // --- WordPress collectivités ---
+        { id:"cd-vosges", title:"Conseil Départemental des Vosges", tech:"wordpress", domain:"collectivites", format:[], subtitle:"WordPress • site institutionnel",
+
+            context:"Site institutionnel du Conseil Départemental des Vosges sous WordPress. Projet avec des besoins d'intégration, d'évolutions et de maintenance régulière.",
+
+            role:"Support technique, intégration des découpes front, évolutions et mises à jour.",
+
             actions:[
                 { icon:"fa-code", color:"text-slate-700", text:"Intégration des découpes front." },
-                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour WordPress & extensions." },
-                { icon:"fa-user-gear", color:"text-slate-700", text:"Support et conseil." },
+                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour WordPress et extensions." },
+                { icon:"fa-user-gear", color:"text-slate-700", text:"Support et conseil auprès du client." },
             ],
+
             stack:["WordPress","PHP","Git"],
-            highlight:"WordPress : intégration + maintenance + support."
-        },
-        { id:"ght-gpne", title:"GHT GPNE", tech:"wordpress", sector:"sante", format:[], subtitle:"WordPress • santé",
-            context:"Site WordPress pour un contexte santé : contenus et maintenance.",
-            role:"Support, intégration, mises à jour.",
-            actions:[
-                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Maintenance et mises à jour." },
-                { icon:"fa-code", color:"text-slate-700", text:"Intégration des évolutions." },
-                { icon:"fa-rocket", color:"text-slate-700", text:"Livraison et suivi." },
-            ],
-            stack:["WordPress","PHP"],
-            highlight:"WordPress en contexte santé : stabilité et suivi."
-        },
-        { id:"smitom", title:"SMITOM-LOMBRIC", tech:"wordpress", sector:"public", format:[], subtitle:"WordPress • institutionnel",
-            context:"Site institutionnel WordPress : contenus, évolutions, maintenance.",
-            role:"Dev/support, mises à jour, intégration.",
-            actions:[
-                { icon:"fa-code", color:"text-slate-700", text:"Intégration & templates." },
-                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour WP & extensions." },
-                { icon:"fa-user-gear", color:"text-slate-700", text:"Support et conseil." },
-            ],
-            stack:["WordPress","PHP","Git"],
-            highlight:"WordPress : maintenance et qualité."
-        },
-        { id:"unml", title:"UNML", tech:"wordpress", sector:"asso", format:[], subtitle:"WordPress • associatif",
-            context:"Site WordPress : publication et contenus, maintenance.",
-            role:"Support technique et évolutions.",
-            actions:[
-                { icon:"fa-people-group", color:"text-slate-700", text:"Échanges et support client." },
-                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Maintenance / mises à jour." },
-                { icon:"fa-code", color:"text-slate-700", text:"Évolutions / intégration." },
-            ],
-            stack:["WordPress","PHP"],
-            highlight:"WordPress : support et maintien."
-        },
-        { id:"charot", title:"Charot", tech:"wordpress", sector:"public", format:[], subtitle:"WordPress • site vitrine",
-            context:"Site vitrine WordPress : contenus et maintenance.",
-            role:"Intégration, évolutions, support.",
-            actions:[
-                { icon:"fa-code", color:"text-slate-700", text:"Intégration front." },
-                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour." },
-                { icon:"fa-user-gear", color:"text-slate-700", text:"Support." },
-            ],
-            stack:["WordPress","PHP"],
-            highlight:"WordPress : intégration + maintenance."
+
+            highlight:"WordPress : intégration, maintenance et support sur un site institutionnel de collectivité."
         },
 
-        // --- USH Boutique (Drupal) ---
-        { id:"ush-boutique", title:"USH Boutique", tech:"drupal", sector:"asso", format:[], subtitle:"Drupal • plateforme / boutique",
-            context:"Espace de diffusion de ressources (type boutique/catalogue) dans un écosystème existant.",
-            role:"Dev back-end, évolutions, maintenance, support.",
+        { id:"smitom", title:"SMITOM-LOMBRIC", tech:"wordpress", domain:"collectivites", format:[], subtitle:"WordPress • site institutionnel",
+
+            context:"Site institutionnel du SMITOM-LOMBRIC (syndicat de traitement des ordures ménagères). Projet avec des besoins de gestion de contenus et de maintenance.",
+
+            role:"Développement, mises à jour et intégration.",
+
             actions:[
-                { icon:"fa-cubes", color:"text-sky-600", text:"Évolutions back-end selon besoins." },
+                { icon:"fa-code", color:"text-slate-700", text:"Intégration des gabarits de contenus." },
+                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour WordPress et extensions." },
+                { icon:"fa-user-gear", color:"text-slate-700", text:"Support et conseil auprès du client." },
+            ],
+
+            stack:["WordPress","PHP","Git"],
+
+            highlight:"WordPress : maintenance et qualité de service sur un site institutionnel."
+        },
+
+        // --- Logement social ---
+        { id:"ush-boutique", title:"USH — Boutique", tech:"drupal", domain:"logement_social", format:[], subtitle:"Drupal • plateforme de diffusion",
+
+            context:"Espace de diffusion de ressources (type catalogue/boutique) de l'Union Sociale pour l'Habitat, intégré à un écosystème Drupal existant.",
+
+            role:"Développement back-end, évolutions fonctionnelles, maintenance et support.",
+
+            actions:[
+                { icon:"fa-cubes", color:"text-sky-600", text:"Évolutions back-end selon les besoins du client." },
                 { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et mises à jour." },
-                { icon:"fa-people-group", color:"text-sky-600", text:"Échanges client / support." },
+                { icon:"fa-people-group", color:"text-sky-600", text:"Échanges client et support." },
             ],
+
             stack:["Drupal","PHP","Composer"],
-            highlight:"Drupal : évolutions + maintenance sur une plateforme."
+
+            highlight:"Évolutions et maintenance sur une plateforme de diffusion de ressources."
         },
-        { id:"ush-collab", title:"USH — Espaces Collaboratifs", tech:"drupal", sector:"asso", format:["usine"], subtitle:"Drupal • plateforme collaborative",
-            context:"Plateforme collaborative multi-espaces (gouvernance, accès, maintenance).",
-            role:"Dev back-end et maintenance.",
+
+        { id:"ush-collab", title:"USH — Espaces Collaboratifs", tech:"drupal", domain:"logement_social", format:["usine"], subtitle:"Drupal • plateforme collaborative",
+
+            context:"Plateforme collaborative multi-espaces de l'Union Sociale pour l'Habitat. Chaque espace dispose de sa propre gouvernance, gestion des accès et contenus, au sein d'un socle Drupal commun.",
+
+            role:"Développement back-end et maintenance de la plateforme.",
+
             actions:[
-                { icon:"fa-diagram-project", color:"text-sky-600", text:"Structuration multi-sites / mutualisation." },
-                { icon:"fa-user-shield", color:"text-sky-600", text:"Accès / rôles selon espaces." },
-                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance & évolutions." },
+                { icon:"fa-diagram-project", color:"text-sky-600", text:"Structuration multi-espaces et mutualisation du socle technique." },
+                { icon:"fa-user-shield", color:"text-sky-600", text:"Gestion des accès et des rôles par espace." },
+                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et évolutions de la plateforme." },
             ],
-            stack:["Drupal","Drush","GitLab"],
-            highlight:"Plateforme collaborative : gouvernance, accès, maintenance."
+
+            stack:["Drupal","PHP","Drush","GitLab"],
+
+            highlight:"Plateforme collaborative Drupal : gouvernance multi-espaces, gestion des accès et maintenance continue."
         },
+
+        // --- Associatif ---
+        { id:"unml", title:"UNML", tech:"wordpress", domain:"associatif", format:[], subtitle:"WordPress • site associatif",
+
+            context:"Site WordPress de l'Union Nationale des Missions Locales. Projet axé sur la publication de contenus et la maintenance régulière de la plateforme.",
+
+            role:"Support technique et suivi des évolutions du site.",
+
+            actions:[
+                { icon:"fa-people-group", color:"text-slate-700", text:"Échanges et support auprès du client." },
+                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Maintenance et mises à jour WordPress." },
+                { icon:"fa-code", color:"text-slate-700", text:"Évolutions et intégration." },
+            ],
+
+            stack:["WordPress","PHP","Git"],
+
+            highlight:"WordPress : support et maintien en condition opérationnelle sur un site associatif."
+        },
+
+        // --- Industrie ---
+        { id:"charot", title:"Charot", tech:"wordpress", domain:"industrie", format:[], subtitle:"WordPress • site vitrine",
+
+            context:"Site vitrine WordPress pour un acteur industriel. Projet avec des besoins d'intégration et de maintenance.",
+
+            role:"Intégration, évolutions et support.",
+
+            actions:[
+                { icon:"fa-code", color:"text-slate-700", text:"Intégration des découpes front." },
+                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour WordPress et extensions." },
+                { icon:"fa-user-gear", color:"text-slate-700", text:"Support et conseil." },
+            ],
+
+            stack:["WordPress","PHP","Git"],
+
+            highlight:"WordPress : intégration et maintenance sur un site vitrine industriel."
+        },
+
+        // --- Application métier ---
         {
             id: "quartiers-plus",
             title: "Quartiers Plus",
             tech: "symfony",
-            sector: "public",
+            domain: "application_metier",
             format: [],
             subtitle: "Symfony • application métier • données",
             context: "Application métier de suivi et gestion de programmes, avec profils utilisateurs, droits, et besoins d’exports/reporting.",
@@ -510,6 +683,7 @@
             stack: ["Symfony", "PHP", "SQL", "Doctrine", "Git"],
             highlight: "Projet représentatif de mon travail Symfony : métier, données, exports et fiabilité."
         },
+
     ];
 
     // ---- Rendering ----
@@ -518,17 +692,20 @@
     const ICON_TECH = {
         drupal: '<i class="fa-brands fa-drupal"></i>',
         wordpress: '<i class="fa-brands fa-wordpress"></i>',
+        symfony: '<i class="fa-brands fa-symfony"></i>',
     };
 
     function fmtBadges(p) {
-        const techLabel = p.tech === "drupal" ? "Drupal" : "WordPress";
-        const techBadge = `<span class="chip">${ICON_TECH[p.tech] ?? ""} ${techLabel}</span>`;
-
-        const sectorMap = {
-            education: '<span class="chip"><i class="fa-solid fa-graduation-cap"></i> Éducation</span>',
+        const domainMap = {
+            enseignement: '<span class="chip"><i class="fa-solid fa-graduation-cap"></i> Enseignement</span>',
             sante: '<span class="chip"><i class="fa-solid fa-hospital"></i> Santé</span>',
-            public: '<span class="chip"><i class="fa-solid fa-landmark"></i> Public</span>',
-            asso: '<span class="chip"><i class="fa-solid fa-people-group"></i> Associatif</span>',
+            recherche: '<span class="chip"><i class="fa-solid fa-flask"></i> Recherche</span>',
+            institutions: '<span class="chip"><i class="fa-solid fa-landmark"></i> Institutions</span>',
+            collectivites: '<span class="chip"><i class="fa-solid fa-building-columns"></i> Collectivités</span>',
+            logement_social: '<span class="chip"><i class="fa-solid fa-house-chimney"></i> Logement social</span>',
+            associatif: '<span class="chip"><i class="fa-solid fa-people-group"></i> Associatif</span>',
+            industrie: '<span class="chip"><i class="fa-solid fa-industry"></i> Industrie</span>',
+            application_metier: '<span class="chip"><i class="fa-solid fa-gears"></i> Application métier</span>',
         };
 
         const formatBadges = (p.format || []).map(f => {
@@ -538,7 +715,7 @@
             return '';
         }).join("");
 
-        return techBadge + (sectorMap[p.sector] ?? "") + formatBadges;
+        return (domainMap[p.domain] ?? "") + formatBadges;
     }
 
     function render() {
@@ -548,14 +725,14 @@
             return `
         <article class="card p-6 project-item"
                  data-tech="${p.tech}"
-                 data-sector="${p.sector}"
+                 data-domain="${p.domain}"
                  data-format="${fmt}">
           <div class="flex items-start justify-between gap-4">
             <div class="min-w-0">
               <h3 class="text-lg font-semibold">${p.title}</h3>
               <p class="text-sm text-slate-600 mt-1">${p.subtitle}</p>
             </div>
-            <div class="shrink-0">${ICON_TECH[p.tech] ? `<span class="chip">${ICON_TECH[p.tech]} ${p.tech === "drupal" ? "Drupal" : "WordPress"}</span>` : ""}</div>
+            <div class="shrink-0">${ICON_TECH[p.tech] ? `<span class="chip">${ICON_TECH[p.tech]} ${p.tech === "drupal" ? "Drupal" : (p.tech === "wordpress" ? "WordPress" : "Symfony")}</span>` : ""}</div>
           </div>
 
           <div class="mt-4 flex flex-wrap gap-2">
@@ -573,7 +750,7 @@
 
           <div class="mt-5 flex items-center justify-between gap-3">
             <div class="flex flex-wrap gap-2">
-              ${(p.stack || []).slice(0, 4).map(s => `<span class="chip">${s}</span>`).join("")}
+              ${(p.stack || []).slice(0, 5).map(s => `<span class="chip">${s}</span>`).join("")}
             </div>
             <button class="btn open-modal" data-project="${p.id}">Détails</button>
           </div>
@@ -583,15 +760,16 @@
     }
 
     // ---- Filtering ----
-    const filters = { tech: "all", sector: "all", format: "all" };
+    const filters = { tech: "all", domain: "all", format: "all" };
+
     function applyFilters() {
         document.querySelectorAll(".project-item").forEach(item => {
             const okTech = (filters.tech === "all") || (item.dataset.tech === filters.tech);
-            const okSector = (filters.sector === "all") || (item.dataset.sector === filters.sector);
+            const okDomain = (filters.domain === "all") || (item.dataset.domain === filters.domain);
             const fmt = (item.dataset.format || "").split(" ").filter(Boolean);
             const okFormat = (filters.format === "all") || fmt.includes(filters.format);
 
-            item.classList.toggle("hidden", !(okTech && okSector && okFormat));
+            item.classList.toggle("hidden", !(okTech && okDomain && okFormat));
         });
     }
 
