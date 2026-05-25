@@ -1,0 +1,60 @@
+/* ── Scroll reveal ──────────────────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Orbs / blobs décoratifs (hero page d'accueil) ─────────────────── */
+@keyframes orb-drift-a {
+    0%   { transform: translate(0, 0)     scale(1);    }
+    33%  { transform: translate(30px, -20px)  scale(1.06); }
+    66%  { transform: translate(-18px, 28px)  scale(0.96); }
+    100% { transform: translate(0, 0)     scale(1);    }
+}
+@keyframes orb-drift-b {
+    0%   { transform: translate(0, 0)     scale(1);    }
+    40%  { transform: translate(-25px, 18px)  scale(1.04); }
+    70%  { transform: translate(20px, -22px)  scale(0.98); }
+    100% { transform: translate(0, 0)     scale(1);    }
+}
+@keyframes orb-drift-c {
+    0%   { transform: translate(0, 0)    scale(1);    }
+    50%  { transform: translate(15px, 25px) scale(1.05); }
+    100% { transform: translate(0, 0)    scale(1);    }
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(55px);
+    will-change: transform;
+}
+.orb-a {
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgb(14 165 233 / 0.42), transparent 65%);
+    animation: orb-drift-a 22s ease-in-out infinite;
+}
+.orb-b {
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgb(99 102 241 / 0.38), transparent 65%);
+    animation: orb-drift-b 18s ease-in-out infinite;
+}
+.orb-c {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgb(14 165 233 / 0.28), transparent 65%);
+    animation: orb-drift-c 26s ease-in-out infinite;
+}
+
+/* ── Séparateur lumineux entre sections ────────────────────────────── */
+.section-glow {
+    pointer-events: none;
+    height: 56px;
+    background: radial-gradient(ellipse 55% 100% at 50% 50%, rgb(99 102 241 / 0.10) 0%, transparent 70%);
+    overflow: hidden;
+}
