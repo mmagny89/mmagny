@@ -74,11 +74,11 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>Mylène Magny — Développeuse Back-End (PHP/Drupal/Symfony)</title>
+    <title>Mylène Magny — Développeur Back-End (PHP/Drupal/Symfony)</title>
 
     <meta name="description"
-          content="Développeuse back-end spécialisée PHP, Drupal & Symfony. Projets, compétences, expériences, formations et contact."/>
-    <meta property="og:title" content="Mylène Magny — Développeuse Back-End (PHP/Drupal/Symfony)">
+          content="Développeur back-end spécialisée PHP, Drupal & Symfony. Projets, compétences, expériences, formations et contact."/>
+    <meta property="og:title" content="Mylène Magny — Développeur Back-End (PHP/Drupal/Symfony)">
     <meta property="og:description"
           content="Projets, compétences techniques, expérience et formations. Développement PHP/Drupal/Symfony.">
     <meta property="og:type" content="website">
@@ -201,7 +201,7 @@
                 <h1 class="text-3xl sm:text-5xl font-semibold leading-tight tracking-tight">
                     Mylène Magny
                     <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[rgb(var(--pri))] to-[rgb(var(--acc))]">
-                    Développeuse Web Back-End
+                    Développeur Web Back-End
                   </span>
                 </h1>
 
@@ -287,7 +287,7 @@
         <div class="reveal">
             <h2 id="projets-phares" class="section-title">Projets phares</h2>
             <p class="muted mt-2">
-                4 projets représentatifs — sur la page Projets : contexte, rôle, stack, et détails par mission.
+                5 projets représentatifs — cliquez sur une carte pour le contexte, le rôle et la stack.
             </p>
         </div>
 
@@ -296,94 +296,95 @@
         </a>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
-        <!-- Projet 1 -->
-        <article class="card p-6 reveal">
-            <div class="flex items-start justify-between gap-4">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Polytechnique -->
+        <article class="card p-6 reveal cursor-pointer open-modal-home" data-project="polytechnique">
+            <div class="flex items-start justify-between gap-3">
                 <div>
                     <h3 class="text-lg font-semibold">École Polytechnique</h3>
-                    <p class="text-sm text-slate-600 mt-1">Drupal • multisite • plateforme institutionnelle</p>
+                    <p class="text-xs text-slate-500 mt-1">Référente technique · Lead dev</p>
                 </div>
-                <span class="chip">Drupal</span>
+                <span class="chip shrink-0"><i class="fa-brands fa-drupal"></i> Drupal</span>
             </div>
-
-            <ul class="mt-4 text-sm space-y-2">
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-diagram-project mt-0.5 text-sky-600"></i>
-                    <span>Architecture multisite & modules sur-mesure</span>
-                </li>
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-truck-fast mt-0.5 text-sky-600"></i>
-                    <span>Migrations de contenus & maintenance continue</span>
-                </li>
-            </ul>
+            <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">Multisite</span>
+                <span class="chip">Algolia</span>
+                <span class="chip">Entity Share</span>
+                <span class="chip">Page Builder</span>
+                <span class="chip">Migrations</span>
+            </div>
         </article>
 
-        <!-- Projet 2 -->
-        <article class="card p-6 reveal">
-            <div class="flex items-start justify-between gap-4">
+        <!-- USH -->
+        <article class="card p-6 reveal cursor-pointer open-modal-home" data-project="ush-collab">
+            <div class="flex items-start justify-between gap-3">
                 <div>
-                    <h3 class="text-lg font-semibold">Espaces collaboratifs — USH</h3>
-                    <p class="text-sm text-slate-600 mt-1">Drupal • plateforme collaborative • multi-espaces</p>
+                    <h3 class="text-lg font-semibold">USH — Espaces collaboratifs</h3>
+                    <p class="text-xs text-slate-500 mt-1">Référente technique · Lead dev</p>
                 </div>
-                <span class="chip">Drupal</span>
+                <span class="chip shrink-0"><i class="fa-brands fa-drupal"></i> Drupal</span>
             </div>
-
-            <ul class="mt-4 text-sm space-y-2">
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-user-shield mt-0.5 text-sky-600"></i>
-                    <span>Gouvernance multi-espaces & gestion des accès</span>
-                </li>
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-screwdriver-wrench mt-0.5 text-sky-600"></i>
-                    <span>Maintenance, évolutions & support technique</span>
-                </li>
-            </ul>
+            <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">Usine à sites</span>
+                <span class="chip">Keycloak / SSO</span>
+                <span class="chip">Multi-espaces</span>
+                <span class="chip">Rôles & droits</span>
+            </div>
         </article>
 
-        <!-- Projet 3 -->
-        <article class="card p-6 reveal">
-            <div class="flex items-start justify-between gap-4">
+        <!-- MNHN -->
+        <article class="card p-6 reveal cursor-pointer open-modal-home" data-project="mnhn">
+            <div class="flex items-start justify-between gap-3">
+                <div>
+                    <h3 class="text-lg font-semibold">MNHN — Publications</h3>
+                    <p class="text-xs text-slate-500 mt-1">Référente technique · Lead dev</p>
+                </div>
+                <span class="chip shrink-0"><i class="fa-brands fa-drupal"></i> Drupal</span>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">OAI-PMH</span>
+                <span class="chip">Print on Demand</span>
+                <span class="chip">HTML2PDF</span>
+                <span class="chip">Rules</span>
+            </div>
+        </article>
+
+        <!-- Charot -->
+        <article class="card p-6 reveal cursor-pointer open-modal-home" data-project="charot">
+            <div class="flex items-start justify-between gap-3">
+                <div>
+                    <h3 class="text-lg font-semibold">Charot</h3>
+                    <p class="text-xs text-slate-500 mt-1">Développeur principal</p>
+                </div>
+                <span class="chip shrink-0"><i class="fa-brands fa-wordpress"></i> WordPress</span>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">Extranet métier</span>
+                <span class="chip">Pods</span>
+                <span class="chip">Gravity Forms</span>
+                <span class="chip">Import / Sync</span>
+            </div>
+        </article>
+
+        <!-- Quartiers Plus -->
+        <article class="card p-6 reveal cursor-pointer open-modal-home" data-project="quartiers-plus">
+            <div class="flex items-start justify-between gap-3">
                 <div>
                     <h3 class="text-lg font-semibold">Quartiers Plus</h3>
-                    <p class="text-sm text-slate-600 mt-1">Symfony • application métier • données</p>
+                    <p class="text-xs text-slate-500 mt-1">Dev · Interlocutrice technique</p>
                 </div>
-                <span class="chip">Symfony</span>
+                <span class="chip shrink-0"><i class="fa-brands fa-symfony"></i> Symfony</span>
             </div>
-
-            <ul class="mt-4 text-sm space-y-2">
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-scale-balanced mt-0.5 text-indigo-600"></i>
-                    <span>Règles métier & gestion des droits</span>
-                </li>
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-file-export mt-0.5 text-indigo-600"></i>
-                    <span>Exports CSV & consolidation de données</span>
-                </li>
-            </ul>
+            <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">Doctrine</span>
+                <span class="chip">PhpSpreadsheet</span>
+                <span class="chip">DomPDF</span>
+                <span class="chip">Chart.js</span>
+                <span class="chip">CI/CD</span>
+            </div>
         </article>
 
-        <!-- Projet 4 -->
-        <article class="card p-6 reveal">
-            <div class="flex items-start justify-between gap-4">
-                <div>
-                    <h3 class="text-lg font-semibold">École Centrale de Lyon</h3>
-                    <p class="text-sm text-slate-600 mt-1">Drupal • multisite • plateforme institutionnelle</p>
-                </div>
-                <span class="chip">Drupal</span>
-            </div>
-
-            <ul class="mt-4 text-sm space-y-2">
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-language mt-0.5 text-sky-600"></i>
-                    <span>Multilingue & intégration DeepL</span>
-                </li>
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-cubes mt-0.5 text-sky-600"></i>
-                    <span>Modules sur-mesure & synchronisation de contenus</span>
-                </li>
-            </ul>
-        </article>
     </div>
 
     <!-- CTA bas de section -->
@@ -568,7 +569,7 @@
 
                 <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-2 col-span-2">
                     <i class="fa-solid fa-wand-magic-sparkles text-slate-700"></i>
-                    <span class="text-sm font-medium">IA (ChatGPT / Mistral)</span>
+                    <span class="text-sm font-medium">IA (Mistral / Claude)</span>
                 </div>
             </div>
         </div>
@@ -595,7 +596,7 @@
             <span class="absolute -left-[7px] top-2 h-4 w-4 rounded-full bg-[rgb(var(--pri))] border-4 border-[rgb(var(--bg))]"></span>
 
             <div class="text-sm">
-                <span class="font-bold">Développeuse Web Back-End PHP — Référente Drupal 8+</span><br>
+                <span class="font-bold">Développeur Web Back-End PHP — Référente Drupal 8+</span><br>
                 <span class="font-medium text-slate-600">Agence Net.Com — <time>2017 à aujourd’hui</time></span>
             </div>
 
@@ -625,7 +626,7 @@
             <span class="absolute -left-[7px] top-2 h-4 w-4 rounded-full bg-[rgb(var(--pri))] border-4 border-[rgb(var(--bg))]"></span>
 
             <div class="text-sm">
-                <span class="font-bold">Développeuse Web Full-Stack</span><br>
+                <span class="font-bold">Développeur Web Full-Stack</span><br>
                 <span class="font-medium text-slate-600">Agence Net.Com — <time>2011 à 2017</time></span>
             </div>
 
@@ -1077,17 +1078,170 @@
 </section>
 
 <footer class="container-prose py-10 border-t border-black/5 text-center text-sm text-slate-600">
-    <p>© <span id="year"></span> Mylène Magny — Développeuse Web Back-End</p>
+    <p>© <span id="year"></span> Mylène Magny — Développeur Web Back-End</p>
 </footer>
 
 <script src="../assets/js/app.js" type="application/javascript"></script>
+
+<!-- Modale projets phares -->
+<div id="homeProjectModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50" role="dialog" aria-modal="true">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-7 sm:p-8 relative border border-black/5 shadow-xl">
+        <button id="homeModalClose" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800 transition" aria-label="Fermer">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+
+        <div class="flex items-start justify-between gap-4 pr-8">
+            <div class="min-w-0">
+                <h2 id="homeModalTitle" class="text-2xl font-semibold"></h2>
+            </div>
+            <div id="homeModalBadge" class="shrink-0"></div>
+        </div>
+
+        <div class="mt-6 grid sm:grid-cols-12 gap-6 text-sm text-slate-700">
+            <div class="sm:col-span-7 space-y-5">
+                <div>
+                    <p class="text-xs text-slate-500">Contexte</p>
+                    <p id="homeModalContext" class="mt-2"></p>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500">Mon rôle</p>
+                    <p id="homeModalRoleContent" class="mt-2"></p>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500">Actions & livrables</p>
+                    <ul id="homeModalActions" class="mt-2 space-y-2"></ul>
+                </div>
+            </div>
+            <div class="sm:col-span-5 space-y-4">
+                <div class="rounded-2xl border border-black/10 bg-slate-50 p-4">
+                    <p class="text-xs text-slate-500">Stack & outils</p>
+                    <div id="homeModalStack" class="mt-3 flex flex-wrap gap-2"></div>
+                </div>
+                <div class="rounded-2xl border border-black/10 bg-white p-4">
+                    <p class="text-xs text-slate-500">Résultat</p>
+                    <p id="homeModalResult" class="mt-2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const HOME_PROJECTS = {
+    "polytechnique": {
+        title: "École Polytechnique",
+        role: "Référente technique · Développeur principal",
+        badge: '<span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>',
+        context: "Conception d'un socle Drupal mutualisé pour 5 sites institutionnels en multi-sites, avec architecture thème parent/enfants pour concilier mutualisation et personnalisation par entité, dans un contexte auto-hébergé sans CI/CD industrialisée.",
+        actions: [
+            { icon: "fa-magnifying-glass", color: "text-sky-600", text: "Développement de modules sur mesure en complément de modules communautaires (Paragraphs, Entity Share), avec intégration API Algolia pour l'indexation et la recherche transverse." },
+            { icon: "fa-truck-fast", color: "text-sky-600", text: "Conception et exécution de scripts de migration et d'import massif pour la reprise de contenus hétérogènes à forte volumétrie (pages, actualités, événements)." },
+            { icon: "fa-gears", color: "text-sky-600", text: "Mise en place d'un workflow de déploiement Composer/Drush adapté aux contraintes d'un environnement auto-hébergé." },
+            { icon: "fa-layer-group", color: "text-sky-600", text: "Conception d'un Page Builder sur mesure offrant flexibilité éditoriale sur un cadre de structuration homogène." }
+        ],
+        result: "Socle industrialisé et évolutif, ouvrant vers une logique d'usine à sites pour d'autres entités du client.",
+        stack: ["Drupal 10", "PHP", "Algolia", "Paragraphs", "Entity Share", "Composer", "Drush", "Git"]
+    },
+    "ush-collab": {
+        title: "USH — Espaces collaboratifs",
+        role: "Référente technique · Développeur principal",
+        badge: '<span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>',
+        context: "Conception d'une plateforme collaborative Drupal reposant sur une architecture d'usine à sites : génération automatisée d'espaces métiers configurables (fonctionnalités, droits, identité visuelle) via interfaces d'administration, sur socle mutualisé.",
+        actions: [
+            { icon: "fa-diagram-project", color: "text-sky-600", text: "Développement du moteur d'usine à sites permettant aux équipes métiers de créer et administrer leurs espaces en autonomie, tout en maintenant un socle technique commun." },
+            { icon: "fa-key", color: "text-sky-600", text: "Intégration d'un système d'authentification hybride Drupal + SSO Keycloak, avec gestion fine des rôles/permissions et enrichissement des profils utilisateurs via API Keycloak (photo, données de profil, y compris hors connexion)." },
+            { icon: "fa-comments", color: "text-sky-600", text: "Mise en place d'un système de commentaires natif Drupal avec gestion des droits d'accès et modération, intégré au contexte collaboratif multi-espaces." }
+        ],
+        result: "Automatisation de la création d'espaces, centralisation de la maintenance, forte autonomie des équipes métiers.",
+        stack: ["Drupal 10", "PHP", "Keycloak", "SSO", "Drush", "GitLab"]
+    },
+    "mnhn": {
+        title: "MNHN — Publications scientifiques",
+        role: "Référente technique · Développeur principal",
+        badge: '<span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>',
+        context: "Conception d'une plateforme e-commerce et éditoriale sur Drupal Commerce pour la gestion, valorisation et distribution d'un patrimoine scientifique : catalogue produits, gestion des stocks et règles de vente métier spécifiques au domaine éditorial.",
+        actions: [
+            { icon: "fa-rss", color: "text-indigo-600", text: "Intégration d'un flux OAI-PMH pour l'alimentation et la synchronisation d'un catalogue structuré de publications scientifiques." },
+            { icon: "fa-file-pdf", color: "text-indigo-600", text: "Développement d'un système de génération PDF à la volée (HTML2PDF) pour fiches produits et catalogues, couplé à un workflow Print on Demand avec personnalisation dynamique des couvertures selon commande et contexte client." },
+            { icon: "fa-scale-balanced", color: "text-indigo-600", text: "Gestion de règles métier complexes (TVA, frais de port) via le module Rules." }
+        ],
+        result: "Centralisation du catalogue éditorial et structuration des données de production/vente dans un système unique, toujours en production 10 ans après sa mise en ligne — refonte ultérieure confiée à la même équipe.",
+        stack: ["Drupal Commerce", "PHP", "OAI-PMH", "HTML2PDF", "Rules", "Drush", "Git"]
+    },
+    "charot": {
+        title: "Charot",
+        role: "Développeur principal",
+        badge: '<span class="chip"><i class="fa-brands fa-wordpress"></i> WordPress</span>',
+        context: "Refonte du site vitrine et développement d'un extranet métier d'aide à la décision pour l'orientation produits, sur WordPress/Genesis avec modélisation des entités complexes via Pods.",
+        actions: [
+            { icon: "fa-lock", color: "text-slate-700", text: "Développement de fonctionnalités extranet sur mesure (sans dépendance à des solutions clé en main) pour répondre aux contraintes spécifiques du domaine industriel." },
+            { icon: "fa-wand-magic-sparkles", color: "text-slate-700", text: "Conception d'un moteur de recommandation produit basé sur des questionnaires dynamiques Gravity Forms : règles conditionnelles, calculs et logiques métier complexes." },
+            { icon: "fa-arrows-rotate", color: "text-slate-700", text: "Mise en place de traitements automatisés d'import et synchronisation quotidienne des données, avec déclenchement manuel via l'administration." }
+        ],
+        result: "Centralisation et fiabilisation des données produits, réduction des opérations manuelles, système d'aide à la décision directement exploitable par les équipes métiers.",
+        stack: ["WordPress", "Genesis", "Pods", "Gravity Forms", "PHP", "Git"]
+    },
+    "quartiers-plus": {
+        title: "Quartiers Plus",
+        role: "Développeur · Interlocutrice technique",
+        badge: '<span class="chip"><i class="fa-brands fa-symfony"></i> Symfony</span>',
+        context: "Conception et développement d'une plateforme métier Symfony 6 pour la gestion et l'analyse de données du parc immobilier social : architecture modulaire, modélisation des entités avec Doctrine, gestion des migrations.",
+        actions: [
+            { icon: "fa-file-export", color: "text-indigo-600", text: "Développement de formulaires métier complexes (Symfony Form) et de fonctionnalités d'import/export multi-formats (CSV, Excel, PDF) via PhpSpreadsheet et DomPDF." },
+            { icon: "fa-terminal", color: "text-indigo-600", text: "Mise en place de Console Commands pour l'exécution manuelle ou planifiée des traitements de mise à jour des référentiels." },
+            { icon: "fa-chart-bar", color: "text-indigo-600", text: "Intégration de tableaux de bord et visualisations via Chart.js pour l'analyse des données métier." },
+            { icon: "fa-arrows-spin", color: "text-indigo-600", text: "Chaîne CI/CD industrialisée, revues de code et tests automatisés ; gestion Agile/Jira avec échanges directs Product Owner." }
+        ],
+        result: "Projet en évolution continue avec livraisons mensuelles.",
+        stack: ["Symfony 6", "PHP", "Doctrine", "PhpSpreadsheet", "DomPDF", "Chart.js", "Git"]
+    }
+};
+
+(function () {
+    const modal = document.getElementById("homeProjectModal");
+    const btnClose = document.getElementById("homeModalClose");
+
+    function openModal(id) {
+        const p = HOME_PROJECTS[id];
+        if (!p) return;
+        document.getElementById("homeModalTitle").textContent = p.title;
+        document.getElementById("homeModalBadge").innerHTML = p.badge;
+        document.getElementById("homeModalContext").textContent = p.context;
+        document.getElementById("homeModalRoleContent").textContent = p.role;
+        document.getElementById("homeModalActions").innerHTML = (p.actions || []).map(a =>
+            `<li class="flex gap-3 items-start"><i class="fa-solid ${a.icon} mt-0.5 ${a.color} shrink-0"></i><span>${a.text}</span></li>`
+        ).join("");
+        document.getElementById("homeModalResult").textContent = p.result;
+        document.getElementById("homeModalStack").innerHTML = p.stack.map(s =>
+            `<span class="chip">${s}</span>`
+        ).join("");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.classList.add("overflow-hidden");
+        btnClose.focus();
+    }
+
+    function closeModal() {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.classList.remove("overflow-hidden");
+    }
+
+    document.querySelectorAll(".open-modal-home").forEach(el => {
+        el.addEventListener("click", () => openModal(el.dataset.project));
+    });
+    btnClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("flex")) closeModal(); });
+})();
+</script>
 
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Mylène Magny",
-        "jobTitle": "Développeuse Web Back-End (Drupal/Symfony)",
+        "jobTitle": "Développeur Web Back-End (Drupal/Symfony)",
         "url": "https://mmagny.fr/",
         "sameAs": ["https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/"]
     }
