@@ -140,6 +140,56 @@
 
         .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
         .reveal.in { opacity: 1; transform: translateY(0); }
+
+        /* ── Orbs / blobs décoratifs ───────────────────────────────────────── */
+        @keyframes orb-drift-a {
+            0%   { transform: translate(0, 0) scale(1); }
+            33%  { transform: translate(30px, -20px) scale(1.06); }
+            66%  { transform: translate(-18px, 28px) scale(0.96); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes orb-drift-b {
+            0%   { transform: translate(0, 0) scale(1); }
+            40%  { transform: translate(-25px, 18px) scale(1.04); }
+            70%  { transform: translate(20px, -22px) scale(0.98); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes orb-drift-c {
+            0%   { transform: translate(0, 0) scale(1); }
+            50%  { transform: translate(15px, 25px) scale(1.05); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(55px);
+            will-change: transform;
+        }
+        .orb-a {
+            width: 480px; height: 480px;
+            background: radial-gradient(circle, rgb(14 165 233 / 0.42), transparent 65%);
+            animation: orb-drift-a 22s ease-in-out infinite;
+        }
+        .orb-b {
+            width: 380px; height: 380px;
+            background: radial-gradient(circle, rgb(99 102 241 / 0.38), transparent 65%);
+            animation: orb-drift-b 18s ease-in-out infinite;
+        }
+        .orb-c {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgb(14 165 233 / 0.28), transparent 65%);
+            animation: orb-drift-c 26s ease-in-out infinite;
+        }
+
+        /* Séparateur lumineux entre sections */
+        .section-glow {
+            pointer-events: none;
+            height: 56px;
+            background: radial-gradient(ellipse 55% 100% at 50% 50%, rgb(99 102 241 / 0.10) 0%, transparent 70%);
+            overflow: hidden;
+        }
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,6 +197,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//matomo.mmagny.fr/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
 </head>
 
 <body>
@@ -189,9 +255,14 @@
 </header>
 
 <!-- Hero -->
-<section id="top" class="relative overflow-hidden">
+<section id="top" class="relative" style="overflow-x: clip;">
     <div aria-hidden="true"
          class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgb(var(--pri))]/10 via-transparent to-transparent"></div>
+
+    <!-- Orbs décoratifs hero -->
+    <div aria-hidden="true" class="orb orb-a" style="top: 30px; left: -60px;"></div>
+    <div aria-hidden="true" class="orb orb-b" style="top: 60px; right: -40px;"></div>
+    <div aria-hidden="true" class="orb orb-c" style="bottom: 30px; left: 38%;"></div>
 
     <div class="container-prose py-16 sm:py-24">
         <div class="grid md:grid-cols-12 gap-10 items-start">
@@ -213,11 +284,13 @@
                     </div>
                     <div class="card p-4">
                         <p class="text-xs text-slate-500">Spécialisation</p>
-                        <p class="text-lg font-semibold">Back-end</p>
+                        <p class="text-lg font-semibold leading-tight">Back-end</p>
+                        <p class="text-xs text-slate-500 mt-0.5">PHP</p>
                     </div>
                     <div class="card p-4">
                         <p class="text-xs text-slate-500">Rôle</p>
-                        <p class="text-lg font-semibold">Réf. Drupal</p>
+                        <p class="text-lg font-semibold leading-tight">Réf. Drupal</p>
+                        <p class="text-xs text-slate-500 mt-0.5">& Symfony</p>
                     </div>
                 </div>
 
@@ -280,6 +353,8 @@
         </div>
     </div>
 </section>
+
+<div class="section-glow" aria-hidden="true"></div>
 
 <!-- Projets phares -->
 <section class="container-prose py-16 sm:py-20" aria-labelledby="projets-phares">
@@ -410,6 +485,8 @@
         </p>
     </div>
 </section>
+
+<div class="section-glow" aria-hidden="true"></div>
 
 <!-- Compétences -->
 <section id="competences" class="container-prose py-16 sm:py-20">
@@ -576,6 +653,8 @@
     </div>
 </section>
 
+<div class="section-glow" aria-hidden="true"></div>
+
 <!-- Expérience -->
 <section id="experiences" class="container-prose py-16 sm:py-20">
     <div class="reveal">
@@ -684,6 +763,8 @@
 
     </ol>
 </section>
+
+<div class="section-glow" aria-hidden="true"></div>
 
 <!-- Formations & Études -->
 <section id="parcours" class="container-prose py-16 sm:py-20">
@@ -908,6 +989,8 @@
     </div>
 </section>
 
+<div class="section-glow" aria-hidden="true"></div>
+
 <!-- Hobbies -->
 <section id="hobbies" class="container-prose py-16 sm:py-20">
     <div class="reveal">
@@ -973,6 +1056,8 @@
         Et bien sûr… <i class="fa-solid fa-cat text-slate-700"></i> les chats 🐾
     </p>
 </section>
+
+<div class="section-glow" aria-hidden="true"></div>
 
 <!-- Contact -->
 <section id="contact" class="container-prose py-16 sm:py-20">
