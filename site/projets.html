@@ -274,21 +274,26 @@
 
 <!-- Single modal -->
 <div id="projectModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50" role="dialog" aria-modal="true">
-    <div class="bg-white rounded-3xl max-w-3xl w-full p-7 sm:p-8 relative border border-slate-200">
-        <button id="modalClose" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800" aria-label="Fermer">
-            <i class="fa-solid fa-xmark"></i>
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-7 sm:p-8 relative border border-black/5 shadow-xl">
+        <button id="modalClose" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800 transition" aria-label="Fermer">
+            <i class="fa-solid fa-xmark text-lg"></i>
         </button>
 
-        <div class="flex items-start justify-between gap-4">
+        <div class="flex items-start justify-between gap-4 pr-8">
             <div class="min-w-0">
                 <h2 id="modalTitle" class="text-2xl font-semibold"></h2>
                 <p id="modalSubtitle" class="text-sm text-slate-600 mt-1"></p>
             </div>
-            <div id="modalBadges" class="flex flex-wrap gap-2 justify-end"></div>
+            <div id="modalBadges" class="flex flex-wrap gap-2 justify-end shrink-0"></div>
+        </div>
+
+        <div id="modalRoleStrip" class="hidden mt-5 pb-1 border-b border-black/5">
+            <p class="text-xs text-slate-500">Mon rôle</p>
+            <p class="mt-1 text-sm text-slate-700">Référente technique / Développeur principal</p>
         </div>
 
         <div class="mt-6 grid sm:grid-cols-12 gap-6 text-sm text-slate-700">
-            <div class="sm:col-span-7 space-y-4">
+            <div id="modalLeftCol" class="sm:col-span-7 space-y-5">
                 <div>
                     <p class="text-xs text-slate-500">Contexte</p>
                     <p id="modalContext"></p>
@@ -300,20 +305,19 @@
                 </div>
 
                 <div>
-                    <p class="text-xs text-slate-500">Actions / livrables</p>
+                    <p class="text-xs text-slate-500">Actions & livrables</p>
                     <ul id="modalActions" class="mt-2 space-y-2"></ul>
                 </div>
             </div>
 
-            <div class="sm:col-span-5 space-y-4">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                    <p class="text-xs text-slate-500">Stack / outils</p>
+            <div id="modalRightCol" class="sm:col-span-5 space-y-4">
+                <div class="rounded-2xl border border-black/10 bg-slate-50 p-4">
+                    <p class="text-xs text-slate-500">Stack & outils</p>
                     <div id="modalStack" class="mt-3 flex flex-wrap gap-2"></div>
                 </div>
-
-                <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                    <p class="text-xs text-slate-500">Ce que ça illustre</p>
-                    <p id="modalHighlight" class="mt-2 text-sm text-slate-700"></p>
+                <div id="modalResultBlock" class="rounded-2xl border border-black/10 bg-white p-4">
+                    <p class="text-xs text-slate-500">Résultat</p>
+                    <p id="modalResult" class="mt-2"></p>
                 </div>
             </div>
         </div>
@@ -325,22 +329,22 @@
     const PROJECTS = [
 
         // --- Éducation ---
-        { id:"polytechnique", title:"École Polytechnique", tech:"drupal", domain:"enseignement", format:["usine"], subtitle:"Drupal • multisite • plateforme institutionnelle",
+        { id:"polytechnique", title:"École Polytechnique", tech:"drupal", domain:"enseignement", format:["usine"], subtitle:"Drupal 10 • multisite • 5 sites institutionnels",
 
-            context:"Plateforme institutionnelle Drupal en multisite regroupant 5 sites. Socle technique et graphique commun, avec des thèmes et des adaptations fonctionnelles spécifiques à chaque site selon les besoins éditoriaux.",
+            context:"Conception d'un socle Drupal mutualisé pour 5 sites institutionnels en multi-sites, avec architecture thème parent/enfants pour concilier mutualisation et personnalisation par entité, dans un contexte auto-hébergé sans CI/CD industrialisée.",
 
-            role:"Participation à la conception fonctionnelle et technique du projet. Lead developer sur la partie développement : architecture Drupal multisite, modules personnalisés, migrations de contenus, accompagnement lors des mises en production et maintenance de la plateforme.",
+            role:"Référente technique / Développeur principal",
 
             actions:[
-                { icon:"fa-diagram-project", color:"text-sky-600", text:"Architecture Drupal multisite : socle commun (modules, configuration) et adaptations spécifiques par site." },
-                { icon:"fa-cubes", color:"text-sky-600", text:"Développement de modules personnalisés et fonctionnalités de partage de contenus entre sites." },
-                { icon:"fa-truck-fast", color:"text-sky-600", text:"Migration des anciens contenus et accompagnement aux mises en production." },
-                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance de la plateforme : mises à jour Drupal et modules, correctifs et évolutions." },
+                { icon:"fa-magnifying-glass", color:"text-sky-600", text:"Développement de modules sur mesure en complément de modules communautaires (Paragraphs, Entity Share), avec intégration API Algolia pour l'indexation et la recherche transverse." },
+                { icon:"fa-truck-fast", color:"text-sky-600", text:"Conception et exécution de scripts de migration et d'import massif pour la reprise de contenus hétérogènes à forte volumétrie (pages, actualités, événements)." },
+                { icon:"fa-gears", color:"text-sky-600", text:"Mise en place d'un workflow de déploiement Composer/Drush adapté aux contraintes d'un environnement auto-hébergé." },
+                { icon:"fa-layer-group", color:"text-sky-600", text:"Conception d'un Page Builder sur mesure offrant flexibilité éditoriale sur un cadre de structuration homogène." },
             ],
 
-            stack:["Drupal","PHP","Drush","Composer","Git"],
+            stack:["Drupal 10","PHP","Algolia","Paragraphs","Entity Share","Composer","Drush","Git"],
 
-            highlight:"Plateforme Drupal multisite pour un établissement d'enseignement majeur : architecture sur-mesure, modules personnalisés, migrations de contenus et maintenance continue."
+            highlight:"Socle industrialisé et évolutif, ouvrant vers une logique d'usine à sites pour d'autres entités du client."
         },
 
         { id:"ip-paris", title:"Institut Polytechnique de Paris", tech:"drupal", domain:"enseignement", format:["usine"], subtitle:"Drupal • plateforme institutionnelle • usine à sites",
@@ -555,21 +559,21 @@
             highlight:"Interventions ciblées au sein d'une plateforme institutionnelle existante."
         },
 
-        { id:"mnhn", title:"MNHN — Publications scientifiques", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal • boutique • publications",
+        { id:"mnhn", title:"MNHN — Publications scientifiques", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal Commerce • e-commerce éditorial • publications scientifiques",
 
-            context:"Boutique en ligne du Muséum national d'Histoire naturelle dédiée à la vente de publications scientifiques : périodiques et collections. Projet avec des besoins de structuration du catalogue, de gestion des contenus et de maintenance.",
+            context:"Conception d'une plateforme e-commerce et éditoriale sur Drupal Commerce pour la gestion, valorisation et distribution d'un patrimoine scientifique : catalogue produits, gestion des stocks et règles de vente métier spécifiques au domaine éditorial.",
 
-            role:"Développement back-end, suivi des évolutions et maintenance de la boutique.",
+            role:"Référente technique / Développeur principal",
 
             actions:[
-                { icon:"fa-book", color:"text-indigo-600", text:"Structuration du catalogue : périodiques et collections." },
-                { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et évolutions fonctionnelles de la boutique." },
-                { icon:"fa-user-gear", color:"text-indigo-600", text:"Support et conseil auprès du client." },
+                { icon:"fa-rss", color:"text-indigo-600", text:"Intégration d'un flux OAI-PMH pour l'alimentation et la synchronisation d'un catalogue structuré de publications scientifiques." },
+                { icon:"fa-file-pdf", color:"text-indigo-600", text:"Développement d'un système de génération PDF à la volée (HTML2PDF) pour fiches produits et catalogues, couplé à un workflow Print on Demand avec personnalisation dynamique des couvertures selon commande et contexte client." },
+                { icon:"fa-scale-balanced", color:"text-indigo-600", text:"Gestion de règles métier complexes (TVA, frais de port) via le module Rules." },
             ],
 
-            stack:["Drupal","PHP","Drush","Composer"],
+            stack:["Drupal Commerce","PHP","OAI-PMH","HTML2PDF","Rules","Drush","Git"],
 
-            highlight:"Boutique Drupal pour la vente de publications scientifiques : structuration du catalogue et maintenance."
+            highlight:"Toujours en production 10 ans après sa mise en ligne — refonte ultérieure confiée à la même équipe, avec rôle de référente technique et accompagnement à la montée en compétences."
         },
 
         // --- Institutions ---
@@ -712,21 +716,21 @@
             highlight:"Évolutions et maintenance sur une plateforme de diffusion de ressources."
         },
 
-        { id:"ush-collab", title:"USH — Espaces Collaboratifs", tech:"drupal", domain:"logement_social", format:["usine"], subtitle:"Drupal • plateforme collaborative",
+        { id:"ush-collab", title:"USH — Espaces Collaboratifs", tech:"drupal", domain:"logement_social", format:["usine"], subtitle:"Drupal 10 • usine à sites • plateforme collaborative",
 
-            context:"Plateforme collaborative multi-espaces de l'Union Sociale pour l'Habitat. Chaque espace dispose de sa propre gouvernance, gestion des accès et contenus, au sein d'un socle Drupal commun.",
+            context:"Conception d'une plateforme collaborative Drupal reposant sur une architecture d'usine à sites : génération automatisée d'espaces métiers configurables (fonctionnalités, droits, identité visuelle) via interfaces d'administration, sur socle mutualisé.",
 
-            role:"Développement back-end et maintenance de la plateforme.",
+            role:"Référente technique / Développeur principal",
 
             actions:[
-                { icon:"fa-diagram-project", color:"text-sky-600", text:"Structuration multi-espaces et mutualisation du socle technique." },
-                { icon:"fa-user-shield", color:"text-sky-600", text:"Gestion des accès et des rôles par espace." },
-                { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et évolutions de la plateforme." },
+                { icon:"fa-diagram-project", color:"text-sky-600", text:"Développement du moteur d'usine à sites permettant aux équipes métiers de créer et administrer leurs espaces en autonomie, tout en maintenant un socle technique commun." },
+                { icon:"fa-key", color:"text-sky-600", text:"Intégration d'un système d'authentification hybride Drupal + SSO Keycloak, avec gestion fine des rôles/permissions et enrichissement des profils utilisateurs via API Keycloak (photo, données de profil, y compris hors connexion)." },
+                { icon:"fa-comments", color:"text-sky-600", text:"Mise en place d'un système de commentaires natif Drupal avec gestion des droits d'accès et modération, intégré au contexte collaboratif multi-espaces." },
             ],
 
-            stack:["Drupal","PHP","Drush","GitLab"],
+            stack:["Drupal 10","PHP","Keycloak","SSO","Drush","GitLab"],
 
-            highlight:"Plateforme collaborative Drupal : gouvernance multi-espaces, gestion des accès et maintenance continue."
+            highlight:"Automatisation de la création d'espaces, centralisation de la maintenance, forte autonomie des équipes métiers."
         },
 
         // --- Associatif ---
@@ -748,21 +752,21 @@
         },
 
         // --- Industrie ---
-        { id:"charot", title:"Charot", tech:"wordpress", domain:"industrie", format:[], subtitle:"WordPress • site vitrine",
+        { id:"charot", title:"Charot", tech:"wordpress", domain:"industrie", format:[], subtitle:"WordPress • extranet métier • aide à la décision",
 
-            context:"Site vitrine WordPress pour un acteur industriel. Projet avec des besoins d'intégration et de maintenance.",
+            context:"Refonte du site vitrine et développement d'un extranet métier d'aide à la décision pour l'orientation produits, sur WordPress/Genesis avec modélisation des entités complexes via Pods.",
 
-            role:"Intégration, évolutions et support.",
+            role:"Développeur principal",
 
             actions:[
-                { icon:"fa-code", color:"text-slate-700", text:"Intégration des découpes front." },
-                { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour WordPress et extensions." },
-                { icon:"fa-user-gear", color:"text-slate-700", text:"Support et conseil." },
+                { icon:"fa-lock", color:"text-slate-700", text:"Développement de fonctionnalités extranet sur mesure (sans dépendance à des solutions clé en main) pour répondre aux contraintes spécifiques du domaine industriel." },
+                { icon:"fa-wand-magic-sparkles", color:"text-slate-700", text:"Conception d'un moteur de recommandation produit basé sur des questionnaires dynamiques Gravity Forms : règles conditionnelles, calculs et logiques métier complexes." },
+                { icon:"fa-arrows-rotate", color:"text-slate-700", text:"Mise en place de traitements automatisés d'import et synchronisation quotidienne des données, avec déclenchement manuel via l'administration." },
             ],
 
-            stack:["WordPress","PHP","Git"],
+            stack:["WordPress","Genesis","Pods","Gravity Forms","PHP","Git"],
 
-            highlight:"WordPress : intégration et maintenance sur un site vitrine industriel."
+            highlight:"Centralisation et fiabilisation des données produits, réduction des opérations manuelles, système d'aide à la décision directement exploitable par les équipes métiers."
         },
 
         // --- Application métier ---
@@ -772,16 +776,17 @@
             tech: "symfony",
             domain: "application_metier",
             format: [],
-            subtitle: "Symfony • application métier • données",
-            context: "Application métier de suivi et gestion de programmes, avec profils utilisateurs, droits, et besoins d’exports/reporting.",
-            role: "Développement back-end : règles métier, données, droits, et outillage d’export. Participation au cadrage technique et au suivi des retours.",
+            subtitle: "Symfony 6 • plateforme métier • immobilier social",
+            context: "Conception et développement d’une plateforme métier Symfony 6 pour la gestion et l’analyse de données du parc immobilier social : architecture modulaire, modélisation des entités avec Doctrine, gestion des migrations.",
+            role: "Développeur · Interlocutrice technique",
             actions: [
-                { icon: "fa-scale-balanced", color: "text-indigo-600", text: "Règles métier & gestion des droits / profils utilisateurs." },
-                { icon: "fa-file-export", color: "text-indigo-600", text: "Exports CSV (consolidation, formats, contrôles) et reporting." },
-                { icon: "fa-database", color: "text-indigo-600", text: "Requêtes & optimisation : extraction et fiabilisation des données." }
+                { icon: "fa-file-export", color: "text-indigo-600", text: "Développement de formulaires métier complexes (Symfony Form) et de fonctionnalités d’import/export multi-formats (CSV, Excel, PDF) via PhpSpreadsheet et DomPDF." },
+                { icon: "fa-terminal", color: "text-indigo-600", text: "Mise en place de Console Commands pour l’exécution manuelle ou planifiée des traitements de mise à jour des référentiels." },
+                { icon: "fa-chart-bar", color: "text-indigo-600", text: "Intégration de tableaux de bord et visualisations via Chart.js pour l’analyse des données métier." },
+                { icon: "fa-arrows-spin", color: "text-indigo-600", text: "Chaîne CI/CD industrialisée, revues de code et tests automatisés ; gestion Agile/Jira avec échanges directs Product Owner." }
             ],
-            stack: ["Symfony", "PHP", "SQL", "Doctrine", "Git"],
-            highlight: "Projet représentatif de mon travail Symfony : métier, données, exports et fiabilité."
+            stack: ["Symfony 6", "PHP", "Doctrine", "PhpSpreadsheet", "DomPDF", "Chart.js", "Git"],
+            highlight: "Projet en évolution continue avec livraisons mensuelles — interlocutrice technique directe avec le Product Owner."
         },
 
     ];
@@ -820,17 +825,16 @@
 
     function render() {
         grid.innerHTML = PROJECTS.map(p => {
-            // data attributes for filtering
             const fmt = (p.format || []).join(" ");
             return `
-        <article class="card p-6 project-item"
+        <article class="card p-6 project-item cursor-pointer open-modal"
                  data-tech="${p.tech}"
                  data-domain="${p.domain}"
-                 data-format="${fmt}">
+                 data-format="${fmt}"
+                 data-project="${p.id}">
           <div class="flex items-start justify-between gap-4">
             <div class="min-w-0">
               <h3 class="text-lg font-semibold">${p.title}</h3>
-              <p class="text-sm text-slate-600 mt-1">${p.subtitle}</p>
             </div>
             <div class="shrink-0">${ICON_TECH[p.tech] ? `<span class="chip">${ICON_TECH[p.tech]} ${p.tech === "drupal" ? "Drupal" : (p.tech === "wordpress" ? "WordPress" : "Symfony")}</span>` : ""}</div>
           </div>
@@ -839,20 +843,8 @@
             ${fmtBadges(p)}
           </div>
 
-          <ul class="mt-4 text-sm space-y-2 text-slate-700">
-            ${(p.actions || []).slice(0, 2).map(a => `
-              <li class="flex gap-3 items-start">
-                <i class="fa-solid ${a.icon} mt-0.5 ${a.color}"></i>
-                <span>${a.text}</span>
-              </li>
-            `).join("")}
-          </ul>
-
-          <div class="mt-5 flex items-center justify-between gap-3">
-            <div class="flex flex-wrap gap-2">
-              ${(p.stack || []).slice(0, 5).map(s => `<span class="chip">${s}</span>`).join("")}
-            </div>
-            <button class="btn open-modal" data-project="${p.id}">Détails</button>
+          <div class="mt-3 flex flex-wrap gap-2">
+            ${(p.stack || []).slice(0, 5).map(s => `<span class="chip">${s}</span>`).join("")}
           </div>
         </article>
       `;
@@ -895,7 +887,9 @@
     const modalRole = document.getElementById("modalRole");
     const modalActions = document.getElementById("modalActions");
     const modalStack = document.getElementById("modalStack");
-    const modalHighlight = document.getElementById("modalHighlight");
+    const modalResult = document.getElementById("modalResult");
+
+    const FEATURED_IDS = ["polytechnique", "ush-collab", "mnhn", "charot", "quartiers-plus"];
 
     let lastActive = null;
     function openModal(id) {
@@ -903,13 +897,23 @@
         if (!p) return;
 
         lastActive = document.activeElement;
+        const isFeatured = FEATURED_IDS.includes(id);
 
         modalTitle.textContent = p.title;
-        modalSubtitle.textContent = p.subtitle;
+        modalSubtitle.textContent = isFeatured ? "" : p.subtitle;
+        modalSubtitle.classList.toggle("hidden", isFeatured);
         modalBadges.innerHTML = fmtBadges(p);
 
-        modalContext.textContent = p.context;
-        modalRole.textContent = p.role;
+        const leftCol = document.getElementById("modalLeftCol");
+        const rightCol = document.getElementById("modalRightCol");
+
+        leftCol.classList.toggle("hidden", !isFeatured);
+        rightCol.className = isFeatured ? "sm:col-span-5 space-y-4" : "sm:col-span-12 space-y-4";
+        document.getElementById("modalResultBlock").classList.toggle("hidden", !isFeatured);
+        document.getElementById("modalRoleStrip").classList.toggle("hidden", isFeatured || p.tech !== "drupal");
+
+        modalContext.textContent = p.context || "";
+        modalRole.textContent = p.role || "";
 
         modalActions.innerHTML = (p.actions || []).map(a => `
       <li class="flex gap-3 items-start">
@@ -919,7 +923,7 @@
     `).join("");
 
         modalStack.innerHTML = (p.stack || []).map(s => `<span class="chip">${s}</span>`).join("");
-        modalHighlight.textContent = p.highlight || "";
+        modalResult.textContent = isFeatured ? (p.highlight || "") : "";
 
         modal.classList.remove("hidden");
         modal.classList.add("flex");
