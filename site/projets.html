@@ -95,7 +95,7 @@
         @theme{
             --font-sans: "Inter", system-ui, sans-serif;
             --pri: 14 165 233;
-            --acc: 99 102 241;
+            --acc: 168 85 247;
         }
         @layer base{
             html{ @apply font-sans; }
@@ -202,7 +202,7 @@
                         <span class="ml-auto text-slate-500">5 projets</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
-                        <i class="fa-brands fa-symfony text-indigo-600"></i>
+                        <i class="fa-brands fa-symfony text-purple-600"></i>
                         <span class="font-medium">Symfony</span>
                         <span class="ml-auto text-slate-500">1 projet</span>
                     </div>
@@ -292,6 +292,24 @@
     </div>
 </section>
 
+<!-- Projets perso -->
+<section class="container-prose py-16 sm:py-20">
+    <div class="card p-8">
+        <div class="flex items-start justify-between gap-4 flex-wrap mb-6">
+            <div>
+                <h2 class="text-xl font-semibold">Projets perso</h2>
+                <p class="text-sm text-slate-500 mt-1">Projets de passion — apprentissage, expérimentation et idées en cours.</p>
+            </div>
+            <a href="https://github.com/mmagny89?tab=repositories" target="_blank" rel="noopener noreferrer"
+               class="btn-outline text-sm shrink-0">
+                <i class="fa-brands fa-github"></i> Voir le profil GitHub
+            </a>
+        </div>
+
+        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5" id="personalProjectsProjets"></div>
+    </div>
+</section>
+
 <!-- Single modal -->
 <div id="projectModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50" role="dialog" aria-modal="true">
     <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-7 sm:p-8 relative border border-black/5 shadow-xl">
@@ -345,6 +363,8 @@
 </div>
 
 <script src="./assets/js/app.js"></script>
+<script src="./assets/js/personal-projects.js"></script>
+<script>renderPersonalProjects("personalProjectsProjets");</script>
 <script src="./assets/js/projets.js"></script>
 
 </body>

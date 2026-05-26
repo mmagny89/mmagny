@@ -102,7 +102,7 @@
             --txt: 15 23 42;       /* slate-900 */
             --muted: 71 85 105;    /* slate-600 */
             --pri: 14 165 233;     /* sky-500 */
-            --acc: 99 102 241;     /* indigo-500 */
+            --acc: 168 85 247;     /* purple-500 */
         }
 
         @layer base {
@@ -271,7 +271,7 @@
 
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex gap-3">
-                                <i class="fa-solid fa-truck-fast mt-0.5 text-indigo-600"></i>
+                                <i class="fa-solid fa-truck-fast mt-0.5 text-sky-600"></i>
                                 <div>
                                     <p class="text-sm font-medium">Migrations & reprises</p>
                                     <p class="text-xs text-slate-600 mt-1">Contenus, médias, multi-langue, URLs.</p>
@@ -323,7 +323,7 @@
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Polytechnique -->
-        <article class="card p-6 reveal cursor-pointer open-modal-home" data-project="polytechnique">
+        <article class="card p-6 reveal cursor-pointer open-modal-home border-l-2 border-l-sky-400" data-project="polytechnique">
             <div class="flex items-start justify-between gap-3">
                 <div>
                     <h3 class="text-lg font-semibold">École Polytechnique</h3>
@@ -341,7 +341,7 @@
         </article>
 
         <!-- USH -->
-        <article class="card p-6 reveal cursor-pointer open-modal-home" data-project="ush-collab">
+        <article class="card p-6 reveal cursor-pointer open-modal-home border-l-2 border-l-sky-400" data-project="ush-collab">
             <div class="flex items-start justify-between gap-3">
                 <div>
                     <h3 class="text-lg font-semibold">USH — Espaces collaboratifs</h3>
@@ -358,7 +358,7 @@
         </article>
 
         <!-- MNHN -->
-        <article class="card p-6 reveal cursor-pointer open-modal-home" data-project="mnhn">
+        <article class="card p-6 reveal cursor-pointer open-modal-home border-l-2 border-l-sky-400" data-project="mnhn">
             <div class="flex items-start justify-between gap-3">
                 <div>
                     <h3 class="text-lg font-semibold">MNHN — Publications</h3>
@@ -375,7 +375,7 @@
         </article>
 
         <!-- Charot -->
-        <article class="card p-6 reveal cursor-pointer open-modal-home" data-project="charot">
+        <article class="card p-6 reveal cursor-pointer open-modal-home border-l-2 border-l-slate-400" data-project="charot">
             <div class="flex items-start justify-between gap-3">
                 <div>
                     <h3 class="text-lg font-semibold">Charot</h3>
@@ -392,7 +392,7 @@
         </article>
 
         <!-- Quartiers Plus -->
-        <article class="card p-6 reveal cursor-pointer open-modal-home" data-project="quartiers-plus">
+        <article class="card p-6 reveal cursor-pointer open-modal-home border-l-2 border-l-purple-400" data-project="quartiers-plus">
             <div class="flex items-start justify-between gap-3">
                 <div>
                     <h3 class="text-lg font-semibold">Quartiers Plus</h3>
@@ -437,6 +437,29 @@
 
 <div class="section-glow" aria-hidden="true"></div>
 
+<!-- Projets perso -->
+<section id="projets-perso" class="container-prose py-16 sm:py-20">
+    <div class="reveal flex items-end justify-between gap-4 flex-wrap">
+        <div>
+            <h2 class="section-title">Projets perso</h2>
+            <p class="muted mt-2">
+                Projets de passion — apprentissage, expérimentation, et quelques idées un peu folles.
+            </p>
+        </div>
+        <a href="https://github.com/mmagny89?tab=repositories"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-outline inline-flex items-center gap-2 shrink-0">
+            <i class="fa-brands fa-github"></i>
+            Voir le profil GitHub
+            <i class="fa-solid fa-up-right-from-square text-xs"></i>
+        </a>
+    </div>
+
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="personalProjectsHome"></div>
+</section>
+
+<div class="section-glow" aria-hidden="true"></div>
+
 <!-- Compétences -->
 <section id="competences" class="container-prose py-16 sm:py-20">
     <div class="reveal">
@@ -448,7 +471,7 @@
 
     <div class="mt-8 grid lg:grid-cols-3 gap-6">
         <!-- Catégorie 1 -->
-        <div class="card p-6 reveal">
+        <div class="card p-6 reveal border-l-2 border-l-sky-400">
             <div class="flex items-center gap-3">
                 <div class="h-10 w-10 rounded-2xl bg-sky-100 grid place-items-center">
                     <i class="fa-solid fa-server text-sky-700"></i>
@@ -496,10 +519,10 @@
         </div>
 
         <!-- Catégorie 2 -->
-        <div class="card p-6 reveal">
+        <div class="card p-6 reveal border-l-2 border-l-purple-400">
             <div class="flex items-center gap-3">
                 <div class="h-10 w-10 rounded-2xl bg-indigo-100 grid place-items-center">
-                    <i class="fa-solid fa-code text-indigo-700"></i>
+                    <i class="fa-solid fa-code text-purple-600"></i>
                 </div>
                 <div>
                     <h3 class="font-semibold">Front & Templating</h3>
@@ -547,7 +570,7 @@
         </div>
 
         <!-- Catégorie 3 -->
-        <div class="card p-6 reveal">
+        <div class="card p-6 reveal border-l-2 border-l-emerald-400">
             <div class="flex items-center gap-3">
                 <div class="h-10 w-10 rounded-2xl bg-slate-200 grid place-items-center">
                     <i class="fa-solid fa-screwdriver-wrench text-slate-800"></i>
@@ -629,19 +652,19 @@
             </div>
 
             <div class="mt-3 grid lg:grid-cols-2 gap-6">
-                <div class="card p-5">
+                <div class="card p-5 border-l-2 border-l-sky-400">
                     <p class="text-xs text-slate-500">Responsabilités techniques</p>
                     <ul class="mt-3 text-sm space-y-3">
                         <li class="flex gap-3 items-start"><i class="fa-solid fa-cubes mt-0.5 text-sky-600"></i><span><strong>Référente Drupal 8+</strong> : modules & thèmes sur-mesure, usines à sites, maintenance</span></li>
-                        <li class="flex gap-3 items-start"><i class="fa-solid fa-code mt-0.5 text-indigo-600"></i><span>Développement & support technique WordPress et Symfony</span></li><li class="flex gap-3 items-start"><i class="fa-solid fa-file-circle-check mt-0.5 text-emerald-600"></i><span>Relectures techniques des cahiers fonctionnels</span></li>
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-code mt-0.5 text-sky-600"></i><span>Développement & support technique WordPress et Symfony</span></li><li class="flex gap-3 items-start"><i class="fa-solid fa-file-circle-check mt-0.5 text-emerald-600"></i><span>Relectures techniques des cahiers fonctionnels</span></li>
                         <li class="flex gap-3 items-start"><i class="fa-solid fa-flask-vial mt-0.5 text-slate-700"></i><span>Recettes internes techniques avant livraison</span></li>
                     </ul>
                 </div>
 
-                <div class="card p-5">
+                <div class="card p-5 border-l-2 border-l-purple-400">
                     <p class="text-xs text-slate-500">Rôle transverse</p>
                     <ul class="mt-3 text-sm space-y-2">
-                        <li class="flex gap-2"><i class="fa-solid fa-user-group mt-0.5 text-indigo-600"></i><span>Accompagnement des nouvelles recrues développeur back-end</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-user-group mt-0.5 text-purple-600"></i><span>Accompagnement des nouvelles recrues développeur back-end</span></li>
                         <li class="flex gap-2"><i class="fa-solid fa-leaf mt-0.5 text-emerald-600"></i><span>Pilote de projets dans la démarche RSE de l’agence</span></li>
                         <li class="flex gap-2"><i class="fa-solid fa-shield-halved mt-0.5 text-slate-700"></i><span>Culture qualité/sécurité côté serveur</span></li>
                     </ul>
@@ -659,21 +682,21 @@
             </div>
 
             <div class="mt-3 grid lg:grid-cols-2 gap-6">
-                <div class="card p-5">
+                <div class="card p-5 border-l-2 border-l-sky-400">
                     <p class="text-xs text-slate-500">Stack & production</p>
                     <ul class="mt-3 text-sm space-y-2">
                         <li class="flex gap-2"><i class="fa-solid fa-code mt-0.5 text-sky-600"></i><span>Développement sur Joomla, WordPress, Drupal 7, CodeIgniter</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-palette mt-0.5 text-indigo-600"></i><span>Intégration & theming (HTML/CSS/JS)</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-palette mt-0.5 text-purple-600"></i><span>Intégration & theming (HTML/CSS/JS)</span></li>
                         <li class="flex gap-2"><i class="fa-solid fa-screwdriver-wrench mt-0.5 text-slate-700"></i><span>Support client & maintenance</span></li>
                     </ul>
                 </div>
 
-                <div class="card p-5">
+                <div class="card p-5 border-l-2 border-l-emerald-400">
                     <p class="text-xs text-slate-500">Relation & gestion</p>
                     <ul class="mt-3 text-sm space-y-2">
                         <li class="flex gap-2"><i class="fa-solid fa-comments mt-0.5 text-emerald-600"></i><span>Recueil des besoins & échanges clients</span></li>
                         <li class="flex gap-2"><i class="fa-solid fa-list-check mt-0.5 text-sky-600"></i><span>Gestion de projet : cadrage & suivi</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-chalkboard-user mt-0.5 text-indigo-600"></i><span>Formation et accompagnement des clients</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-chalkboard-user mt-0.5 text-purple-600"></i><span>Formation et accompagnement des clients</span></li>
                     </ul>
                 </div>
             </div>
@@ -689,22 +712,22 @@
 
             <div class="mt-3 grid lg:grid-cols-2 gap-6">
                 <!-- Eveil'O'Goût (2011) -->
-                <div class="card p-5">
+                <div class="card p-5 border-l-2 border-l-sky-400">
                     <p class="text-xs text-slate-500">Éveil’O’Goût — Dijon • <time>2011</time></p>
                     <ul class="mt-3 text-sm space-y-2">
                         <li class="flex gap-2"><i class="fa-solid fa-globe mt-0.5 text-sky-600"></i><span>Création d’un site sous Joomla</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-arrows-rotate mt-0.5 text-indigo-600"></i><span>Refonte ultérieure sous WordPress</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-arrows-rotate mt-0.5 text-sky-600"></i><span>Refonte ultérieure sous WordPress</span></li>
                         <li class="flex gap-2"><i class="fa-solid fa-bullhorn mt-0.5 text-emerald-600"></i><span>Communication print & assistance formations</span></li>
                     </ul>
                 </div>
 
                 <!-- Guernet -->
-                <div class="card p-5">
+                <div class="card p-5 border-l-2 border-l-slate-300">
                     <p class="text-xs text-slate-500">Guernet — Joigny • <time>2009 & 2010</time></p>
                     <ul class="mt-3 text-sm space-y-2">
                         <li class="flex gap-2"><i class="fa-solid fa-headset mt-0.5 text-slate-700"></i><span>Support matériel & assistance interne</span></li>
                         <li class="flex gap-2"><i class="fa-solid fa-network-wired mt-0.5 text-sky-600"></i><span>Amélioration intranet / extranet</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-gear mt-0.5 text-indigo-600"></i><span>Travaux autour de l’intégration SAGE (gestion commerciale)</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-gear mt-0.5 text-sky-600"></i><span>Travaux autour de l’intégration SAGE (gestion commerciale)</span></li>
                     </ul>
                 </div>
             </div>
@@ -752,7 +775,7 @@
                 <li class="rounded-2xl border border-black/10 bg-white p-4">
                     <div class="flex items-start gap-3">
                         <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
-                            <i class="fa-solid fa-clock text-indigo-700"></i>
+                            <i class="fa-solid fa-clock text-purple-600"></i>
                         </div>
                         <div>
                             <p class="font-medium">Gestion du temps : productivité & organisation</p>
@@ -817,7 +840,7 @@
                 <li class="rounded-2xl border border-black/10 bg-white p-5 md:col-span-2 md:mx-auto md:max-w-xl">
                     <div class="flex items-start gap-4">
                         <div class="h-9 w-9 rounded-xl grid place-items-center shrink-0">
-                            <i class="fa-solid fa-spinner text-amber-700 text-sm"></i>
+                            <i class="fa-solid fa-spinner text-slate-400 text-sm"></i>
                         </div>
 
                         <div class="flex-1">
@@ -900,7 +923,7 @@
 
             <!-- BTS -->
             <li class="flex gap-3 items-start">
-                <i class="fa-solid fa-code text-indigo-600 mt-1 text-base shrink-0"></i>
+                <i class="fa-solid fa-code text-purple-600 mt-1 text-base shrink-0"></i>
                 <div>
                     <p class="font-medium">Lycée Le Castel • Dijon</p>
                     <p class="text-sm text-slate-700">
@@ -912,7 +935,7 @@
 
             <!-- Université -->
             <li class="flex gap-3 items-start">
-                <i class="fa-solid fa-palette text-amber-600 mt-1 text-base shrink-0"></i>
+                <i class="fa-solid fa-palette text-purple-600 mt-1 text-base shrink-0"></i>
                 <div>
                     <p class="font-medium">Université Bourgogne Europe • Dijon</p>
                     <p class="text-sm text-slate-700">
@@ -924,7 +947,7 @@
 
             <!-- Bac -->
             <li class="flex gap-3 items-start">
-                <i class="fa-solid fa-school text-rose-600 mt-1 text-base shrink-0"></i>
+                <i class="fa-solid fa-school text-slate-600 mt-1 text-base shrink-0"></i>
                 <div>
                     <p class="font-medium">Lycée Louis Davier • Joigny</p>
                     <p class="text-sm text-slate-700">
@@ -951,7 +974,7 @@
 
     <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <div class="card p-5 reveal">
+        <div class="card p-5 reveal border-l-2 border-l-sky-400">
             <div class="flex items-start gap-3">
                 <i class="fa-solid fa-rocket text-sky-600 mt-1"></i>
                 <div>
@@ -963,9 +986,9 @@
             </div>
         </div>
 
-        <div class="card p-5 reveal">
+        <div class="card p-5 reveal border-l-2 border-l-purple-400">
             <div class="flex items-start gap-3">
-                <i class="fa-solid fa-gamepad text-indigo-600 mt-1"></i>
+                <i class="fa-solid fa-gamepad text-purple-600 mt-1"></i>
                 <div>
                     <p class="font-medium text-sm">Jeux vidéo</p>
                     <p class="text-xs text-slate-600 mt-1">
@@ -975,7 +998,7 @@
             </div>
         </div>
 
-        <div class="card p-5 reveal">
+        <div class="card p-5 reveal border-l-2 border-l-emerald-400">
             <div class="flex items-start gap-3">
                 <i class="fa-solid fa-dice text-emerald-600 mt-1"></i>
                 <div>
@@ -987,9 +1010,9 @@
             </div>
         </div>
 
-        <div class="card p-5 reveal">
+        <div class="card p-5 reveal border-l-2 border-l-emerald-400">
             <div class="flex items-start gap-3">
-                <i class="fa-solid fa-seedling text-amber-600 mt-1"></i>
+                <i class="fa-solid fa-seedling text-emerald-600 mt-1"></i>
                 <div>
                     <p class="font-medium text-sm">Jardinage & bricolage</p>
                     <p class="text-xs text-slate-600 mt-1">
@@ -1019,7 +1042,7 @@
 
     <div class="mt-8 grid lg:grid-cols-12 gap-6 items-stretch">
         <!-- Carte principale -->
-        <div class="lg:col-span-7 card p-7 reveal">
+        <div class="lg:col-span-7 card p-7 reveal border-l-2 border-l-sky-400">
             <div class="flex items-start gap-3">
                 <div class="h-12 w-12 rounded-2xl bg-[rgb(var(--pri))]/15 grid place-items-center">
                     <i class="fa-solid fa-message text-sky-700"></i>
@@ -1046,7 +1069,7 @@
 
                 <div class="rounded-2xl border border-black/10 bg-white p-4">
                     <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-people-group mt-0.5 text-indigo-600"></i>
+                        <i class="fa-solid fa-people-group mt-0.5 text-purple-600"></i>
                         <div>
                             <p class="text-sm font-medium">Collaboration</p>
                             <p class="text-xs text-slate-600 mt-1">Projet d’équipe, organisation, méthode.</p>
@@ -1086,7 +1109,7 @@
 
         <!-- Carte secondaire : rappel + lien projets -->
         <div class="lg:col-span-5 grid gap-6 reveal">
-            <div class="card p-6">
+            <div class="card p-6 border-l-2 border-l-purple-400">
                 <p class="text-sm font-semibold">Avant de me contacter</p>
                 <p class="text-sm text-slate-600 mt-1">
                     Vous pouvez aussi parcourir la page Projets pour voir des exemples concrets (contexte, rôle, livrables).
@@ -1098,7 +1121,7 @@
                 </div>
             </div>
 
-            <div class="card p-6">
+            <div class="card p-6 border-l-2 border-l-emerald-400">
                 <p class="text-sm font-semibold">Points forts</p>
                 <div class="mt-3 flex flex-wrap gap-2">
                     <span class="chip"><i class="fa-solid fa-cubes"></i> Drupal 8+</span>
@@ -1116,6 +1139,8 @@
 </footer>
 
 <script src="./assets/js/app.js"></script>
+<script src="./assets/js/personal-projects.js"></script>
+<script>renderPersonalProjects("personalProjectsHome");</script>
 
 <!-- Modale projets phares -->
 <div id="homeProjectModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50" role="dialog" aria-modal="true">
