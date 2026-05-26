@@ -136,9 +136,9 @@ const PROJECTS = [
         context:"Plateforme web de l'ONERA (Office national d'études et de recherches aérospatiales), composée de plusieurs sites et sections avec un besoin d'harmonisation technique, d'évolutions continues et de mises à jour maîtrisées.",
         role:"Développement back-end, contributions aux briques communes de la plateforme, accompagnement lors des mises en production et maintenance.",
         actions:[
-            { icon:"fa-diagram-project",    color:"text-indigo-600", text:"Harmonisation et mutualisation des composants techniques entre les différents sites de la plateforme." },
-            { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour Drupal et modules." },
-            { icon:"fa-check-double",       color:"text-indigo-600", text:"Recette interne et corrections avant mise en production." },
+            { icon:"fa-diagram-project",    color:"text-purple-600", text:"Harmonisation et mutualisation des composants techniques entre les différents sites de la plateforme." },
+            { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Maintenance et mises à jour Drupal et modules." },
+            { icon:"fa-check-double",       color:"text-purple-600", text:"Recette interne et corrections avant mise en production." },
         ],
         stack:["Drupal","PHP","Composer","Drush"],
         highlight:"Approche plateforme : mutualisation des composants, maintenance et qualité de livraison."
@@ -148,9 +148,9 @@ const PROJECTS = [
         context:"Espace carrières de l'ONERA : présentation des offres et des métiers, avec des besoins de structuration des contenus et de fiabilité des formulaires.",
         role:"Développement back-end, intégration et maintenance de l'espace carrières.",
         actions:[
-            { icon:"fa-briefcase",          color:"text-indigo-600", text:"Mise en place et ajustements fonctionnels de l'espace carrières." },
-            { icon:"fa-code",              color:"text-indigo-600", text:"Intégration des gabarits de contenus en Twig." },
-            { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Évolutions et maintenance après mise en ligne." },
+            { icon:"fa-briefcase",          color:"text-purple-600", text:"Mise en place et ajustements fonctionnels de l'espace carrières." },
+            { icon:"fa-code",              color:"text-purple-600", text:"Intégration des gabarits de contenus en Twig." },
+            { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Évolutions et maintenance après mise en ligne." },
         ],
         stack:["Drupal","PHP","Twig","Git"],
         highlight:"Site carrières : mise en valeur des contenus et fiabilité de la plateforme."
@@ -160,9 +160,9 @@ const PROJECTS = [
         context:"Site ou section spécifique au sein de l'écosystème institutionnel de l'ONERA, avec des besoins de développement ciblé et de maintenance.",
         role:"Développement back-end, maintenance et support au sein de la plateforme existante.",
         actions:[
-            { icon:"fa-cubes",             color:"text-indigo-600", text:"Développements back-end et ajustements spécifiques." },
-            { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour." },
-            { icon:"fa-user-gear",          color:"text-indigo-600", text:"Support et conseil auprès du client." },
+            { icon:"fa-cubes",             color:"text-purple-600", text:"Développements back-end et ajustements spécifiques." },
+            { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Maintenance et mises à jour." },
+            { icon:"fa-user-gear",          color:"text-purple-600", text:"Support et conseil auprès du client." },
         ],
         stack:["Drupal","PHP","Drush","Composer"],
         highlight:"Interventions ciblées au sein d'une plateforme institutionnelle existante."
@@ -172,9 +172,9 @@ const PROJECTS = [
         context:"Conception d'une plateforme e-commerce et éditoriale sur Drupal Commerce pour la gestion, valorisation et distribution d'un patrimoine scientifique : catalogue produits, gestion des stocks et règles de vente métier spécifiques au domaine éditorial.",
         role:"Référente technique / Développeur principal",
         actions:[
-            { icon:"fa-rss",              color:"text-indigo-600", text:"Intégration d'un flux OAI-PMH pour l'alimentation et la synchronisation d'un catalogue structuré de publications scientifiques." },
-            { icon:"fa-file-pdf",          color:"text-indigo-600", text:"Développement d'un système de génération PDF à la volée (HTML2PDF) pour fiches produits et catalogues, couplé à un workflow Print on Demand avec personnalisation dynamique des couvertures selon commande et contexte client." },
-            { icon:"fa-scale-balanced",    color:"text-indigo-600", text:"Gestion de règles métier complexes (TVA, frais de port) via le module Rules." },
+            { icon:"fa-rss",              color:"text-purple-600", text:"Intégration d'un flux OAI-PMH pour l'alimentation et la synchronisation d'un catalogue structuré de publications scientifiques." },
+            { icon:"fa-file-pdf",          color:"text-purple-600", text:"Développement d'un système de génération PDF à la volée (HTML2PDF) pour fiches produits et catalogues, couplé à un workflow Print on Demand avec personnalisation dynamique des couvertures selon commande et contexte client." },
+            { icon:"fa-scale-balanced",    color:"text-purple-600", text:"Gestion de règles métier complexes (TVA, frais de port) via le module Rules." },
         ],
         stack:["Drupal Commerce","PHP","OAI-PMH","HTML2PDF","Rules","Drush","Git"],
         highlight:"Toujours en production 10 ans après sa mise en ligne — refonte ultérieure confiée à la même équipe, avec rôle de référente technique et accompagnement à la montée en compétences."
@@ -185,9 +185,9 @@ const PROJECTS = [
         context:"Site institutionnel de l'EPSF (Établissement public de sécurité ferroviaire). Projet avec un cycle long, des besoins d'évolutions régulières et un maintien en condition opérationnelle.",
         role:"Développement back-end, accompagnement client et mises en production.",
         actions:[
-            { icon:"fa-people-group",       color:"text-indigo-600", text:"Échanges client et cadrage technique des évolutions." },
-            { icon:"fa-rocket",             color:"text-indigo-600", text:"Accompagnement lors des mises en production et suivi des retours." },
-            { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et évolutions du site." },
+            { icon:"fa-people-group",       color:"text-purple-600", text:"Échanges client et cadrage technique des évolutions." },
+            { icon:"fa-rocket",             color:"text-purple-600", text:"Accompagnement lors des mises en production et suivi des retours." },
+            { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Maintenance et évolutions du site." },
         ],
         stack:["Drupal","PHP","Git","Drush"],
         highlight:"Projet institutionnel sur cycle long : évolutions régulières et maintien en condition opérationnelle."
@@ -197,9 +197,9 @@ const PROJECTS = [
         context:"Site public de l'Agence de Services et de Paiement. Projet avec des besoins éditoriaux structurés et une maintenance régulière.",
         role:"Développement back-end, intégration, recette interne et support.",
         actions:[
-            { icon:"fa-code",              color:"text-indigo-600", text:"Intégration des découpes front en Twig." },
-            { icon:"fa-check-double",       color:"text-indigo-600", text:"Recette interne et corrections avant mise en production." },
-            { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour après mise en ligne." },
+            { icon:"fa-code",              color:"text-purple-600", text:"Intégration des découpes front en Twig." },
+            { icon:"fa-check-double",       color:"text-purple-600", text:"Recette interne et corrections avant mise en production." },
+            { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Maintenance et mises à jour après mise en ligne." },
         ],
         stack:["Drupal","PHP","Twig","Git"],
         highlight:"Cycle complet : intégration, recette et maintenance sur un site public institutionnel."
@@ -209,9 +209,9 @@ const PROJECTS = [
         context:"Site institutionnel de l'Institut des Hautes Études du Ministère de l'Intérieur. Projet axé sur la structuration des contenus et la durabilité de la plateforme.",
         role:"Développement back-end, intégration et recette interne.",
         actions:[
-            { icon:"fa-cubes",             color:"text-indigo-600", text:"Développement back-end Drupal : configuration et modules." },
-            { icon:"fa-check-double",       color:"text-indigo-600", text:"Recette interne et corrections avant mise en production." },
-            { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Mises à jour et maintenance du site." },
+            { icon:"fa-cubes",             color:"text-purple-600", text:"Développement back-end Drupal : configuration et modules." },
+            { icon:"fa-check-double",       color:"text-purple-600", text:"Recette interne et corrections avant mise en production." },
+            { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Mises à jour et maintenance du site." },
         ],
         stack:["Drupal","PHP","Git"],
         highlight:"Structuration des contenus et durabilité sur un site institutionnel."
@@ -222,9 +222,9 @@ const PROJECTS = [
         context:"Site institutionnel de l'Agence Régionale de la Biodiversité Centre-Val de Loire. Projet avec des besoins d'évolutions régulières et de support.",
         role:"Développement back-end, support client et maintenance.",
         actions:[
-            { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Évolutions fonctionnelles et maintenance du site." },
-            { icon:"fa-people-group",       color:"text-indigo-600", text:"Échanges client et cadrage des évolutions." },
-            { icon:"fa-rocket",             color:"text-indigo-600", text:"Accompagnement lors des mises en production." },
+            { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Évolutions fonctionnelles et maintenance du site." },
+            { icon:"fa-people-group",       color:"text-purple-600", text:"Échanges client et cadrage des évolutions." },
+            { icon:"fa-rocket",             color:"text-purple-600", text:"Accompagnement lors des mises en production." },
         ],
         stack:["Drupal","PHP","Composer","Drush"],
         highlight:"Maintenance et conseil sur le long terme pour un site institutionnel de collectivité."
@@ -234,9 +234,9 @@ const PROJECTS = [
         context:"Site institutionnel du Centre de Gestion de la Fonction Publique du Rhône. Projet axé sur le maintien en condition opérationnelle et les évolutions régulières.",
         role:"Développement back-end, mises en production et support.",
         actions:[
-            { icon:"fa-rocket",             color:"text-indigo-600", text:"Accompagnement lors des mises en production et suivi des retours." },
-            { icon:"fa-screwdriver-wrench", color:"text-indigo-600", text:"Maintenance et mises à jour Drupal et modules." },
-            { icon:"fa-people-group",       color:"text-indigo-600", text:"Échanges client et cadrage des évolutions." },
+            { icon:"fa-rocket",             color:"text-purple-600", text:"Accompagnement lors des mises en production et suivi des retours." },
+            { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Maintenance et mises à jour Drupal et modules." },
+            { icon:"fa-people-group",       color:"text-purple-600", text:"Échanges client et cadrage des évolutions." },
         ],
         stack:["Drupal","PHP","Git","Composer"],
         highlight:"Maintien en condition opérationnelle et évolutions régulières sur un site institutionnel."
@@ -322,10 +322,10 @@ const PROJECTS = [
         context:"Conception et développement d'une plateforme métier Symfony 6 pour la gestion et l'analyse de données du parc immobilier social : architecture modulaire, modélisation des entités avec Doctrine, gestion des migrations.",
         role:"Développeur · Interlocutrice technique",
         actions:[
-            { icon:"fa-file-export", color:"text-indigo-600", text:"Développement de formulaires métier complexes (Symfony Form) et de fonctionnalités d'import/export multi-formats (CSV, Excel, PDF) via PhpSpreadsheet et DomPDF." },
-            { icon:"fa-terminal",    color:"text-indigo-600", text:"Mise en place de Console Commands pour l'exécution manuelle ou planifiée des traitements de mise à jour des référentiels." },
-            { icon:"fa-chart-bar",   color:"text-indigo-600", text:"Intégration de tableaux de bord et visualisations via Chart.js pour l'analyse des données métier." },
-            { icon:"fa-arrows-spin", color:"text-indigo-600", text:"Chaîne CI/CD industrialisée, revues de code et tests automatisés ; gestion Agile/Jira avec échanges directs Product Owner." },
+            { icon:"fa-file-export", color:"text-purple-600", text:"Développement de formulaires métier complexes (Symfony Form) et de fonctionnalités d'import/export multi-formats (CSV, Excel, PDF) via PhpSpreadsheet et DomPDF." },
+            { icon:"fa-terminal",    color:"text-purple-600", text:"Mise en place de Console Commands pour l'exécution manuelle ou planifiée des traitements de mise à jour des référentiels." },
+            { icon:"fa-chart-bar",   color:"text-purple-600", text:"Intégration de tableaux de bord et visualisations via Chart.js pour l'analyse des données métier." },
+            { icon:"fa-arrows-spin", color:"text-purple-600", text:"Chaîne CI/CD industrialisée, revues de code et tests automatisés ; gestion Agile/Jira avec échanges directs Product Owner." },
         ],
         stack:["Symfony 6","PHP","Doctrine","PhpSpreadsheet","DomPDF","Chart.js","Git"],
         highlight:"Projet en évolution continue avec livraisons mensuelles — interlocutrice technique directe avec le Product Owner."
@@ -364,11 +364,18 @@ function fmtBadges(p) {
     return (domainMap[p.domain] ?? "") + formatBadges;
 }
 
+const BORDER_TECH = {
+    drupal:    "border-l-2 border-l-sky-400",
+    wordpress: "border-l-2 border-l-slate-400",
+    symfony:   "border-l-2 border-l-purple-400",
+};
+
 function render() {
     grid.innerHTML = PROJECTS.map(p => {
         const fmt = (p.format || []).join(" ");
+        const borderCls = BORDER_TECH[p.tech] || "";
         return `
-        <article class="card p-6 project-item cursor-pointer open-modal"
+        <article class="card p-6 project-item cursor-pointer open-modal ${borderCls}"
                  data-tech="${p.tech}"
                  data-domain="${p.domain}"
                  data-format="${fmt}"

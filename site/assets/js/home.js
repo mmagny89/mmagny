@@ -36,9 +36,9 @@ const HOME_PROJECTS = {
         badge: '<span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>',
         context: "Conception d'une plateforme e-commerce et éditoriale sur Drupal Commerce pour la gestion, valorisation et distribution d'un patrimoine scientifique : catalogue produits, gestion des stocks et règles de vente métier spécifiques au domaine éditorial.",
         actions: [
-            { icon: "fa-rss",           color: "text-indigo-600", text: "Intégration d'un flux OAI-PMH pour l'alimentation et la synchronisation d'un catalogue structuré de publications scientifiques." },
-            { icon: "fa-file-pdf",      color: "text-indigo-600", text: "Développement d'un système de génération PDF à la volée (HTML2PDF) pour fiches produits et catalogues, couplé à un workflow Print on Demand avec personnalisation dynamique des couvertures selon commande et contexte client." },
-            { icon: "fa-scale-balanced",color: "text-indigo-600", text: "Gestion de règles métier complexes (TVA, frais de port) via le module Rules." }
+            { icon: "fa-rss",           color: "text-purple-600", text: "Intégration d'un flux OAI-PMH pour l'alimentation et la synchronisation d'un catalogue structuré de publications scientifiques." },
+            { icon: "fa-file-pdf",      color: "text-purple-600", text: "Développement d'un système de génération PDF à la volée (HTML2PDF) pour fiches produits et catalogues, couplé à un workflow Print on Demand avec personnalisation dynamique des couvertures selon commande et contexte client." },
+            { icon: "fa-scale-balanced",color: "text-purple-600", text: "Gestion de règles métier complexes (TVA, frais de port) via le module Rules." }
         ],
         result: "Centralisation du catalogue éditorial et structuration des données de production/vente dans un système unique, toujours en production 10 ans après sa mise en ligne — refonte ultérieure confiée à la même équipe.",
         stack: ["Drupal Commerce", "PHP", "OAI-PMH", "HTML2PDF", "Rules", "Drush", "Git"]
@@ -64,10 +64,10 @@ const HOME_PROJECTS = {
         badge: '<span class="chip"><i class="fa-brands fa-symfony"></i> Symfony</span>',
         context: "Conception et développement d'une plateforme métier Symfony 6 pour la gestion et l'analyse de données du parc immobilier social : architecture modulaire, modélisation des entités avec Doctrine, gestion des migrations.",
         actions: [
-            { icon: "fa-file-export", color: "text-indigo-600", text: "Développement de formulaires métier complexes (Symfony Form) et de fonctionnalités d'import/export multi-formats (CSV, Excel, PDF) via PhpSpreadsheet et DomPDF." },
-            { icon: "fa-terminal",    color: "text-indigo-600", text: "Mise en place de Console Commands pour l'exécution manuelle ou planifiée des traitements de mise à jour des référentiels." },
-            { icon: "fa-chart-bar",   color: "text-indigo-600", text: "Intégration de tableaux de bord et visualisations via Chart.js pour l'analyse des données métier." },
-            { icon: "fa-arrows-spin", color: "text-indigo-600", text: "Chaîne CI/CD industrialisée, revues de code et tests automatisés ; gestion Agile/Jira avec échanges directs Product Owner." }
+            { icon: "fa-file-export", color: "text-purple-600", text: "Développement de formulaires métier complexes (Symfony Form) et de fonctionnalités d'import/export multi-formats (CSV, Excel, PDF) via PhpSpreadsheet et DomPDF." },
+            { icon: "fa-terminal",    color: "text-purple-600", text: "Mise en place de Console Commands pour l'exécution manuelle ou planifiée des traitements de mise à jour des référentiels." },
+            { icon: "fa-chart-bar",   color: "text-purple-600", text: "Intégration de tableaux de bord et visualisations via Chart.js pour l'analyse des données métier." },
+            { icon: "fa-arrows-spin", color: "text-purple-600", text: "Chaîne CI/CD industrialisée, revues de code et tests automatisés ; gestion Agile/Jira avec échanges directs Product Owner." }
         ],
         result: "Projet en évolution continue avec livraisons mensuelles.",
         stack: ["Symfony 6", "PHP", "Doctrine", "PhpSpreadsheet", "DomPDF", "Chart.js", "Git"]
