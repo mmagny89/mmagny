@@ -3,7 +3,7 @@
 const PROJECTS = [
 
     // --- Éducation ---
-    { id:"polytechnique", title:"École Polytechnique", tech:"drupal", domain:"enseignement", format:["usine"], subtitle:"Drupal 10 • multisite • 5 sites institutionnels",
+    { id:"polytechnique", title:"École Polytechnique", tech:"drupal", domain:"enseignement", format:["usine"], subtitle:"Drupal • multisite • 5 sites institutionnels",
         context:"Conception d'un socle Drupal mutualisé pour 5 sites institutionnels en multi-sites, avec architecture thème parent/enfants pour concilier mutualisation et personnalisation par entité, dans un contexte auto-hébergé sans CI/CD industrialisée.",
         role:"Référente technique / Développeur principal",
         actions:[
@@ -12,7 +12,7 @@ const PROJECTS = [
             { icon:"fa-gears",              color:"text-sky-600", text:"Mise en place d'un workflow de déploiement Composer/Drush adapté aux contraintes d'un environnement auto-hébergé." },
             { icon:"fa-layer-group",         color:"text-sky-600", text:"Conception d'un Page Builder sur mesure offrant flexibilité éditoriale sur un cadre de structuration homogène." },
         ],
-        stack:["Drupal 10","PHP","Algolia","Paragraphs","Entity Share","Composer","Drush","Git"],
+        stack:["Drupal","PHP","Algolia","Paragraphs","Entity Share","Composer","Drush","Git"],
         highlight:"Socle industrialisé et évolutif, ouvrant vers une logique d'usine à sites pour d'autres entités du client."
     },
 
@@ -279,7 +279,7 @@ const PROJECTS = [
         highlight:"Évolutions et maintenance sur une plateforme de diffusion de ressources."
     },
 
-    { id:"ush-collab", title:"USH — Espaces Collaboratifs", tech:"drupal", domain:"logement_social", format:["usine"], subtitle:"Drupal 10 • usine à sites • plateforme collaborative",
+    { id:"ush-collab", title:"USH — Espaces Collaboratifs", tech:"drupal", domain:"logement_social", format:["usine"], subtitle:"Drupal • usine à sites • plateforme collaborative",
         context:"Conception d'une plateforme collaborative Drupal reposant sur une architecture d'usine à sites : génération automatisée d'espaces métiers configurables (fonctionnalités, droits, identité visuelle) via interfaces d'administration, sur socle mutualisé.",
         role:"Référente technique / Développeur principal",
         actions:[
@@ -287,7 +287,7 @@ const PROJECTS = [
             { icon:"fa-key",              color:"text-sky-600", text:"Intégration d'un système d'authentification hybride Drupal + SSO Keycloak, avec gestion fine des rôles/permissions et enrichissement des profils utilisateurs via API Keycloak (photo, données de profil, y compris hors connexion)." },
             { icon:"fa-comments",          color:"text-sky-600", text:"Mise en place d'un système de commentaires natif Drupal avec gestion des droits d'accès et modération, intégré au contexte collaboratif multi-espaces." },
         ],
-        stack:["Drupal 10","PHP","Keycloak","SSO","Drush","GitLab"],
+        stack:["Drupal","PHP","Keycloak","SSO","Drush","GitLab"],
         highlight:"Automatisation de la création d'espaces, centralisation de la maintenance, forte autonomie des équipes métiers."
     },
 
@@ -318,8 +318,8 @@ const PROJECTS = [
     },
 
     // --- Application métier ---
-    { id:"quartiers-plus", title:"Quartiers Plus", tech:"symfony", domain:"application_metier", format:[], subtitle:"Symfony 6 • plateforme métier • immobilier social",
-        context:"Conception et développement d'une plateforme métier Symfony 6 pour la gestion et l'analyse de données du parc immobilier social : architecture modulaire, modélisation des entités avec Doctrine, gestion des migrations.",
+    { id:"quartiers-plus", title:"Quartiers Plus", tech:"symfony", domain:"application_metier", format:[], subtitle:"Symfony • plateforme métier • immobilier social",
+        context:"Conception et développement d'une plateforme métier Symfony pour la gestion et l'analyse de données du parc immobilier social : architecture modulaire, modélisation des entités avec Doctrine, gestion des migrations.",
         role:"Développeur · Interlocutrice technique",
         actions:[
             { icon:"fa-file-export", color:"text-purple-600", text:"Développement de formulaires métier complexes (Symfony Form) et de fonctionnalités d'import/export multi-formats (CSV, Excel, PDF) via PhpSpreadsheet et DomPDF." },
@@ -327,7 +327,7 @@ const PROJECTS = [
             { icon:"fa-chart-bar",   color:"text-purple-600", text:"Intégration de tableaux de bord et visualisations via Chart.js pour l'analyse des données métier." },
             { icon:"fa-arrows-spin", color:"text-purple-600", text:"Chaîne CI/CD industrialisée, revues de code et tests automatisés ; gestion Agile/Jira avec échanges directs Product Owner." },
         ],
-        stack:["Symfony 6","PHP","Doctrine","PhpSpreadsheet","DomPDF","Chart.js","Git"],
+        stack:["Symfony","PHP","Doctrine","PhpSpreadsheet","DomPDF","Chart.js","Git"],
         highlight:"Projet en évolution continue avec livraisons mensuelles — interlocutrice technique directe avec le Product Owner."
     },
 
