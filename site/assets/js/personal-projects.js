@@ -60,7 +60,7 @@ const PERSONAL_PROJECTS = [
         title:   "Vigil",
         desc:    "Outil de veille dev web : récupération d'articles, analyse et traduction par Mistral AI, filtrage automatique par pertinence.",
         stack:   ["Symfony", "Tailwind CSS", "Mistral AI"],
-        status:  "wip",
+        status:  "local",
         ai:      true,
         private: true,
         url:     "https://github.com/mmagny89/Vigil",
@@ -76,7 +76,8 @@ function renderPersonalProjects(containerId) {
 
     const statusLabel = {
         production: { text: "En ligne",  cls: "bg-emerald-50 text-emerald-700 border-emerald-200" },
-        wip:        { text: "En cours",  cls: "bg-sky-50 text-sky-700 border-sky-200"     },
+        wip:        { text: "En cours",  cls: "bg-sky-50 text-sky-700 border-sky-200"             },
+        local:      { text: "En local",  cls: "bg-amber-50 text-amber-700 border-amber-200"       },
     };
 
     container.innerHTML = PERSONAL_PROJECTS.map(p => {
