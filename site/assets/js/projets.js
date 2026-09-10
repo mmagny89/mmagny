@@ -293,17 +293,18 @@ const PROJECTS = [
     },
 
     // --- Logement social ---
-    { id:"ush-boutique", title:"USH · Boutique", tech:"drupal", domain:"logement_social", format:[], subtitle:"Drupal • plateforme de diffusion",
-        context:"Espace de diffusion de ressources (type catalogue/boutique) de l'Union Sociale pour l'Habitat, intégré à un écosystème Drupal existant.",
+    { id:"ush-boutique", title:"USH · Boutique", tech:"drupal", domain:"logement_social", format:[], subtitle:"Drupal • boutique en ligne",
+        context:"Boutique en ligne de l'Union Sociale pour l'Habitat : la fédération y vend ses ressources aux professionnels du logement social. La boutique s'inscrit dans l'écosystème Drupal existant de l'USH, dont elle réutilise les briques plutôt que de vivre à côté.",
         role:"Développeur back-end",
         contribution:"Développement back-end, évolutions fonctionnelles, maintenance et support.",
         actions:[
+            { icon:"fa-cart-shopping",     color:"text-sky-600", text:"Évolutions du catalogue et du parcours d'achat des ressources mises en vente." },
             { icon:"fa-cubes",             color:"text-sky-600", text:"Évolutions back-end selon les besoins du client." },
             { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et mises à jour." },
             { icon:"fa-people-group",       color:"text-sky-600", text:"Échanges client et support." },
         ],
         stack:["Drupal","PHP","Composer"],
-        highlight:"Évolutions et maintenance sur une plateforme de diffusion de ressources."
+        highlight:"Une boutique en ligne intégrée à l'écosystème Drupal de la fédération, et maintenue dans la durée."
     },
 
     { id:"ush-collab", title:"USH · Espaces Collaboratifs", tech:"drupal", domain:"logement_social", format:["usine"], subtitle:"Drupal • usine à sites • plateforme collaborative",
