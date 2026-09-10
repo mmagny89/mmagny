@@ -141,7 +141,7 @@ const PROJECTS = [
     },
 
     // --- Recherche ---
-    { id:"onera", title:"ONERA", tech:"drupal", domain:"recherche", format:["usine"], subtitle:"Drupal • plateforme institutionnelle",
+    { id:"onera", title:"ONERA", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal • plateforme institutionnelle",
         context:"Plateforme web de l'ONERA (Office national d'études et de recherches aérospatiales), composée de plusieurs sites et sections avec un besoin d'harmonisation technique, d'évolutions continues et de mises à jour maîtrisées.",
         role:"Développeur back-end",
         contribution:"Développement back-end, contributions aux briques communes de la plateforme, accompagnement lors des mises en production et maintenance.",
@@ -167,17 +167,18 @@ const PROJECTS = [
         highlight:"Site carrières : mise en valeur des contenus et fiabilité de la plateforme."
     },
 
-    { id:"onera-iris", title:"ONERA · IRIS", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal • site institutionnel",
-        context:"Site ou section spécifique au sein de l'écosystème institutionnel de l'ONERA, avec des besoins de développement ciblé et de maintenance.",
+    { id:"onera-iris", title:"ONERA · IRIS", tech:"drupal", domain:"recherche", format:["intranet"], subtitle:"Drupal • intranet • actualités transverses",
+        context:"Intranet de l'ONERA : il centralise les actualités de tous les services de l'établissement en un point d'entrée unique, là où l'information circulait auparavant service par service.",
         role:"Développeur back-end",
-        contribution:"Développement back-end, maintenance et support au sein de la plateforme existante.",
+        contribution:"Développement back-end, maintenance et support de l'intranet, au sein de la plateforme ONERA existante.",
         actions:[
-            { icon:"fa-cubes",             color:"text-purple-600", text:"Développements back-end et ajustements spécifiques." },
+            { icon:"fa-bullhorn",          color:"text-purple-600", text:"Remontée et centralisation des actualités publiées par les différents services de l'ONERA." },
+            { icon:"fa-cubes",             color:"text-purple-600", text:"Développements back-end et ajustements spécifiques à l'intranet." },
             { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Maintenance et mises à jour." },
             { icon:"fa-user-gear",          color:"text-purple-600", text:"Support et conseil auprès du client." },
         ],
         stack:["Drupal","PHP","Drush","Composer"],
-        highlight:"Interventions ciblées au sein d'une plateforme institutionnelle existante."
+        highlight:"Un point d'entrée unique pour les actualités de tous les services de l'ONERA."
     },
 
     { id:"mnhn", title:"MNHN · Publications scientifiques", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal Commerce • e-commerce éditorial • publications scientifiques",
