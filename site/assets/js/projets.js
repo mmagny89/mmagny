@@ -210,18 +210,19 @@ const PROJECTS = [
         highlight:"Projet institutionnel sur cycle long : évolutions régulières et maintien en condition opérationnelle."
     },
 
-    { id:"asp-public", title:"ASP · Site public", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site public • DSFR",
-        context:"Site public de l'Agence de Services et de Paiement, opérateur de l'État. Le site devait adopter le DSFR, le système de design de l'État, dont l'usage s'impose aux sites publics : une charte, des composants et des règles d'accessibilité imposés de l'extérieur, à concilier avec le fonctionnement de Drupal.",
+    { id:"asp-public", title:"ASP · Site public", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site public • DSFR • RGAA",
+        context:"Site public de l'Agence de Services et de Paiement, opérateur de l'État. Le site devait adopter le DSFR, le système de design de l'État, dont l'usage s'impose aux sites publics : une charte, des composants et un niveau d'accessibilité RGAA imposés de l'extérieur, à concilier avec le fonctionnement de Drupal.",
         role:"Développeur back-end",
         contribution:"Développement back-end, intégration, recette interne et support.",
         actions:[
             { icon:"fa-palette",           color:"text-purple-600", text:"Intégration du DSFR (système de design de l'État) : composants officiels transposés en gabarits Drupal, sans s'écarter de la charte." },
+            { icon:"fa-universal-access",  color:"text-purple-600", text:"Respect des exigences d'accessibilité RGAA portées par le DSFR : structure sémantique, navigation au clavier, alternatives textuelles, contrastes." },
             { icon:"fa-code",              color:"text-purple-600", text:"Intégration des découpes front en Twig." },
-            { icon:"fa-check-double",       color:"text-purple-600", text:"Recette interne et corrections avant mise en production." },
+            { icon:"fa-check-double",       color:"text-purple-600", text:"Recette interne et corrections avant mise en production, accessibilité comprise." },
             { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Maintenance et mises à jour après mise en ligne." },
         ],
-        stack:["Drupal","PHP","DSFR","Twig","Git"],
-        highlight:"Un site conforme au système de design de l'État, sans renoncer au confort d'édition dans Drupal."
+        stack:["Drupal","PHP","DSFR","RGAA","Twig","Git"],
+        highlight:"Un site conforme au système de design de l'État et à ses exigences d'accessibilité RGAA."
     },
 
     { id:"ihemi", title:"IHEMI", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site institutionnel",
@@ -264,7 +265,7 @@ const PROJECTS = [
         highlight:"Maintien en condition opérationnelle et évolutions régulières sur un site institutionnel."
     },
 
-    { id:"cd-vosges", title:"Conseil Départemental des Vosges", tech:"wordpress", domain:"collectivites", format:[], subtitle:"WordPress • site institutionnel",
+    { id:"cd-vosges", title:"Conseil Départemental des Vosges", tech:"wordpress", domain:"collectivites", format:[], subtitle:"WordPress • site institutionnel • cartographie",
         context:"Site institutionnel du Conseil Départemental des Vosges sous WordPress. Projet avec des besoins d'intégration, d'évolutions et de maintenance régulière.",
         role:"Support technique",
         contribution:"Support technique, intégration des découpes front, évolutions et mises à jour.",
@@ -278,16 +279,17 @@ const PROJECTS = [
     },
 
     { id:"smitom", title:"SMITOM-LOMBRIC", tech:"wordpress", domain:"collectivites", format:[], subtitle:"WordPress • site institutionnel",
-        context:"Site institutionnel du SMITOM-LOMBRIC (syndicat de traitement des ordures ménagères). Projet avec des besoins de gestion de contenus et de maintenance.",
+        context:"Site institutionnel du SMITOM-LOMBRIC, syndicat de traitement des ordures ménagères. Le besoin central : permettre à un habitant de trouver le point de collecte le plus proche de chez lui, sans avoir à lire une liste de communes.",
         role:"Développeur",
         contribution:"Développement, mises à jour et intégration.",
         actions:[
+            { icon:"fa-map-location-dot",  color:"text-slate-700", text:"Développement d'une carte interactive des points de collecte, administrable par le syndicat depuis WordPress." },
             { icon:"fa-code",              color:"text-slate-700", text:"Intégration des gabarits de contenus." },
             { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour WordPress et extensions." },
             { icon:"fa-user-gear",          color:"text-slate-700", text:"Support et conseil auprès du client." },
         ],
         stack:["WordPress","PHP","Git"],
-        highlight:"WordPress : maintenance et qualité de service sur un site institutionnel."
+        highlight:"Une carte des points de collecte qui répond en quelques secondes à la question que se posent les habitants."
     },
 
     // --- Logement social ---
