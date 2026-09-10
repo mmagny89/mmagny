@@ -1,0 +1,13 @@
+# Développement local. Chaîné automatiquement par COMPOSE_FILE (.env), donc
+# `docker compose up` suffit.
+services:
+  web:
+    build:
+      target: dev
+    image: mmagny-nginx:dev
+    # Le contenu n'est pas dans l'image en dev : il est monté depuis l'hôte,
+    # en lecture seule — nginx n'a aucune raison d'écrire dans le site.
+    volumes:
+      - ./site:/srv/site:ro
+    ports:
+      - "${HTTP_PORT}:80"

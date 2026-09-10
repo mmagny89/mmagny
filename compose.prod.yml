@@ -1,0 +1,30 @@
+# Production — serveur partagé, derrière un Traefik déjà en place.
+#
+# Aucun port n'est publié : le serveur héberge d'autres projets, et c'est
+# Traefik qui termine TLS puis joint le conteneur par le réseau `traefik`.
+#
+# Les quatre variables ci-dessous portent un opérateur d'erreur et sont
+# absentes du `.env` racine (stack-conventions.md, §5) : leurs valeurs se
+# constatent sur le serveur, jamais ne se supposent (§10). Une valeur de repli
+# produirait des labels que Traefik ignore en silence — le site ne répondrait
+# pas, et rien n'apparaîtrait dans les journaux du conteneur.
+services:
+  web:
+    build:
+      target: prod
+    image: mmagny-nginx:prod
+    networks:
+      - mmagny
+      - traefik
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: ${TRAEFIK_NETWORK:?nom du reseau Docker de Traefik, a constater sur le serveur}
+      traefik.http.routers.mmagny.rule: Host(`${SITE_DOMAIN:?domaine servi, ex. mmagny.fr}`)
+      traefik.http.routers.mmagny.entrypoints: ${TRAEFIK_ENTRYPOINT:?nom exact de l entrypoint HTTPS de Traefik, a constater sur le serveur}
+      traefik.http.routers.mmagny.tls.certresolver: ${TRAEFIK_CERTRESOLVER:?nom exact du certresolver de Traefik, a constater sur le serveur}
+      traefik.http.services.mmagny.loadbalancer.server.port: "80"
+
+networks:
+  traefik:
+    external: true
+    name: ${TRAEFIK_NETWORK:?nom du reseau Docker de Traefik, a constater sur le serveur}

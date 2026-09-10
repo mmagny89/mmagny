@@ -1,8 +1,20 @@
+# Socle commun à tous les environnements.
+# Aucun port publié, aucun bind mount, aucun `target` : ces trois choses sont
+# propres à un environnement et vivent dans les overrides (stack-conventions.md,
+# §1 et §11). Un `docker compose -f compose.yml up` seul est donc volontairement
+# incomplet — il sert au contrôle statique, pas au démarrage.
 services:
   web:
-    image: nginx:alpine
-    ports:
-      - "8080:80"          # http://localhost:8080
-    volumes:
-      - ./site:/usr/share/nginx/html:ro
-      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+      args:
+        NGINX_VERSION: ${NGINX_VERSION}
+    container_name: mmagny-web
+    restart: unless-stopped
+    networks:
+      - mmagny
+
+networks:
+  mmagny:
+    name: mmagny

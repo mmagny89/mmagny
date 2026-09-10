@@ -1,3 +1,16 @@
-.idea/
+# Secrets réels — jamais committés (§3). Les `.dist` le sont.
+# `.env.staging.local` est listé bien qu'il n'y ait pas d'environnement staging
+# sur ce projet : une exclusion de sécurité ne coûte rien et couvre le cas où
+# un tel environnement serait ajouté plus tard.
+.env.prod.local
+.env.staging.local
+.env.*.local
+
+# Outillage de l'agence : peut porter un fichier `.local` réel le temps d'une
+# installation. Exclusion de sécurité, pas une préférence (§3).
 .claude/
+
+.idea/
 .DS_Store
+**/.DS_Store
+node_modules/

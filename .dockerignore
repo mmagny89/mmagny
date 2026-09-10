@@ -1,0 +1,17 @@
+# Le contexte de build est la racine ; seul `site/` et `docker/nginx/` sont
+# réellement copiés dans l'image. Tout le reste est exclu pour garder le
+# contexte petit et éviter qu'un secret y entre par accident.
+.git
+.github
+.idea
+.claude
+.DS_Store
+**/.DS_Store
+
+# Aucun fichier d'environnement ne doit entrer dans une image (§3).
+.env*
+
+compose*.yml
+README.docker.md
+CLAUDE.md
+docs/

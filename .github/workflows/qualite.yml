@@ -1,0 +1,155 @@
+# Portes qualité et déploiement (stack-conventions.md, §22).
+#
+# Le site est un ensemble de pages statiques : ni Composer, ni PHP, ni base de
+# données. Les portes sont donc celles qui ont un sens ici — validité du
+# balisage, intégrité des liens internes, constructibilité de l'image — dans
+# l'ordre fail-fast prescrit par la skill `ci-pipeline-standards` : le moins
+# coûteux d'abord, le build de l'image en dernier.
+name: qualite
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Deux déploiements simultanés viseraient le même dossier et le même stack sur
+# l'hôte. On attend son tour, on ne coupe jamais un déploiement en cours (§22).
+concurrency:
+  group: qualite-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  # --- 1. Balisage ----------------------------------------------------------
+  balisage:
+    name: Validation HTML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # `--yes` évite l'invite interactive ; la version est épinglée pour que
+      # deux exécutions à quinze jours d'écart valident les mêmes règles.
+      - name: html-validate
+        run: npx --yes html-validate@9 "site/**/*.html"
+
+  # --- 2. Intégrité des liens internes --------------------------------------
+  # Aucune dépendance, aucun appel réseau : on vérifie que chaque href/src
+  # relatif ou absolu du site pointe sur un fichier réellement présent. C'est
+  # le défaut qui casse le plus souvent un site statique après un renommage.
+  liens:
+    name: Liens internes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier les cibles locales
+        run: ./.github/scripts/check-links.sh site
+
+  # --- 3. Construction de l'image de production -----------------------------
+  # En dernier : c'est l'étape la plus lente, et une image bâtie sur un site
+  # qui ne passe pas les portes n'a aucune raison d'exister. On construit le
+  # stage `prod`, jamais `dev`. Rien n'est poussé vers un registre : sur un
+  # serveur unique, c'est le script de déploiement qui reconstruit (§22).
+  image:
+    name: Build image prod
+    needs: [balisage, liens]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: docker build --target prod
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/nginx/Dockerfile
+          target: prod
+          push: false
+          load: true
+          tags: mmagny-nginx:prod
+          # La version suit celle du `.env` racine, source de vérité (§5).
+          # GitHub Actions ne sait pas lire ce fichier : la duplication est
+          # assumée, et toute montée de version touche les deux.
+          build-args: NGINX_VERSION=1.30.4-alpine3.24
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Démarrer l'image et sonder /healthz
+        run: |
+          docker run -d --name mmagny-ci -p 8080:80 mmagny-nginx:prod
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8080/healthz >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:8080/healthz
+          curl -fsS -o /dev/null http://127.0.0.1:8080/
+          # Le site n'est pas une SPA : une URL inconnue doit répondre 404.
+          code=$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/nexiste-pas)
+          test "$code" = "404" || { echo "Attendu 404, obtenu $code"; exit 1; }
+          docker rm -f mmagny-ci
+
+  # --- 4. Déploiement -------------------------------------------------------
+  deploiement:
+    name: Déploiement production
+    needs: [image]
+    # Une seule porte. Jamais sur une pull request : une PR d'un dépôt tiers
+    # déploierait du code non relu (§22).
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      # GitHub remplace un secret absent par une chaîne vide, sans rien
+      # signaler : `ssh "@"` produirait une page d'usage illisible au lieu
+      # d'une erreur. Cinq lignes qui nomment ce qui manque (§22).
+      - name: Contrôler la présence des secrets
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          manquants=""
+          for v in SSH_HOST SSH_USER SSH_KEY SSH_KNOWN_HOSTS; do
+            eval "val=\${$v}"
+            [ -n "$val" ] || manquants="$manquants $v"
+          done
+          if [ -n "$manquants" ]; then
+            echo "Secrets absents :$manquants"
+            echo "À définir dans Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
+      - name: Préparer la clé et known_hosts
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          # Empreinte épinglée, jamais StrictHostKeyChecking=no — ce serait
+          # accepter n'importe quel serveur se présentant à cette adresse.
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+          # L'empreinte d'un serveur est publique : l'afficher ne divulgue rien
+          # et rend diagnosticable un « Host key verification failed », qui
+          # vient presque toujours d'une adresse discordante.
+          echo "known_hosts épinglé :"
+          ssh-keygen -lf ~/.ssh/known_hosts
+
+      # La logique de déploiement vit sur l'hôte, pas ici : un script unique
+      # appelé par son nom, et une clé restreinte à lui seul par forced command
+      # dans authorized_keys. Les chemins et les secrets restent sur le serveur,
+      # et la clé confiée à GitHub ne peut rien lancer d'autre (§22).
+      - name: Lancer le déploiement
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          ssh -i ~/.ssh/id_deploy \
+              -o IdentitiesOnly=yes \
+              -o BatchMode=yes \
+              "${SSH_USER}@${SSH_HOST}" deploy-mmagny "${GITHUB_SHA}"
