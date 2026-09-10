@@ -36,7 +36,7 @@ const PERSONAL_PROJECTS = [
         id:    "aqoj",
         title: "À quoi on joue ?",
         desc:  "Moteur de recommandation de jeux de société selon les affinités des joueurs, à partir de l'API BoardGameGeek. Une couche d'IA affinera les suggestions.",
-        stack: ["Symfony", "React", "Tailwind CSS", "API BGG"],
+        stack: ["Symfony", "React", "API BGG"],
         status: "wip",
         ai:    true,
         url:   "https://github.com/mmagny89/aqoj",
