@@ -366,15 +366,16 @@ const PROJECTS = [
     { id:"la-madeleine", title:"La Madeleine", tech:"wordpress", domain:"restauration", format:[], subtitle:"WordPress • site vitrine • réservation en ligne",
         context:"Site du restaurant La Madeleine, à Sens. Un établissement de cette taille n'a ni service informatique ni budget de développement sur mesure : le site devait donc reposer sur des briques existantes, tout en restant tenu par l'équipe du restaurant au quotidien.",
         role:"Développeur",
-        contribution:"Installation et paramétrage de WordPress, mise en place et personnalisation d'un thème communautaire, intégration de la réservation en ligne.",
+        contribution:"Installation et paramétrage de WordPress, mise en place d'un thème communautaire personnalisé via un thème enfant, intégration de la réservation en ligne.",
         actions:[
             { icon:"fa-wordpress-simple", color:"text-slate-700", text:"Installation et paramétrage de WordPress, de l'hébergement à la mise en ligne." },
-            { icon:"fa-palette",          color:"text-slate-700", text:"Mise en place d'un thème communautaire, puis personnalisation de son apparence et de ses fonctionnalités pour coller à l'identité du restaurant." },
+            { icon:"fa-palette",          color:"text-slate-700", text:"Choix et mise en place d'un thème communautaire comme base, plutôt qu'un thème sur mesure hors budget pour un établissement de cette taille." },
+            { icon:"fa-code-branch",      color:"text-slate-700", text:"Création d'un thème enfant pour toutes les personnalisations, apparence comme fonctionnalités : le thème parent reste intact et continue de recevoir ses mises à jour, sans écraser le travail fait." },
             { icon:"fa-calendar-check",   color:"text-slate-700", text:"Intégration de ZenChef pour la réservation de tables en ligne, directement depuis le site." },
             { icon:"fa-user-gear",        color:"text-slate-700", text:"Accompagnement de l'équipe à la prise en main du site." },
         ],
-        stack:["WordPress","PHP","ZenChef","Git"],
-        highlight:"Un site tenu par le restaurant lui-même, avec la réservation en ligne intégrée au parcours."
+        stack:["WordPress","Thème enfant","PHP","ZenChef","Git"],
+        highlight:"Un site que l'équipe du restaurant tient elle-même, dont les personnalisations survivent aux mises à jour."
     },
 
 ];
