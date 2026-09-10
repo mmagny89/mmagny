@@ -210,17 +210,18 @@ const PROJECTS = [
         highlight:"Projet institutionnel sur cycle long : évolutions régulières et maintien en condition opérationnelle."
     },
 
-    { id:"asp-public", title:"ASP · Site public", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site public",
-        context:"Site public de l'Agence de Services et de Paiement. Projet avec des besoins éditoriaux structurés et une maintenance régulière.",
+    { id:"asp-public", title:"ASP · Site public", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site public • DSFR",
+        context:"Site public de l'Agence de Services et de Paiement, opérateur de l'État. Le site devait adopter le DSFR, le système de design de l'État, dont l'usage s'impose aux sites publics : une charte, des composants et des règles d'accessibilité imposés de l'extérieur, à concilier avec le fonctionnement de Drupal.",
         role:"Développeur back-end",
         contribution:"Développement back-end, intégration, recette interne et support.",
         actions:[
+            { icon:"fa-palette",           color:"text-purple-600", text:"Intégration du DSFR (système de design de l'État) : composants officiels transposés en gabarits Drupal, sans s'écarter de la charte." },
             { icon:"fa-code",              color:"text-purple-600", text:"Intégration des découpes front en Twig." },
             { icon:"fa-check-double",       color:"text-purple-600", text:"Recette interne et corrections avant mise en production." },
             { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Maintenance et mises à jour après mise en ligne." },
         ],
-        stack:["Drupal","PHP","Twig","Git"],
-        highlight:"Cycle complet : intégration, recette et maintenance sur un site public institutionnel."
+        stack:["Drupal","PHP","DSFR","Twig","Git"],
+        highlight:"Un site conforme au système de design de l'État, sans renoncer au confort d'édition dans Drupal."
     },
 
     { id:"ihemi", title:"IHEMI", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site institutionnel",
