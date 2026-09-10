@@ -527,8 +527,6 @@ const modalActions  = document.getElementById("modalActions");
 const modalStack    = document.getElementById("modalStack");
 const modalResult   = document.getElementById("modalResult");
 
-const FEATURED_IDS = ["polytechnique", "ush-collab", "mnhn", "charot", "quartiers-plus"];
-
 let lastActive = null;
 
 function openModal(id) {
@@ -536,19 +534,17 @@ function openModal(id) {
     if (!p) return;
 
     lastActive = document.activeElement;
-    const isFeatured = FEATURED_IDS.includes(id);
 
+    // Une seule mise en page pour les vingt-sept projets. Les cinq projets
+    // mis en avant avaient seuls droit au contexte, au rôle, aux actions et
+    // au résultat ; les vingt-deux autres n'affichaient que leur stack, alors
+    // que leurs données sont tout aussi complètes.
     modalTitle.textContent = p.title;
-    modalSubtitle.textContent = isFeatured ? "" : p.subtitle;
-    modalSubtitle.classList.toggle("hidden", isFeatured);
+    modalSubtitle.textContent = p.subtitle || "";
+    modalSubtitle.classList.toggle("hidden", !p.subtitle);
     modalBadges.innerHTML = fmtBadges(p);
 
-    const leftCol  = document.getElementById("modalLeftCol");
-    const rightCol = document.getElementById("modalRightCol");
-    leftCol.classList.toggle("hidden", !isFeatured);
-    rightCol.className = isFeatured ? "sm:col-span-5 space-y-4" : "sm:col-span-12 space-y-4";
-    document.getElementById("modalResultBlock").classList.toggle("hidden", !isFeatured);
-    document.getElementById("modalRoleStrip").classList.toggle("hidden", isFeatured || p.tech !== "drupal");
+    document.getElementById("modalResultBlock").classList.toggle("hidden", !p.highlight);
 
     modalContext.textContent = p.context || "";
     modalRole.textContent    = p.role    || "";
@@ -561,7 +557,7 @@ function openModal(id) {
       </li>`).join("");
 
     modalStack.innerHTML  = (p.stack || []).map(s => `<span class="chip">${s}</span>`).join("");
-    modalResult.textContent = isFeatured ? (p.highlight || "") : "";
+    modalResult.textContent = p.highlight || "";
 
     modal.classList.remove("hidden");
     modal.classList.add("flex");
