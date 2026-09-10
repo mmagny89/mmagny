@@ -320,17 +320,18 @@ const PROJECTS = [
     },
 
     // --- Associatif ---
-    { id:"unml", title:"UNML", tech:"wordpress", domain:"associatif", format:[], subtitle:"WordPress • site associatif",
-        context:"Site WordPress de l'Union Nationale des Missions Locales. Projet axé sur la publication de contenus et la maintenance régulière de la plateforme.",
-        role:"Support technique",
-        contribution:"Support technique et suivi des évolutions du site.",
+    { id:"unml", title:"UNML", tech:"wordpress", domain:"associatif", format:[], subtitle:"WordPress • annuaire via API • espace adhérents",
+        context:"Site de l'Union Nationale des Missions Locales. Deux besoins structurants : afficher l'annuaire de toutes les missions locales sans le ressaisir, et réserver les ressources documentaires aux personnes qui y ont droit. L'annuaire est donc alimenté par l'API interne de l'UNML, et l'accès aux ressources dépend du profil de la personne connectée et de son adhésion.",
+        role:"Développeur back-end",
+        contribution:"Intégration de l'API interne, gestion des accès par profil et par adhésion, évolutions et support.",
         actions:[
-            { icon:"fa-people-group",       color:"text-slate-700", text:"Échanges et support auprès du client." },
-            { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Maintenance et mises à jour WordPress." },
+            { icon:"fa-address-book",       color:"text-slate-700", text:"Alimentation de l'annuaire des missions locales depuis l'API interne de l'UNML : une seule source de données, tenue à jour par le réseau lui-même." },
+            { icon:"fa-user-lock",          color:"text-slate-700", text:"Accès aux ressources documentaires selon le profil de la personne connectée et son adhésion, avec les droits correspondants." },
             { icon:"fa-code",              color:"text-slate-700", text:"Évolutions et intégration." },
+            { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Maintenance, mises à jour WordPress et support auprès du client." },
         ],
-        stack:["WordPress","PHP","Git"],
-        highlight:"WordPress : support et maintien en condition opérationnelle sur un site associatif."
+        stack:["WordPress","PHP","API interne","Git"],
+        highlight:"Un annuaire national alimenté par l'API du réseau, et des ressources documentaires ouvertes selon le profil et l'adhésion."
     },
 
     // --- Industrie ---
