@@ -309,65 +309,64 @@
                 </div>
             </div>
 
-            <!-- Colonne droite -->
-            <div class="md:col-span-5 reveal md:justify-self-end">
-                <div class="card p-7">
-                    <!-- 3 items -->
-                    <div class="grid gap-3">
-                        <div class="rounded-2xl border border-black/10 bg-white p-4">
-                            <div class="flex gap-3">
-                                <i class="fa-solid fa-cubes mt-0.5 text-sky-600"></i>
-                                <div>
-                                    <p class="text-sm font-medium">Drupal 8+ &amp; usines à sites</p>
-                                    <p class="text-xs text-slate-600 mt-1">Modules sur-mesure, theming, maintenance.</p>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Colonne droite : quatre encadrés identiques empilés donnaient une
+                 liste sans hiérarchie. Une carte « ce que je fais » en lignes
+                 séparées, puis un bloc de disponibilité distinct, qui est
+                 l'information la plus recherchée. -->
+            <div class="md:col-span-5 reveal md:justify-self-end w-full space-y-4">
 
-                        <div class="rounded-2xl border border-black/10 bg-white p-4">
-                            <div class="flex gap-3">
-                                <i class="fa-solid fa-truck-fast mt-0.5 text-sky-600"></i>
-                                <div>
-                                    <p class="text-sm font-medium">Migrations &amp; reprises</p>
-                                    <p class="text-xs text-slate-600 mt-1">Contenus, médias, multi-langue, URLs.</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card p-6">
+                    <p class="text-xs uppercase tracking-wide text-slate-500 font-medium">Ce sur quoi on m’appelle</p>
 
-                        <div class="rounded-2xl border border-black/10 bg-white p-4">
-                            <div class="flex gap-3">
-                                <i class="fa-solid fa-shield mt-0.5 text-emerald-600"></i>
-                                <div>
-                                    <p class="text-sm font-medium">Qualité de livraison</p>
-                                    <p class="text-xs text-slate-600 mt-1">Relectures, recette, accompagnement.</p>
-                                </div>
+                    <ul class="mt-4 divide-y divide-black/5">
+                        <li class="flex gap-3 items-start pb-3">
+                            <i class="fa-solid fa-cubes text-sky-600 mt-1 w-4 text-center shrink-0"></i>
+                            <div>
+                                <p class="text-sm font-medium">Drupal 8+ &amp; usines à sites</p>
+                                <p class="text-xs text-slate-600 mt-0.5">Modules sur-mesure, theming, maintenance.</p>
                             </div>
-                        </div>
-
-                        <div class="rounded-2xl border border-black/10 bg-white p-4">
-                            <div class="flex gap-3">
-                                <i class="fa-solid fa-comments mt-0.5 text-purple-600"></i>
-                                <div>
-                                    <p class="text-sm font-medium">Écoute avant code</p>
-                                    <p class="text-xs text-slate-600 mt-1">Comprendre le métier, puis choisir la technique.</p>
-                                </div>
+                        </li>
+                        <li class="flex gap-3 items-start py-3">
+                            <i class="fa-solid fa-truck-fast text-sky-600 mt-1 w-4 text-center shrink-0"></i>
+                            <div>
+                                <p class="text-sm font-medium">Migrations &amp; reprises</p>
+                                <p class="text-xs text-slate-600 mt-0.5">Contenus, médias, multilingue, URLs.</p>
                             </div>
-                        </div>
-                    </div>
+                        </li>
+                        <li class="flex gap-3 items-start py-3">
+                            <i class="fa-solid fa-shield text-emerald-600 mt-1 w-4 text-center shrink-0"></i>
+                            <div>
+                                <p class="text-sm font-medium">Qualité de livraison</p>
+                                <p class="text-xs text-slate-600 mt-0.5">Relectures, recette, accompagnement.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3 items-start pt-3">
+                            <i class="fa-solid fa-comments text-purple-600 mt-1 w-4 text-center shrink-0"></i>
+                            <div>
+                                <p class="text-sm font-medium">Écoute avant code</p>
+                                <p class="text-xs text-slate-600 mt-0.5">Comprendre le métier, puis choisir la technique.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
-                    <!-- Localisation / mode de travail. Deux cas de figure, dits
-                         explicitement : la question tombe toujours, autant y répondre. -->
-                    <div class="mt-6 space-y-2 text-xs">
-                        <p class="flex items-start gap-2 text-slate-600">
-                            <i class="fa-solid fa-location-dot text-sky-600 mt-0.5 shrink-0"></i>
-                            <span><span class="font-medium text-slate-800">Dans l’Yonne :</span> sur site, avec une part de télétravail.</span>
+                <!-- Où et comment je travaille. Deux cas de figure dits
+                     explicitement : la question tombe toujours. -->
+                <div class="card p-6 border-l-2 border-l-emerald-400">
+                    <p class="text-xs uppercase tracking-wide text-slate-500 font-medium">Où et comment</p>
+
+                    <div class="mt-3 space-y-2.5 text-sm">
+                        <p class="flex items-start gap-2.5 text-slate-600">
+                            <i class="fa-solid fa-location-dot text-emerald-600 mt-1 w-4 text-center shrink-0"></i>
+                            <span><span class="font-medium text-slate-800">Dans l’Yonne</span><br>sur site, avec une part de télétravail</span>
                         </p>
-                        <p class="flex items-start gap-2 text-slate-600">
-                            <i class="fa-solid fa-house-laptop text-sky-600 mt-0.5 shrink-0"></i>
-                            <span><span class="font-medium text-slate-800">Ailleurs :</span> télétravail, avec des déplacements ponctuels.</span>
+                        <p class="flex items-start gap-2.5 text-slate-600">
+                            <i class="fa-solid fa-house-laptop text-emerald-600 mt-1 w-4 text-center shrink-0"></i>
+                            <span><span class="font-medium text-slate-800">Ailleurs</span><br>télétravail, avec des déplacements ponctuels</span>
                         </p>
                     </div>
                 </div>
+
             </div>
 
         </div>
@@ -757,8 +756,8 @@
                     <p class="text-xs text-slate-500">Responsabilités techniques</p>
                     <ul class="mt-3 text-sm space-y-3">
                         <li class="flex gap-3 items-start"><i class="fa-solid fa-cubes mt-0.5 text-sky-600"></i><span><strong>Référente Drupal 8+</strong> : <span class="text-slate-600">une vingtaine de sites institutionnels livrés et maintenus</span> (modules et thèmes sur-mesure, usines à sites)</span></li>
-                        <li class="flex gap-3 items-start"><i class="fa-solid fa-code mt-0.5 text-sky-600"></i><span>Développement &amp; support technique WordPress et Symfony</span></li><li class="flex gap-3 items-start"><i class="fa-solid fa-file-circle-check mt-0.5 text-emerald-600"></i><span>Relectures techniques des cahiers fonctionnels</span></li>
-                        <li class="flex gap-3 items-start"><i class="fa-solid fa-flask-vial mt-0.5 text-slate-700"></i><span>Recettes internes techniques avant livraison</span></li>
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-code mt-0.5 text-sky-600"></i><span>Développement &amp; support technique WordPress et Symfony : <span class="text-slate-600">extranets métier, applications sur-mesure, reprise de projets existants</span></span></li><li class="flex gap-3 items-start"><i class="fa-solid fa-file-circle-check mt-0.5 text-emerald-600"></i><span>Relectures techniques des cahiers fonctionnels : <span class="text-slate-600">faisabilité, coût réel, alertes avant chiffrage</span></span></li>
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-flask-vial mt-0.5 text-slate-700"></i><span>Recettes internes techniques avant livraison : <span class="text-slate-600">performance, accessibilité, sécurité, conformité au cahier</span></span></li>
                     </ul>
                 </div>
 
@@ -767,7 +766,7 @@
                     <ul class="mt-3 text-sm space-y-2">
                         <li class="flex gap-2"><i class="fa-solid fa-user-group mt-0.5 text-purple-600"></i><span>Accompagnement des nouvelles recrues back-end : <span class="text-slate-600">montée en autonomie, revues de code, transmission des pratiques Drupal</span></span></li>
                         <li class="flex gap-2"><i class="fa-solid fa-leaf mt-0.5 text-emerald-600"></i><span>Pilote de projets dans la démarche RSE de l’agence : <span class="text-slate-600">conditions de travail, impact, engagement collectif</span></span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-shield-halved mt-0.5 text-slate-700"></i><span>Culture qualité/sécurité côté serveur</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-shield-halved mt-0.5 text-slate-700"></i><span>Culture qualité et sécurité côté serveur : <span class="text-slate-600">standards de code, mises à jour, veille sur les failles</span></span></li>
                     </ul>
                 </div>
             </div>
@@ -786,18 +785,18 @@
                 <div class="card p-5 border-l-2 border-l-sky-400">
                     <p class="text-xs text-slate-500">Stack &amp; production</p>
                     <ul class="mt-3 text-sm space-y-2">
-                        <li class="flex gap-2"><i class="fa-solid fa-code mt-0.5 text-sky-600"></i><span>Développement sur Joomla, WordPress, Drupal 7, CodeIgniter</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-palette mt-0.5 text-purple-600"></i><span>Intégration &amp; theming (HTML/CSS/JS)</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-screwdriver-wrench mt-0.5 text-slate-700"></i><span>Support client &amp; maintenance</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-code mt-0.5 text-sky-600"></i><span>Développement sur Joomla, WordPress, Drupal 7, CodeIgniter : <span class="text-slate-600">sites vitrines, boutiques, applications métier</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-palette mt-0.5 text-purple-600"></i><span>Intégration &amp; theming (HTML/CSS/JS) : <span class="text-slate-600">maquettes converties en thèmes, responsive, compatibilité navigateurs</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-screwdriver-wrench mt-0.5 text-slate-700"></i><span>Support client &amp; maintenance : <span class="text-slate-600">correctifs, évolutions, montées de version</span></span></li>
                     </ul>
                 </div>
 
                 <div class="card p-5 border-l-2 border-l-emerald-400">
                     <p class="text-xs text-slate-500">Relation &amp; gestion</p>
                     <ul class="mt-3 text-sm space-y-2">
-                        <li class="flex gap-2"><i class="fa-solid fa-comments mt-0.5 text-emerald-600"></i><span>Recueil des besoins &amp; échanges clients</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-list-check mt-0.5 text-sky-600"></i><span>Gestion de projet : cadrage &amp; suivi</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-chalkboard-user mt-0.5 text-purple-600"></i><span>Formation et accompagnement des clients</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-comments mt-0.5 text-emerald-600"></i><span>Recueil des besoins &amp; échanges clients : <span class="text-slate-600">traduire une demande métier en spécifications tenables</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-list-check mt-0.5 text-sky-600"></i><span>Gestion de projet, cadrage &amp; suivi : <span class="text-slate-600">planning, arbitrages de périmètre, point d’avancement</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-chalkboard-user mt-0.5 text-purple-600"></i><span>Formation et accompagnement des clients : <span class="text-slate-600">prise en main de l’administration, documentation, autonomie</span></span></li>
                     </ul>
                 </div>
             </div>
@@ -816,9 +815,9 @@
                 <div class="card p-5 border-l-2 border-l-sky-400">
                     <p class="text-xs text-slate-500">Éveil’O’Goût · Dijon • <time>2011</time></p>
                     <ul class="mt-3 text-sm space-y-2">
-                        <li class="flex gap-2"><i class="fa-solid fa-globe mt-0.5 text-sky-600"></i><span>Création d’un site sous Joomla</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-arrows-rotate mt-0.5 text-sky-600"></i><span>Refonte ultérieure sous WordPress</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-bullhorn mt-0.5 text-emerald-600"></i><span>Communication print &amp; assistance formations</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-globe mt-0.5 text-sky-600"></i><span>Création d’un site sous Joomla : <span class="text-slate-600">premier projet mené de bout en bout</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-arrows-rotate mt-0.5 text-sky-600"></i><span>Refonte ultérieure sous WordPress : <span class="text-slate-600">reprise du contenu existant</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-bullhorn mt-0.5 text-emerald-600"></i><span>Communication print &amp; assistance formations : <span class="text-slate-600">supports, mise en page, logistique</span></span></li>
                     </ul>
                 </div>
 
@@ -826,9 +825,9 @@
                 <div class="card p-5 border-l-2 border-l-slate-300">
                     <p class="text-xs text-slate-500">Guernet · Joigny • <time>2009 &amp; 2010</time></p>
                     <ul class="mt-3 text-sm space-y-2">
-                        <li class="flex gap-2"><i class="fa-solid fa-headset mt-0.5 text-slate-700"></i><span>Support matériel &amp; assistance interne</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-network-wired mt-0.5 text-sky-600"></i><span>Amélioration intranet / extranet</span></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-gear mt-0.5 text-sky-600"></i><span>Travaux autour de l’intégration SAGE (gestion commerciale)</span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-headset mt-0.5 text-slate-700"></i><span>Support matériel &amp; assistance interne : <span class="text-slate-600">postes de travail, dépannage utilisateurs</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-network-wired mt-0.5 text-sky-600"></i><span>Amélioration intranet / extranet : <span class="text-slate-600">outils internes, accès et droits</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-gear mt-0.5 text-sky-600"></i><span>Travaux autour de l’intégration SAGE : <span class="text-slate-600">gestion commerciale, échanges de données</span></span></li>
                     </ul>
                 </div>
             </div>
@@ -1024,62 +1023,55 @@
         </div>
     </div>
 
-    <!-- Études -->
+    <!-- Études : quatre diplômes en grille plutôt qu'une colonne unique,
+         qui laissait la moitié droite de la carte vide. Ordre antéchronologique
+         conservé. -->
     <div class="mt-6 card p-6 reveal">
         <div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-2xl bg-slate-200 grid place-items-center">
+            <div class="h-10 w-10 rounded-2xl bg-slate-200 grid place-items-center shrink-0">
                 <i class="fa-solid fa-building-columns text-slate-800"></i>
             </div>
-            <h3 class="font-semibold">Études</h3>
+            <div>
+                <h3 class="font-semibold">Études</h3>
+                <p class="text-xs text-slate-600 mt-0.5">Informatique de gestion, communication, histoire de l’art</p>
+            </div>
         </div>
 
-        <ol class="mt-6 space-y-6">
+        <ol class="mt-6 grid sm:grid-cols-2 gap-4">
 
-            <!-- IUT -->
-            <li class="flex gap-3 items-start">
-                <i class="fa-solid fa-laptop-code text-sky-600 mt-1 text-base shrink-0"></i>
-                <div>
-                    <p class="font-medium">IUT Dijon-Auxerre-Nevers • Dijon</p>
-                    <p class="text-sm text-slate-700">
-                        Licence professionnelle · Activité et Technique de Communication
-                    </p>
-                    <p class="text-sm text-slate-600">sept. 2010 – juin 2011</p>
+            <li class="rounded-2xl border border-black/10 bg-white p-4 flex gap-3 items-start">
+                <i class="fa-solid fa-laptop-code text-sky-600 mt-0.5 shrink-0"></i>
+                <div class="min-w-0">
+                    <p class="text-sm font-medium">Licence professionnelle</p>
+                    <p class="text-sm text-slate-700 mt-0.5">Activité et Technique de Communication</p>
+                    <p class="text-xs text-slate-500 mt-1.5">IUT Dijon-Auxerre-Nevers · <time>2010 à 2011</time></p>
                 </div>
             </li>
 
-            <!-- BTS -->
-            <li class="flex gap-3 items-start">
-                <i class="fa-solid fa-code text-purple-600 mt-1 text-base shrink-0"></i>
-                <div>
-                    <p class="font-medium">Lycée Le Castel • Dijon</p>
-                    <p class="text-sm text-slate-700">
-                        BTS Informatique de gestion · Développeur d’application
-                    </p>
-                    <p class="text-sm text-slate-600">sept. 2008 – juin 2010</p>
+            <li class="rounded-2xl border border-black/10 bg-white p-4 flex gap-3 items-start">
+                <i class="fa-solid fa-code text-purple-600 mt-0.5 shrink-0"></i>
+                <div class="min-w-0">
+                    <p class="text-sm font-medium">BTS Informatique de gestion</p>
+                    <p class="text-sm text-slate-700 mt-0.5">Développeur d’application</p>
+                    <p class="text-xs text-slate-500 mt-1.5">Lycée Le Castel, Dijon · <time>2008 à 2010</time></p>
                 </div>
             </li>
 
-            <!-- Université -->
-            <li class="flex gap-3 items-start">
-                <i class="fa-solid fa-palette text-purple-600 mt-1 text-base shrink-0"></i>
-                <div>
-                    <p class="font-medium">Université Bourgogne Europe • Dijon</p>
-                    <p class="text-sm text-slate-700">
-                        Licence · Histoire de l’art et Archéologie
-                    </p>
-                    <p class="text-sm text-slate-600">sept. 2007 – juin 2008</p>
+            <li class="rounded-2xl border border-black/10 bg-white p-4 flex gap-3 items-start">
+                <i class="fa-solid fa-palette text-purple-600 mt-0.5 shrink-0"></i>
+                <div class="min-w-0">
+                    <p class="text-sm font-medium">Licence</p>
+                    <p class="text-sm text-slate-700 mt-0.5">Histoire de l’art et Archéologie</p>
+                    <p class="text-xs text-slate-500 mt-1.5">Université Bourgogne Europe · <time>2007 à 2008</time></p>
                 </div>
             </li>
 
-            <!-- Bac -->
-            <li class="flex gap-3 items-start">
-                <i class="fa-solid fa-school text-slate-600 mt-1 text-base shrink-0"></i>
-                <div>
-                    <p class="font-medium">Lycée Louis Davier • Joigny</p>
-                    <p class="text-sm text-slate-700">
-                        Baccalauréat STG · Option Gestion des Ressources Humaines
-                    </p>
-                    <p class="text-sm text-slate-600">Obtenu en 2007</p>
+            <li class="rounded-2xl border border-black/10 bg-white p-4 flex gap-3 items-start">
+                <i class="fa-solid fa-school text-slate-600 mt-0.5 shrink-0"></i>
+                <div class="min-w-0">
+                    <p class="text-sm font-medium">Baccalauréat STG</p>
+                    <p class="text-sm text-slate-700 mt-0.5">Option Gestion des Ressources Humaines</p>
+                    <p class="text-xs text-slate-500 mt-1.5">Lycée Louis Davier, Joigny · <time>2007</time></p>
                 </div>
             </li>
 
@@ -1091,72 +1083,69 @@
 
 <!-- Hobbies -->
 <section id="hobbies" class="container-prose py-16 sm:py-20">
-    <div class="reveal">
-        <h2 class="section-title">En dehors du code</h2>
-        <p class="muted mt-2 max-w-2xl">
-            Mes loisirs alimentent directement ce que je construis le soir, et ma façon
-            de travailler le jour.
-        </p>
+    <!-- Une carte unique en deux colonnes plutôt que quatre cartes jumelles :
+         la section est un aparté, elle n'a pas à peser autant que Compétences
+         ou Expérience. -->
+    <div class="card p-7 sm:p-9 reveal">
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+            <div class="lg:col-span-5">
+                <h2 class="section-title">En dehors du code</h2>
+                <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+                    Mes loisirs alimentent directement ce que je construis le soir, et ma
+                    façon de travailler le jour. La moitié de mes
+                    <a href="#projets-perso" class="underline decoration-dotted underline-offset-4 hover:text-slate-900 transition">projets personnels</a>
+                    sort d’une table de jeu.
+                </p>
+                <p class="mt-5 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-slate-600">
+                    <i class="fa-solid fa-cat text-slate-700"></i>
+                    Et bien sûr, les chats 🐾
+                </p>
+            </div>
+
+            <ul class="lg:col-span-7 divide-y divide-black/5">
+                <li class="flex gap-4 items-start py-4 first:pt-0">
+                    <i class="fa-solid fa-dice text-emerald-600 mt-1 w-5 text-center shrink-0"></i>
+                    <div>
+                        <p class="text-sm font-medium">Jeux de société &amp; jeux de rôle</p>
+                        <p class="text-sm text-slate-600 mt-1">
+                            Le point de départ de la moitié de mes projets perso : un besoin
+                            réel, une table, des joueurs.
+                        </p>
+                    </div>
+                </li>
+                <li class="flex gap-4 items-start py-4">
+                    <i class="fa-solid fa-gamepad text-purple-600 mt-1 w-5 text-center shrink-0"></i>
+                    <div>
+                        <p class="text-sm font-medium">Jeux vidéo</p>
+                        <p class="text-sm text-slate-600 mt-1">
+                            Univers immersifs, mécaniques de gameplay, narration interactive.
+                            <a href="#projets-perso" class="underline decoration-dotted underline-offset-2 hover:text-slate-900 transition">Niout</a> vient de là.
+                        </p>
+                    </div>
+                </li>
+                <li class="flex gap-4 items-start py-4">
+                    <i class="fa-solid fa-rocket text-sky-600 mt-1 w-5 text-center shrink-0"></i>
+                    <div>
+                        <p class="text-sm font-medium">Espace &amp; exploration</p>
+                        <p class="text-sm text-slate-600 mt-1">
+                            Curiosité scientifique, technologies spatiales, prospective.
+                        </p>
+                    </div>
+                </li>
+                <li class="flex gap-4 items-start py-4 last:pb-0">
+                    <i class="fa-solid fa-seedling text-emerald-600 mt-1 w-5 text-center shrink-0"></i>
+                    <div>
+                        <p class="text-sm font-medium">Jardinage &amp; bricolage</p>
+                        <p class="text-sm text-slate-600 mt-1">
+                            On ne force pas une plante à pousser plus vite. Un projet non plus.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
     </div>
-
-    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <div class="card p-5 reveal border-l-2 border-l-sky-400">
-            <div class="flex items-start gap-3">
-                <i class="fa-solid fa-rocket text-sky-600 mt-1"></i>
-                <div>
-                    <p class="font-medium text-sm">Espace &amp; exploration</p>
-                    <p class="text-xs text-slate-600 mt-1">
-                        Curiosité scientifique, technologies spatiales, prospective.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card p-5 reveal border-l-2 border-l-purple-400">
-            <div class="flex items-start gap-3">
-                <i class="fa-solid fa-gamepad text-purple-600 mt-1"></i>
-                <div>
-                    <p class="font-medium text-sm">Jeux vidéo</p>
-                    <p class="text-xs text-slate-600 mt-1">
-                        Univers immersifs, mécaniques de gameplay, narration interactive.
-                        <a href="#projets-perso" class="underline decoration-dotted underline-offset-2 hover:text-slate-900 transition">Niout</a> vient de là.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card p-5 reveal border-l-2 border-l-emerald-400">
-            <div class="flex items-start gap-3">
-                <i class="fa-solid fa-dice text-emerald-600 mt-1"></i>
-                <div>
-                    <p class="font-medium text-sm">Jeux de société &amp; rôle</p>
-                    <p class="text-xs text-slate-600 mt-1">
-                        Le point de départ de la moitié de mes
-                        <a href="#projets-perso" class="underline decoration-dotted underline-offset-2 hover:text-slate-900 transition">projets perso</a> :
-                        un besoin réel, une table, des joueurs.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card p-5 reveal border-l-2 border-l-emerald-400">
-            <div class="flex items-start gap-3">
-                <i class="fa-solid fa-seedling text-emerald-600 mt-1"></i>
-                <div>
-                    <p class="font-medium text-sm">Jardinage &amp; bricolage</p>
-                    <p class="text-xs text-slate-600 mt-1">
-                        On ne force pas une plante à pousser plus vite. Un projet non plus.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <p class="mt-8 text-xs text-slate-500 text-center">
-        Et bien sûr… <i class="fa-solid fa-cat text-slate-700"></i> les chats 🐾
-    </p>
 </section>
 
 <div class="section-glow" aria-hidden="true"></div>
@@ -1255,112 +1244,63 @@
 
 <!-- Contact -->
 <section id="contact" class="container-prose py-16 sm:py-20">
-    <div class="reveal">
-        <h2 class="section-title">Contact</h2>
-        <p class="muted mt-2">
-            Une question, un contexte à me décrire, une opportunité : écrivez-moi.
-            Je réponds à tout le monde.
-        </p>
-    </div>
+    <!-- Contact resserré : les trois « raisons de contacter » et l'encart
+         « avant de me contacter » diluaient l'appel à l'action. Ce qui compte
+         ici tient en trois moyens de contact et une phrase. -->
+    <div class="card p-8 sm:p-10 reveal border-l-2 border-l-sky-400">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
 
-    <div class="mt-8 grid lg:grid-cols-12 gap-6 items-stretch">
-        <!-- Carte principale -->
-        <div class="lg:col-span-7 card p-7 reveal border-l-2 border-l-sky-400">
-            <div class="flex items-start gap-3">
-                <div class="h-12 w-12 rounded-2xl bg-[rgb(var(--pri))]/15 grid place-items-center">
-                    <i class="fa-solid fa-message text-sky-700"></i>
-                </div>
-                <div>
-                    <p class="font-semibold text-lg">Discutons de votre contexte</p>
-                    <p class="text-sm text-slate-600 mt-1">
-                        Développement back-end PHP, spécialisée Drupal 8+ et Symfony (modules sur-mesure, migrations, qualité de livraison).
-                    </p>
-                </div>
-            </div>
-
-            <!-- Raisons de contacter -->
-            <div class="mt-6 grid sm:grid-cols-3 gap-4">
-                <div class="rounded-2xl border border-black/10 bg-white p-4">
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-briefcase mt-0.5 text-sky-600"></i>
-                        <div>
-                            <p class="text-sm font-medium">Opportunité</p>
-                            <p class="text-xs text-slate-600 mt-1">Poste en back-end PHP, dans l’Yonne ou en télétravail.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rounded-2xl border border-black/10 bg-white p-4">
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-people-group mt-0.5 text-purple-600"></i>
-                        <div>
-                            <p class="text-sm font-medium">Collaboration</p>
-                            <p class="text-xs text-slate-600 mt-1">Projet d’équipe, organisation, méthode.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rounded-2xl border border-black/10 bg-white p-4">
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-code mt-0.5 text-emerald-600"></i>
-                        <div>
-                            <p class="text-sm font-medium">Échange tech</p>
-                            <p class="text-xs text-slate-600 mt-1">Drupal, migrations, bonnes pratiques.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="mt-7 flex flex-wrap gap-3">
-                <a href="mailto:contact@mmagny.fr"
-                   class="btn inline-flex items-center gap-2"
-                   aria-label="Envoyer un email">
-                    <i class="fa-solid fa-envelope"></i>
-                    contact@mmagny.fr
-                </a>
-
-                <a href="https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/"
-                   target="_blank" rel="noreferrer"
-                   class="btn-outline inline-flex items-center gap-2">
-                    <i class="fa-brands fa-linkedin"></i>
-                    LinkedIn
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                </a>
-
-                <a href="./assets/cv/mylene-magny-cv.pdf"
-                   download="CV-Mylene-Magny.pdf"
-                   class="btn-outline inline-flex items-center gap-2">
-                    <i class="fa-solid fa-file-arrow-down"></i>
-                    CV (PDF)
-                </a>
-            </div>
-        </div>
-
-        <!-- Carte secondaire : rappel + lien projets -->
-        <div class="lg:col-span-5 grid gap-6 reveal">
-            <div class="card p-6 border-l-2 border-l-purple-400">
-                <p class="text-sm font-semibold">Avant de me contacter</p>
-                <p class="text-sm text-slate-600 mt-1">
-                    Vous pouvez aussi parcourir la page Projets pour voir des exemples concrets (contexte, rôle, livrables).
+            <div class="lg:col-span-7">
+                <h2 class="section-title">Écrivons-nous</h2>
+                <p class="text-slate-600 mt-3 leading-relaxed">
+                    Une question, un contexte à me décrire, une opportunité : je réponds à
+                    tout le monde. Si vous voulez d’abord voir ce que je fais, la
+                    <a href="./projets.html" class="underline decoration-dotted underline-offset-4 hover:text-slate-900 transition">page Projets</a>
+                    détaille le contexte, mon rôle et les livrables sur 26 réalisations.
                 </p>
-                <div class="mt-4">
-                    <a href="./projets.html" class="btn-outline inline-flex items-center gap-2">
-                        Voir les projets <i class="fa-solid fa-arrow-right"></i>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <a href="mailto:contact@mmagny.fr"
+                       class="btn inline-flex items-center gap-2"
+                       aria-label="Envoyer un courriel à contact@mmagny.fr">
+                        <i class="fa-solid fa-envelope"></i>
+                        contact@mmagny.fr
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn-outline inline-flex items-center gap-2">
+                        <i class="fa-brands fa-linkedin"></i>
+                        LinkedIn
+                        <i class="fa-solid fa-up-right-from-square text-xs"></i>
+                    </a>
+
+                    <a href="./assets/cv/mylene-magny-cv.pdf"
+                       download="CV-Mylene-Magny.pdf"
+                       class="btn-outline inline-flex items-center gap-2">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        CV (PDF)
                     </a>
                 </div>
             </div>
 
-            <div class="card p-6 border-l-2 border-l-emerald-400">
-                <p class="text-sm font-semibold">Points forts</p>
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="chip"><i class="fa-solid fa-cubes"></i> Drupal 8+</span>
-                    <span class="chip"><i class="fa-brands fa-symfony"></i> Symfony</span>
-                    <span class="chip"><i class="fa-solid fa-truck-fast"></i> Migrations</span>
-                    <span class="chip"><i class="fa-solid fa-shield"></i> Qualité</span>
-                    <span class="chip"><i class="fa-solid fa-gear"></i> Industrialisation</span>
+            <div class="lg:col-span-5">
+                <div class="rounded-2xl border border-black/10 bg-white p-5 space-y-3 text-sm">
+                    <p class="flex items-start gap-3">
+                        <i class="fa-solid fa-briefcase text-sky-600 mt-0.5 w-4 text-center shrink-0"></i>
+                        <span><span class="font-medium">Poste en back-end PHP</span><br><span class="text-slate-600">dans l’Yonne ou en télétravail</span></span>
+                    </p>
+                    <p class="flex items-start gap-3">
+                        <i class="fa-solid fa-people-group text-purple-600 mt-0.5 w-4 text-center shrink-0"></i>
+                        <span><span class="font-medium">Collaboration</span><br><span class="text-slate-600">projet d’équipe, organisation, méthode</span></span>
+                    </p>
+                    <p class="flex items-start gap-3">
+                        <i class="fa-solid fa-code text-emerald-600 mt-0.5 w-4 text-center shrink-0"></i>
+                        <span><span class="font-medium">Échange technique</span><br><span class="text-slate-600">Drupal, migrations, bonnes pratiques</span></span>
+                    </p>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
