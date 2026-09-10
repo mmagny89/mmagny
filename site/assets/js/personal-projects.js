@@ -16,7 +16,7 @@ const PERSONAL_PROJECTS = [
         title: "Niout",
         desc:  "Jeu de gestion dans l'Égypte du Nouvel Empire : fonder et faire prospérer une ville réelle. Parti pris central — aucune attente en temps réel, la partie n'avance que quand le joueur déclenche un cycle. Plateforme en ligne, en cours de calibrage.",
         stack: ["Symfony", "Tailwind CSS", "PostgreSQL", "FrankenPHP"],
-        status: "wip",
+        status: ["production", "wip"],
         url:   "https://github.com/mmagny89/niout",
         demo:  "https://niout.mmagny.fr/",
         icon:  "fa-landmark-dome",
@@ -80,7 +80,12 @@ function renderPersonalProjects(containerId) {
     };
 
     container.innerHTML = PERSONAL_PROJECTS.map(p => {
-        const s = statusLabel[p.status] || statusLabel.wip;
+        // `status` accepte une valeur ou une liste : un projet peut être en
+        // ligne tout en restant en développement.
+        const etats = [].concat(p.status ?? "wip")
+            .map(cle => statusLabel[cle])
+            .filter(Boolean);
+        if (etats.length === 0) etats.push(statusLabel.wip);
         return `
         <article class="card p-6 flex flex-col gap-4 border-l-2 border-l-purple-400">
             <div class="flex items-start justify-between gap-3">
@@ -89,7 +94,7 @@ function renderPersonalProjects(containerId) {
                     <h3 class="font-semibold text-base leading-tight">${p.title}</h3>
                 </div>
                 <div class="flex flex-wrap gap-1.5 shrink-0 justify-end">
-                    <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium border ${s.cls}">${s.text}</span>
+                    ${etats.map(e => `<span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium border ${e.cls}">${e.text}</span>`).join("")}
                     ${p.ai      ? `<span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium border bg-purple-50 text-purple-700 border-purple-200"><i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i> IA</span>` : ""}
                     ${p.private ? `<span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium border bg-slate-100 text-slate-500 border-slate-200"><i class="fa-solid fa-lock text-[10px]"></i> Privé</span>` : ""}
                 </div>
