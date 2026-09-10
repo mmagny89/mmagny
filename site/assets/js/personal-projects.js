@@ -14,7 +14,7 @@ const PERSONAL_PROJECTS = [
     {
         id:    "niout",
         title: "Niout",
-        desc:  "Jeu de gestion dans l'Égypte du Nouvel Empire : fonder et faire prospérer une ville réelle. Parti pris central — aucune attente en temps réel, la partie n'avance que quand le joueur déclenche un cycle. Plateforme en ligne, en cours de calibrage.",
+        desc:  "Jeu de gestion dans l'Égypte du Nouvel Empire : fonder et faire prospérer une ville réelle. Aucune attente en temps réel : la partie n'avance que quand le joueur déclenche un cycle. Plateforme en ligne, en cours de calibrage.",
         stack: ["Symfony", "PostgreSQL", "FrankenPHP"],
         status: ["production", "wip"],
         url:   "https://github.com/mmagny89/niout",

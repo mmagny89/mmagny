@@ -40,7 +40,7 @@ const HOME_PROJECTS = {
             { icon: "fa-file-pdf",      color: "text-purple-600", text: "Développement d'un système de génération PDF à la volée (HTML2PDF) pour fiches produits et catalogues, couplé à un workflow Print on Demand avec personnalisation dynamique des couvertures selon commande et contexte client." },
             { icon: "fa-scale-balanced",color: "text-purple-600", text: "Gestion de règles métier complexes (TVA, frais de port) via le module Rules." }
         ],
-        result: "Centralisation du catalogue éditorial et structuration des données de production/vente dans un système unique, toujours en production 10 ans après sa mise en ligne — refonte ultérieure confiée à la même équipe.",
+        result: "Centralisation du catalogue éditorial et structuration des données de production/vente dans un système unique, toujours en production 10 ans après sa mise en ligne, refonte ultérieure confiée à la même équipe.",
         stack: ["Drupal Commerce", "PHP", "OAI-PMH", "HTML2PDF", "Rules", "Drush", "Git"]
     },
 
