@@ -847,182 +847,118 @@
     </div>
 
     <!-- Formations + Certifications -->
-    <div class="mt-8 grid lg:grid-cols-2 gap-6">
-        <div class="card p-6 reveal lg:col-span-2">
+    <div class="mt-8 card p-6 sm:p-8 reveal">
             <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-sky-100 grid place-items-center">
+                <div class="h-10 w-10 rounded-2xl bg-sky-100 grid place-items-center shrink-0">
                     <i class="fa-solid fa-graduation-cap text-sky-700"></i>
                 </div>
                 <div>
                     <h3 class="font-semibold">Formations &amp; certifications</h3>
+                    <p class="text-xs text-slate-600 mt-0.5">Trois certifications vérifiables, et de la formation continue</p>
                 </div>
             </div>
 
-            <ol class="mt-5 grid md:grid-cols-2 gap-4">
-                <!-- Dyma Git -->
-                <li class="rounded-2xl border border-black/10 bg-white p-4">
-                    <a href="https://dyma.fr/certification/64422e075eac33743e210092/5e66b9c683f9574379ad6802"
-                       target="_blank" rel="noopener noreferrer"
-                       class="group flex items-start gap-3 rounded-xl -m-1 p-1 transition hover:bg-black/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
-                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
-                            <i class="fa-brands fa-git-alt text-orange-600"></i>
-                        </div>
-                        <div class="min-w-0">
-                            <p class="font-medium">
-                                Git
-                                <i class="fa-solid fa-up-right-from-square text-[10px] text-slate-400 ml-1 transition group-hover:text-sky-600"></i>
-                            </p>
-                            <p class="text-sm text-slate-600">Dyma &bull; mai 2026</p>
-                            <span class="sr-only">Voir la certification Git sur Dyma (nouvel onglet)</span>
-                        </div>
+            <!-- Strate 1 : ce qui est vérifiable par un tiers. Mis en avant,
+                 parce qu'une attestation publique ne vaut pas une ligne de CV. -->
+            <p class="mt-7 text-xs uppercase tracking-wide text-slate-500 font-medium">Certifications</p>
+            <ol class="mt-3 grid md:grid-cols-3 gap-3">
+                <li>
+                    <a href="https://dyma.fr/certification/64422e075eac33743e210092/5e66b9c683f9574379ad6802" target="_blank" rel="noopener noreferrer"
+                       class="group h-full flex items-center gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 p-4 transition hover:border-sky-300 hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
+                        <i class="fa-brands fa-git-alt text-orange-600 text-xl w-6 text-center shrink-0"></i>
+                        <span class="min-w-0">
+                            <span class="block font-medium">Git</span>
+                            <span class="block text-xs text-slate-600 mt-0.5">Dyma &middot; <time>mai 2026</time></span>
+                        </span>
+                        <span class="ml-auto shrink-0 text-xs font-medium text-sky-700 group-hover:underline whitespace-nowrap">
+                            Attestation <i class="fa-solid fa-up-right-from-square text-[9px]"></i>
+                        </span>
+                        <span class="sr-only">Voir l’attestation Git sur Dyma, nouvel onglet</span>
                     </a>
                 </li>
-
-                <!-- FormYou -->
-                <li class="rounded-2xl border border-black/10 bg-white p-4">
-                    <div class="flex items-start gap-3">
-                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
-                            <i class="fa-solid fa-kit-medical text-emerald-700"></i>
-                        </div>
-                        <div>
-                            <p class="font-medium">Sauveteur Secouriste du Travail (SST)</p>
-                            <p class="text-sm text-slate-600">FormYou • nov. 2023 <span class="ml-1 inline-flex items-center rounded-full border border-slate-200 bg-slate-100 px-2 py-0.5 text-xs text-slate-500">À renouveler</span></p>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Udemy -->
-                <li class="rounded-2xl border border-black/10 bg-white p-4">
-                    <div class="flex items-start gap-3">
-                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
-                            <i class="fa-solid fa-clock text-purple-600"></i>
-                        </div>
-                        <div>
-                            <p class="font-medium">Gestion du temps : productivité &amp; organisation</p>
-                            <p class="text-sm text-slate-600">Udemy • oct. 2023</p>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Dyma Docker -->
-                <li class="rounded-2xl border border-black/10 bg-white p-4">
-                    <a href="https://dyma.fr/certification/64422e075eac33743e210092/5f99eb48545c3568e680098f"
-                       target="_blank" rel="noopener noreferrer"
-                       class="group flex items-start gap-3 rounded-xl -m-1 p-1 transition hover:bg-black/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
-                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
-                            <i class="fa-brands fa-docker text-slate-800"></i>
-                        </div>
-                        <div class="min-w-0">
-                            <p class="font-medium">Docker<i class="fa-solid fa-up-right-from-square text-[10px] text-slate-400 ml-1 transition group-hover:text-sky-600"></i></p>
-                            <span class="sr-only">Voir la certification Docker sur Dyma (nouvel onglet)</span>
-                            <p class="text-sm text-slate-600">Dyma • juil. 2023</p>
-                        </div>
+                <li>
+                    <a href="https://dyma.fr/certification/64422e075eac33743e210092/5f99eb48545c3568e680098f" target="_blank" rel="noopener noreferrer"
+                       class="group h-full flex items-center gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 p-4 transition hover:border-sky-300 hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
+                        <i class="fa-brands fa-docker text-sky-700 text-xl w-6 text-center shrink-0"></i>
+                        <span class="min-w-0">
+                            <span class="block font-medium">Docker</span>
+                            <span class="block text-xs text-slate-600 mt-0.5">Dyma &middot; <time>juil. 2023</time></span>
+                        </span>
+                        <span class="ml-auto shrink-0 text-xs font-medium text-sky-700 group-hover:underline whitespace-nowrap">
+                            Attestation <i class="fa-solid fa-up-right-from-square text-[9px]"></i>
+                        </span>
+                        <span class="sr-only">Voir l’attestation Docker sur Dyma, nouvel onglet</span>
                     </a>
                 </li>
-
-                <!-- Dyma Symfony -->
-                <li class="rounded-2xl border border-black/10 bg-white p-4">
-                    <a href="https://dyma.fr/certification/64422e075eac33743e210092/60ea04ae7fc35f0f15b5537d"
-                       target="_blank" rel="noopener noreferrer"
-                       class="group flex items-start gap-3 rounded-xl -m-1 p-1 transition hover:bg-black/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
-                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
-                            <i class="fa-brands fa-symfony text-slate-800"></i>
-                        </div>
-                        <div class="min-w-0">
-                            <p class="font-medium">Symfony<i class="fa-solid fa-up-right-from-square text-[10px] text-slate-400 ml-1 transition group-hover:text-sky-600"></i></p>
-                            <span class="sr-only">Voir la certification Symfony sur Dyma (nouvel onglet)</span>
-                            <p class="text-sm text-slate-600">Dyma • mai 2023</p>
-                        </div>
+                <li>
+                    <a href="https://dyma.fr/certification/64422e075eac33743e210092/60ea04ae7fc35f0f15b5537d" target="_blank" rel="noopener noreferrer"
+                       class="group h-full flex items-center gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 p-4 transition hover:border-sky-300 hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500">
+                        <i class="fa-brands fa-symfony text-slate-800 text-xl w-6 text-center shrink-0"></i>
+                        <span class="min-w-0">
+                            <span class="block font-medium">Symfony</span>
+                            <span class="block text-xs text-slate-600 mt-0.5">Dyma &middot; <time>mai 2023</time></span>
+                        </span>
+                        <span class="ml-auto shrink-0 text-xs font-medium text-sky-700 group-hover:underline whitespace-nowrap">
+                            Attestation <i class="fa-solid fa-up-right-from-square text-[9px]"></i>
+                        </span>
+                        <span class="sr-only">Voir l’attestation Symfony sur Dyma, nouvel onglet</span>
                     </a>
-                </li>
-
-                <!-- Trained People Drupal 8 -->
-                <li class="rounded-2xl border border-black/10 bg-white p-4">
-                    <div class="flex items-start gap-3">
-                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
-                            <i class="fa-brands fa-drupal text-slate-800"></i>
-                        </div>
-                        <div>
-                            <p class="font-medium">Drupal 8 · Développeur</p>
-                            <p class="text-sm text-slate-600">Trained People • fév. 2017</p>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Dawan Drupal 7 + Commerce -->
-                <li class="rounded-2xl border border-black/10 bg-white p-4">
-                    <div class="flex items-start gap-3">
-                        <div class="h-10 w-10 rounded-2xl grid place-items-center shrink-0">
-                            <i class="fa-brands fa-drupal text-slate-800"></i>
-                        </div>
-                        <div>
-                            <p class="font-medium">Drupal 7 &amp; Drupal Commerce</p>
-                            <p class="text-sm text-slate-600">Dawan • nov. 2013 &amp; janv. 2014</p>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Formations en cours -->
-                <li class="rounded-2xl border border-black/10 bg-white p-5 md:col-span-2 md:mx-auto md:max-w-xl">
-                    <div class="flex items-start gap-4">
-                        <div class="h-9 w-9 rounded-xl grid place-items-center shrink-0">
-                            <i class="fa-solid fa-spinner text-slate-400 text-sm"></i>
-                        </div>
-
-                        <div class="flex-1">
-                            <p class="font-medium">Formations en cours · Dyma</p>
-
-                            <div class="mt-3 grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
-
-                                <!-- Consolidation -->
-                                <div>
-                                    <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">
-                                        Consolidation
-                                    </p>
-                                    <ul class="space-y-1">
-                                        <li class="flex items-center gap-2">
-                                            <i class="fa-brands fa-php text-slate-700 text-sm"></i>
-                                            <span>PHP</span>
-                                        </li>
-                                        <li class="flex items-center gap-2">
-                                            <i class="fa-brands fa-js text-slate-700 text-sm"></i>
-                                            <span>JavaScript</span>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <!-- Élargissement -->
-                                <div>
-                                    <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">
-                                        Élargissement
-                                    </p>
-                                    <ul class="space-y-1">
-                                        <li class="flex items-center gap-2">
-                                            <i class="fa-brands fa-node-js text-slate-700 text-sm"></i>
-                                            <span>Node.js</span>
-                                        </li>
-                                        <li class="flex items-center gap-2">
-                                            <i class="fa-brands fa-react text-slate-700 text-sm"></i>
-                                            <span>React</span>
-                                        </li>
-                                        <li class="flex items-center gap-2">
-                                            <i class="fa-solid fa-robot text-slate-700 text-sm"></i>
-                                            <span>Claude Code</span>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-
-                            <p class="text-xs text-slate-500 mt-3">
-                                Veille technique &amp; montée en compétences continue.
-                            </p>
-                        </div>
-                    </div>
                 </li>
             </ol>
+
+            <!-- Strate 2 : formations suivies, en liste dense plutôt qu'en
+                 cartes, pour qu'elles ne pèsent pas autant que les certifications. -->
+            <p class="mt-8 text-xs uppercase tracking-wide text-slate-500 font-medium">Autres formations</p>
+            <ul class="mt-2 text-sm divide-y divide-black/5">
+                <li class="flex items-baseline gap-3 py-2.5">
+                    <time class="w-16 shrink-0 text-xs font-medium text-slate-500 tabular-nums">2023</time>
+                    <i class="fa-solid fa-kit-medical text-emerald-700 text-sm w-4 text-center shrink-0"></i>
+                    <span class="min-w-0 flex-1">Sauveteur Secouriste du Travail <span class="text-slate-500">&middot; FormYou</span></span>
+                        <span class="ml-2 shrink-0 inline-flex items-center rounded-full border border-slate-200 bg-slate-100 px-2 py-0.5 text-xs text-slate-500">À renouveler</span>
+                </li>
+                <li class="flex items-baseline gap-3 py-2.5">
+                    <time class="w-16 shrink-0 text-xs font-medium text-slate-500 tabular-nums">2023</time>
+                    <i class="fa-solid fa-clock text-purple-600 text-sm w-4 text-center shrink-0"></i>
+                    <span class="min-w-0 flex-1">Gestion du temps : productivité &amp; organisation <span class="text-slate-500">&middot; Udemy</span></span>
+                </li>
+                <li class="flex items-baseline gap-3 py-2.5">
+                    <time class="w-16 shrink-0 text-xs font-medium text-slate-500 tabular-nums">2017</time>
+                    <i class="fa-brands fa-drupal text-slate-700 text-sm w-4 text-center shrink-0"></i>
+                    <span class="min-w-0 flex-1">Drupal 8, développeur <span class="text-slate-500">&middot; Trained People</span></span>
+                </li>
+                <li class="flex items-baseline gap-3 py-2.5">
+                    <time class="w-16 shrink-0 text-xs font-medium text-slate-500 tabular-nums">2013</time>
+                    <i class="fa-brands fa-drupal text-slate-700 text-sm w-4 text-center shrink-0"></i>
+                    <span class="min-w-0 flex-1">Drupal 7 &amp; Drupal Commerce <span class="text-slate-500">&middot; Dawan</span></span>
+                </li>
+            </ul>
+
+            <!-- Strate 3 : ce qui est en cours, distingué par le fond. -->
+            <div class="mt-8 rounded-2xl border border-black/10 bg-slate-50 p-5">
+                <p class="flex items-center gap-2 text-sm font-medium">
+                    <i class="fa-solid fa-spinner text-slate-400 text-xs"></i>
+                    En cours chez Dyma
+                </p>
+
+                <div class="mt-4 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                    <div>
+                        <p class="text-xs uppercase tracking-wide text-slate-500 mb-2">Consolidation</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="chip text-xs"><i class="fa-brands fa-php"></i> PHP</span>
+                            <span class="chip text-xs"><i class="fa-brands fa-js"></i> JavaScript</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-wide text-slate-500 mb-2">Élargissement</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="chip text-xs"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                            <span class="chip text-xs"><i class="fa-brands fa-react"></i> React</span>
+                            <span class="chip text-xs"><i class="fa-solid fa-robot"></i> Claude Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
     <!-- Études en frise : horizontale à partir de sm, verticale en dessous.
          Ordre chronologique croissant, contrairement au reste du site : une
