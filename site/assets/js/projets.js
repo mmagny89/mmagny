@@ -374,20 +374,32 @@ function render() {
     grid.innerHTML = PROJECTS.map(p => {
         const fmt = (p.format || []).join(" ");
         const borderCls = BORDER_TECH[p.tech] || "";
+        const techNom = { drupal: "Drupal", wordpress: "WordPress", symfony: "Symfony" }[p.tech] || "";
         return `
-        <article class="card p-6 project-item cursor-pointer open-modal ${borderCls}"
+        <article class="card p-6 flex flex-col gap-3 project-item cursor-pointer open-modal ${borderCls}"
                  data-tech="${p.tech}"
                  data-domain="${p.domain}"
                  data-format="${fmt}"
                  data-project="${p.id}">
+
           <div class="flex items-start justify-between gap-4">
             <div class="min-w-0">
-              <h3 class="text-lg font-semibold">${p.title}</h3>
+              <h3 class="text-lg font-semibold leading-tight">${p.title}</h3>
+              ${p.subtitle ? `<p class="text-xs text-slate-500 mt-1">${p.subtitle}</p>` : ""}
             </div>
-            <div class="shrink-0">${ICON_TECH[p.tech] ? `<span class="chip">${ICON_TECH[p.tech]} ${p.tech === "drupal" ? "Drupal" : (p.tech === "wordpress" ? "WordPress" : "Symfony")}</span>` : ""}</div>
+            ${techNom ? `<span class="chip shrink-0">${ICON_TECH[p.tech]} ${techNom}</span>` : ""}
           </div>
-          <div class="mt-4 flex flex-wrap gap-2">${fmtBadges(p)}</div>
-          <div class="mt-3 flex flex-wrap gap-2">${(p.stack || []).slice(0, 5).map(s => `<span class="chip">${s}</span>`).join("")}</div>
+
+          <div class="flex flex-wrap gap-2">${fmtBadges(p)}</div>
+
+          <div class="flex flex-wrap gap-2">${(p.stack || []).slice(0, 4).map(t => `<span class="chip">${t}</span>`).join("")}</div>
+
+          ${p.highlight ? `<p class="flex items-start gap-2 text-sm text-slate-600 leading-snug border-t border-black/5 pt-3 mt-auto">
+              <i class="fa-solid fa-arrow-trend-up text-emerald-600 mt-0.5 shrink-0"></i>
+              <span>${p.highlight}</span>
+          </p>` : ""}
+
+          <p class="text-xs font-medium text-sky-700">Voir le détail <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
         </article>`;
     }).join("");
 }
