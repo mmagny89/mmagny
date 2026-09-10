@@ -4,7 +4,7 @@ const PERSONAL_PROJECTS = [
 {
         id:    "mmagny",
         title: "Site CV",
-        desc:  "Ce portfolio — conçu et développé de A à Z pour présenter mon parcours, mes projets et ma stack.",
+        desc:  "Ce portfolio, conçu et développé de A à Z pour présenter mon parcours, mes projets et ma stack.",
         stack: ["HTML", "Tailwind CSS", "JavaScript"],
         status: "production",
         url:   "https://github.com/mmagny89/mmagny",

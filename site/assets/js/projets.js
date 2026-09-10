@@ -95,7 +95,7 @@ const PROJECTS = [
         highlight:"Robustesse et qualité de livraison dans un contexte institutionnel santé."
     },
 
-    { id:"ch-niort-web", title:"CH Niort — Site public", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site public",
+    { id:"ch-niort-web", title:"CH Niort · Site public", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site public",
         context:"Site public du Centre Hospitalier de Niort. Projet axé sur la structuration des contenus et leur mise à jour régulière.",
         role:"Développement back-end et maintenance du site.",
         actions:[
@@ -107,7 +107,7 @@ const PROJECTS = [
         highlight:"Maintenance et support continu sur un site public institutionnel."
     },
 
-    { id:"ch-niort-intranet", title:"CH Niort — Intranet", tech:"drupal", domain:"sante", format:["intranet"], subtitle:"Drupal • intranet",
+    { id:"ch-niort-intranet", title:"CH Niort · Intranet", tech:"drupal", domain:"sante", format:["intranet"], subtitle:"Drupal • intranet",
         context:"Intranet du Centre Hospitalier de Niort. Projet avec des besoins de gestion de contenus internes et de contrôle des accès par profil.",
         role:"Développement back-end, gestion des accès et des rôles, support et maintenance.",
         actions:[
@@ -119,7 +119,7 @@ const PROJECTS = [
         highlight:"Intranet institutionnel : gestion des accès et maintenance dans la durée."
     },
 
-    { id:"ch-pgv", title:"CH Paul-Guiraud — Villejuif", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site institutionnel",
+    { id:"ch-pgv", title:"CH Paul-Guiraud · Villejuif", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site institutionnel",
         context:"Site institutionnel du Centre Hospitalier Paul-Guiraud de Villejuif. Projet structuré autour de la livraison des gabarits de contenus et de la maintenance.",
         role:"Développement back-end, intégration des découpes front et recette interne.",
         actions:[
@@ -144,7 +144,7 @@ const PROJECTS = [
         highlight:"Approche plateforme : mutualisation des composants, maintenance et qualité de livraison."
     },
 
-    { id:"onera-carriere", title:"ONERA — Carrières", tech:"drupal", domain:"recherche", format:["carriere"], subtitle:"Drupal • site carrières",
+    { id:"onera-carriere", title:"ONERA · Carrières", tech:"drupal", domain:"recherche", format:["carriere"], subtitle:"Drupal • site carrières",
         context:"Espace carrières de l'ONERA : présentation des offres et des métiers, avec des besoins de structuration des contenus et de fiabilité des formulaires.",
         role:"Développement back-end, intégration et maintenance de l'espace carrières.",
         actions:[
@@ -156,7 +156,7 @@ const PROJECTS = [
         highlight:"Site carrières : mise en valeur des contenus et fiabilité de la plateforme."
     },
 
-    { id:"onera-iris", title:"ONERA — IRIS", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal • site institutionnel",
+    { id:"onera-iris", title:"ONERA · IRIS", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal • site institutionnel",
         context:"Site ou section spécifique au sein de l'écosystème institutionnel de l'ONERA, avec des besoins de développement ciblé et de maintenance.",
         role:"Développement back-end, maintenance et support au sein de la plateforme existante.",
         actions:[
@@ -168,7 +168,7 @@ const PROJECTS = [
         highlight:"Interventions ciblées au sein d'une plateforme institutionnelle existante."
     },
 
-    { id:"mnhn", title:"MNHN — Publications scientifiques", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal Commerce • e-commerce éditorial • publications scientifiques",
+    { id:"mnhn", title:"MNHN · Publications scientifiques", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal Commerce • e-commerce éditorial • publications scientifiques",
         context:"Conception d'une plateforme e-commerce et éditoriale sur Drupal Commerce pour la gestion, valorisation et distribution d'un patrimoine scientifique : catalogue produits, gestion des stocks et règles de vente métier spécifiques au domaine éditorial.",
         role:"Référente technique / Développeur principal",
         actions:[
@@ -177,7 +177,7 @@ const PROJECTS = [
             { icon:"fa-scale-balanced",    color:"text-purple-600", text:"Gestion de règles métier complexes (TVA, frais de port) via le module Rules." },
         ],
         stack:["Drupal Commerce","PHP","OAI-PMH","HTML2PDF","Rules","Drush","Git"],
-        highlight:"Toujours en production 10 ans après sa mise en ligne — refonte ultérieure confiée à la même équipe, avec rôle de référente technique et accompagnement à la montée en compétences."
+        highlight:"Toujours en production 10 ans après sa mise en ligne, refonte ultérieure confiée à la même équipe, avec rôle de référente technique et accompagnement à la montée en compétences."
     },
 
     // --- Institutions ---
@@ -193,7 +193,7 @@ const PROJECTS = [
         highlight:"Projet institutionnel sur cycle long : évolutions régulières et maintien en condition opérationnelle."
     },
 
-    { id:"asp-public", title:"ASP — Site public", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site public",
+    { id:"asp-public", title:"ASP · Site public", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site public",
         context:"Site public de l'Agence de Services et de Paiement. Projet avec des besoins éditoriaux structurés et une maintenance régulière.",
         role:"Développement back-end, intégration, recette interne et support.",
         actions:[
@@ -267,7 +267,7 @@ const PROJECTS = [
     },
 
     // --- Logement social ---
-    { id:"ush-boutique", title:"USH — Boutique", tech:"drupal", domain:"logement_social", format:[], subtitle:"Drupal • plateforme de diffusion",
+    { id:"ush-boutique", title:"USH · Boutique", tech:"drupal", domain:"logement_social", format:[], subtitle:"Drupal • plateforme de diffusion",
         context:"Espace de diffusion de ressources (type catalogue/boutique) de l'Union Sociale pour l'Habitat, intégré à un écosystème Drupal existant.",
         role:"Développement back-end, évolutions fonctionnelles, maintenance et support.",
         actions:[
@@ -279,7 +279,7 @@ const PROJECTS = [
         highlight:"Évolutions et maintenance sur une plateforme de diffusion de ressources."
     },
 
-    { id:"ush-collab", title:"USH — Espaces Collaboratifs", tech:"drupal", domain:"logement_social", format:["usine"], subtitle:"Drupal • usine à sites • plateforme collaborative",
+    { id:"ush-collab", title:"USH · Espaces Collaboratifs", tech:"drupal", domain:"logement_social", format:["usine"], subtitle:"Drupal • usine à sites • plateforme collaborative",
         context:"Conception d'une plateforme collaborative Drupal reposant sur une architecture d'usine à sites : génération automatisée d'espaces métiers configurables (fonctionnalités, droits, identité visuelle) via interfaces d'administration, sur socle mutualisé.",
         role:"Référente technique / Développeur principal",
         actions:[
@@ -328,7 +328,7 @@ const PROJECTS = [
             { icon:"fa-arrows-spin", color:"text-purple-600", text:"Chaîne CI/CD industrialisée, revues de code et tests automatisés ; gestion Agile/Jira avec échanges directs Product Owner." },
         ],
         stack:["Symfony","PHP","Doctrine","PhpSpreadsheet","DomPDF","Chart.js","Git"],
-        highlight:"Projet en évolution continue avec livraisons mensuelles — interlocutrice technique directe avec le Product Owner."
+        highlight:"Projet en évolution continue avec livraisons mensuelles, en lien direct avec le Product Owner."
     },
 
 ];

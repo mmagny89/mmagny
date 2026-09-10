@@ -17,7 +17,7 @@ const HOME_PROJECTS = {
     },
 
     "ush-collab": {
-        title: "USH — Espaces collaboratifs",
+        title: "USH · Espaces collaboratifs",
         role: "Référente technique · Développeur principal",
         badge: '<span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>',
         context: "Conception d'une plateforme collaborative Drupal reposant sur une architecture d'usine à sites : génération automatisée d'espaces métiers configurables (fonctionnalités, droits, identité visuelle) via interfaces d'administration, sur socle mutualisé.",
@@ -31,7 +31,7 @@ const HOME_PROJECTS = {
     },
 
     "mnhn": {
-        title: "MNHN — Publications scientifiques",
+        title: "MNHN · Publications scientifiques",
         role: "Référente technique · Développeur principal",
         badge: '<span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>',
         context: "Conception d'une plateforme e-commerce et éditoriale sur Drupal Commerce pour la gestion, valorisation et distribution d'un patrimoine scientifique : catalogue produits, gestion des stocks et règles de vente métier spécifiques au domaine éditorial.",
