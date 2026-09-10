@@ -283,17 +283,17 @@ const PROJECTS = [
         role:"Développeur",
         contribution:"Développement, mises à jour et intégration.",
         actions:[
-            { icon:"fa-map-location-dot",  color:"text-slate-700", text:"Développement d'une carte interactive des points de collecte, administrable par le syndicat depuis WordPress." },
+            { icon:"fa-map-location-dot",  color:"text-slate-700", text:"Développement d'une carte interactive des points de collecte avec Leaflet, administrable par le syndicat depuis WordPress." },
             { icon:"fa-code",              color:"text-slate-700", text:"Intégration des gabarits de contenus." },
             { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Mises à jour WordPress et extensions." },
             { icon:"fa-user-gear",          color:"text-slate-700", text:"Support et conseil auprès du client." },
         ],
-        stack:["WordPress","PHP","Git"],
+        stack:["WordPress","PHP","Leaflet","Git"],
         highlight:"Une carte des points de collecte qui répond en quelques secondes à la question que se posent les habitants."
     },
 
     // --- Logement social ---
-    { id:"ush-boutique", title:"USH · Boutique", tech:"drupal", domain:"logement_social", format:[], subtitle:"Drupal • boutique en ligne",
+    { id:"ush-boutique", title:"USH · Boutique", tech:"drupal", domain:"logement_social", format:[], subtitle:"Drupal Commerce • boutique en ligne",
         context:"Boutique en ligne de l'Union Sociale pour l'Habitat : la fédération y vend ses ressources aux professionnels du logement social. La boutique s'inscrit dans l'écosystème Drupal existant de l'USH, dont elle réutilise les briques plutôt que de vivre à côté.",
         role:"Développeur back-end",
         contribution:"Développement back-end, évolutions fonctionnelles, maintenance et support.",
@@ -303,7 +303,7 @@ const PROJECTS = [
             { icon:"fa-screwdriver-wrench", color:"text-sky-600", text:"Maintenance et mises à jour." },
             { icon:"fa-people-group",       color:"text-sky-600", text:"Échanges client et support." },
         ],
-        stack:["Drupal","PHP","Composer"],
+        stack:["Drupal","Drupal Commerce","PHP","Composer"],
         highlight:"Une boutique en ligne intégrée à l'écosystème Drupal de la fédération, et maintenue dans la durée."
     },
 
@@ -361,6 +361,22 @@ const PROJECTS = [
         highlight:"Projet en évolution continue avec livraisons mensuelles, en lien direct avec le Product Owner."
     },
 
+    // --- Restauration ---
+
+    { id:"la-madeleine", title:"La Madeleine", tech:"wordpress", domain:"restauration", format:[], subtitle:"WordPress • site vitrine • réservation en ligne",
+        context:"Site du restaurant La Madeleine, à Sens. Un établissement de cette taille n'a ni service informatique ni budget de développement sur mesure : le site devait donc reposer sur des briques existantes, tout en restant tenu par l'équipe du restaurant au quotidien.",
+        role:"Développeur",
+        contribution:"Installation et paramétrage de WordPress, mise en place et personnalisation d'un thème communautaire, intégration de la réservation en ligne.",
+        actions:[
+            { icon:"fa-wordpress-simple", color:"text-slate-700", text:"Installation et paramétrage de WordPress, de l'hébergement à la mise en ligne." },
+            { icon:"fa-palette",          color:"text-slate-700", text:"Mise en place d'un thème communautaire, puis personnalisation de son apparence et de ses fonctionnalités pour coller à l'identité du restaurant." },
+            { icon:"fa-calendar-check",   color:"text-slate-700", text:"Intégration de ZenChef pour la réservation de tables en ligne, directement depuis le site." },
+            { icon:"fa-user-gear",        color:"text-slate-700", text:"Accompagnement de l'équipe à la prise en main du site." },
+        ],
+        stack:["WordPress","PHP","ZenChef","Git"],
+        highlight:"Un site tenu par le restaurant lui-même, avec la réservation en ligne intégrée au parcours."
+    },
+
 ];
 
 // ── Rendu ────────────────────────────────────────────────────────────
@@ -384,6 +400,7 @@ function fmtBadges(p) {
         associatif:         '<span class="chip"><i class="fa-solid fa-people-group"></i> Associatif</span>',
         industrie:          '<span class="chip"><i class="fa-solid fa-industry"></i> Industrie</span>',
         application_metier: '<span class="chip"><i class="fa-solid fa-gears"></i> Application métier</span>',
+        restauration:       '<span class="chip"><i class="fa-solid fa-utensils"></i> Restauration</span>',
     };
     const formatBadges = (p.format || []).map(f => {
         if (f === "usine")    return '<span class="chip"><i class="fa-solid fa-diagram-project"></i> Usine à sites</span>';
@@ -433,6 +450,28 @@ function render() {
         </article>`;
     }).join("");
 }
+
+// ── Compteurs ────────────────────────────────────────────────────────
+// Renseignés depuis PROJECTS plutôt que saisis dans le HTML : les valeurs
+// écrites à la main avaient dérivé (18 projets Drupal annoncés pour 21).
+
+function majCompteurs() {
+    const pluriel = (n, mot) => `${n} ${mot}${n > 1 ? "s" : ""}`;
+    const parTech = t => PROJECTS.filter(p => p.tech === t).length;
+    const ecrire  = (id, valeur) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = valeur;
+    };
+
+    ecrire("statPresentes",      PROJECTS.length);
+    ecrire("statPresentesTexte", PROJECTS.length);
+    ecrire("statDrupal",         pluriel(parTech("drupal"), "projet"));
+    ecrire("statWordPress",      pluriel(parTech("wordpress"), "projet"));
+    ecrire("statSymfony",        pluriel(parTech("symfony"), "projet"));
+    ecrire("statDomaines",       new Set(PROJECTS.map(p => p.domain)).size);
+}
+
+majCompteurs();
 
 // ── Filtres ──────────────────────────────────────────────────────────
 

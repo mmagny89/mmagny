@@ -84,7 +84,7 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:title" content="Projets · Mylène Magny">
     <meta property="og:description"
-          content="Une sélection de 26 projets Drupal, WordPress et Symfony, sur plus d'une centaine livrés en 14 ans : institutions, recherche, santé.">
+          content="Une sélection de 27 projets Drupal, WordPress et Symfony, sur plus d'une centaine livrés en 14 ans : institutions, recherche, santé.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mmagny.fr/projets.html">
     <meta property="og:image" content="https://mmagny.fr/assets/img/og-image.png">
@@ -97,7 +97,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Projets · Mylène Magny">
     <meta name="twitter:description"
-          content="Une sélection de 26 projets Drupal, WordPress et Symfony, sur plus d'une centaine livrés en 14 ans.">
+          content="Une sélection de 27 projets Drupal, WordPress et Symfony, sur plus d'une centaine livrés en 14 ans.">
     <meta name="twitter:image" content="https://mmagny.fr/assets/img/og-image.png">
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -191,7 +191,7 @@
                 Selon les projets, j'interviens en lead technique ou en appui d'une équipe : développement, intégration, migrations de contenus, mises en production et maintenance évolutive.
             </p>
             <p class="muted mt-3 max-w-3xl">
-                <strong class="text-slate-800">Plus de 100 projets livrés en 14 ans ; 26 sont présentés ici.</strong>
+                <strong class="text-slate-800">Plus de 100 projets livrés en 14 ans ; <span id="statPresentesTexte">26</span> sont présentés ici.</strong>
                 Cette sélection couvre les contextes et les rôles les plus représentatifs de mon travail.
                 Les autres relèvent souvent de la maintenance ou de contributions plus courtes, et
                 certains ne sont plus en ligne.
@@ -219,7 +219,7 @@
                 </div>
 
                 <div class="border-t border-slate-100 pt-4">
-                    <p class="text-3xl font-semibold">26</p>
+                    <p class="text-3xl font-semibold" id="statPresentes">26</p>
                     <p class="text-sm text-slate-500 mt-0.5">présentés sur cette page</p>
                 </div>
 
@@ -228,22 +228,22 @@
                     <div class="flex items-center gap-3 text-sm">
                         <i class="fa-brands fa-drupal text-sky-600"></i>
                         <span class="font-medium">Drupal</span>
-                        <span class="ml-auto text-slate-500">18 projets</span>
+                        <span class="ml-auto text-slate-500" id="statDrupal">18 projets</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                         <i class="fa-brands fa-wordpress text-slate-600"></i>
                         <span class="font-medium">WordPress</span>
-                        <span class="ml-auto text-slate-500">5 projets</span>
+                        <span class="ml-auto text-slate-500" id="statWordPress">5 projets</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                         <i class="fa-brands fa-symfony text-purple-600"></i>
                         <span class="font-medium">Symfony</span>
-                        <span class="ml-auto text-slate-500">1 projet</span>
+                        <span class="ml-auto text-slate-500" id="statSymfony">1 projet</span>
                     </div>
                 </div>
 
                 <div class="border-t border-slate-100 pt-4">
-                    <p class="text-3xl font-semibold">9</p>
+                    <p class="text-3xl font-semibold" id="statDomaines">9</p>
                     <p class="text-sm text-slate-500 mt-0.5">domaines couverts</p>
                 </div>
 
@@ -307,6 +307,10 @@
 
                     <button type="button" class="filter" data-type="domain" data-value="application_metier">
                         <i class="fa-solid fa-gears"></i> Application métier
+                    </button>
+
+                    <button type="button" class="filter" data-type="domain" data-value="restauration">
+                        <i class="fa-solid fa-utensils"></i> Restauration
                     </button>
                 </div>
             </div>
