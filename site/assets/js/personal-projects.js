@@ -4,7 +4,7 @@ const PERSONAL_PROJECTS = [
 {
         id:    "mmagny",
         title: "Site CV",
-        desc:  "Ce portfolio, conçu et développé de A à Z pour présenter mon parcours, mes projets et ma stack.",
+        desc:  "Ce portfolio, conçu et développé de bout en bout. Site statique servi par nginx, avec un déploiement automatisé à chaque mise à jour.",
         stack: ["HTML", "Tailwind CSS", "JavaScript"],
         status: "production",
         url:   "https://github.com/mmagny89/mmagny",
@@ -14,9 +14,9 @@ const PERSONAL_PROJECTS = [
     {
         id:    "niout",
         title: "Niout",
-        desc:  "Jeu de gestion dans l'Égypte du Nouvel Empire : fonder et faire prospérer une ville réelle. Aucune attente en temps réel : la partie n'avance que quand le joueur déclenche un cycle. Plateforme en ligne, en cours de calibrage.",
+        desc:  "Jeu de gestion dans l'Égypte du Nouvel Empire : fonder une ville réelle et la faire prospérer. Aucune attente en temps réel, la partie n'avance qu'au rythme du joueur.",
         stack: ["Symfony", "PostgreSQL", "FrankenPHP"],
-        status: ["production", "wip"],
+        status: ["production", "calibrage"],
         url:   "https://github.com/mmagny89/niout",
         demo:  "https://niout.mmagny.fr/",
         icon:  "fa-landmark-dome",
@@ -25,7 +25,7 @@ const PERSONAL_PROJECTS = [
     {
         id:    "edj",
         title: "Envie de Jouer",
-        desc:  "Site de l'association : présentation, gestion des événements et liste des jeux de société apportés lors des manifestations.",
+        desc:  "Site de l'association Envie de Jouer. Présentation, agenda des événements et catalogue des jeux apportés lors des manifestations.",
         stack: ["Symfony", "Tailwind CSS"],
         status: "wip",
         url:   "https://github.com/mmagny89/edj",
@@ -35,7 +35,7 @@ const PERSONAL_PROJECTS = [
     {
         id:    "aqoj",
         title: "À quoi on joue ?",
-        desc:  "Recommandation de jeux de société selon les affinités des joueurs, via l'API BoardGameGeek. Intégration IA à venir pour affiner les suggestions.",
+        desc:  "Moteur de recommandation de jeux de société selon les affinités des joueurs, à partir de l'API BoardGameGeek. Une couche d'IA affinera les suggestions.",
         stack: ["Symfony", "React", "Tailwind CSS", "API BGG"],
         status: "wip",
         ai:    true,
@@ -46,7 +46,7 @@ const PERSONAL_PROJECTS = [
     {
         id:      "dnd-oracle",
         title:   "D&D Oracle",
-        desc:    "Substitut de maître du jeu pour les JDR (type D&D). Génération de campagnes à partir d'un scénario par IA à venir.",
+        desc:    "Assistant de maître du jeu pour les jeux de rôle. Une IA générera les campagnes à partir d'un simple scénario de départ.",
         stack:   ["Symfony", "Tailwind CSS"],
         status:  "wip",
         ai:      true,
@@ -58,7 +58,7 @@ const PERSONAL_PROJECTS = [
     {
         id:      "vigil",
         title:   "Vigil",
-        desc:    "Outil de veille dev web : récupération d'articles, analyse et traduction par Mistral AI, filtrage automatique par pertinence.",
+        desc:    "Veille technique pour le développement web : collecte et tri automatique des articles. Traduction et analyse de pertinence confiées à Mistral AI.",
         stack:   ["Symfony", "Tailwind CSS", "Mistral AI"],
         status:  "local",
         ai:      true,
@@ -78,6 +78,7 @@ function renderPersonalProjects(containerId) {
         production: { text: "En ligne",  cls: "bg-emerald-50 text-emerald-700 border-emerald-200" },
         wip:        { text: "En cours",  cls: "bg-sky-50 text-sky-700 border-sky-200"             },
         local:      { text: "En local",  cls: "bg-amber-50 text-amber-700 border-amber-200"       },
+        calibrage:  { text: "En calibrage", cls: "bg-sky-50 text-sky-700 border-sky-200"           },
     };
 
     container.innerHTML = PERSONAL_PROJECTS.map(p => {
