@@ -101,30 +101,32 @@ const PROJECTS = [
         highlight:"Robustesse et qualité de livraison dans un contexte institutionnel santé."
     },
 
-    { id:"ch-niort-web", title:"CH Niort · Site public", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site public",
-        context:"Site public du Centre Hospitalier de Niort. Projet axé sur la structuration des contenus et leur mise à jour régulière.",
+    { id:"ch-niort-web", title:"CH Niort · Site public", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site public • contenus partagés",
+        context:"Site public du Centre Hospitalier de Niort, mené en binôme avec l'intranet de l'établissement. Une partie des contenus est commune aux deux environnements : elle est saisie une seule fois, puis partagée, plutôt que ressaisie de chaque côté.",
         role:"Développeur back-end",
         contribution:"Développement back-end et maintenance du site.",
         actions:[
+            { icon:"fa-share-nodes",        color:"text-emerald-600", text:"Partage des contenus communs avec l'intranet de l'établissement : une saisie unique alimente les deux environnements." },
             { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et évolutions du site après mise en ligne." },
             { icon:"fa-rocket",             color:"text-emerald-600", text:"Accompagnement lors des mises en production et suivi des retours." },
             { icon:"fa-user-gear",          color:"text-emerald-600", text:"Support et conseil auprès du client." },
         ],
         stack:["Drupal","PHP","Drush","Composer"],
-        highlight:"Maintenance et support continu sur un site public institutionnel."
+        highlight:"Contenus mutualisés avec l'intranet : une seule saisie pour les deux environnements."
     },
 
-    { id:"ch-niort-intranet", title:"CH Niort · Intranet", tech:"drupal", domain:"sante", format:["intranet"], subtitle:"Drupal • intranet",
-        context:"Intranet du Centre Hospitalier de Niort. Projet avec des besoins de gestion de contenus internes et de contrôle des accès par profil.",
+    { id:"ch-niort-intranet", title:"CH Niort · Intranet", tech:"drupal", domain:"sante", format:["intranet"], subtitle:"Drupal • intranet • contenus partagés",
+        context:"Intranet du Centre Hospitalier de Niort, avec contrôle des accès par profil. Il partage une partie de ses contenus avec le site public de l'établissement : les informations communes aux deux environnements ne sont saisies qu'une fois.",
         role:"Développeur back-end",
         contribution:"Développement back-end, gestion des accès et des rôles, support et maintenance.",
         actions:[
+            { icon:"fa-share-nodes",       color:"text-emerald-600", text:"Partage des contenus communs avec le site public : une saisie unique alimente les deux environnements." },
             { icon:"fa-lock",              color:"text-emerald-600", text:"Gestion des accès et des rôles selon les besoins du client." },
             { icon:"fa-cubes",             color:"text-emerald-600", text:"Développements spécifiques et ajustements fonctionnels." },
             { icon:"fa-screwdriver-wrench", color:"text-emerald-600", text:"Maintenance et évolutions du site après mise en ligne." },
         ],
         stack:["Drupal","PHP","Git"],
-        highlight:"Intranet institutionnel : gestion des accès et maintenance dans la durée."
+        highlight:"Accès par profil et contenus mutualisés avec le site public."
     },
 
     { id:"ch-pgv", title:"CH Paul-Guiraud · Villejuif", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site institutionnel",
@@ -154,17 +156,18 @@ const PROJECTS = [
         highlight:"Approche plateforme : mutualisation des composants, maintenance et qualité de livraison."
     },
 
-    { id:"onera-carriere", title:"ONERA · Carrières", tech:"drupal", domain:"recherche", format:["carriere"], subtitle:"Drupal • site carrières",
-        context:"Espace carrières de l'ONERA : présentation des offres et des métiers, avec des besoins de structuration des contenus et de fiabilité des formulaires.",
+    { id:"onera-carriere", title:"ONERA · Carrières", tech:"drupal", domain:"recherche", format:["carriere"], subtitle:"Drupal • site carrières • one page",
+        context:"Espace carrières de l'ONERA, présentant les offres et les métiers. Le client a retenu Drupal et un parti pris one page : tout le contenu tient sur une seule page, parcourue par ancres, alors que le CMS reste organisé en contenus distincts côté administration.",
         role:"Développeur back-end",
         contribution:"Développement back-end, intégration et maintenance de l'espace carrières.",
         actions:[
+            { icon:"fa-file-lines",         color:"text-purple-600", text:"Mise en œuvre du parti pris one page retenu par le client : des contenus administrés séparément dans Drupal, restitués sur une page unique." },
             { icon:"fa-briefcase",          color:"text-purple-600", text:"Mise en place et ajustements fonctionnels de l'espace carrières." },
             { icon:"fa-code",              color:"text-purple-600", text:"Intégration des gabarits de contenus en Twig." },
             { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Évolutions et maintenance après mise en ligne." },
         ],
         stack:["Drupal","PHP","Twig","Git"],
-        highlight:"Site carrières : mise en valeur des contenus et fiabilité de la plateforme."
+        highlight:"Un site carrières en page unique, administré dans Drupal comme n'importe quel autre contenu."
     },
 
     { id:"onera-iris", title:"ONERA · IRIS", tech:"drupal", domain:"recherche", format:["intranet"], subtitle:"Drupal • intranet • actualités transverses",
