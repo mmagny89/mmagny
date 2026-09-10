@@ -1,7 +1,7 @@
 // ── Projets personnels ───────────────────────────────────────────────
 
 const PERSONAL_PROJECTS = [
-    {
+{
         id:    "mmagny",
         title: "Site CV",
         desc:  "Ce portfolio — conçu et développé de A à Z pour présenter mon parcours, mes projets et ma stack.",
@@ -10,6 +10,28 @@ const PERSONAL_PROJECTS = [
         url:   "https://github.com/mmagny89/mmagny",
         icon:  "fa-id-card",
     },
+,
+    {
+        id:    "niout",
+        title: "Niout",
+        desc:  "Jeu de gestion dans l'Égypte du Nouvel Empire : fonder et faire prospérer une ville réelle. Parti pris central — aucune attente en temps réel, la partie n'avance que quand le joueur déclenche un cycle. Plateforme en ligne, en cours de calibrage.",
+        stack: ["Symfony", "Tailwind CSS", "PostgreSQL", "FrankenPHP"],
+        status: "wip",
+        url:   "https://github.com/mmagny89/niout",
+        demo:  "https://niout.mmagny.fr/",
+        icon:  "fa-landmark-dome",
+    },
+,
+    {
+        id:    "edj",
+        title: "Envie de Jouer",
+        desc:  "Site de l'association : présentation, gestion des événements et liste des jeux de société apportés lors des manifestations.",
+        stack: ["Symfony", "Tailwind CSS"],
+        status: "wip",
+        url:   "https://github.com/mmagny89/edj",
+        icon:  "fa-people-group",
+    },
+,
     {
         id:    "aqoj",
         title: "À quoi on joue ?",
@@ -20,15 +42,7 @@ const PERSONAL_PROJECTS = [
         url:   "https://github.com/mmagny89/aqoj",
         icon:  "fa-dice",
     },
-    {
-        id:    "edj",
-        title: "Envie de Jouer",
-        desc:  "Site de l'association : présentation, gestion des événements et liste des jeux de société apportés lors des manifestations.",
-        stack: ["Symfony", "Tailwind CSS"],
-        status: "wip",
-        url:   "https://github.com/mmagny89/edj",
-        icon:  "fa-people-group",
-    },
+,
     {
         id:      "dnd-oracle",
         title:   "D&D Oracle",
@@ -40,6 +54,7 @@ const PERSONAL_PROJECTS = [
         url:     "https://github.com/mmagny89/dnd-oracle",
         icon:    "fa-dragon",
     },
+,
     {
         id:      "vigil",
         title:   "Vigil",
@@ -50,15 +65,6 @@ const PERSONAL_PROJECTS = [
         private: true,
         url:     "https://github.com/mmagny89/Vigil",
         icon:    "fa-eye",
-    },
-    {
-        id:    "game",
-        title: "Game",
-        desc:  "Jeu web de combat au tour par tour : affrontez PNJ et autres joueurs avec gestion de personnage et simulation de combats.",
-        stack: ["Symfony", "Tailwind CSS"],
-        status: "wip",
-        url:   "https://github.com/mmagny89/game",
-        icon:  "fa-shield-halved",
     },
 ];
 
@@ -95,15 +101,23 @@ function renderPersonalProjects(containerId) {
                 ${p.stack.map(s => `<span class="chip text-xs">${s}</span>`).join("")}
             </div>
 
-            ${p.private
-                ? `<span class="mt-auto inline-flex items-center gap-2 rounded-2xl px-3 py-1.5 text-xs font-medium border border-black/5 text-slate-400 bg-slate-50 cursor-default w-fit select-none">
-                       <i class="fa-brands fa-github"></i> Repo privé
-                   </span>`
-                : `<a href="${p.url}" target="_blank" rel="noopener noreferrer"
-                      class="mt-auto inline-flex items-center gap-2 rounded-2xl px-3 py-1.5 text-xs font-medium border border-black/10 text-slate-700 hover:bg-black/5 transition w-fit">
-                       <i class="fa-brands fa-github"></i> Voir sur GitHub
-                   </a>`
-            }
+            <div class="mt-auto flex flex-wrap gap-2">
+                ${p.demo
+                    ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer"
+                          class="inline-flex items-center gap-2 rounded-2xl px-3 py-1.5 text-xs font-medium border border-sky-200 text-sky-700 bg-sky-50 hover:bg-sky-100 transition w-fit">
+                           <i class="fa-solid fa-arrow-up-right-from-square"></i> Voir le site
+                       </a>`
+                    : ""}
+                ${p.private
+                    ? `<span class="inline-flex items-center gap-2 rounded-2xl px-3 py-1.5 text-xs font-medium border border-black/5 text-slate-400 bg-slate-50 cursor-default w-fit select-none">
+                           <i class="fa-brands fa-github"></i> Repo privé
+                       </span>`
+                    : `<a href="${p.url}" target="_blank" rel="noopener noreferrer"
+                          class="inline-flex items-center gap-2 rounded-2xl px-3 py-1.5 text-xs font-medium border border-black/10 text-slate-700 hover:bg-black/5 transition w-fit">
+                           <i class="fa-brands fa-github"></i> Voir sur GitHub
+                       </a>`
+                }
+            </div>
         </article>`;
     }).join("");
 }
