@@ -183,10 +183,11 @@
 </head>
 
 <body>
+<a href="#contenu" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 btn">Aller au contenu</a>
 <!-- Header -->
 <header class="sticky top-0 z-40 bg-[rgb(var(--bg))]/80 backdrop-blur border-b border-black/5">
-    <nav class="container-prose flex items-center justify-between h-16">
-        <a href="./index.html#top" class="flex items-center gap-2" aria-label="Accueil">
+    <nav class="container-prose flex items-center justify-between gap-3 h-16" aria-label="Navigation">
+        <a href="#top" class="flex items-center gap-2" aria-label="Accueil">
             <svg xmlns="http://www.w3.org/2000/svg" width="62" height="38" viewBox="0 0 1000 600" aria-hidden="true">
                 <rect width="1000" height="600" fill="transparent"/>
                 <g transform="translate(500,300)">
@@ -204,16 +205,16 @@
                 </g>
             </svg>
 
-            <span class="font-semibold text-lg">Mylène Magny</span>
+            <span class="font-semibold text-lg hidden min-[400px]:inline">Mylène Magny</span>
         </a>
 
         <ul class="hidden lg:flex items-center gap-5 text-sm">
-            <li><a class="hover:underline" href="./index.html#competences">Compétences</a></li>
-            <li><a class="hover:underline" href="./index.html#projets-phares">Projets</a></li>
-            <li><a class="hover:underline" href="./index.html#experiences">Parcours</a></li>
-            <li><a class="hover:underline" href="./index.html#ia">Côté perso</a></li>
-            <li><a class="hover:underline font-medium text-sky-700" href="./index.html#recherche">Ma recherche</a></li>
-            <li><a class="hover:underline" href="./index.html#contact">Contact</a></li>
+            <li><a class="hover:underline" href="#competences">Compétences</a></li>
+            <li><a class="hover:underline" href="#projets-phares">Projets</a></li>
+            <li><a class="hover:underline" href="#experiences">Parcours</a></li>
+            <li><a class="hover:underline" href="#ia">Côté perso</a></li>
+            <li><a class="hover:underline font-medium text-sky-700" href="#recherche">Ma recherche</a></li>
+            <li><a class="hover:underline" href="#contact">Contact</a></li>
         </ul>
 
         <div class="flex items-center gap-2">
@@ -227,13 +228,31 @@
                 <i class="fa-solid fa-file-arrow-down"></i>
                 <span class="hidden sm:inline">CV</span>
             </a>
-            <a href="./index.html#contact" class="btn inline-flex items-center gap-2" aria-label="Me contacter">
+            <a href="#contact" class="btn inline-flex items-center gap-2" aria-label="Me contacter">
                 <i class="fa-solid fa-envelope sm:hidden"></i>
                 <span class="hidden sm:inline">Me contacter</span>
             </a>
+            <!-- Sous 1024 px, la liste de liens est masquée : ce bouton l'ouvre
+                 en panneau. Piloté par assets/js/app.js. -->
+            <button type="button" id="menuToggle" class="btn-outline lg:hidden h-10 w-10 !px-0"
+                    aria-expanded="false" aria-controls="menuMobile" aria-label="Ouvrir le menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
         </div>
     </nav>
+    <nav id="menuMobile" class="lg:hidden hidden border-t border-black/5" aria-label="Menu principal">
+        <ul class="container-prose py-2 text-base">
+            <li><a class="block rounded-xl px-3 py-3 hover:bg-black/5" href="#competences">Compétences</a></li>
+            <li><a class="block rounded-xl px-3 py-3 hover:bg-black/5" href="#projets-phares">Projets</a></li>
+            <li><a class="block rounded-xl px-3 py-3 hover:bg-black/5" href="#experiences">Parcours</a></li>
+            <li><a class="block rounded-xl px-3 py-3 hover:bg-black/5" href="#ia">Côté perso</a></li>
+            <li><a class="block rounded-xl px-3 py-3 hover:bg-black/5 font-medium text-sky-700" href="#recherche">Ma recherche</a></li>
+            <li><a class="block rounded-xl px-3 py-3 hover:bg-black/5" href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 </header>
+
+<main id="contenu" tabindex="-1">
 
 <!-- Hero -->
 <section id="top" class="relative" style="overflow-x: clip;">
@@ -926,7 +945,9 @@
             </div>
         </div>
 
-        <ol class="relative mt-8 grid gap-7 sm:grid-cols-4 sm:gap-5
+        <!-- En colonne (mobile), du plus récent au plus ancien, comme
+             l'expérience ; en frise horizontale, chronologique. -->
+        <ol class="relative mt-8 flex flex-col-reverse gap-7 sm:grid sm:grid-cols-4 sm:gap-5
                    before:absolute before:bg-slate-200
                    before:left-[7px] before:top-1 before:h-[calc(100%-0.75rem)] before:w-px
                    sm:before:left-2 sm:before:right-[calc(25%-22px)] sm:before:top-[7px] sm:before:h-px sm:before:w-auto">
@@ -1060,9 +1081,9 @@
          la section est un aparté, elle n'a pas à peser autant que Compétences
          ou Expérience. -->
     <div class="card p-7 sm:p-9 reveal">
-        <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <div class="grid lg:grid-cols-12 lg:grid-rows-[auto_1fr] gap-8 items-start">
 
-            <div class="lg:col-span-5">
+            <div class="lg:col-span-5 lg:col-start-1 lg:row-start-1">
                 <h2 class="section-title">En dehors du code</h2>
                 <p class="text-sm text-slate-600 mt-3 leading-relaxed">
                     Mes loisirs alimentent directement ce que je construis le soir, et ma
@@ -1070,13 +1091,9 @@
                     <a href="#projets-perso" class="underline decoration-dotted underline-offset-4 hover:text-slate-900 transition">projets personnels</a>
                     sort d’une table de jeu.
                 </p>
-                <p class="mt-5 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-slate-600">
-                    <i class="fa-solid fa-cat text-slate-700"></i>
-                    Et bien sûr, les chats 🐾
-                </p>
             </div>
 
-            <ul class="lg:col-span-7 divide-y divide-black/5">
+            <ul class="lg:col-span-7 lg:col-start-6 lg:row-start-1 lg:row-span-2 divide-y divide-black/5">
                 <li class="flex gap-4 items-start py-4 first:pt-0">
                     <i class="fa-solid fa-dice text-emerald-600 mt-1 w-5 text-center shrink-0"></i>
                     <div>
@@ -1116,6 +1133,13 @@
                     </div>
                 </li>
             </ul>
+
+            <!-- Après la liste dans le code, donc en fin de bloc sur mobile ;
+                 replacé sous l'introduction en desktop. -->
+            <p class="lg:col-span-5 lg:col-start-1 lg:row-start-2 lg:-mt-3 justify-self-start inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-slate-600">
+                <i class="fa-solid fa-cat text-slate-700"></i>
+                Et bien sûr, les chats 🐾
+            </p>
 
         </div>
     </div>
@@ -1291,6 +1315,8 @@
 <script src="./assets/js/app.js"></script>
 <script src="./assets/js/personal-projects.js"></script>
 <script>renderPersonalProjects("personalProjectsHome");</script>
+
+</main>
 
 <!-- Modale projets phares -->
 <div id="homeProjectModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50" role="dialog" aria-modal="true">

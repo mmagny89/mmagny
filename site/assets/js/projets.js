@@ -45,6 +45,7 @@ function render() {
         const techNom = { drupal: "Drupal", wordpress: "WordPress", symfony: "Symfony" }[p.tech] || "";
         return `
         <article class="card p-6 flex flex-col gap-3 project-item cursor-pointer open-modal ${borderCls}"
+                 tabindex="0" aria-haspopup="dialog"
                  data-tech="${p.tech}"
                  data-domain="${p.domain}"
                  data-format="${fmt}"
@@ -195,6 +196,14 @@ function closeModal() {
 document.addEventListener("click", e => {
     const btn = e.target.closest(".open-modal");
     if (btn) openModal(btn.dataset.project);
+});
+// Entrée ou Espace sur une carte focalisée : même effet qu'un clic.
+document.addEventListener("keydown", e => {
+    const carte = e.target.closest?.(".open-modal");
+    if (carte && (e.key === "Enter" || e.key === " ")) {
+        e.preventDefault();
+        openModal(carte.dataset.project);
+    }
 });
 modalClose.addEventListener("click", closeModal);
 modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });

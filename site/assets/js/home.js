@@ -99,17 +99,31 @@ const HOME_PROJECTS = {
         modal.classList.remove("hidden");
         modal.classList.add("flex");
         document.body.classList.add("overflow-hidden");
+        dernierFocus = document.activeElement;
         btnClose.focus();
     }
+
+    let dernierFocus = null;
 
     function closeModal() {
         modal.classList.add("hidden");
         modal.classList.remove("flex");
         document.body.classList.remove("overflow-hidden");
+        if (dernierFocus) dernierFocus.focus();
     }
 
+    // Les cartes s'ouvrent aussi au clavier : sans ça, leur détail n'était
+    // accessible qu'à la souris.
     document.querySelectorAll(".open-modal-home").forEach(el => {
+        el.tabIndex = 0;
+        el.setAttribute("aria-haspopup", "dialog");
         el.addEventListener("click", () => openModal(el.dataset.project));
+        el.addEventListener("keydown", e => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openModal(el.dataset.project);
+            }
+        });
     });
     btnClose.addEventListener("click", closeModal);
     modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });

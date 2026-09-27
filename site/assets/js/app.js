@@ -44,3 +44,24 @@ const yearEl = document.getElementById('year');
 if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
 }
+// Menu mobile : panneau ouvert par #menuToggle, fermé au choix d'un lien,
+// à Échap (focus rendu au bouton) ou au passage en largeur desktop.
+const menuToggle = document.getElementById('menuToggle');
+const menuMobile = document.getElementById('menuMobile');
+if (menuToggle && menuMobile) {
+    const setMenu = open => {
+        menuMobile.classList.toggle('hidden', !open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        menuToggle.querySelector('i').className = `fa-solid ${open ? 'fa-xmark' : 'fa-bars'}`;
+    };
+    menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
+    menuMobile.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+            setMenu(false);
+            menuToggle.focus();
+        }
+    });
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+}
