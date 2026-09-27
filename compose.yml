@@ -3,6 +3,11 @@
 # propres à un environnement et vivent dans les overrides (stack-conventions.md,
 # §1 et §11). Un `docker compose -f compose.yml up` seul est donc volontairement
 # incomplet — il sert au contrôle statique, pas au démarrage.
+# Le nom du projet porte l'environnement : sans lui, deux stacks du même
+# projet sur un hôte partagé se disputeraient les mêmes conteneurs et les
+# mêmes volumes (§2).
+name: mmagny-${ENV:?ENV non definie. dev dans le .env racine, prod dans le fichier de secrets}
+
 services:
   web:
     build:
@@ -10,11 +15,11 @@ services:
       dockerfile: docker/nginx/Dockerfile
       args:
         NGINX_VERSION: ${NGINX_VERSION}
-    container_name: mmagny-web
+    container_name: mmagny-${ENV:?ENV non definie. dev dans le .env racine, prod dans le fichier de secrets}-web
     restart: unless-stopped
     networks:
-      - mmagny
+      - projet
 
 networks:
-  mmagny:
-    name: mmagny
+  projet:
+    name: mmagny-${ENV:?ENV non definie. dev dans le .env racine, prod dans le fichier de secrets}
