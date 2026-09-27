@@ -127,6 +127,22 @@ reste verte sur les seules portes qualité.
 La procédure complète — préparation du serveur, clé de déploiement restreinte,
 secrets GitHub, valeurs Traefik à constater — est dans **`README.docker.md`**.
 
+## Publier une version
+
+Une release GitHub se crée **toute seule** à la poussée d'une étiquette
+`vX.Y.Z` : `.github/workflows/release.yml` en reprend les notes dans la section
+correspondante de `CHANGELOG.md`.
+
+1. Renommer `## [Non publié]` en `## [X.Y.Z] - AAAA-MM-JJ` dans `CHANGELOG.md`,
+   rouvrir un `## [Non publié]` vide au-dessus, mettre à jour les liens du bas.
+2. Vérifier les notes telles qu'elles seront publiées :
+   `sh outils/extraire-changelog.sh X.Y.Z`
+3. Commiter, étiqueter et pousser :
+   `git tag -a vX.Y.Z -m "Version X.Y.Z"` puis `git push origin main vX.Y.Z`
+
+Une étiquette poussée avant ce workflow se rattrape depuis l'onglet Actions
+(« Publication », *Run workflow*, en indiquant l'étiquette).
+
 ## Documentation
 
 | Fichier | Contenu |

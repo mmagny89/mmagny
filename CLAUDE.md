@@ -94,6 +94,11 @@ faire échouer la CI. Rien de ce que la CI envoie n'influence
 ce qui s'exécute là-bas. La CI ne construit ni ne pousse d'image. Procédure
 complète et valeurs à constater : `README.docker.md`.
 
+Release GitHub automatique à la poussée d'une étiquette `vX.Y.Z`
+(`.github/workflows/release.yml`), notes tirées de `CHANGELOG.md` par
+`outils/extraire-changelog.sh` — repris tels quels de Niout. Procédure :
+`README.md`, « Publier une version ».
+
 Les quatre secrets GitHub portent des noms normatifs, communs à tous les
 dépôts : `DEPLOIEMENT_HOTE`, `DEPLOIEMENT_UTILISATEUR`,
 `DEPLOIEMENT_CLE_PRIVEE`, `DEPLOIEMENT_KNOWN_HOSTS`.
