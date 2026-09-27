@@ -88,7 +88,9 @@ change.
 ## Déploiement
 
 `push` sur `main` → portes qualité → SSH vers le serveur, dont la forced
-command lance `outils/deployer.sh prod`. Rien de ce que la CI envoie n'influence
+command lance `outils/deployer.sh prod`. Ce dernier job ne tourne que si la
+variable de dépôt `DEPLOIEMENT_ACTIF` vaut `true` ; sinon il est ignoré, sans
+faire échouer la CI. Rien de ce que la CI envoie n'influence
 ce qui s'exécute là-bas. La CI ne construit ni ne pousse d'image. Procédure
 complète et valeurs à constater : `README.docker.md`.
 

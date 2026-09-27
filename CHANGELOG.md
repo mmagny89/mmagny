@@ -9,8 +9,19 @@ refonte visible par le visiteur, et non comme un changement d'API.
 
 ## [Non publié]
 
+## [1.1.0] - 2026-09-27
+
 ### Ajouté
 
+- Page « Dossier de compétences » : chaque compétence, technique ou
+  transverse, avec son ancienneté et les projets qui la prouvent, calculés
+  depuis les données des projets.
+- Projet personnel BG TCG, en bêta.
+- Menu de navigation sur mobile et tablette, qui n'existait pas sous 1024 px.
+- Lien d'évitement, zone principale, cartes projets ouvrables au clavier,
+  respect de la préférence de mouvement réduit.
+- Interrupteur `DEPLOIEMENT_ACTIF` : sans lui, le déploiement est ignoré au
+  lieu de faire échouer la CI.
 - Fichiers de gouvernance attendus d'un dépôt public : licence, politique de
   sécurité, guide de contribution, journal des versions, surveillance des
   dépendances par Dependabot.
@@ -20,6 +31,12 @@ refonte visible par le visiteur, et non comme un changement d'API.
 
 ### Modifié
 
+- Accueil réorganisé en présentation : compétences d'abord, puis projets,
+  parcours, et un « côté perso » regroupant l'IA, les projets personnels et
+  les loisirs. L'IA a sa propre section.
+- Projets personnels regroupés par état : en ligne en cartes, en chantier en
+  liste compacte.
+- Ancienneté portée à 15 ans.
 - Les conteneurs, le réseau et le routeur du proxy portent le nom de leur
   environnement. Sans cela, deux environnements du même projet sur un hôte
   partagé se disputeraient les mêmes ressources.
@@ -82,7 +99,8 @@ Première mise en ligne.
 - Bandeau de consentement aux cookies et mesure d'audience conditionnelle.
 - Jeu d'icônes et manifeste du site.
 
-[Non publié]: https://github.com/mmagny89/mmagny/compare/v1.0.0...HEAD
+[Non publié]: https://github.com/mmagny89/mmagny/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/mmagny89/mmagny/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/mmagny89/mmagny/releases/tag/v1.0.0
 [0.2.0]: https://github.com/mmagny89/mmagny/releases/tag/v0.2.0
 [0.1.0]: https://github.com/mmagny89/mmagny/releases/tag/v0.1.0

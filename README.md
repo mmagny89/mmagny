@@ -4,9 +4,26 @@ Site vitrine de **Mylène Magny**, développeuse back-end (PHP / Drupal /
 Symfony) : présentation, compétences, expériences, projets et contact.
 
 [![Qualité](https://github.com/mmagny89/mmagny/actions/workflows/qualite.yml/badge.svg)](https://github.com/mmagny89/mmagny/actions/workflows/qualite.yml)
+[![Version](https://img.shields.io/github/v/tag/mmagny89/mmagny?sort=semver&label=version)](CHANGELOG.md)
+[![Site](https://img.shields.io/website?url=https%3A%2F%2Fmmagny.fr&label=mmagny.fr&up_message=en%20ligne&down_message=hors%20ligne)](https://mmagny.fr)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT%20(code)-blue.svg)](LICENSE)
 
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?logo=javascript&logoColor=black)
+![nginx](https://img.shields.io/badge/nginx-009639?logo=nginx&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Accessibilité](https://img.shields.io/badge/accessibilit%C3%A9-WCAG%202.2%20AA%20vis%C3%A9-4B5563)
+
 En production : <https://mmagny.fr>
+
+## Contenu du site
+
+| Page | Contenu |
+|---|---|
+| [Accueil](https://mmagny.fr) | Présentation, compétences, projets phares, parcours, IA, projets perso, contact |
+| [Projets](https://mmagny.fr/projets.html) | 27 projets clients filtrables, chacun avec contexte, rôle, livrables et résultat |
+| [Compétences](https://mmagny.fr/competences.html) | Dossier de compétences : ancienneté et projets qui prouvent chaque compétence |
 
 ## Nature du projet
 
@@ -29,6 +46,7 @@ recharger le navigateur. Rien à compiler, rien à installer.
 ├── site/               LE SITE (seul dossier de contenu)
 │   ├── index.html          accueil
 │   ├── projets.html        projets & réalisations
+│   ├── competences.html    dossier de compétences
 │   ├── assets/             css/ js/ img/ favicon/ cv/
 │   └── tarteaucitron/      bandeau de consentement (dépendance vendue)
 ├── docker/nginx/       image et configuration du serveur
@@ -69,7 +87,8 @@ documentée dans `README.docker.md`.
 | Pour changer… | Éditer |
 |---|---|
 | Le contenu de l'accueil | `site/index.html` |
-| La liste des projets | `site/assets/js/projets.js` — tableau `PROJECTS` |
+| La liste des projets | `site/assets/js/projets-data.js` — tableau `PROJECTS` |
+| Le dossier de compétences | `site/assets/js/competences.js` — objet `COMPETENCES` |
 | Les projets mis en avant sur l'accueil | `site/assets/js/home.js` — objet `HOME_PROJECTS` |
 | Les projets personnels | `site/assets/js/personal-projects.js` — tableau `PERSONAL_PROJECTS` |
 | Le bascule thème clair/sombre | `site/assets/js/app.js` |
@@ -100,6 +119,10 @@ dans `.htmlvalidate.md`.
 Un `push` sur `main` déclenche, dans cet ordre : validation du balisage,
 vérification des liens, construction et test de l'image, puis déploiement par
 SSH sur le serveur. Aucun déploiement n'est déclenché depuis une pull request.
+
+Le déploiement automatique est **désactivé tant que la variable de dépôt
+`DEPLOIEMENT_ACTIF` ne vaut pas `true`** : le job est alors ignoré, et la CI
+reste verte sur les seules portes qualité.
 
 La procédure complète — préparation du serveur, clé de déploiement restreinte,
 secrets GitHub, valeurs Traefik à constater — est dans **`README.docker.md`**.

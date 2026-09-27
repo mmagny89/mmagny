@@ -157,8 +157,12 @@ failed` vient presque toujours de là.
 
 ### 5. Déclenchement
 
-Un `push` sur `main` qui passe les trois portes déclenche le déploiement.
-Jamais depuis une pull request. Deux déploiements simultanés s'attendent, ils
+Un `push` sur `main` qui passe les trois portes déclenche le déploiement,
+**à condition que la variable de dépôt `DEPLOIEMENT_ACTIF` vaille `true`**
+(`Settings > Secrets and variables > Actions > Variables`). Absente ou à une
+autre valeur, le job de déploiement est ignoré et la CI reste verte : c'est
+l'état tant que le serveur n'est pas prêt. La poser en dernier, une fois le
+déploiement manuel ci-dessous réussi. Jamais depuis une pull request. Deux déploiements simultanés s'attendent, ils
 ne se coupent pas.
 
 Déploiement manuel depuis le serveur, à jouer **avant** le premier

@@ -97,7 +97,17 @@ jobs:
     needs: [image]
     # Une seule porte. Jamais sur une pull request : une PR d'un dépôt tiers
     # déploierait du code non relu (§22).
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    #
+    # Interrupteur : la variable de dépôt DEPLOIEMENT_ACTIF (Settings →
+    # Secrets and variables → Actions → Variables) doit valoir `true`. Tant
+    # que le serveur n'est pas prêt, le job est « skipped » au lieu d'échouer
+    # sur des secrets absents : la CI reste verte, les portes qualité restent
+    # bloquantes. Une variable plutôt qu'un secret, parce qu'elle se lit dans
+    # un `if:` et qu'elle n'a rien de confidentiel.
+    if: >-
+      github.event_name == 'push'
+      && github.ref == 'refs/heads/main'
+      && vars.DEPLOIEMENT_ACTIF == 'true'
     runs-on: ubuntu-latest
     environment: production
     steps:
