@@ -208,10 +208,10 @@
         </a>
 
         <ul class="hidden lg:flex items-center gap-5 text-sm">
-            <li><a class="hover:underline" href="./index.html#projets-phares">Projets</a></li>
             <li><a class="hover:underline" href="./index.html#competences">Compétences</a></li>
-            <li><a class="hover:underline" href="./index.html#experiences">Expérience</a></li>
-            <li><a class="hover:underline" href="./index.html#parcours">Formations</a></li>
+            <li><a class="hover:underline" href="./index.html#projets-phares">Projets</a></li>
+            <li><a class="hover:underline" href="./index.html#experiences">Parcours</a></li>
+            <li><a class="hover:underline" href="./index.html#ia">Côté perso</a></li>
             <li><a class="hover:underline font-medium text-sky-700" href="./index.html#recherche">Ma recherche</a></li>
             <li><a class="hover:underline" href="./index.html#contact">Contact</a></li>
         </ul>
@@ -389,6 +389,143 @@
 
 <div class="section-glow" aria-hidden="true"></div>
 
+<!-- Compétences -->
+<section id="competences" class="container-prose py-16 sm:py-20">
+    <div class="flex items-end justify-between gap-4">
+        <div class="reveal">
+            <h2 class="section-title">Compétences</h2>
+            <p class="muted mt-2">
+                Classées par niveau de maîtrise réelle, du quotidien à l’occasionnel.
+            </p>
+        </div>
+
+        <a href="./competences.html" class="btn-soft hidden sm:inline-flex shrink-0">
+            Dossier de compétences <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Niveau 1 : ce sur quoi on peut compter tous les jours. -->
+    <div class="mt-8 card p-6 reveal border-l-2 border-l-sky-400">
+        <div class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-2xl bg-sky-100 grid place-items-center shrink-0">
+                <i class="fa-solid fa-star text-sky-700"></i>
+            </div>
+            <div>
+                <h3 class="font-semibold">Expertise</h3>
+                <p class="text-xs text-slate-600 mt-0.5">Mon quotidien depuis des années : architecture, arbitrages, transmission</p>
+            </div>
+        </div>
+
+        <div class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
+                <i class="fa-brands fa-drupal text-sky-700 mt-0.5"></i>
+                <div>
+                    <p class="text-sm font-semibold">Drupal 8+</p>
+                    <p class="text-xs text-slate-600 mt-0.5">Modules sur-mesure, usines à sites, migrations</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
+                <i class="fa-brands fa-php text-sky-700 mt-0.5"></i>
+                <div>
+                    <p class="text-sm font-semibold">PHP</p>
+                    <p class="text-xs text-slate-600 mt-0.5">15 ans, du legacy aux versions actuelles</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
+                <i class="fa-brands fa-symfony text-sky-700 mt-0.5"></i>
+                <div>
+                    <p class="text-sm font-semibold">Symfony</p>
+                    <p class="text-xs text-slate-600 mt-0.5">Applications métier, Doctrine, certifiée</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
+                <i class="fa-solid fa-database text-sky-700 mt-0.5"></i>
+                <div>
+                    <p class="text-sm font-semibold">SQL (MySQL / PostgreSQL)</p>
+                    <p class="text-xs text-slate-600 mt-0.5">Modélisation, reprises de données</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
+                <i class="fa-brands fa-wordpress text-sky-700 mt-0.5"></i>
+                <div>
+                    <p class="text-sm font-semibold">WordPress</p>
+                    <p class="text-xs text-slate-600 mt-0.5">Sites vitrines, extranets métier</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
+                <i class="fa-solid fa-arrow-right-arrow-left text-sky-700 mt-0.5"></i>
+                <div>
+                    <p class="text-sm font-semibold">Migrations &amp; reprises</p>
+                    <p class="text-xs text-slate-600 mt-0.5">Contenus, médias, multilingue, URLs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Niveau 2 : pratiqué régulièrement, sans en faire le cœur du métier. -->
+    <div class="mt-6 grid lg:grid-cols-2 gap-6">
+        <div class="card p-6 reveal border-l-2 border-l-purple-400">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-2xl bg-indigo-100 grid place-items-center shrink-0">
+                    <i class="fa-solid fa-screwdriver-wrench text-purple-600"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Pratique régulière</h3>
+                    <p class="text-xs text-slate-600 mt-0.5">Outillage et front du quotidien</p>
+                </div>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2">
+                <span class="chip"><i class="fa-brands fa-git-alt"></i> Git (GitHub / GitLab)</span>
+                <span class="chip"><i class="fa-brands fa-docker"></i> Docker</span>
+                <span class="chip">CI/CD</span>
+                <span class="chip">Composer</span>
+                <span class="chip">Drush</span>
+                <span class="chip">CLI / Bash</span>
+                <span class="chip"><i class="fa-brands fa-html5"></i> HTML</span>
+                <span class="chip"><i class="fa-brands fa-css3-alt"></i> CSS / SCSS</span>
+                <span class="chip"><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span class="chip">Twig</span>
+                <span class="chip">Bootstrap</span>
+                <span class="chip">jQuery</span>
+                <span class="chip">YAML</span>
+                <span class="chip">API REST</span>
+                <span class="chip">JSON / XML / CSV</span>
+                <span class="chip">PhpStorm</span>
+            </div>
+        </div>
+
+        <!-- Niveau 3 : honnêteté sur ce qui a été mis en œuvre sans être le socle. -->
+        <div class="card p-6 reveal border-l-2 border-l-slate-300">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-2xl bg-slate-200 grid place-items-center shrink-0">
+                    <i class="fa-solid fa-seedling text-slate-700"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Déjà mis en œuvre</h3>
+                    <p class="text-xs text-slate-600 mt-0.5">Rencontré en projet ou en formation, opérationnel avec un temps de reprise</p>
+                </div>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2">
+                <span class="chip"><i class="fa-brands fa-react"></i> React</span>
+                <span class="chip"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                <span class="chip"><i class="fa-brands fa-shopify"></i> Shopify / Liquid</span>
+                <span class="chip">GraphQL</span>
+                <span class="chip">Webpack</span>
+                <span class="chip">Tailwind CSS</span>
+            </div>
+        </div>
+    </div>
+    <!-- Le bouton de l'en-tête de section est masqué sous 640 px, comme
+         « Tous les projets » : celui-ci prend le relais. -->
+    <div class="mt-6 sm:hidden reveal">
+        <a href="./competences.html" class="btn-outline inline-flex items-center gap-2">
+            Dossier de compétences <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+    </div>
+</section>
+
+<div class="section-glow" aria-hidden="true"></div>
+
 <!-- Projets phares -->
 <section class="container-prose py-16 sm:py-20" aria-labelledby="projets-phares">
     <div class="flex items-end justify-between gap-4 mb-8">
@@ -537,217 +674,6 @@
     <p class="mt-8 text-xs text-slate-500 reveal">
         Projets réalisés dans le cadre de mon poste au sein de l'agence <strong>Net.Com</strong>.
     </p>
-</section>
-
-<div class="section-glow" aria-hidden="true"></div>
-
-<!-- Projets perso -->
-<section id="projets-perso" class="container-prose py-16 sm:py-20">
-    <div class="reveal flex items-end justify-between gap-4 flex-wrap">
-        <div>
-            <h2 class="section-title">Projets perso</h2>
-            <p class="muted mt-2 max-w-2xl">
-                Mon terrain d’essai pour la stack que je n’utilise pas encore en agence :
-                Symfony 8, FrankenPHP, PostgreSQL, intégration d’IA. Presque tous sortent de mes
-                <a href="#hobbies" class="underline decoration-dotted underline-offset-4 hover:text-slate-900 transition">jeux de société et de rôle</a>.
-                J’y construis les outils qui me manquaient à table.
-            </p>
-        </div>
-        <a href="https://github.com/mmagny89?tab=repositories"
-           target="_blank" rel="noopener noreferrer"
-           class="btn-outline inline-flex items-center gap-2 shrink-0">
-            <i class="fa-brands fa-github"></i>
-            Voir le profil GitHub
-            <i class="fa-solid fa-up-right-from-square text-xs"></i>
-        </a>
-    </div>
-
-    <div class="mt-8" id="personalProjectsHome"></div>
-</section>
-
-<div class="section-glow" aria-hidden="true"></div>
-
-<!-- Compétences -->
-<section id="competences" class="container-prose py-16 sm:py-20">
-    <div class="reveal">
-        <h2 class="section-title">Compétences</h2>
-        <p class="muted mt-2">
-            Classées par niveau de maîtrise réelle, du quotidien à l’occasionnel.
-            Le détail, avec l’ancienneté et les projets qui les prouvent :
-            <a href="competences.html" class="underline decoration-dotted underline-offset-4 hover:text-slate-900 transition">dossier de compétences</a>.
-        </p>
-    </div>
-
-    <!-- Niveau 1 : ce sur quoi on peut compter tous les jours. -->
-    <div class="mt-8 card p-6 reveal border-l-2 border-l-sky-400">
-        <div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-2xl bg-sky-100 grid place-items-center shrink-0">
-                <i class="fa-solid fa-star text-sky-700"></i>
-            </div>
-            <div>
-                <h3 class="font-semibold">Expertise</h3>
-                <p class="text-xs text-slate-600 mt-0.5">Mon quotidien depuis des années : architecture, arbitrages, transmission</p>
-            </div>
-        </div>
-
-        <div class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
-                <i class="fa-brands fa-drupal text-sky-700 mt-0.5"></i>
-                <div>
-                    <p class="text-sm font-semibold">Drupal 8+</p>
-                    <p class="text-xs text-slate-600 mt-0.5">Modules sur-mesure, usines à sites, migrations</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
-                <i class="fa-brands fa-php text-sky-700 mt-0.5"></i>
-                <div>
-                    <p class="text-sm font-semibold">PHP</p>
-                    <p class="text-xs text-slate-600 mt-0.5">15 ans, du legacy aux versions actuelles</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
-                <i class="fa-brands fa-symfony text-sky-700 mt-0.5"></i>
-                <div>
-                    <p class="text-sm font-semibold">Symfony</p>
-                    <p class="text-xs text-slate-600 mt-0.5">Applications métier, Doctrine, certifiée</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
-                <i class="fa-solid fa-database text-sky-700 mt-0.5"></i>
-                <div>
-                    <p class="text-sm font-semibold">SQL (MySQL / PostgreSQL)</p>
-                    <p class="text-xs text-slate-600 mt-0.5">Modélisation, reprises de données</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
-                <i class="fa-brands fa-wordpress text-sky-700 mt-0.5"></i>
-                <div>
-                    <p class="text-sm font-semibold">WordPress</p>
-                    <p class="text-xs text-slate-600 mt-0.5">Sites vitrines, extranets métier</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3">
-                <i class="fa-solid fa-arrow-right-arrow-left text-sky-700 mt-0.5"></i>
-                <div>
-                    <p class="text-sm font-semibold">Migrations &amp; reprises</p>
-                    <p class="text-xs text-slate-600 mt-0.5">Contenus, médias, multilingue, URLs</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Niveau 2 : pratiqué régulièrement, sans en faire le cœur du métier. -->
-    <div class="mt-6 grid lg:grid-cols-2 gap-6">
-        <div class="card p-6 reveal border-l-2 border-l-purple-400">
-            <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-indigo-100 grid place-items-center shrink-0">
-                    <i class="fa-solid fa-screwdriver-wrench text-purple-600"></i>
-                </div>
-                <div>
-                    <h3 class="font-semibold">Pratique régulière</h3>
-                    <p class="text-xs text-slate-600 mt-0.5">Outillage et front du quotidien</p>
-                </div>
-            </div>
-            <div class="mt-5 flex flex-wrap gap-2">
-                <span class="chip"><i class="fa-brands fa-git-alt"></i> Git (GitHub / GitLab)</span>
-                <span class="chip"><i class="fa-brands fa-docker"></i> Docker</span>
-                <span class="chip">CI/CD</span>
-                <span class="chip">Composer</span>
-                <span class="chip">Drush</span>
-                <span class="chip">CLI / Bash</span>
-                <span class="chip"><i class="fa-brands fa-html5"></i> HTML</span>
-                <span class="chip"><i class="fa-brands fa-css3-alt"></i> CSS / SCSS</span>
-                <span class="chip"><i class="fa-brands fa-js"></i> JavaScript</span>
-                <span class="chip">Twig</span>
-                <span class="chip">Bootstrap</span>
-                <span class="chip">jQuery</span>
-                <span class="chip">YAML</span>
-                <span class="chip">API REST</span>
-                <span class="chip">JSON / XML / CSV</span>
-                <span class="chip">PhpStorm</span>
-            </div>
-        </div>
-
-        <!-- Niveau 3 : honnêteté sur ce qui a été mis en œuvre sans être le socle. -->
-        <div class="card p-6 reveal border-l-2 border-l-slate-300">
-            <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-slate-200 grid place-items-center shrink-0">
-                    <i class="fa-solid fa-seedling text-slate-700"></i>
-                </div>
-                <div>
-                    <h3 class="font-semibold">Déjà mis en œuvre</h3>
-                    <p class="text-xs text-slate-600 mt-0.5">Rencontré en projet ou en formation, opérationnel avec un temps de reprise</p>
-                </div>
-            </div>
-            <div class="mt-5 flex flex-wrap gap-2">
-                <span class="chip"><i class="fa-brands fa-react"></i> React</span>
-                <span class="chip"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                <span class="chip"><i class="fa-brands fa-shopify"></i> Shopify / Liquid</span>
-                <span class="chip">GraphQL</span>
-                <span class="chip">Webpack</span>
-                <span class="chip">Tailwind CSS</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="section-glow" aria-hidden="true"></div>
-
-<!-- IA : une manière de travailler, pas une ligne d'inventaire à la fin
-     d'une liste d'outils. D'où une section à part. -->
-<section id="ia" class="container-prose py-16 sm:py-20">
-    <div class="reveal mb-8">
-        <h2 class="section-title">L’IA dans ma pratique</h2>
-        <p class="muted mt-2">Claude Code, Mistral AI : un travail que je relis, comme celui de n’importe qui.</p>
-    </div>
-
-    <div class="card p-6 reveal border-l-2 border-l-emerald-400">
-        <div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-2xl bg-emerald-100 grid place-items-center shrink-0">
-                <i class="fa-solid fa-wand-magic-sparkles text-emerald-700"></i>
-            </div>
-            <div>
-                <h3 class="font-semibold">Un collègue de plus</h3>
-                <p class="text-xs text-slate-600 mt-0.5">Claude Code, Mistral AI : un travail que je relis, comme celui de n’importe qui</p>
-            </div>
-        </div>
-
-        <p class="mt-4 text-sm text-slate-600 leading-relaxed max-w-3xl">
-            Je m’en sers pour dégrossir, explorer une piste, relire un bout de code.
-            La décision technique, la compréhension du métier et la responsabilité de ce
-            qui part en production restent de mon côté. Trois de mes projets personnels
-            sont construits comme ça, et je me forme à Claude Code.
-        </p>
-
-        <!-- Le point le plus concret du bloc : ce n'est plus de l'usage, c'est de
-             l'outillage écrit et maintenu. Il mérite d'être isolé visuellement. -->
-        <div class="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50/50 p-5">
-            <p class="flex items-start gap-2.5 font-medium text-slate-800">
-                <i class="fa-solid fa-robot text-emerald-700 mt-0.5 shrink-0"></i>
-                <span>Mes propres agents et skills Claude Code</span>
-            </p>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed max-w-3xl">
-                Je me suis construit un outillage pour démarrer un projet
-                <strong>Symfony</strong>, <strong>Drupal</strong> ou <strong>WordPress</strong> :
-                des agents qui génèrent le socle Docker, les environnements et les portes
-                qualité, adossés à des règles d’infrastructure et à des skills de standards
-                de code que j’écris et que je maintiens. Deux générations successives
-                produisent la même arborescence, les mêmes noms, les mêmes ports.
-            </p>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed max-w-3xl">
-                Ce que j’y gagne : mes conventions s’appliquent de la même façon sur
-                chaque projet, y compris ceux que je ne démarre pas moi-même.
-            </p>
-        </div>
-
-        <div class="mt-4 flex flex-wrap gap-2">
-            <span class="chip">Claude Code</span>
-            <span class="chip">Agents sur-mesure</span>
-            <span class="chip">Skills de standards de code</span>
-            <span class="chip">Mistral AI</span>
-            <span class="chip">Intégration d’API IA</span>
-        </div>
-    </div>
 </section>
 
 <div class="section-glow" aria-hidden="true"></div>
@@ -1043,6 +969,91 @@
 
 <div class="section-glow" aria-hidden="true"></div>
 
+<!-- IA : une manière de travailler, pas une ligne d'inventaire à la fin
+     d'une liste d'outils. D'où une section à part. -->
+<section id="ia" class="container-prose py-16 sm:py-20">
+    <div class="reveal mb-8">
+        <h2 class="section-title">L’IA dans ma pratique</h2>
+        <p class="muted mt-2">Claude Code, Mistral AI : un travail que je relis, comme celui de n’importe qui.</p>
+    </div>
+
+    <div class="card p-6 reveal border-l-2 border-l-emerald-400">
+        <div class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-2xl bg-emerald-100 grid place-items-center shrink-0">
+                <i class="fa-solid fa-wand-magic-sparkles text-emerald-700"></i>
+            </div>
+            <div>
+                <h3 class="font-semibold">Un collègue de plus</h3>
+                <p class="text-xs text-slate-600 mt-0.5">Claude Code, Mistral AI : un travail que je relis, comme celui de n’importe qui</p>
+            </div>
+        </div>
+
+        <p class="mt-4 text-sm text-slate-600 leading-relaxed max-w-3xl">
+            Je m’en sers pour dégrossir, explorer une piste, relire un bout de code.
+            La décision technique, la compréhension du métier et la responsabilité de ce
+            qui part en production restent de mon côté. Trois de mes projets personnels
+            sont construits comme ça, et je me forme à Claude Code.
+        </p>
+
+        <!-- Le point le plus concret du bloc : ce n'est plus de l'usage, c'est de
+             l'outillage écrit et maintenu. Il mérite d'être isolé visuellement. -->
+        <div class="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50/50 p-5">
+            <p class="flex items-start gap-2.5 font-medium text-slate-800">
+                <i class="fa-solid fa-robot text-emerald-700 mt-0.5 shrink-0"></i>
+                <span>Mes propres agents et skills Claude Code</span>
+            </p>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed max-w-3xl">
+                Je me suis construit un outillage pour démarrer un projet
+                <strong>Symfony</strong>, <strong>Drupal</strong> ou <strong>WordPress</strong> :
+                des agents qui génèrent le socle Docker, les environnements et les portes
+                qualité, adossés à des règles d’infrastructure et à des skills de standards
+                de code que j’écris et que je maintiens. Deux générations successives
+                produisent la même arborescence, les mêmes noms, les mêmes ports.
+            </p>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed max-w-3xl">
+                Ce que j’y gagne : mes conventions s’appliquent de la même façon sur
+                chaque projet, y compris ceux que je ne démarre pas moi-même.
+            </p>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+            <span class="chip">Claude Code</span>
+            <span class="chip">Agents sur-mesure</span>
+            <span class="chip">Skills de standards de code</span>
+            <span class="chip">Mistral AI</span>
+            <span class="chip">Intégration d’API IA</span>
+        </div>
+    </div>
+</section>
+
+<div class="section-glow" aria-hidden="true"></div>
+
+<!-- Projets perso -->
+<section id="projets-perso" class="container-prose py-16 sm:py-20">
+    <div class="reveal flex items-end justify-between gap-4 flex-wrap">
+        <div>
+            <h2 class="section-title">Projets perso</h2>
+            <p class="muted mt-2 max-w-2xl">
+                Mon terrain d’essai pour la stack que je n’utilise pas encore en agence :
+                Symfony 8, FrankenPHP, PostgreSQL, intégration d’IA. Presque tous sortent de mes
+                <a href="#hobbies" class="underline decoration-dotted underline-offset-4 hover:text-slate-900 transition">jeux de société et de rôle</a>.
+                J’y construis les outils qui me manquaient à table.
+            </p>
+        </div>
+        <a href="https://github.com/mmagny89?tab=repositories"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-outline inline-flex items-center gap-2 shrink-0">
+            <i class="fa-brands fa-github"></i>
+            Voir le profil GitHub
+            <i class="fa-solid fa-up-right-from-square text-xs"></i>
+        </a>
+    </div>
+
+    <div class="mt-8" id="personalProjectsHome"></div>
+</section>
+
+<div class="section-glow" aria-hidden="true"></div>
+
 <!-- Hobbies -->
 <section id="hobbies" class="container-prose py-16 sm:py-20">
     <!-- Une carte unique en deux colonnes plutôt que quatre cartes jumelles :
@@ -1112,7 +1123,6 @@
 
 <div class="section-glow" aria-hidden="true"></div>
 
-<!-- Contact -->
 <!-- Ce que je cherche -->
 <section id="recherche" class="container-prose py-16 sm:py-20">
     <div class="reveal">
