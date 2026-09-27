@@ -3,6 +3,9 @@
 Site vitrine de **Mylène Magny**, développeuse back-end (PHP / Drupal /
 Symfony) : présentation, compétences, expériences, projets et contact.
 
+[![Qualité](https://github.com/mmagny89/mmagny/actions/workflows/qualite.yml/badge.svg)](https://github.com/mmagny89/mmagny/actions/workflows/qualite.yml)
+[![Licence MIT](https://img.shields.io/badge/licence-MIT%20(code)-blue.svg)](LICENSE)
+
 En production : <https://mmagny.fr>
 
 ## Nature du projet
@@ -105,7 +108,20 @@ secrets GitHub, valeurs Traefik à constater — est dans **`README.docker.md`**
 
 | Fichier | Contenu |
 |---|---|
-| `README.md` | Ce fichier : le projet, son contenu, le développement local. |
-| `README.docker.md` | Infrastructure, environnements, déploiement. |
-| `CLAUDE.md` | Contexte et pièges du projet, pour Claude Code. |
-| `.htmlvalidate.md` | Règles de validation désactivées et pourquoi. |
+| [`README.md`](README.md) | Ce fichier : le projet, son contenu, le développement local. |
+| [`README.docker.md`](README.docker.md) | Infrastructure, environnements, déploiement. |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Signaler un défaut, réutiliser le code, proposer un changement. |
+| [`SECURITY.md`](SECURITY.md) | Signaler une faille, et ce qui est dans le périmètre. |
+| [`CHANGELOG.md`](CHANGELOG.md) | Journal des versions. |
+| [`LICENSE`](LICENSE) | MIT sur le code, contenu réservé. |
+| [`CLAUDE.md`](CLAUDE.md) | Contexte et pièges du projet, pour Claude Code. |
+| [`.htmlvalidate.md`](.htmlvalidate.md) | Règles de validation désactivées et pourquoi. |
+
+## Licence
+
+Le **code** est sous [licence MIT](LICENSE) : configuration Docker et nginx,
+scripts, intégration continue, structure des pages. Réutilisable librement.
+
+Le **contenu** ne l'est pas : textes, CV, descriptions de projets, images et
+logo restent la propriété de leur autrice. Reprendre la mécanique du site, oui ;
+republier le parcours de quelqu'un d'autre, non.

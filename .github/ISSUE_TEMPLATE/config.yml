@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Faille de sécurité
+    url: https://github.com/mmagny89/mmagny/security/policy
+    about: Ne pas ouvrir d'issue publique. Écrire à contact@mmagny.fr.
+  - name: Me contacter
+    url: https://mmagny.fr/#contact
+    about: Opportunité, collaboration ou échange technique.

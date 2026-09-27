@@ -1,0 +1,29 @@
+# Surveillance des dépendances.
+#
+# Ce projet n'a ni composer.json ni package.json : rien n'est installé, le
+# site est servi tel quel. Restent deux écosystèmes réellement versionnés,
+# et ce sont ceux qui portent le risque de sécurité.
+version: 2
+
+updates:
+  # Les actions tierces du workflow sont épinglées à une version majeure.
+  # Une faille dans l'une d'elles s'exécute avec les secrets de déploiement.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "ci"
+    labels:
+      - dépendances
+
+  # L'image nginx de base. Les correctifs de sécurité y arrivent par
+  # incréments de version de correctif, invisibles sans surveillance.
+  - package-ecosystem: docker
+    directory: /docker/nginx
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "build"
+    labels:
+      - dépendances
