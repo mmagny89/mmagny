@@ -37,6 +37,12 @@ npx --yes html-validate@9 "site/**/*.html"  # porte 1
 Toute commande passe par la **clé de service** `web`, jamais par le
 `container_name` : `docker compose exec web ...`.
 
+Les conteneurs, le réseau et le routeur Traefik portent leur environnement
+(`mmagny-dev-web`, réseau `mmagny-dev`). `ENV` vient du `.env` racine en
+développement et du fichier de secrets en production, en `${ENV:?}` : un
+fichier de secrets qui l'oublierait ferait échouer le démarrage plutôt que de
+produire `mmagny--web`.
+
 `site/` est monté en lecture seule en dev : une modification de contenu est
 visible au rechargement. Un rebuild n'est nécessaire que si `docker/nginx/`
 change.
@@ -67,6 +73,13 @@ change.
 - **Pas de Content-Security-Policy**, parce que les pages portent des scripts
   inline (configuration tarteaucitron). L'ajouter suppose de les externaliser
   ou de leur poser un `nonce` : c'est une modification du site, pas de nginx.
+- **Le nom du routeur Traefik est écrit en clair** dans `compose.prod.yml` :
+  Compose n'interpole pas les clés d'étiquette, seulement les valeurs. Ne pas
+  tenter d'y mettre `${ENV}`.
+- **`outils/deployer.sh` est une adaptation, pas une ressource.** Le script de
+  référence de `.claude/scripts/` est écrit pour Symfony et joue une migration
+  Doctrine. La variante statique de ce projet n'a jamais tourné sur un
+  déploiement réel : ne pas la promouvoir en ressource avant (§22c).
 - **Les valeurs Traefik de production ne se devinent pas.** `TRAEFIK_NETWORK`,
   `TRAEFIK_ENTRYPOINT` et `TRAEFIK_CERTRESOLVER` se constatent sur le serveur.
   Elles sont volontairement absentes du `.env` et écrites `${VAR:?}` : le stack
@@ -74,6 +87,11 @@ change.
 
 ## Déploiement
 
-`push` sur `main` → portes qualité → SSH vers le serveur, qui appelle son
-propre script `deploy-mmagny` (forced command). La CI ne construit ni ne pousse
-d'image. Procédure complète et valeurs à constater : `README.docker.md`.
+`push` sur `main` → portes qualité → SSH vers le serveur, dont la forced
+command lance `outils/deployer.sh prod`. Rien de ce que la CI envoie n'influence
+ce qui s'exécute là-bas. La CI ne construit ni ne pousse d'image. Procédure
+complète et valeurs à constater : `README.docker.md`.
+
+Les quatre secrets GitHub portent des noms normatifs, communs à tous les
+dépôts : `DEPLOIEMENT_HOTE`, `DEPLOIEMENT_UTILISATEUR`,
+`DEPLOIEMENT_CLE_PRIVEE`, `DEPLOIEMENT_KNOWN_HOSTS`.

@@ -20,7 +20,11 @@ de l'infrastructure.
 | `docker/nginx/Dockerfile` | Image multi-stage `base` → `dev` / `prod`. |
 | `docker/nginx/default.conf` | Configuration du serveur : routage, cache, en-têtes de sécurité, `/healthz`. |
 | `docker/nginx/docker-healthcheck.sh` | Sonde de santé, embarquée dans toutes les images. |
-| `docker/deploy-mmagny.sh` | Script de déploiement — **à installer sur le serveur**, pas exécuté par la CI. |
+| `outils/deployer.sh` | Script de déploiement, exécuté **sur le serveur** par une forced command. |
+| `outils/installer-deploiement.sh` | Pose les accès de déploiement, une fois par serveur puis par projet. |
+| `outils/renseigner-secrets.sh` | Renseigne les quatre secrets GitHub du dépôt. |
+| `outils/diagnostic-traefik.sh` | Relève la configuration du proxy en place, plutôt que la supposer. |
+| `outils/extraire-changelog.sh` | Isole la section d'une version du CHANGELOG, pour une release. |
 | `.github/workflows/qualite.yml` | Portes qualité et déploiement. |
 | `.github/scripts/check-links.sh` | Porte « liens internes ». Utilisable aussi en local. |
 | `.htmlvalidate.json` / `.htmlvalidate.md` | Configuration de la porte HTML et justification des règles désactivées. |
@@ -33,9 +37,10 @@ de l'infrastructure.
 
 | Élément | Valeur |
 |---|---|
+| Nom de projet Compose | `mmagny-<env>` |
 | Clé de service | `web` |
-| `container_name` | `mmagny-web` |
-| Réseau projet | `mmagny` |
+| `container_name` | `mmagny-<env>-web` |
+| Réseau projet | `mmagny-<env>` |
 | Images | `mmagny-nginx:dev`, `mmagny-nginx:prod` |
 | Stages du Dockerfile | `base`, `dev`, `prod` |
 
@@ -91,56 +96,60 @@ Le serveur est **partagé** et porte un **Traefik déjà en place**. La CI ne
 construit ni ne pousse d'image : elle appelle par SSH un script qui vit sur le
 serveur, lequel reconstruit et redémarre le stack.
 
-### 1. Préparer le serveur — une fois
+### 1. Relever la configuration du proxy
+
+Les valeurs de Traefik se constatent, elles ne se supposent pas. Un outil s'en
+charge, à jouer sur le serveur :
 
 ```sh
-# Le dépôt, à l'emplacement attendu par le script (surchargeable par MMAGNY_DIR)
-sudo git clone https://github.com/mmagny89/mmagny.git /srv/mmagny
+sh outils/diagnostic-traefik.sh
+```
 
-# Le script de déploiement
-sudo install -m 0755 /srv/mmagny/docker/deploy-mmagny.sh /usr/local/bin/deploy-mmagny
+Il donne les noms réels de l'entrypoint, du certresolver et du réseau, à
+reporter dans `.env.prod.local`.
 
-# Les variables de production
-cd /srv/mmagny
+### 2. Préparer le serveur
+
+Le clone doit porter le nom de l'environnement, car `deployer.sh` en déduit le
+projet depuis son propre emplacement :
+
+```sh
+sudo git clone https://github.com/mmagny89/mmagny.git /docker/mmagny-prod
+cd /docker/mmagny-prod
 cp .env.prod.local.dist .env.prod.local
-$EDITOR .env.prod.local     # voir « Valeurs à constater » ci-dessous
+$EDITOR .env.prod.local
 ```
 
-### 2. Valeurs à constater sur le serveur
+### 3. Poser les accès de déploiement
 
-Ces trois valeurs **se lisent sur le Traefik en place**, elles ne se supposent
-pas. `websecure` et `letsencrypt` sont des usages fréquents, pas des
-constantes : une valeur inventée produit des labels que Traefik ignore en
-silence — le site ne répond pas, et rien n'apparaît dans les journaux du
-conteneur.
+Une fois par machine, puis une fois par projet, depuis le clone correctement
+nommé :
 
 ```sh
-docker network ls
-docker inspect <conteneur-traefik> | grep -iE 'entryPoints|certificatesresolvers'
+sh outils/installer-deploiement.sh serveur
+sh outils/installer-deploiement.sh projet prod
 ```
 
-Le stack **refuse de démarrer** tant qu'elles manquent, avec un message qui les
-nomme : c'est délibéré (`${VAR:?}`).
-
-### 3. Clé de déploiement restreinte
-
-La clé confiée à GitHub ne doit pouvoir lancer que le déploiement. Dans le
-`~/.ssh/authorized_keys` de l'utilisateur de déploiement :
-
-```
-command="/usr/local/bin/deploy-mmagny",no-agent-forwarding,no-port-forwarding,no-pty,no-X11-forwarding ssh-ed25519 AAAA... deploy@github
-```
+Le script génère la clé, l'inscrit dans `authorized_keys` derrière une *forced
+command* qui fige `outils/deployer.sh prod`, et affiche la clé privée à
+recopier dans les secrets GitHub. La clé ne peut rien lancer d'autre : ce que
+la CI envoie n'a aucune influence sur ce qui s'exécute.
 
 ### 4. Secrets GitHub
 
 `Settings > Secrets and variables > Actions` :
 
+Ces quatre noms sont normatifs et identiques dans tous les dépôts : le préfixe
+dit le rôle, pas la machine.
+
 | Secret | Contenu |
 |---|---|
-| `SSH_HOST` | Adresse du serveur — **exactement** celle utilisée pour se connecter |
-| `SSH_USER` | Utilisateur de déploiement |
-| `SSH_KEY` | Clé privée correspondant à la clé publique ci-dessus |
-| `SSH_KNOWN_HOSTS` | Sortie de `ssh-keyscan <SSH_HOST>` |
+| `DEPLOIEMENT_HOTE` | Adresse du serveur, **exactement** celle utilisée pour se connecter |
+| `DEPLOIEMENT_UTILISATEUR` | Utilisateur de déploiement |
+| `DEPLOIEMENT_CLE_PRIVEE` | Clé privée correspondant à la clé publique posée à l'étape 3 |
+| `DEPLOIEMENT_KNOWN_HOSTS` | Sortie de `ssh-keyscan <adresse>` |
+
+`outils/renseigner-secrets.sh` les pose sans passer par l'interface web.
 
 `known_hosts` est indexé par l'adresse **exacte** de connexion : une IP et un
 nom de domaine y sont deux entrées distinctes. Un `Host key verification
@@ -152,11 +161,17 @@ Un `push` sur `main` qui passe les trois portes déclenche le déploiement.
 Jamais depuis une pull request. Deux déploiements simultanés s'attendent, ils
 ne se coupent pas.
 
-Déploiement manuel depuis le serveur :
+Déploiement manuel depuis le serveur, à jouer **avant** le premier
+déclenchement automatique : enchaîner les deux mêlerait deux sources d'échec,
+le stack et le dispositif SSH.
 
 ```sh
-deploy-mmagny
+sh outils/deployer.sh prod
 ```
+
+Il vérifie la branche, refuse toute fusion, construit, attend l'état `healthy`,
+puis **contrôle que le site répond depuis l'extérieur** : un conteneur sain
+derrière un proxy mal configuré reste invisible sans ce dernier point.
 
 ## Portes qualité
 
