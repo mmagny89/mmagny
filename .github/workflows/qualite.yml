@@ -28,7 +28,7 @@ jobs:
     name: Validation HTML
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -45,7 +45,7 @@ jobs:
     name: Liens internes
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Vérifier les cibles locales
         run: ./.github/scripts/check-links.sh site
 
@@ -59,10 +59,10 @@ jobs:
     needs: [balisage, liens]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: docker/setup-buildx-action@v3
       - name: docker build --target prod
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: docker/nginx/Dockerfile
