@@ -320,25 +320,27 @@ const PROJECTS = [
     },
 
     // --- Associatif ---
-    { id:"unml", title:"UNML", tech:"wordpress", domain:"associatif", format:[], subtitle:"WordPress • annuaire via API • espace adhérents",
-        context:"Site de l'Union Nationale des Missions Locales. Deux besoins structurants : afficher l'annuaire de toutes les missions locales sans le ressaisir, et réserver les ressources documentaires aux personnes qui y ont droit. L'annuaire est donc alimenté par l'API interne de l'UNML, et l'accès aux ressources dépend du profil de la personne connectée et de son adhésion.",
+    { id:"unml", title:"UNML", tech:"wordpress", domain:"associatif", format:[], subtitle:"WordPress • Gutenberg • annuaire via API • espace adhérents",
+        context:"Site de l'Union Nationale des Missions Locales. Site construit sur l'éditeur de blocs Gutenberg, pour que l'équipe éditoriale compose ses pages elle-même. Deux besoins structurants : afficher l'annuaire de toutes les missions locales sans le ressaisir, et réserver les ressources documentaires aux personnes qui y ont droit. L'annuaire est donc alimenté par l'API interne de l'UNML, et l'accès aux ressources dépend du profil de la personne connectée et de son adhésion.",
         role:"Développeur back-end",
         contribution:"Intégration de l'API interne, gestion des accès par profil et par adhésion, évolutions et support.",
         actions:[
+            { icon:"fa-cubes",              color:"text-slate-700", text:"Contenus composés avec l'éditeur de blocs Gutenberg : mise en page par blocs, éditable par l'équipe sans passer par un page builder tiers ni par le développement." },
             { icon:"fa-address-book",       color:"text-slate-700", text:"Alimentation de l'annuaire des missions locales depuis l'API interne de l'UNML : une seule source de données, tenue à jour par le réseau lui-même." },
             { icon:"fa-user-lock",          color:"text-slate-700", text:"Accès aux ressources documentaires selon le profil de la personne connectée et son adhésion, avec les droits correspondants." },
             { icon:"fa-code",              color:"text-slate-700", text:"Évolutions et intégration." },
             { icon:"fa-screwdriver-wrench", color:"text-slate-700", text:"Maintenance, mises à jour WordPress et support auprès du client." },
         ],
-        stack:["WordPress","PHP","API interne","Git"],
-        highlight:"Un annuaire national alimenté par l'API du réseau, et des ressources documentaires ouvertes selon le profil et l'adhésion."
+        stack:["WordPress","Gutenberg","PHP","API interne","Git"],
+        highlight:"Des pages composées en blocs Gutenberg, un annuaire national alimenté par l'API du réseau, et des ressources ouvertes selon le profil et l'adhésion."
     },
 
     // --- Industrie ---
-    { id:"charot", title:"Charot", tech:"wordpress", domain:"industrie", format:[], subtitle:"WordPress • extranet métier • aide à la décision",
+    { id:"charot", title:"Charot", tech:"wordpress", domain:"industrie", format:[], subtitle:"WordPress • Genesis • extranet métier • aide à la décision",
         context:"Refonte du site vitrine et développement d'un extranet métier d'aide à la décision pour l'orientation produits, sur WordPress/Genesis avec modélisation des entités complexes via Pods.",
         role:"Développeur principal",
         actions:[
+            { icon:"fa-swatchbook",         color:"text-slate-700", text:"Refonte du site vitrine sur le framework Genesis : thème enfant, personnalisations par les hooks et filtres de Genesis, socle de thème parent laissé intact et mis à jour." },
             { icon:"fa-lock",               color:"text-slate-700", text:"Développement de fonctionnalités extranet sur mesure (sans dépendance à des solutions clé en main) pour répondre aux contraintes spécifiques du domaine industriel." },
             { icon:"fa-wand-magic-sparkles", color:"text-slate-700", text:"Conception d'un moteur de recommandation produit basé sur des questionnaires dynamiques Gravity Forms : règles conditionnelles, calculs et logiques métier complexes." },
             { icon:"fa-arrows-rotate",       color:"text-slate-700", text:"Mise en place de traitements automatisés d'import et synchronisation quotidienne des données, avec déclenchement manuel via l'administration." },
@@ -363,19 +365,20 @@ const PROJECTS = [
 
     // --- Restauration ---
 
-    { id:"la-madeleine", title:"La Madeleine", tech:"wordpress", domain:"restauration", format:[], subtitle:"WordPress • site vitrine • réservation en ligne",
-        context:"Site du restaurant La Madeleine, à Sens. Un établissement de cette taille n'a ni service informatique ni budget de développement sur mesure : le site devait donc reposer sur des briques existantes, tout en restant tenu par l'équipe du restaurant au quotidien.",
+    { id:"la-madeleine", title:"La Madeleine", tech:"wordpress", domain:"restauration", format:[], subtitle:"WordPress • Elementor • site vitrine • réservation en ligne",
+        context:"Site du restaurant La Madeleine, à Sens. Un établissement de cette taille n'a ni service informatique ni budget de développement sur mesure : le site devait donc reposer sur des briques existantes, dont Elementor pour la mise en page, tout en restant tenu par l'équipe du restaurant au quotidien.",
         role:"Développeur",
-        contribution:"Installation et paramétrage de WordPress, mise en place d'un thème communautaire personnalisé via un thème enfant, intégration de la réservation en ligne.",
+        contribution:"Installation et paramétrage de WordPress, mise en page des pages avec Elementor, thème communautaire personnalisé via un thème enfant, intégration de la réservation en ligne.",
         actions:[
             { icon:"fa-wordpress-simple", color:"text-slate-700", text:"Installation et paramétrage de WordPress, de l'hébergement à la mise en ligne." },
+            { icon:"fa-table-columns",    color:"text-slate-700", text:"Mise en page des pages avec Elementor : sections, widgets et gabarits réutilisables que l'équipe du restaurant modifie elle-même, sans toucher au code." },
             { icon:"fa-palette",          color:"text-slate-700", text:"Choix et mise en place d'un thème communautaire comme base, plutôt qu'un thème sur mesure hors budget pour un établissement de cette taille." },
             { icon:"fa-code-branch",      color:"text-slate-700", text:"Création d'un thème enfant pour toutes les personnalisations, apparence comme fonctionnalités : le thème parent reste intact et continue de recevoir ses mises à jour, sans écraser le travail fait." },
             { icon:"fa-calendar-check",   color:"text-slate-700", text:"Intégration de ZenChef pour la réservation de tables en ligne, directement depuis le site." },
             { icon:"fa-user-gear",        color:"text-slate-700", text:"Accompagnement de l'équipe à la prise en main du site." },
         ],
-        stack:["WordPress","Thème enfant","PHP","ZenChef","Git"],
-        highlight:"Un site que l'équipe du restaurant tient elle-même, dont les personnalisations survivent aux mises à jour."
+        stack:["WordPress","Elementor","Thème enfant","PHP","ZenChef","Git"],
+        highlight:"Un site mis en page avec Elementor que l'équipe du restaurant tient elle-même, et dont les personnalisations survivent aux mises à jour."
     },
 
 ];

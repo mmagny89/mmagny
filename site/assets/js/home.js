@@ -50,12 +50,41 @@ const HOME_PROJECTS = {
         badge: '<span class="chip"><i class="fa-brands fa-wordpress"></i> WordPress</span>',
         context: "Refonte du site vitrine et développement d'un extranet métier d'aide à la décision pour l'orientation produits, sur WordPress/Genesis avec modélisation des entités complexes via Pods.",
         actions: [
+            { icon: "fa-swatchbook",         color: "text-slate-700", text: "Refonte du site vitrine sur le framework Genesis : thème enfant, personnalisations par les hooks et filtres de Genesis, socle de thème parent laissé intact et mis à jour." },
             { icon: "fa-lock",               color: "text-slate-700", text: "Développement de fonctionnalités extranet sur mesure (sans dépendance à des solutions clé en main) pour répondre aux contraintes spécifiques du domaine industriel." },
             { icon: "fa-wand-magic-sparkles", color: "text-slate-700", text: "Conception d'un moteur de recommandation produit basé sur des questionnaires dynamiques Gravity Forms : règles conditionnelles, calculs et logiques métier complexes." },
             { icon: "fa-arrows-rotate",       color: "text-slate-700", text: "Mise en place de traitements automatisés d'import et synchronisation quotidienne des données, avec déclenchement manuel via l'administration." }
         ],
         result: "Centralisation et fiabilisation des données produits, réduction des opérations manuelles, système d'aide à la décision directement exploitable par les équipes métiers.",
         stack: ["WordPress", "Genesis", "Pods", "Gravity Forms", "PHP", "Git"]
+    },
+
+    "unml": {
+        title: "UNML",
+        role: "Développeur back-end",
+        badge: '<span class="chip"><i class="fa-brands fa-wordpress"></i> WordPress</span>',
+        context: "Site de l'Union Nationale des Missions Locales, construit sur l'éditeur de blocs Gutenberg. Deux besoins structurants : afficher l'annuaire de toutes les missions locales sans le ressaisir, et réserver les ressources documentaires aux personnes qui y ont droit.",
+        actions: [
+            { icon: "fa-cubes",        color: "text-slate-700", text: "Contenus composés avec l'éditeur de blocs Gutenberg : mise en page par blocs, éditable par l'équipe sans passer par un page builder tiers ni par le développement." },
+            { icon: "fa-address-book", color: "text-slate-700", text: "Alimentation de l'annuaire des missions locales depuis l'API interne de l'UNML : une seule source de données, tenue à jour par le réseau lui-même." },
+            { icon: "fa-user-lock",    color: "text-slate-700", text: "Accès aux ressources documentaires selon le profil de la personne connectée et son adhésion, avec les droits correspondants." }
+        ],
+        result: "Des pages composées en blocs Gutenberg, un annuaire national alimenté par l'API du réseau, et des ressources ouvertes selon le profil et l'adhésion.",
+        stack: ["WordPress", "Gutenberg", "PHP", "API interne", "Git"]
+    },
+
+    "la-madeleine": {
+        title: "La Madeleine",
+        role: "Développeur",
+        badge: '<span class="chip"><i class="fa-brands fa-wordpress"></i> WordPress</span>',
+        context: "Site du restaurant La Madeleine, à Sens. Sans service informatique ni budget de développement sur mesure, le site repose sur des briques existantes, dont Elementor pour la mise en page, tout en restant tenu par l'équipe du restaurant au quotidien.",
+        actions: [
+            { icon: "fa-table-columns",  color: "text-slate-700", text: "Mise en page des pages avec Elementor : sections, widgets et gabarits réutilisables que l'équipe du restaurant modifie elle-même, sans toucher au code." },
+            { icon: "fa-code-branch",    color: "text-slate-700", text: "Thème communautaire personnalisé via un thème enfant : le thème parent reste intact et continue de recevoir ses mises à jour." },
+            { icon: "fa-calendar-check", color: "text-slate-700", text: "Intégration de ZenChef pour la réservation de tables en ligne, directement depuis le site." }
+        ],
+        result: "Un site mis en page avec Elementor que l'équipe du restaurant tient elle-même, et dont les personnalisations survivent aux mises à jour.",
+        stack: ["WordPress", "Elementor", "Thème enfant", "PHP", "ZenChef", "Git"]
     },
 
     "quartiers-plus": {
