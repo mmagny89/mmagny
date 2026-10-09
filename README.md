@@ -1,7 +1,7 @@
 # mmagny.fr
 
 Site vitrine de **Mylène Magny**, développeuse back-end (PHP / Drupal /
-Symfony) : présentation, compétences, expériences, projets et contact.
+WordPress / Symfony) : présentation, compétences, expériences, projets et contact.
 
 [![Qualité](https://github.com/mmagny89/mmagny/actions/workflows/qualite.yml/badge.svg)](https://github.com/mmagny89/mmagny/actions/workflows/qualite.yml)
 [![Version](https://img.shields.io/github/v/tag/mmagny89/mmagny?sort=semver&label=version)](CHANGELOG.md)
