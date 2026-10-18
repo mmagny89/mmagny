@@ -36,20 +36,9 @@ const PERSONAL_PROJECTS = [
         title: "Envie de Jouer",
         desc:  "Site de l'association Envie de Jouer. Présentation, calendrier des événements et bulletin d'adhésion en ligne. Déploiement automatisé par GitHub Actions.",
         stack: ["Symfony", "Tailwind CSS"],
-        status: "production",
+        status: "staging",
         url:   "https://github.com/mmagny89/edj",
-        demo:  "https://edj.mmagny.fr/",
         icon:  "fa-people-group",
-    },
-    {
-        id:      "sdj",
-        title:   "Le Sens du Jeu",
-        desc:    "Comptage des entrées du festival de jeux de société de Sens, sur tablettes au comptoir d'accueil : combien de personnes sont venues, d'où et à quelle heure, pour dimensionner l'édition suivante.",
-        stack:   ["Symfony", "PostgreSQL", "FrankenPHP"],
-        status:  "production",
-        private: true,
-        url:     "https://github.com/mmagny89/sdj",
-        icon:    "fa-ticket",
     },
     {
         id:    "chauffage",
@@ -106,6 +95,7 @@ const STATUS_LABEL = {
     beta:       { text: "Bêta",         cls: "bg-amber-50 text-amber-700 border-amber-200"       },
     wip:        { text: "En cours",     cls: "bg-sky-50 text-sky-700 border-sky-200"             },
     local:      { text: "En local",     cls: "bg-slate-100 text-slate-600 border-slate-200"      },
+    staging:    { text: "En préproduction", cls: "bg-sky-50 text-sky-700 border-sky-200"       },
     calibrage:  { text: "En calibrage", cls: "bg-sky-50 text-sky-700 border-sky-200"             },
 };
 
