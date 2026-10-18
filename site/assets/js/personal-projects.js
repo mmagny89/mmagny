@@ -170,8 +170,12 @@ function renderPersonalProjects(containerId) {
     const publies   = PERSONAL_PROJECTS.filter(estPublie);
     const chantiers = PERSONAL_PROJECTS.filter(p => !estPublie(p));
 
+    // Trois colonnes laissent une carte orpheline quand leur nombre est 3n+1 :
+    // dans ce cas, deux colonnes.
+    const colonnes = publies.length % 3 === 1 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3";
+
     container.innerHTML = `
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">${publies.map(carteProjet).join("")}</div>
+        <div class="grid ${colonnes} gap-5">${publies.map(carteProjet).join("")}</div>
         ${chantiers.length ? `
         <div class="card p-6 mt-5">
             <h3 class="text-sm font-semibold text-slate-700 flex items-center gap-2">
