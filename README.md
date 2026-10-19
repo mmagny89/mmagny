@@ -121,7 +121,7 @@ vérification des liens, construction et test de l'image, puis déploiement par
 SSH sur le serveur. Aucun déploiement n'est déclenché depuis une pull request.
 
 Le déploiement automatique est **désactivé tant que la variable de dépôt
-`DEPLOIEMENT_ACTIF` ne vaut pas `true`** : le job est alors ignoré, et la CI
+`DEPLOIEMENT_PROD` ne vaut pas `oui`** : le job est alors ignoré, et la CI
 reste verte sur les seules portes qualité.
 
 La procédure complète — préparation du serveur, clé de déploiement restreinte,

@@ -158,12 +158,16 @@ failed` vient presque toujours de là.
 ### 5. Déclenchement
 
 Un `push` sur `main` qui passe les trois portes déclenche le déploiement,
-**à condition que la variable de dépôt `DEPLOIEMENT_ACTIF` vaille `true`**
+**à condition que la variable de dépôt `DEPLOIEMENT_PROD` vaille `oui`**
 (`Settings > Secrets and variables > Actions > Variables`). Absente ou à une
-autre valeur, le job de déploiement est ignoré et la CI reste verte : c'est
+autre valeur, le job `deploiement-prod` est ignoré et la CI reste verte : c'est
 l'état tant que le serveur n'est pas prêt. La poser en dernier, une fois le
-déploiement manuel ci-dessous réussi. Jamais depuis une pull request. Deux déploiements simultanés s'attendent, ils
-ne se coupent pas.
+déploiement manuel ci-dessous réussi. Jamais depuis une pull request. Deux
+déploiements simultanés s'attendent, ils ne se coupent pas.
+
+> L'ancien interrupteur `DEPLOIEMENT_ACTIF` (valeur `true`) n'est plus lu. Le
+> nom `DEPLOIEMENT_PROD` est commun à tous les dépôts : sans lui, le déploiement
+> s'arrête même si l'ancienne variable existe encore.
 
 Déploiement manuel depuis le serveur, à jouer **avant** le premier
 déclenchement automatique : enchaîner les deux mêlerait deux sources d'échec,

@@ -9,6 +9,12 @@ refonte visible par le visiteur, et non comme un changement d'API.
 
 ## [Non publié]
 
+### Modifié
+
+- L'interrupteur de déploiement `DEPLOIEMENT_ACTIF` (valeur `true`) devient
+  `DEPLOIEMENT_PROD` (valeur `oui`), le nom commun à tous les dépôts. L'ancienne
+  variable n'est plus lue : sans la nouvelle, le déploiement est ignoré.
+
 ## [1.1.0] - 2026-09-27
 
 ### Ajouté
