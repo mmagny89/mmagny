@@ -17,6 +17,18 @@ services:
     build:
       target: prod
     image: mmagny-nginx:prod
+    # Capabilities reduites au strict necessaire, verifiees sur l'image de
+    # production : le process maitre demarre en root, change le proprietaire de
+    # ses repertoires temporaires (CHOWN), laisse ses workers a l'utilisateur
+    # nginx (SETUID, SETGID) et ecoute sur le port 80 (NET_BIND_SERVICE).
+    # `cap_drop: ALL` seul : le conteneur sort aussitot au demarrage.
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - NET_BIND_SERVICE
+      - SETGID
+      - SETUID
     networks:
       - projet
       - traefik

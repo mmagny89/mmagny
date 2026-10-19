@@ -26,6 +26,7 @@ de l'infrastructure.
 | `outils/diagnostic-traefik.sh` | Relève la configuration du proxy en place, plutôt que la supposer. |
 | `outils/extraire-changelog.sh` | Isole la section d'une version du CHANGELOG, pour une release. |
 | `.github/workflows/qualite.yml` | Portes qualité et déploiement. |
+| `GITHUB.md` | Ce qui se configure dans l'interface GitHub : secrets, variable d'activation, environnement, protection de `main`. |
 | `.github/scripts/check-links.sh` | Porte « liens internes ». Utilisable aussi en local. |
 | `.htmlvalidate.json` / `.htmlvalidate.md` | Configuration de la porte HTML et justification des règles désactivées. |
 | `.dockerignore` / `.gitignore` | Exclusions de contexte de build et de dépôt. |
@@ -150,6 +151,8 @@ dit le rôle, pas la machine.
 | `DEPLOIEMENT_KNOWN_HOSTS` | Sortie de `ssh-keyscan <adresse>` |
 
 `outils/renseigner-secrets.sh` les pose sans passer par l'interface web.
+
+Tout le reste de ce qui se règle dans GitHub — environnement `production`, protection de `main`, réglages Actions, Dependabot — est dans `GITHUB.md`, avec un récapitulatif à cocher.
 
 `known_hosts` est indexé par l'adresse **exacte** de connexion : une IP et un
 nom de domaine y sont deux entrées distinctes. Un `Host key verification

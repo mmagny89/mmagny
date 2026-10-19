@@ -17,6 +17,10 @@ services:
         NGINX_VERSION: ${NGINX_VERSION}
     container_name: mmagny-${ENV:?ENV non definie. dev dans le .env racine, prod dans le fichier de secrets}-web
     restart: unless-stopped
+    # Un process du conteneur ne peut plus gagner de droits par un binaire
+    # setuid : nginx n'en execute aucun, le reglage ne retire rien.
+    security_opt:
+      - no-new-privileges:true
     networks:
       - projet
 
