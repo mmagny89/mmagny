@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '26'
       # `--yes` évite l'invite interactive ; la version est épinglée pour que
       # deux exécutions à quinze jours d'écart valident les mêmes règles.
       - name: html-validate
