@@ -67,7 +67,7 @@ showSnip();
 $('#snipnext').onclick=()=>{si=(si+1)%SNIPS.length;showSnip()};
 
 /* ───── Accueil ───── */
-$('#facts').innerHTML=`<div><b>15 ans</b> en agence web</div><div><b>100+</b> projets livrés</div><div><b>2017</b> référente technique Drupal</div>`;
+$('#facts').innerHTML=`<div><b>15 ans</b> en agence web</div><div><b>100+</b> projets livrés</div><div><b>2017</b> référente technique Drupal</div>`;
 $('#allp').innerHTML=`Explorer les ${nbP} projets ${svg('arrow')}`;
 const APPORTS=[['drop','Une expertise Drupal','Usines à sites, modules sur-mesure, arbitrages d’architecture'],['move','Les projets hérités','Migrations, reprises de code existant, montées de version'],['shield','Un filet avant la livraison','Relectures, recette, standards de code partagés'],['users','De la transmission','Revues de code, accompagnement des nouvelles recrues'],['chat','L’écoute avant le code','Comprendre le métier, puis choisir la technique']];
 $('#apports').innerHTML=APPORTS.map(a=>`<div class="card"><div class="top"><span class="tile">${svg(a[0])}</span><h3>${a[1]}</h3></div><p>${a[2]}</p></div>`).join('');
@@ -97,6 +97,14 @@ const pcard=p=>`<article class="card"><div class="top"><span class="tile ${p.ai?
 $('#perso-pub').innerHTML=PERSONAL_PROJECTS.filter(pub).map(pcard).join('');
 $('#perso-wip').innerHTML=PERSONAL_PROJECTS.filter(p=>!pub(p)).map(p=>`<div class="card" style="background:var(--bg)"><div class="top"><span class="tile sm ${p.ai?'ia':''}">${svg(IC[p.id]||'code')}</span><h4>${p.title}</h4></div><div class="tags">${stat(p)}</div><p>${t(p.desc)}</p></div>`).join('');
 $('#ia-projects').innerHTML=PERSONAL_PROJECTS.filter(p=>p.ai).map(p=>`<div class="card"><div class="top"><span class="tile ia">${svg(IC[p.id]||'sparkles')}</span><h3>${p.title}</h3></div><p>${t(p.desc)}</p><div class="tags">${p.stack.map(s=>`<span class="chip ${/Mistral/.test(s)?'ia':''}">${s}</span>`).join('')}</div></div>`).join('');
-const LOIS=[['dice','Jeux de société et jeux de rôle','Le point de départ de la moitié de mes projets perso : un besoin réel, une table, des joueurs'],['gamepad','Jeux vidéo','Univers immersifs, mécaniques de gameplay, narration interactive. Niout vient de là'],['rocket','Espace et exploration','Curiosité scientifique, technologies spatiales, prospective'],['sprout','Jardinage et bricolage','On ne force pas une plante à pousser plus vite. Un projet non plus'],['paw','Et bien sûr, les chats','']];
+const LOIS=[
+['dice','Jeux de société et jeux de rôle','Le point de départ de la moitié de mes projets perso : un besoin réel, une table, des joueurs. Autour d’une table, on voit vite si une règle tient, et ça me sert aussi pour concevoir une application'],
+['gamepad','Jeux vidéo','Univers immersifs, mécaniques de gameplay, narration interactive. J’y regarde surtout comment un jeu guide le joueur sans le lui dire. Niout vient de là'],
+['landmark','Égypte et Grèce antiques','Mon premier parcours, la licence d’histoire de l’art et archéologie, ne m’a pas quittée. Pharaons du Nouvel Empire, cités grecques, mythes : comprendre comment une civilisation organise sa ville, son écriture et ses croyances'],
+['lotus','Bouddhisme theravāda et Thaïlande','Une tradition ancienne, ses textes et sa pratique, et la Thaïlande qui la porte au quotidien. Une manière de ralentir et de regarder ce qu’on fait'],
+['bowl','Gastronomie d’Asie de l’Est','Cuisines chinoise, japonaise et coréenne : bouillons, fermentations, thé, gestes de coupe et de cuisson. Cuisiner demande de la méthode, et on goûte le résultat tout de suite'],
+['rocket','Espace et exploration','Curiosité scientifique, technologies spatiales, prospective. J’aime les ordres de grandeur : distances, durées, contraintes d’ingénierie'],
+['sprout','Jardinage et bricolage','On ne force pas une plante à pousser plus vite. Un projet non plus. Semer, attendre, tailler, et réparer plutôt que remplacer'],
+['paw','Et bien sûr, les chats','Présents à chaque séance de code, de préférence sur le clavier ou juste à côté. Des relecteurs peu bavards, mais très attachés à ma présence']];
 $('#loisirs').innerHTML=LOIS.map(l=>`<div class="card"><div class="top"><span class="tile sm">${svg(l[0])}</span><h4>${l[1]}</h4></div>${l[2]?`<p>${l[2]}</p>`:''}</div>`).join('');
 

@@ -64,7 +64,7 @@ nav a[aria-current="page"]{color:var(--fg);background:var(--surface2)}
 .btn:hover{transform:translateY(-1px)}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
 
-.chip{font:500 .76rem/1.3 var(--f-mono);padding:5px 9px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--fg);display:inline-flex;align-items:center;gap:6px}
+.chip{font:500 .76rem/1 var(--f-mono);padding:8px 10px;min-height:30px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--fg);display:inline-flex;align-items:center;gap:6px}
 .chip.php{background:var(--php-soft);border-color:transparent;color:var(--php)}
 .chip.ia{background:var(--ia-soft);border-color:transparent;color:var(--ia)}
 .chip.ok{color:var(--ok)}
@@ -147,7 +147,7 @@ button.card:hover{border-color:var(--php);transform:translateY(-2px)}
 .edu .yr{font:500 .85rem var(--f-mono);color:var(--muted)}
 .edu p{color:var(--muted);font-size:.9rem}
 
-.status{font:500 .7rem var(--f-mono);padding:3px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.status{font:500 .7rem/1 var(--f-mono);display:inline-flex;align-items:center;gap:5px;padding:6px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
 .status.production{color:var(--ok);border-color:currentColor}
 .status.beta,.status.staging{color:var(--php);border-color:currentColor}
 .status.wip{color:var(--ia);border-color:currentColor}
@@ -231,3 +231,25 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 .term .tb button{display:inline-grid;place-items:center;min-width:44px}
 .term .tb button .ic{width:16px;height:16px}
 @media(max-width:860px){.where{grid-template-columns:1fr}}
+
+/* pastille « disponible » qui clignote, sauf si l'on préfère moins d'animation */
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 25%,transparent)}50%{opacity:.3;box-shadow:0 0 0 8px transparent}}
+@media(prefers-reduced-motion:no-preference){.avail::before{animation:blink 1.6s ease-in-out infinite}}
+.nw,.facts b{white-space:nowrap}
+.theme{min-width:44px;justify-content:center;padding:0}
+.theme .ic{width:18px;height:18px}
+/* grilles sans cellule vide : la dernière ligne s'étire */
+.grid2>:last-child:nth-child(odd){grid-column:1/-1}
+.g5{grid-template-columns:repeat(6,1fr)}.g5>*{grid-column:span 2}.g5>:nth-child(n+4){grid-column:span 3}
+.g7{grid-template-columns:repeat(12,1fr)}.g7>*{grid-column:span 3}.g7>:nth-child(n+5){grid-column:span 4}
+@media(max-width:960px){.g5,.g7{grid-template-columns:1fr 1fr}.g5>*,.g7>*,.g5>:nth-child(n+4),.g7>:nth-child(n+5){grid-column:auto}.g5>:last-child,.g7>:last-child{grid-column:1/-1}}
+@media(max-width:620px){.g5,.g7{grid-template-columns:1fr}.g5>:last-child,.g7>:last-child{grid-column:auto}}
+@media(min-width:621px) and (max-width:960px){.grid3:not(.g5):not(.g7)>:last-child:nth-child(odd){grid-column:1/-1}}
+/* frise chronologique des études */
+.frise{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.frise li{position:relative;padding:30px 20px 0 0;min-width:0}
+.frise li::before{content:"";position:absolute;top:8px;left:0;right:0;height:2px;background:var(--line)}
+.frise li::after{content:"";position:absolute;top:2px;left:0;width:14px;height:14px;border-radius:50%;background:var(--php);box-shadow:0 0 0 4px var(--bg)}
+.frise .yr{display:block;font:500 .8rem var(--f-mono);color:var(--php);margin-bottom:6px}
+.frise p{color:var(--muted);font-size:.9rem;margin-top:4px}
+@media(max-width:760px){.frise{grid-template-columns:1fr;border-left:2px solid var(--line);margin-left:6px}.frise li{padding:0 0 26px 24px}.frise li:last-child{padding-bottom:0}.frise li::before{display:none}.frise li::after{top:4px;left:-8px}}

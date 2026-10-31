@@ -2,7 +2,7 @@
 /* ───── Page projets ───── */
 let fTech='all',fDom='all',q='',cur=null;
 const nb=k=>PROJECTS.filter(p=>p.tech===k).length;
-$('#p-title').innerHTML=`${nbP} projets détaillés, sur plus de 100 livrés en 15 ans`;
+$('#p-title').innerHTML=`${nbP} projets détaillés, sur plus de 100 livrés en 15 ans`;
 $('#f-tech').innerHTML=[['all','Tous'],...Object.keys(TECH).map(k=>[k,`${TECH[k][0]} ${nb(k)}`])].map(([k,l])=>`<button type="button" data-t="${k}" aria-pressed="${k==='all'}">${l}</button>`).join('');
 const doms=Object.keys(DOM).filter(k=>PROJECTS.some(p=>p.domain===k));
 $('#f-dom').innerHTML=[['all','Tous domaines','compass'],...doms.map(k=>[k,DOM[k][0],DOM[k][1]])].map(([k,l,i])=>`<button type="button" data-d="${k}" aria-pressed="${k==='all'}">${svg(i)}${l}</button>`).join('');

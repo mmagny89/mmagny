@@ -49,7 +49,7 @@ const COMPETENCES = {
           preuve: mentionne(/API|SSO|Keycloak|synchronis|OAI/i), vedettes: ["unml", "polytechnique", "ush-collab"] },
         { nom: "Sécurité & gestion des droits", icon: "fa-solid fa-shield-halved", depuis: 2017,
           detail: "Accès par profil, authentification, mises à jour et veille sur les failles.",
-          preuve: mentionne(/sécurit|droits|SSO|Keycloak|authentif|accès/i), vedettes: ["unml", "ush-collab", "ch-niort-intranet"] },
+          preuve: mentionne(/sécurit|droits|SSO|Keycloak|authentif|accès/i), vedettes: ["unml", "ush-collab"] },
         { nom: "Accessibilité (RGAA / DSFR)", icon: "fa-solid fa-universal-access", depuis: 2017,
           detail: "Recettes accessibilité avant livraison, gabarits conformes au DSFR.",
           preuve: p => aStack("RGAA")(p) || aStack("DSFR")(p) || mentionne(/accessib/i)(p), vedettes: ["asp-public", "chu-grenoble"] },
