@@ -1,162 +1,102 @@
-// ── Données des projets phares (page d'accueil) ──────────────────────
-
-const HOME_PROJECTS = {
-    "polytechnique": {
-        title: "École Polytechnique",
-        role: "Référente technique · Développeur principal",
-        badge: '<span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>',
-        context: "Conception d'un socle Drupal mutualisé pour 5 sites institutionnels en multi-sites, avec architecture thème parent/enfants pour concilier mutualisation et personnalisation par entité, dans un contexte auto-hébergé sans CI/CD industrialisée.",
-        actions: [
-            { icon: "fa-magnifying-glass", color: "text-sky-600", text: "Développement de modules sur mesure en complément de modules communautaires (Paragraphs, Entity Share), avec intégration API Algolia pour l'indexation et la recherche transverse." },
-            { icon: "fa-truck-fast",       color: "text-sky-600", text: "Conception et exécution de scripts de migration et d'import massif pour la reprise de contenus hétérogènes à forte volumétrie (pages, actualités, événements)." },
-            { icon: "fa-gears",            color: "text-sky-600", text: "Mise en place d'un workflow de déploiement Composer/Drush adapté aux contraintes d'un environnement auto-hébergé." },
-            { icon: "fa-layer-group",      color: "text-sky-600", text: "Conception d'un Page Builder sur mesure offrant flexibilité éditoriale sur un cadre de structuration homogène." }
-        ],
-        result: "Socle industrialisé et évolutif, ouvrant vers une logique d'usine à sites pour d'autres entités du client.",
-        stack: ["Drupal 10", "PHP", "Algolia", "Paragraphs", "Entity Share", "Composer", "Drush", "Git"]
-    },
-
-    "ush-collab": {
-        title: "USH · Espaces collaboratifs",
-        role: "Référente technique · Développeur principal",
-        badge: '<span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>',
-        context: "Conception d'une plateforme collaborative Drupal reposant sur une architecture d'usine à sites : génération automatisée d'espaces métiers configurables (fonctionnalités, droits, identité visuelle) via interfaces d'administration, sur socle mutualisé.",
-        actions: [
-            { icon: "fa-diagram-project", color: "text-sky-600", text: "Développement du moteur d'usine à sites permettant aux équipes métiers de créer et administrer leurs espaces en autonomie, tout en maintenant un socle technique commun." },
-            { icon: "fa-key",             color: "text-sky-600", text: "Intégration d'un système d'authentification hybride Drupal + SSO Keycloak, avec gestion fine des rôles/permissions et enrichissement des profils utilisateurs via API Keycloak (photo, données de profil, y compris hors connexion)." },
-            { icon: "fa-comments",        color: "text-sky-600", text: "Mise en place d'un système de commentaires natif Drupal avec gestion des droits d'accès et modération, intégré au contexte collaboratif multi-espaces." }
-        ],
-        result: "Automatisation de la création d'espaces, centralisation de la maintenance, forte autonomie des équipes métiers.",
-        stack: ["Drupal 10", "PHP", "Keycloak", "SSO", "Drush", "GitLab"]
-    },
-
-    "mnhn": {
-        title: "MNHN · Publications scientifiques",
-        role: "Référente technique · Développeur principal",
-        badge: '<span class="chip"><i class="fa-brands fa-drupal"></i> Drupal</span>',
-        context: "Conception d'une plateforme e-commerce et éditoriale sur Drupal Commerce pour la gestion, valorisation et distribution d'un patrimoine scientifique : catalogue produits, gestion des stocks et règles de vente métier spécifiques au domaine éditorial.",
-        actions: [
-            { icon: "fa-rss",           color: "text-purple-600", text: "Intégration d'un flux OAI-PMH pour l'alimentation et la synchronisation d'un catalogue structuré de publications scientifiques." },
-            { icon: "fa-file-pdf",      color: "text-purple-600", text: "Développement d'un système de génération PDF à la volée (HTML2PDF) pour fiches produits et catalogues, couplé à un workflow Print on Demand avec personnalisation dynamique des couvertures selon commande et contexte client." },
-            { icon: "fa-scale-balanced",color: "text-purple-600", text: "Gestion de règles métier complexes (TVA, frais de port) via le module Rules." }
-        ],
-        result: "Centralisation du catalogue éditorial et structuration des données de production/vente dans un système unique, toujours en production 10 ans après sa mise en ligne, refonte ultérieure confiée à la même équipe.",
-        stack: ["Drupal Commerce", "PHP", "OAI-PMH", "HTML2PDF", "Rules", "Drush", "Git"]
-    },
-
-    "charot": {
-        title: "Charot",
-        role: "Développeur principal",
-        badge: '<span class="chip"><i class="fa-brands fa-wordpress"></i> WordPress</span>',
-        context: "Refonte du site vitrine et développement d'un extranet métier d'aide à la décision pour l'orientation produits, sur WordPress/Genesis avec modélisation des entités complexes via Pods.",
-        actions: [
-            { icon: "fa-swatchbook",         color: "text-slate-700", text: "Refonte du site vitrine sur le framework Genesis : thème enfant, personnalisations par les hooks et filtres de Genesis, socle de thème parent laissé intact et mis à jour." },
-            { icon: "fa-lock",               color: "text-slate-700", text: "Développement de fonctionnalités extranet sur mesure (sans dépendance à des solutions clé en main) pour répondre aux contraintes spécifiques du domaine industriel." },
-            { icon: "fa-wand-magic-sparkles", color: "text-slate-700", text: "Conception d'un moteur de recommandation produit basé sur des questionnaires dynamiques Gravity Forms : règles conditionnelles, calculs et logiques métier complexes." },
-            { icon: "fa-arrows-rotate",       color: "text-slate-700", text: "Mise en place de traitements automatisés d'import et synchronisation quotidienne des données, avec déclenchement manuel via l'administration." }
-        ],
-        result: "Centralisation et fiabilisation des données produits, réduction des opérations manuelles, système d'aide à la décision directement exploitable par les équipes métiers.",
-        stack: ["WordPress", "Genesis", "Pods", "Gravity Forms", "PHP", "Git"]
-    },
-
-    "unml": {
-        title: "UNML",
-        role: "Développeur back-end",
-        badge: '<span class="chip"><i class="fa-brands fa-wordpress"></i> WordPress</span>',
-        context: "Site de l'Union Nationale des Missions Locales, construit sur l'éditeur de blocs Gutenberg. Deux besoins structurants : afficher l'annuaire de toutes les missions locales sans le ressaisir, et réserver les ressources documentaires aux personnes qui y ont droit.",
-        actions: [
-            { icon: "fa-cubes",        color: "text-slate-700", text: "Contenus composés avec l'éditeur de blocs Gutenberg : mise en page par blocs, éditable par l'équipe sans passer par un page builder tiers ni par le développement." },
-            { icon: "fa-address-book", color: "text-slate-700", text: "Alimentation de l'annuaire des missions locales depuis l'API interne de l'UNML : une seule source de données, tenue à jour par le réseau lui-même." },
-            { icon: "fa-user-lock",    color: "text-slate-700", text: "Accès aux ressources documentaires selon le profil de la personne connectée et son adhésion, avec les droits correspondants." }
-        ],
-        result: "Des pages composées en blocs Gutenberg, un annuaire national alimenté par l'API du réseau, et des ressources ouvertes selon le profil et l'adhésion.",
-        stack: ["WordPress", "Gutenberg", "PHP", "API interne", "Git"]
-    },
-
-    "la-madeleine": {
-        title: "La Madeleine",
-        role: "Développeur",
-        badge: '<span class="chip"><i class="fa-brands fa-wordpress"></i> WordPress</span>',
-        context: "Site du restaurant La Madeleine, à Sens. Sans service informatique ni budget de développement sur mesure, le site repose sur des briques existantes, dont Elementor pour la mise en page, tout en restant tenu par l'équipe du restaurant au quotidien.",
-        actions: [
-            { icon: "fa-table-columns",  color: "text-slate-700", text: "Mise en page des pages avec Elementor : sections, widgets et gabarits réutilisables que l'équipe du restaurant modifie elle-même, sans toucher au code." },
-            { icon: "fa-code-branch",    color: "text-slate-700", text: "Thème communautaire personnalisé via un thème enfant : le thème parent reste intact et continue de recevoir ses mises à jour." },
-            { icon: "fa-calendar-check", color: "text-slate-700", text: "Intégration de ZenChef pour la réservation de tables en ligne, directement depuis le site." }
-        ],
-        result: "Un site mis en page avec Elementor que l'équipe du restaurant tient elle-même, et dont les personnalisations survivent aux mises à jour.",
-        stack: ["WordPress", "Elementor", "Thème enfant", "PHP", "ZenChef", "Git"]
-    },
-
-    "quartiers-plus": {
-        title: "Quartiers Plus",
-        role: "Développeur · Interlocutrice technique",
-        badge: '<span class="chip"><i class="fa-brands fa-symfony"></i> Symfony</span>',
-        context: "Conception et développement d'une plateforme métier Symfony 6 pour la gestion et l'analyse de données du parc immobilier social : architecture modulaire, modélisation des entités avec Doctrine, gestion des migrations.",
-        actions: [
-            { icon: "fa-file-export", color: "text-purple-600", text: "Développement de formulaires métier complexes (Symfony Form) et de fonctionnalités d'import/export multi-formats (CSV, Excel, PDF) via PhpSpreadsheet et DomPDF." },
-            { icon: "fa-terminal",    color: "text-purple-600", text: "Mise en place de Console Commands pour l'exécution manuelle ou planifiée des traitements de mise à jour des référentiels." },
-            { icon: "fa-chart-bar",   color: "text-purple-600", text: "Intégration de tableaux de bord et visualisations via Chart.js pour l'analyse des données métier." },
-            { icon: "fa-arrows-spin", color: "text-purple-600", text: "Chaîne CI/CD industrialisée, revues de code et tests automatisés ; gestion Agile/Jira avec échanges directs Product Owner." }
-        ],
-        result: "Projet en évolution continue avec livraisons mensuelles.",
-        stack: ["Symfony 6", "PHP", "Doctrine", "PhpSpreadsheet", "DomPDF", "Chart.js", "Git"]
+// Accueil : extrait de code aléatoire, listes, projets phares, projets perso.
+/* ───── Extraits : 10, un au hasard à chaque chargement ───── */
+const SNIPS=[
+['MigrerContenus.php',`// Migration Drupal 7 vers 11, épisode 3
+foreach ($anciensContenus as $node) {
+    if ($node->body === '') {
+        $this->logger->notice('Page vide, on la migre quand même');
     }
-};
+    $this->importer->importer($node);
+}`],
+['terminal',`$ drush cr
+$ drush cr
+$ drush cr   # ça ne coûte rien d'essayer
+Cache rebuild complete.`],
+['VilleController.php',`#[Route('/ville', name: 'ville_index')]
+public function index(Ville $ville): Response
+{
+    // Pas de temps réel : la partie avance au rythme du joueur
+    return $this->render('ville/index.html.twig', [
+        'ville' => $ville,
+    ]);
+}`],
+['projet.html.twig',`{# Le PHP décide, le template affiche #}
+{% for projet in projets %}
+  <li>
+    {{ projet.titre }}
+  </li>
+{% endfor %}`],
+['terminal',`$ git commit -m "fix(cache): vider le cache était bien la solution"
+$ git log --oneline -1
+a3f9c21 fix(cache): vider le cache était bien la solution`],
+['compose.yml',`services:
+  web:
+    container_name: mmagny-\${ENV:?}-web
+    security_opt:
+      - no-new-privileges:true   # on ne fait confiance à personne
+    restart: unless-stopped`],
+['orphelins.sql',`-- Retrouver les contenus orphelins avant la migration
+SELECT n.nid, n.title
+FROM node n
+LEFT JOIN node_revision r ON r.nid = n.nid
+WHERE r.nid IS NULL;`],
+['Candidature.php',`final readonly class Candidature
+{
+    public function __construct(
+        public string $poste = 'Développeuse back-end PHP',
+        public string $lieu = 'Yonne ou télétravail',
+        public bool $humainAuCentre = true,
+    ) {}
+}`],
+['terminal',`$ claude
+> Génère le socle Docker de ce projet Symfony
+… 14 fichiers créés
+$ git diff   # et là, je relis tout`],
+['terminal',`$ composer update "drupal/*" --with-all-dependencies
+# Prier n'est pas une stratégie, d'où les tests
+$ vendor/bin/phpunit --filter MigrationTest
+OK`]];
+const KW=/\b(foreach|if|public|function|return|final|readonly|class|string|bool|services|SELECT|FROM|LEFT JOIN|WHERE|ON|IS|NULL|for|endfor|in)\b/g;
+function hl(code){
+  return esc(code).replace(/(\/\/.*|#(?!\[).*|--.*|\{#.*#\})|(#\[[^\]]*\])|('[^'\n]*'|"[^"\n]*")|(\$\w+)|\b(foreach|if|public|function|return|final|readonly|class|string|bool|SELECT|FROM|LEFT JOIN|WHERE|IS|NULL|for|endfor|in)\b/g,
+   (m,c,a,s,v,k)=>c?`<span class="tc">${c}</span>`:a?`<span class="ta">${a}</span>`:s?`<span class="ts">${s}</span>`:v?`<span class="tk">${v}</span>`:`<span class="tk">${k}</span>`);
+}
+let si=Math.floor(Math.random()*SNIPS.length);
+function showSnip(){const [n,c]=SNIPS[si];$('#snipname').textContent=n;$('#snip').innerHTML=hl(c)}
+showSnip();
+$('#snipnext').onclick=()=>{si=(si+1)%SNIPS.length;showSnip()};
 
-// ── Modal ────────────────────────────────────────────────────────────
+/* ───── Accueil ───── */
+$('#facts').innerHTML=`<div><b>15 ans</b><span>en agence web</span></div><div><b>100+</b><span>projets livrés</span></div><div><b>2017</b><span>référente technique Drupal</span></div>`;
+$('#allp').innerHTML=`Explorer les ${nbP} projets ${svg('arrow')}`;
+const APPORTS=[['drop','Une expertise Drupal','Usines à sites, modules sur-mesure, arbitrages d’architecture'],['move','Les projets hérités','Migrations, reprises de code existant, montées de version'],['shield','Un filet avant la livraison','Relectures, recette, standards de code partagés'],['users','De la transmission','Revues de code, accompagnement des nouvelles recrues'],['chat','L’écoute avant le code','Comprendre le métier, puis choisir la technique']];
+$('#apports').innerHTML=APPORTS.map(a=>`<div class="card"><div class="top"><span class="tile">${svg(a[0])}</span><h3>${a[1]}</h3></div><p>${a[2]}</p></div>`).join('');
+const L={
+resp:[['Référente Drupal 8+','une vingtaine de sites institutionnels livrés et maintenus : modules et thèmes sur-mesure, usines à sites'],['Développement et support WordPress','Gutenberg, Elementor, Genesis, thèmes enfants, extranets métier, API'],['Développement et support Symfony','applications sur-mesure, reprise de projets existants'],['Relectures techniques des cahiers fonctionnels','faisabilité, coût réel, alertes avant chiffrage'],['Recettes internes avant livraison','performance, accessibilité, sécurité, conformité au cahier']],
+transv:[['Accompagnement des nouvelles recrues','montée en autonomie, revues de code, transmission des pratiques Drupal'],['Pilote RSE de l’agence','conditions de travail, impact, engagement collectif'],['Culture qualité et sécurité côté serveur','standards de code, mises à jour, veille sur les failles'],['Industrialisation du démarrage de projets','socle Docker, conventions d’infrastructure et outillage communs à Symfony, Drupal et WordPress']],
+fs1:[['Joomla, WordPress, Drupal 7, CodeIgniter','sites vitrines, boutiques, applications métier'],['Intégration et theming','maquettes converties en thèmes, responsive, compatibilité navigateurs'],['Support client et maintenance','correctifs, évolutions, montées de version']],
+fs2:[['Recueil des besoins','traduire une demande métier en spécifications tenables'],['Gestion de projet et cadrage','planning, arbitrages de périmètre, points d’avancement'],['Formation des clients','prise en main de l’administration, documentation, autonomie']],
+st1:[['Création d’un site Joomla','premier projet mené de bout en bout'],['Refonte ultérieure sous WordPress','reprise du contenu existant'],['Communication print et assistance formations','supports, mise en page, logistique']],
+st2:[['Support matériel et assistance interne','postes de travail, dépannage utilisateurs'],['Amélioration intranet / extranet','outils internes, accès et droits'],['Travaux autour de l’intégration SAGE','gestion commerciale, échanges de données']]};
+document.querySelectorAll('[data-ul]').forEach(u=>u.innerHTML=L[u.dataset.ul].map(i=>`<li>${svg('check')}<span><b>${i[0]}</b> ${i[1]}</span></li>`).join(''));
 
-(function () {
-    const modal   = document.getElementById("homeProjectModal");
-    const btnClose = document.getElementById("homeModalClose");
+/* cartes projets phares */
+const PHARES=['polytechnique','mnhn','ush-collab','unml','charot','quartiers-plus','la-madeleine'];
+$('#featured').innerHTML=PHARES.map(byId).filter(Boolean).map(p=>`<article class="card link">
+ <div class="top"><span class="tile">${svg(TECH[p.tech][1])}</span><div><h3>${p.title}</h3><span class="label">${TECH[p.tech][0]}</span></div></div>
+ <p><b style="color:var(--fg);font-weight:600">${p.role}</b></p><p>${t(p.highlight)}</p>
+ <div class="stackrow">${p.stack.slice(0,4).map(s=>`<span class="chip">${s}</span>`).join('')}</div><button type="button" class="more" data-open="${p.id}">Voir le détail ${svg('arrow')}</button></article>`).join('');
 
-    function openModal(id) {
-        const p = HOME_PROJECTS[id];
-        if (!p) return;
+/* projets perso */
+const ST={production:'En ligne',beta:'Bêta',wip:'En cours',local:'En local',staging:'En préproduction',calibrage:'En calibrage'};
+const pub=p=>[].concat(p.status??'wip').some(s=>s==='production'||s==='beta');
+const stat=p=>[].concat(p.status??'wip').map(s=>`<span class="status ${s}">${ST[s]||s}</span>`).join('')+(p.ai?`<span class="chip ia">${svg('sparkles')}IA</span>`:'')+(p.private?`<span class="status">${svg('lock')} Privé</span>`:'');
+const links=p=>`<div class="actions">${p.demo?`<a class="btn sm" href="${p.demo}" target="_blank" rel="noopener">${svg('ext')}Voir le site</a>`:''}${p.private?'':`<a class="btn sm" href="${p.url}" target="_blank" rel="noopener">${svg('github')}GitHub</a>`}</div>`;
+const IC={mmagny:'idcard',niout:'landmark','bg-tcg':'layers',edj:'users',chauffage:'thermo',aqoj:'dice','dnd-oracle':'dragon',vigil:'eye'};
+const pcard=p=>`<article class="card"><div class="top"><span class="tile ${p.ai?'ia':''}">${svg(IC[p.id]||'code')}</span><h3>${p.title}</h3></div><div class="tags">${stat(p)}</div><p>${t(p.desc)}</p><div class="stackrow">${p.stack.slice(0,3).map(s=>`<span class="chip">${s}</span>`).join('')}</div>${links(p)}</article>`;
+$('#perso-pub').innerHTML=PERSONAL_PROJECTS.filter(pub).map(pcard).join('');
+$('#perso-wip').innerHTML=PERSONAL_PROJECTS.filter(p=>!pub(p)).map(p=>`<div class="card" style="background:var(--bg)"><div class="top"><span class="tile sm ${p.ai?'ia':''}">${svg(IC[p.id]||'code')}</span><h4>${p.title}</h4></div><div class="tags">${stat(p)}</div><p>${t(p.desc)}</p></div>`).join('');
+$('#ia-projects').innerHTML=PERSONAL_PROJECTS.filter(p=>p.ai).map(p=>`<div class="card"><div class="top"><span class="tile ia">${svg(IC[p.id]||'sparkles')}</span><h3>${p.title}</h3></div><p>${t(p.desc)}</p><div class="tags">${p.stack.map(s=>`<span class="chip ${/Mistral/.test(s)?'ia':''}">${s}</span>`).join('')}</div></div>`).join('');
+const LOIS=[['dice','Jeux de société et jeux de rôle','Le point de départ de la moitié de mes projets perso : un besoin réel, une table, des joueurs'],['gamepad','Jeux vidéo','Univers immersifs, mécaniques de gameplay, narration interactive. Niout vient de là'],['rocket','Espace et exploration','Curiosité scientifique, technologies spatiales, prospective'],['sprout','Jardinage et bricolage','On ne force pas une plante à pousser plus vite. Un projet non plus'],['paw','Et bien sûr, les chats','']];
+$('#loisirs').innerHTML=LOIS.map(l=>`<div class="card"><div class="top"><span class="tile sm">${svg(l[0])}</span><h4>${l[1]}</h4></div>${l[2]?`<p>${l[2]}</p>`:''}</div>`).join('');
 
-        document.getElementById("homeModalTitle").textContent        = p.title;
-        document.getElementById("homeModalBadge").innerHTML          = p.badge;
-        document.getElementById("homeModalContext").textContent      = p.context;
-        document.getElementById("homeModalRoleContent").textContent  = p.role;
-        document.getElementById("homeModalActions").innerHTML = (p.actions || []).map(a =>
-            `<li class="flex gap-3 items-start"><i class="fa-solid ${a.icon} mt-0.5 ${a.color} shrink-0"></i><span>${a.text}</span></li>`
-        ).join("");
-        document.getElementById("homeModalResult").textContent = p.result;
-        document.getElementById("homeModalStack").innerHTML    = p.stack.map(s =>
-            `<span class="chip">${s}</span>`
-        ).join("");
-
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-        document.body.classList.add("overflow-hidden");
-        dernierFocus = document.activeElement;
-        btnClose.focus();
-    }
-
-    let dernierFocus = null;
-
-    function closeModal() {
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
-        document.body.classList.remove("overflow-hidden");
-        if (dernierFocus) dernierFocus.focus();
-    }
-
-    // Les cartes s'ouvrent aussi au clavier : sans ça, leur détail n'était
-    // accessible qu'à la souris.
-    document.querySelectorAll(".open-modal-home").forEach(el => {
-        el.tabIndex = 0;
-        el.setAttribute("aria-haspopup", "dialog");
-        el.addEventListener("click", () => openModal(el.dataset.project));
-        el.addEventListener("keydown", e => {
-            if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                openModal(el.dataset.project);
-            }
-        });
-    });
-    btnClose.addEventListener("click", closeModal);
-    modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
-    document.addEventListener("keydown", e => {
-        if (e.key === "Escape" && modal.classList.contains("flex")) closeModal();
-    });
-})();

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
     <script src="/tarteaucitron/tarteaucitron.min.js"></script>
 
@@ -100,13 +100,6 @@
           content="Dossier de compétences de Mylène Magny : Drupal, PHP, Symfony, WordPress, et compétences transverses, avec l'ancienneté et les projets qui les prouvent.">
     <meta name="twitter:image" content="https://mmagny.fr/assets/img/og-image.png">
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/shared.css">
-    <link rel="stylesheet" href="./assets/css/projets.css">
-
     <link rel="icon" href="./assets/favicon/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
@@ -114,44 +107,13 @@
     <link rel="manifest" href="./assets/favicon/site.webmanifest">
     <meta name="theme-color" content="#0f172a">
 
-    <style type="text/tailwindcss">
-        @theme{
-            --font-sans: "Inter", system-ui, sans-serif;
-            --pri: 14 165 233;
-            --acc: 168 85 247;
-        }
-        @layer base{
-            html{ @apply font-sans; }
-            body{ @apply bg-slate-50 text-slate-900; }
-        }
-        @layer components{
-            .container-prose{ @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; }
-            .section-title{ @apply text-2xl sm:text-3xl font-semibold tracking-tight; }
-            .muted{ @apply text-slate-600; }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/site.css">
+    <script>try{var th=localStorage.getItem('theme');if(th)document.documentElement.dataset.theme=th}catch(e){}</script>
 
-            .card{ @apply rounded-3xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition; }
-            .chip{ @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200; }
-
-            .btn{
-                @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium shadow-sm transition;
-                @apply bg-[rgb(var(--pri))] text-white hover:brightness-110 active:translate-y-px;
-            }
-            .btn-soft{ @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium bg-slate-100 text-slate-800 hover:bg-slate-200 transition; }
-            .btn-outline{ @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium border border-slate-200 text-slate-800 hover:bg-slate-100 transition; }
-
-            .filter{
-                @apply inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium border transition;
-                @apply border-slate-200 bg-white text-slate-700 hover:bg-slate-100;
-            }
-            .filter.is-active{
-                @apply bg-slate-900 text-white border-slate-900;
-            }
-            .kbd{ @apply px-2 py-1 rounded border border-slate-200 text-xs font-mono bg-slate-100; }
-        }
-
-    </style>
-
-    <!-- Matomo -->
+<!-- Matomo -->
     <script>
         var _paq = window._paq = window._paq || [];
         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -166,72 +128,53 @@
         })();
     </script>
     <!-- End Matomo Code -->
-
 </head>
 
-<body>
-<a href="#contenu" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 btn">Aller au contenu</a>
+<body id="top">
+<a href="#contenu" class="skip">Aller au contenu</a>
+<header class="top"><div class="bar">
+  <a class="brand" href="./index.html#top" aria-label="Accueil"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="62" height="38" viewBox="0 0 1000 600" aria-hidden="true">
+                <g transform="translate(500,300)">
+                    <rect x="-400" y="-200" width="800" height="400" rx="55" ry="55" fill="#0f172a"/>
+                    <text x="-220" y="20" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-size="250" font-weight="600" font-family="JetBrains Mono, Menlo, Consolas, monospace">{</text>
+                    <text x="0" y="20" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-size="180" font-weight="600" font-family="JetBrains Mono, Menlo, Consolas, monospace" letter-spacing="10">mM</text>
+                    <text x="220" y="20" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-size="250" font-weight="600" font-family="JetBrains Mono, Menlo, Consolas, monospace">}</text>
+                </g>
+            </svg><span>Mylène Magny</span></a>
+  <nav aria-label="Navigation">
+    <a href="./competences.html" aria-current="page">Compétences</a>
+    <a href="./projets.html">Projets</a>
+    <a href="./index.html#experiences">Parcours</a>
+    <a href="./index.html#ia">IA</a>
+    <a href="./index.html#projets-perso">Côté perso</a>
+    <a href="./index.html#recherche">Ma recherche</a>
+    <a href="./index.html#contact">Contact</a>
+  </nav>
+  <button class="theme" type="button" data-theme-toggle aria-label="Changer de thème"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v16" /><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>Thème</button>
+</div></header>
 
-<!-- Header -->
-<header class="sticky top-0 bg-white/85 backdrop-blur border-b border-slate-200 z-40">
-    <nav class="container-prose flex justify-between items-center h-16">
-        <a href="./" class="btn-soft"><i class="fa-solid fa-arrow-left"></i> Accueil</a>
-        <div class="flex items-center gap-2 text-sm text-slate-500">
-            <i class="fa-solid fa-list-check"></i><span>Compétences</span>
-        </div>
-    </nav>
-</header>
+<main class="wrap" id="contenu">
+<section style="border:0;padding-bottom:20px">
+    <div class="head"><span class="label">Dossier de compétences</span><h1 style="font-size:clamp(2.2rem,5vw,3.4rem)">Chaque compétence, avec les projets qui la prouvent</h1>
+      <p class="lead">Les chiffres sont calculés à partir des projets présentés, un clic sur un projet ouvre sa fiche</p></div>
+  </section>
+  <section style="border:0;padding-top:0">
+    <h3 class="sub" style="margin-top:0"><span class="tile sm" data-ic="code"></span>Expertise technique <span class="note">architecture, arbitrages, transmission</span></h3>
+    <div class="grid2" id="c-tech"></div>
+    <h3 class="sub"><span class="tile sm ia" data-ic="sparkles"></span>IA appliquée au développement</h3>
+    <div class="grid2" id="c-ia"></div>
+    <h3 class="sub"><span class="tile sm" data-ic="compass"></span>Compétences transverses <span class="note">ce qui fait qu’un projet se livre et tient dans la durée</span></h3>
+    <div class="grid2" id="c-trans"></div>
+    <h3 class="sub"><span class="tile sm" data-ic="wrench"></span>Outillage</h3>
+    <div class="tags"><span class="chip">Git GitHub / GitLab</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Composer</span><span class="chip">Drush</span><span class="chip">Bash</span><span class="chip">Twig</span><span class="chip">JavaScript</span><span class="chip">SCSS</span><span class="chip">API REST</span><span class="chip">PhpStorm</span></div>
+  </section>
 
-<main id="contenu" tabindex="-1">
-
-<!-- Hero -->
-<section class="container-prose py-14 sm:py-18">
-    <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight">Dossier de compétences</h1>
-    <p class="muted mt-3 max-w-3xl">
-        Chaque compétence avec son ancienneté et les projets qui la prouvent.
-        Les chiffres sont calculés à partir des
-        <a href="projets.html" class="underline decoration-dotted underline-offset-4 hover:text-slate-900 transition">projets présentés</a> ;
-        un clic sur un projet ouvre sa fiche.
-    </p>
-</section>
-
-<!-- Matrice : lignes générées par assets/js/competences.js. -->
-<section class="container-prose pb-20">
-    <div class="grid lg:grid-cols-2 gap-6">
-        <div class="card p-6 border-l-2 border-l-sky-400">
-            <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-sky-100 grid place-items-center shrink-0">
-                    <i class="fa-solid fa-star text-sky-700"></i>
-                </div>
-                <div>
-                    <h2 class="font-semibold">Expertise technique</h2>
-                    <p class="text-xs text-slate-600 mt-0.5">Mon quotidien : architecture, arbitrages, transmission</p>
-                </div>
-            </div>
-            <ul class="mt-5 divide-y divide-black/5" id="competences-techniques"></ul>
-        </div>
-
-        <div class="card p-6 border-l-2 border-l-emerald-400">
-            <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-emerald-100 grid place-items-center shrink-0">
-                    <i class="fa-solid fa-handshake text-emerald-700"></i>
-                </div>
-                <div>
-                    <h2 class="font-semibold">Compétences transverses</h2>
-                    <p class="text-xs text-slate-600 mt-0.5">Ce qui fait qu’un projet se livre et tient dans la durée</p>
-                </div>
-            </div>
-            <ul class="mt-5 divide-y divide-black/5" id="competences-transverses"></ul>
-        </div>
-    </div>
-</section>
-
+<footer><span>© <span id="year"></span> Mylène Magny, développeur web back-end</span><a class="mono" href="mailto:contact@mmagny.fr">contact@mmagny.fr</a></footer>
 </main>
-
-<script src="./assets/js/app.js"></script>
-<script src="./assets/js/personal-projects.js"></script>
+<script src="./assets/js/icons.js"></script>
+<script src="./assets/js/theme.js"></script>
 <script src="./assets/js/projets-data.js"></script>
+<script src="./assets/js/personal-projects.js"></script>
 <script src="./assets/js/competences.js"></script>
-
 </body>
 </html>

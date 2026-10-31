@@ -62,47 +62,23 @@ const COMPETENCES = {
     ],
 };
 
-function renderCompetences() {
-    const annee = new Date().getFullYear();
-    const parId = id => PROJECTS.find(p => p.id === id);
-    const pluriel = (n, mot) => `${n} ${mot}${n > 1 ? "s" : ""}`;
 
-    const ligne = c => {
-        const ans = annee - c.depuis;
-        // Une vedette compte toujours : elle a été choisie comme preuve.
-        const n = PROJECTS.filter(p => c.preuve(p) || c.vedettes.includes(p.id)).length;
-        const perso = c.perso && typeof PERSONAL_PROJECTS !== "undefined"
-            ? PERSONAL_PROJECTS.filter(p => p.stack.includes(c.perso)).length : 0;
-        const vedettes = c.vedettes.map(parId).filter(Boolean);
-        const compte = [n ? `${n} projet${n > 1 ? "s" : ""} client` : "", perso ? `${perso} projet${perso > 1 ? "s" : ""} perso` : ""]
-            .filter(Boolean).join(" · ");
-
-        return `
-        <li class="flex items-start gap-3 py-4 first:pt-0 last:pb-0">
-            <div class="h-9 w-9 rounded-2xl bg-sky-50 grid place-items-center shrink-0">
-                <i class="${c.icon} text-sky-700"></i>
-            </div>
-            <div class="min-w-0 flex-1">
-                <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                    <h3 class="text-sm font-semibold">${c.nom}</h3>
-                    <p class="text-xs text-slate-500 whitespace-nowrap">
-                        <strong class="text-slate-700">${pluriel(ans, "an")}</strong> · depuis ${c.depuis}
-                    </p>
-                </div>
-                <p class="text-xs text-slate-600 mt-1 leading-relaxed">${c.detail}</p>
-                ${compte || vedettes.length ? `
-                <p class="text-xs mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
-                    ${compte ? `<span class="font-medium text-sky-700">${compte}</span>` : ""}
-                    ${vedettes.map(p => `<a href="projets.html#${p.id}" class="text-slate-600 underline decoration-dotted underline-offset-2 hover:text-slate-900">${p.title}</a>`).join('<span aria-hidden="true" class="text-slate-300">·</span>')}
-                </p>` : ""}
-            </div>
-        </li>`;
-    };
-
-    for (const [groupe, liste] of Object.entries(COMPETENCES)) {
-        const el = document.getElementById(`competences-${groupe}`);
-        if (el) el.innerHTML = liste.map(ligne).join("");
-    }
+const byId=id=>PROJECTS.find(p=>p.id===id);
+/* ───── Page compétences (sans niveau : ancienneté et preuves) ───── */
+COMPETENCES.ia=[
+ {nom:'Claude Code',icon:'fa-wand-magic-sparkles',detail:'Usage quotidien, avec mes propres agents, règles et skills de standards de code',preuve:()=>false,vedettes:[],perso:'Claude Code',depuisTexte:'agents et skills écrits et maintenus par moi'},
+ {nom:'Mistral AI',icon:'fa-wand-magic-sparkles',detail:'Traduction et analyse de pertinence d’articles dans Vigil, intégration d’API IA',preuve:()=>false,vedettes:[],perso:'Mistral AI',depuisTexte:'projets personnels'}];
+const annee=new Date().getFullYear(),plur=(n,m)=>`${n} ${m}${n>1?'s':''}`;
+function skill(c,ia){
+  const n=PROJECTS.filter(p=>c.preuve(p)||c.vedettes.includes(p.id)).length;
+  const perso=c.perso?PERSONAL_PROJECTS.filter(p=>p.stack.includes(c.perso)).length:0;
+  const meta=[c.depuis?`depuis ${c.depuis}, ${plur(annee-c.depuis,'an')}`:c.depuisTexte,n?plur(n,'projet')+' client':'',perso?plur(perso,'projet')+' perso':''].filter(Boolean);
+  const v=c.vedettes.map(byId).filter(Boolean);
+  return `<article class="card skill"><div class="top"><span class="tile ${ia?'ia':''}">${fa(c.icon)}</span><h3>${c.nom}</h3></div><p>${t(c.detail)}</p>
+  <div class="meta">${meta.map(m=>`<span>${m}</span>`).join('')}</div>
+  ${v.length?`<div class="links">${v.map(p=>`<a href="projets.html#${p.id}">${p.title}</a>`).join('')}</div>`:''}</article>`;
 }
+$('#c-tech').innerHTML=COMPETENCES.techniques.map(c=>skill(c)).join('');
+$('#c-ia').innerHTML=COMPETENCES.ia.map(c=>skill(c,true)).join('');
+$('#c-trans').innerHTML=COMPETENCES.transverses.map(c=>skill(c)).join('');
 
-renderCompetences();
