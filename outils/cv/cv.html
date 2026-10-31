@@ -39,14 +39,23 @@ ul.pl li b{color:var(--fg);font-weight:600}
 ul.pl.ia li::before{background:var(--ia)}
 
 /* page 1 */
-.head{display:grid;grid-template-columns:auto 1fr;gap:6mm;align-items:center;padding:12mm 14mm 8mm;background:var(--soft);border-bottom:.6pt solid var(--line)}
-.logo{width:26mm;height:auto;display:block}
+.head{display:grid;grid-template-columns:auto 1fr auto;gap:6mm;align-items:center;padding:8mm 14mm 5mm}
+.photo{width:28mm;height:28mm;border-radius:50%;object-fit:cover;display:block;border:.8pt solid var(--line)}
+.logo{width:22mm;height:auto;display:block}
 .head h1{font-size:25pt;font-weight:800}
-.head .job{font:700 12pt/1.2 var(--f-display);color:var(--php);margin:1.5mm 0 2.5mm}
-.head .pitch{color:var(--muted);font-size:8.8pt;max-width:128mm}
-.cols{display:grid;grid-template-columns:62mm 1fr;flex:1;min-height:0}
-.side{background:var(--soft);padding:7mm 6mm 8mm 14mm;display:flex;flex-direction:column;gap:4.4mm;border-right:.6pt solid var(--line)}
-.main{padding:7mm 14mm 8mm 8mm;display:flex;flex-direction:column;gap:5mm}
+.head .job{font:700 12pt/1.2 var(--f-display);color:var(--php);margin:1.5mm 0 2.6mm}
+.chip.ok{background:#E3F1E8;border-color:transparent;color:#2F7D4F}
+.glance{display:grid;grid-template-columns:1.15fr 1fr;gap:4mm;padding:0 14mm 5mm}
+.g{border:.6pt solid var(--line);border-radius:3pt;padding:3.4mm 4mm;display:grid;gap:1.9mm;align-content:start}
+.g.do{background:var(--php-soft);border-color:transparent}
+.g.seek{border-color:var(--php);border-width:.9pt}
+.g h2{font-size:10.6pt;font-weight:700;line-height:1.2}
+.g p{color:var(--muted);font-size:8.2pt;line-height:1.38}
+.g.do p{color:#33385F}
+.g.do .chip{background:#fff}
+.cols{display:grid;grid-template-columns:62mm 1fr;flex:1;min-height:0;border-top:.6pt solid var(--line)}
+.side{background:var(--soft);padding:6mm 6mm 6mm 14mm;display:flex;flex-direction:column;gap:4.4mm;border-right:.6pt solid var(--line)}
+.main{padding:6mm 14mm 6mm 8mm;display:flex;flex-direction:column;gap:3.8mm}
 .sec{display:grid;gap:2.4mm}
 .sec>h2{font-size:10.5pt;font-weight:700;display:flex;align-items:center;gap:2mm}
 .sec>h2::after{content:"";flex:1;height:.6pt;background:var(--line)}
@@ -59,13 +68,13 @@ ul.pl.ia li::before{background:var(--ia)}
 .job-block h3{font-size:9.6pt}
 .job-block .when{font:500 7pt/1 var(--f-mono);color:var(--php);white-space:nowrap}
 .job-block .org{font:500 7.2pt/1.2 var(--f-mono);color:var(--muted)}
-.edu{display:grid;grid-template-columns:20mm 1fr;gap:.6mm 3mm;padding-block:1.7mm;border-top:.6pt solid var(--line)}
+.edu{display:grid;grid-template-columns:20mm 1fr;gap:.6mm 3mm;padding-block:.9mm;border-top:.6pt solid var(--line)}
 .edu .y{font:500 6.8pt/1.5 var(--f-mono);color:var(--muted)}
 .edu b{font-weight:600}
 .edu p{color:var(--muted);font-size:7.9pt}
 .certs{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4mm}
-.cert{border:.6pt solid var(--line);border-radius:2pt;padding:2.2mm 2.6mm}
-.cert b{display:block;font:700 9pt/1.1 var(--f-display)}
+.cert{border:.6pt solid var(--line);border-radius:2pt;padding:1.4mm 2.4mm;display:flex;justify-content:space-between;align-items:baseline;gap:2mm}
+.cert b{font:700 8.8pt/1.1 var(--f-display)}
 .cert span{font:500 6.6pt/1.4 var(--f-mono);color:var(--muted)}
 
 /* page 2 */
@@ -84,7 +93,7 @@ ul.pl.ia li::before{background:var(--ia)}
 .res{font-size:7.9pt;color:var(--fg);border-left:1.6pt solid var(--php);padding-left:2.4mm;line-height:1.35}
 .card.ia .res{border-left-color:var(--ia)}
 .card p{color:var(--muted)}
-.foot{margin:4.2mm 14mm 0;padding-block:3.4mm;border-top:.6pt solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.foot{margin:4.2mm 14mm 0;padding-block:3.4mm;border-top:.6pt solid var(--line);display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:6mm}
 .foot p{color:var(--muted);font-size:8pt}
 .sign{padding:3mm 14mm 8mm;display:flex;justify-content:space-between;font:500 7pt/1 var(--f-mono);color:var(--muted)}
 .sign b{color:var(--php);font-weight:600}
@@ -95,6 +104,12 @@ ul.pl.ia li::before{background:var(--ia)}
 <!-- ───────── Page 1 ───────── -->
 <section class="page">
   <header class="head">
+    <img class="photo" src="photo.jpg" alt="Portrait de Mylène Magny">
+    <div>
+      <h1>Mylène Magny</h1>
+      <p class="job">Développeuse back-end PHP, lead dev Drupal 8+</p>
+      <div class="tags marks"><span class="chip">15 ans en agence web</span><span class="chip">100+ projets livrés</span><span class="chip">Lead dev Drupal depuis 2017</span></div>
+    </div>
     <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-label="Logo mM">
       <g transform="translate(500,300)">
         <rect x="-400" y="-200" width="800" height="400" rx="55" ry="55" fill="#0f172a"/>
@@ -103,12 +118,22 @@ ul.pl.ia li::before{background:var(--ia)}
         <text x="220" y="20" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="250" font-weight="600" font-family="JetBrains Mono, Menlo, monospace">}</text>
       </g>
     </svg>
-    <div>
-      <h1>Mylène Magny</h1>
-      <p class="job">Développeuse back-end PHP, lead dev Drupal 8+</p>
-      <p class="pitch">J’ai construit des sites qui ont duré, pour des institutions, des universités et des musées. Je cherche une équipe qui met l’humain au centre, et des projets menés au contact de celles et ceux qui s’en servent.</p>
-    </div>
   </header>
+
+  <section class="glance" aria-label="En un coup d’œil">
+    <div class="g do">
+      <span class="label">Ce que je fais</span>
+      <h2>Du back-end PHP pour des sites et des applications qui durent</h2>
+      <div class="tags"><span class="chip php">PHP</span><span class="chip php">Drupal 8+</span><span class="chip php">Symfony</span><span class="chip">WordPress</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip ia">Claude Code</span></div>
+      <p>Institutions, universités, musées : usines à sites, modules sur-mesure, migrations, montées de version, intégration d’API.</p>
+    </div>
+    <div class="g seek">
+      <span class="label">Ce que je cherche</span>
+      <h2>Un poste salarié en back-end PHP</h2>
+      <div class="tags"><span class="chip ok">Ouverte aux opportunités</span><span class="chip">Agence ou service informatique</span><span class="chip">Yonne ou télétravail</span></div>
+      <p>Une équipe qui met l’humain au centre, et des projets menés au contact des personnes qui s’en servent.</p>
+    </div>
+  </section>
 
   <div class="cols">
     <aside class="side">
@@ -147,10 +172,6 @@ ul.pl.ia li::before{background:var(--ia)}
           <p>Agilité, Jira, Confluence, Notion, accessibilité, RGPD, SEO, Green IT</p>
         </div>
       </div>
-      <div class="sec">
-        <h2>Atouts</h2>
-        <p style="color:var(--muted);font-size:8.2pt">Analyse de problèmes, autonomie, travail en équipe, communication avec le métier, esprit critique</p>
-      </div>
     </aside>
 
     <main class="main">
@@ -185,11 +206,11 @@ ul.pl.ia li::before{background:var(--ia)}
       </div>
 
       <div class="sec">
-        <h2>Certifications</h2>
+        <h2>Certifications Dyma</h2>
         <div class="certs">
-          <div class="cert"><b>Git</b><span>Dyma, mai 2026</span></div>
-          <div class="cert"><b>Docker</b><span>Dyma, juil. 2023</span></div>
-          <div class="cert"><b>Symfony</b><span>Dyma, mai 2023</span></div>
+          <div class="cert"><b>Git</b><span>mai 2026</span></div>
+          <div class="cert"><b>Docker</b><span>juil. 2023</span></div>
+          <div class="cert"><b>Symfony</b><span>mai 2023</span></div>
         </div>
       </div>
 
@@ -197,8 +218,7 @@ ul.pl.ia li::before{background:var(--ia)}
         <h2>Formations</h2>
         <div>
           <div class="edu"><span class="y">En cours</span><div><b>Dyma</b><p>Consolidation : PHP, JavaScript. Élargissement : Node.js, React, Claude Code</p></div></div>
-          <div class="edu"><span class="y">2017</span><div><b>Drupal 8, développeur</b><p>Trained People</p></div></div>
-          <div class="edu"><span class="y">2013</span><div><b>Drupal 7 et Drupal Commerce</b><p>Dawan</p></div></div>
+          <div class="edu"><span class="y">2013 et 2017</span><div><b>Drupal 7 et Drupal Commerce, Drupal 8 développeur</b><p>Dawan, Trained People</p></div></div>
           <div class="edu"><span class="y">2010 à 2011</span><div><b>Licence professionnelle</b><p>Activité et technique de communication, IUT Dijon-Auxerre-Nevers</p></div></div>
           <div class="edu"><span class="y">2008 à 2010</span><div><b>BTS Informatique de gestion</b><p>Développeur d’application, lycée Le Castel, Dijon</p></div></div>
           <div class="edu"><span class="y">2007 à 2008</span><div><b>Licence</b><p>Histoire de l’art et archéologie, université Bourgogne Europe, Dijon</p></div></div>
@@ -285,6 +305,10 @@ ul.pl.ia li::before{background:var(--ia)}
   </div>
 
   <div class="foot">
+    <div class="sec">
+      <h2>Atouts</h2>
+      <p>Analyse de problèmes, autonomie, travail en équipe, communication avec le métier, esprit critique</p>
+    </div>
     <div class="sec">
       <h2>Dans la vie</h2>
       <p>Community manager dans une association de jeux de société, responsable de l’accueil lors de festivals ludiques</p>
