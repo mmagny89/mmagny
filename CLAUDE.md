@@ -1,6 +1,7 @@
 # mmagny.fr
 
-Site vitrine **statique** : HTML, CSS (Tailwind par CDN), JavaScript vanilla.
+Site vitrine **statique** : HTML, CSS maison (`site/assets/css/site.css`), JavaScript
+vanilla. Ni Tailwind ni Font Awesome : des icônes SVG en ligne.
 Aucun langage serveur, aucune base de données, aucun bundler, aucune dépendance
 installée — ni `composer.json`, ni `package.json`.
 
@@ -50,8 +51,7 @@ change.
 ## Conventions
 
 - Standards applicables : skills `web-accessibility-a11y`,
-  `web-security-checklist`, `web-performance-optimization`,
-  `tailwind-css-standards`. Pas de skill de standards back-end ici.
+  `web-security-checklist`, `web-performance-optimization`. Pas de skill de standards back-end ici.
 - Les portes CI sont bloquantes. Avant de rendre la main sur une modification
   de `site/`, jouer les deux commandes ci-dessus.
 - Une règle `html-validate` ne se désactive **jamais** sans ajouter sa

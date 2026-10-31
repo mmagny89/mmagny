@@ -27,7 +27,7 @@ délai.
 
 - **tarteaucitron.js** (`site/tarteaucitron/`), vendu dans le dépôt :
   signaler directement à <https://github.com/AmauriC/tarteaucitron.js>.
-- Les dépendances chargées par CDN (Tailwind, Font Awesome, Google Fonts) :
+- Les dépendances chargées par CDN (Google Fonts) :
   elles relèvent de leurs éditeurs respectifs.
 - L'infrastructure d'hébergement, qui n'est pas décrite ici.
 

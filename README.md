@@ -1,7 +1,7 @@
 # mmagny.fr
 
-Site vitrine de **Mylène Magny**, développeuse back-end (PHP / Drupal /
-WordPress / Symfony) : présentation, compétences, expériences, projets et contact.
+Site vitrine de **Mylène Magny**, développeuse back-end PHP (Drupal /
+Symfony / WordPress) : présentation, compétences, expériences, projets et contact.
 
 [![Qualité](https://github.com/mmagny89/mmagny/actions/workflows/qualite.yml/badge.svg)](https://github.com/mmagny89/mmagny/actions/workflows/qualite.yml)
 [![Version](https://img.shields.io/github/v/tag/mmagny89/mmagny?sort=semver&label=version)](CHANGELOG.md)
@@ -9,11 +9,11 @@ WordPress / Symfony) : présentation, compétences, expériences, projets et con
 [![Licence MIT](https://img.shields.io/badge/licence-MIT%20(code)-blue.svg)](LICENSE)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-maison-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?logo=javascript&logoColor=black)
 ![nginx](https://img.shields.io/badge/nginx-009639?logo=nginx&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
-![Accessibilité](https://img.shields.io/badge/accessibilit%C3%A9-WCAG%202.2%20AA%20vis%C3%A9-4B5563)
+![Accessibilité](https://img.shields.io/badge/axe--core-0%20violation-4B5563)
 
 En production : <https://mmagny.fr>
 
@@ -21,8 +21,8 @@ En production : <https://mmagny.fr>
 
 | Page | Contenu |
 |---|---|
-| [Accueil](https://mmagny.fr) | Présentation, compétences, projets phares, parcours, IA, projets perso, contact |
-| [Projets](https://mmagny.fr/projets.html) | 27 projets clients filtrables, chacun avec contexte, rôle, livrables et résultat |
+| [Accueil](https://mmagny.fr) | Présentation, compétences, projets phares, parcours et formations, IA, projets perso, loisirs, ce que je cherche, contact |
+| [Projets](https://mmagny.fr/projets.html) | 27 projets clients filtrables, chacun avec contexte, rôle, livrables et résultat, dans une fenêtre navigable |
 | [Compétences](https://mmagny.fr/competences.html) | Dossier de compétences : ancienneté et projets qui prouvent chaque compétence |
 
 ## Nature du projet
@@ -32,7 +32,8 @@ Site **statique** — HTML, CSS et JavaScript servis tels quels.
 - Pas de langage serveur, pas de base de données.
 - Pas d'étape de build : aucun bundler, aucun `composer.json`, aucun
   `package.json`. Ce qui est dans `site/` est exactement ce qui est servi.
-- Tailwind CSS et Font Awesome sont chargés par CDN, pas compilés.
+- Une seule feuille de style écrite à la main (`assets/css/site.css`), des icônes
+  SVG en ligne. Seules les polices sont chargées depuis Google Fonts.
 - Consentement aux cookies géré par [tarteaucitron.js](https://tarteaucitron.io),
   vendu tel quel dans `site/tarteaucitron/`.
 
@@ -48,7 +49,9 @@ recharger le navigateur. Rien à compiler, rien à installer.
 │   ├── projets.html        projets & réalisations
 │   ├── competences.html    dossier de compétences
 │   ├── assets/             css/ js/ img/ favicon/ cv/
+│   ├── robots.txt, sitemap.xml, llms.txt   référencement et moteurs d'IA
 │   └── tarteaucitron/      bandeau de consentement (dépendance vendue)
+├── outils/             déploiement, pré-rendu (prerendre.sh), CV (generer-cv.sh)
 ├── docker/nginx/       image et configuration du serveur
 ├── .github/            portes qualité et déploiement
 └── README.docker.md    documentation d'infrastructure et de déploiement
@@ -89,15 +92,28 @@ documentée dans `README.docker.md`.
 | Le contenu de l'accueil | `site/index.html` |
 | La liste des projets | `site/assets/js/projets-data.js` — tableau `PROJECTS` |
 | Le dossier de compétences | `site/assets/js/competences.js` — objet `COMPETENCES` |
-| Les projets mis en avant sur l'accueil | `site/assets/js/home.js` — objet `HOME_PROJECTS` |
+| Les projets mis en avant sur l'accueil | `site/assets/js/home.js` — liste `PHARES` |
 | Les projets personnels | `site/assets/js/personal-projects.js` — tableau `PERSONAL_PROJECTS` |
-| Le bascule thème clair/sombre | `site/assets/js/app.js` |
-| Les styles propres au site | `site/assets/css/shared.css`, `projets.css` |
-| Le CV téléchargeable | `site/assets/cv/mylene-magny-cv.pdf` |
+| Les extraits de code de l'accueil | `site/assets/js/home.js` — tableau `SNIPS` |
+| Le thème clair/sombre | `site/assets/js/theme.js` |
+| Les styles | `site/assets/css/site.css` |
+| Le CV téléchargeable | `outils/cv/cv.html`, puis `sh outils/generer-cv.sh` |
 
-Les cartes de projets et les modales sont construites en JavaScript à partir de
-données déclarées dans les fichiers `assets/js/` : ajouter un projet, c'est
-ajouter une entrée dans le tableau, pas écrire du HTML.
+Les cartes de projets, les compétences et plusieurs blocs de l'accueil sont
+construits en JavaScript à partir de données déclarées dans `assets/js/` :
+ajouter un projet, c'est ajouter une entrée dans le tableau, pas écrire du HTML.
+
+Ces blocs sont aussi **écrits dans le HTML** (entre des marqueurs
+`<!--prerender:ID-->`), pour les moteurs de recherche et les robots d'IA qui
+n'exécutent pas de script. Après toute modification des données :
+
+```bash
+sh outils/prerendre.sh   # jsdom est installé en dossier temporaire, rien n'entre dans le dépôt
+```
+
+Les assets portent un numéro de version (`site.css?v=20261031`) : le changer
+dans les trois pages après toute modification de `assets/js` ou `assets/css`,
+car nginx les met en cache une heure en production.
 
 ## Avant de pousser
 
@@ -107,6 +123,9 @@ Les deux portes rapides se jouent en local, en quelques secondes :
 npx --yes html-validate@9 "site/**/*.html"   # validité du balisage
 ./.github/scripts/check-links.sh site        # aucun lien interne mort
 ```
+
+Avant de commiter une modification des données, rejouer aussi
+`sh outils/prerendre.sh`.
 
 Ces deux commandes sont exactement celles qu'exécute la CI : si elles passent
 ici, elles passeront là-bas.

@@ -206,7 +206,7 @@ docker compose --env-file .env.prod.local.dist -f compose.yml -f compose.prod.ym
   (configuration tarteaucitron) qu'une CSP stricte bloquerait silencieusement.
   L'ajouter demande de sortir ces scripts dans un fichier ou de leur poser un
   `nonce`, donc une modification du site, pas seulement de nginx.
-- **Sous-resource integrity** des CDN tiers (polices, Font Awesome) :
+- **Sous-resource integrity** des CDN tiers (polices Google Fonts) :
   la règle `require-sri` est désactivée dans `.htmlvalidate.json`.
 - **`docs/`** n'existe pas : le projet ne porte pour l'instant aucune règle
   métier qui ne tienne pas dans `CLAUDE.md`.
