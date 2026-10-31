@@ -5,7 +5,7 @@
 // qu'une année passe.
 //
 // `depuis` se déduit du parcours : 2011 pour ce qui date de l'entrée chez
-// Net.Com, 2017 pour ce qui vient du poste de référente Drupal 8+.
+// Net.Com, 2017 pour ce qui vient du poste de lead dev Drupal 8+.
 // `vedettes` fixe les trois projets montrés en preuve ; `preuve` sélectionne
 // ceux qui sont comptés.
 
@@ -22,7 +22,7 @@ const COMPETENCES = {
           detail: "Du legacy aux versions actuelles, typage strict et analyse statique.",
           preuve: aStack("PHP"), vedettes: ["polytechnique", "unml", "quartiers-plus"] },
         { nom: "Drupal", icon: "fa-brands fa-drupal", depuis: 2011,
-          detail: "Drupal 7 puis référente Drupal 8+ : modules et thèmes sur-mesure, usines à sites.",
+          detail: "Drupal 7 puis lead dev Drupal 8+ : modules et thèmes sur-mesure, usines à sites.",
           preuve: p => p.tech === "drupal", vedettes: ["polytechnique", "ip-paris", "chu-grenoble"] },
         { nom: "Symfony", icon: "fa-brands fa-symfony", depuis: 2017,
           detail: "Applications métier et Doctrine ; certifiée. Socle de mes projets personnels.",
