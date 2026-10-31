@@ -73,6 +73,7 @@ const FA={'address-book':'users','arrows-rotate':'repeat','arrows-spin':'repeat'
 const svg=n=>`<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]||ICONS.code}</svg>`;
 const fa=c=>svg(FA[(c||'').replace(/^fa-(solid |brands )?/,'').replace(/^fa-/,'')]||'code');
 const t=s=>(s||'').replace(/\s*\.\s*$/,'');
+const tx=s=>{s=(s||'').trim();const multi=/[.!?…]\s+[A-ZÀ-ÝÉ]/.test(s);return multi?(/[.!?…]$/.test(s)?s:s+'.'):s.replace(/\s*\.$/,'')};
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const DOM={enseignement:['Enseignement','grad'],sante:['Santé','hospital'],recherche:['Recherche','flask'],institutions:['Institutions','landmark'],collectivites:['Collectivités','building'],logement_social:['Logement social','house'],associatif:['Associatif','users'],industrie:['Industrie','factory'],application_metier:['Application métier','gears'],restauration:['Restauration','utensils']};
 const TECH={drupal:['Drupal','drop'],symfony:['Symfony','cubes'],wordpress:['WordPress','table']};

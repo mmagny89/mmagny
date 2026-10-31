@@ -77,7 +77,7 @@ function skill(c,ia){
   const perso=c.perso?PERSONAL_PROJECTS.filter(p=>p.stack.includes(c.perso)).length:0;
   const meta=[c.depuis?`depuis ${c.depuis}, ${plur(annee-c.depuis,'an')}`:c.depuisTexte,n?plur(n,'projet')+' client':'',perso?plur(perso,'projet')+' perso':''].filter(Boolean);
   const v=c.vedettes.map(byId).filter(Boolean);
-  return `<article class="card skill"><div class="top"><span class="tile ${ia?'ia':''}">${fa(c.icon)}</span><h3>${c.nom}</h3></div><p>${t(c.detail)}</p>
+  return `<article class="card skill"><div class="top"><span class="tile ${ia?'ia':''}">${fa(c.icon)}</span><h3>${c.nom}</h3></div><p>${tx(c.detail)}</p>
   <div class="meta">${meta.map(m=>`<span>${m}</span>`).join('')}</div>
   ${v.length?`<div class="links">${v.map(p=>`<a href="projets.html#${p.id}">${p.title}</a>`).join('')}</div>`:''}</article>`;
 }

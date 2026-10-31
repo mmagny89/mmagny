@@ -18,7 +18,7 @@ const PROJECTS = [
 
     { id:"ip-paris", title:"Institut Polytechnique de Paris", tech:"drupal", domain:"enseignement", format:["usine"], subtitle:"Drupal • plateforme institutionnelle • usine à sites",
         context:"Plateforme web de l'Institut Polytechnique de Paris. Le site institutionnel initial a été étendu en une usine à sites Drupal permettant de créer et gérer une vingtaine de sites autonomes partageant un socle technique commun.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end et contributions au socle technique de l'usine à sites : modules communs, évolutions fonctionnelles et maintenance de la plateforme. Intervention régulière sur les mises à jour Drupal et modules, et accompagnement technique des équipes.",
         actions:[
             { icon:"fa-diagram-project",     color:"text-sky-600", text:"Contribution à l'architecture de l'usine à sites : mutualisation du socle technique et adaptations fonctionnelles pour les différents sites." },
@@ -32,7 +32,7 @@ const PROJECTS = [
 
     { id:"enpc", title:"École nationale des ponts et chaussées", tech:"drupal", domain:"enseignement", format:[], subtitle:"Drupal • site institutionnel",
         context:"Site institutionnel de l'École nationale des ponts et chaussées, membre de l'Institut Polytechnique de Paris. Le projet s'appuie sur le socle technique d'IP Paris pour une mise en ligne rapide, avec des adaptations graphiques et fonctionnelles propres à l'école.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, intégration des découpes front et adaptation du socle IP Paris aux besoins spécifiques du site. Travail important sur la migration des contenus existants, accompagnement lors de la mise en production et suivi des évolutions.",
         actions:[
             { icon:"fa-paintbrush",          color:"text-sky-600", text:"Adaptation graphique et intégration sur la base du socle IP Paris." },
@@ -46,7 +46,7 @@ const PROJECTS = [
 
     { id:"ensae", title:"ENSAE Paris", tech:"drupal", domain:"enseignement", format:[], subtitle:"Drupal • institutionnel • intégration API",
         context:"Site institutionnel de l'ENSAE Paris, école membre de l'Institut Polytechnique de Paris. Le projet s'appuie sur le socle technique d'IP Paris pour une mise en ligne rapide, avec des besoins fonctionnels propres à l'école : notamment l'exposition du corps enseignant et des formations.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, adaptation du socle IP Paris aux besoins spécifiques de l'ENSAE, intégration d'API et maintenance du site.",
         actions:[
             { icon:"fa-diagram-project",    color:"text-sky-600", text:"Adaptation du socle IP Paris : thème, configuration et modules ajustés aux besoins éditoriaux de l'ENSAE." },
@@ -60,7 +60,7 @@ const PROJECTS = [
 
     { id:"ensea", title:"École nationale supérieure de l'électronique et de ses applications", tech:"drupal", domain:"enseignement", format:[], subtitle:"Drupal • site institutionnel",
         context:"Site institutionnel de l'École nationale supérieure de l'électronique et de ses applications (ENSEA). Projet mené en équipe, avec des besoins éditoriaux structurés et des exigences de qualité à la livraison.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Contribution en appui de l'équipe projet : relecture du cahier fonctionnel, développement back-end, intégration et support. Prise en charge de la maintenance évolutive et préventive du site après mise en ligne.",
         actions:[
             { icon:"fa-file-lines",         color:"text-sky-600", text:"Relecture du cahier fonctionnel et contribution aux échanges techniques en amont du développement." },
@@ -74,7 +74,7 @@ const PROJECTS = [
 
     { id:"centrale-lyon", title:"École Centrale de Lyon", tech:"drupal", domain:"enseignement", format:["usine"], subtitle:"Drupal • multisite • plateforme institutionnelle",
         context:"Plateforme institutionnelle Drupal en multisite regroupant 4 sites. Architecture pensée pour factoriser les développements : fonctionnalités communes mutualisées, thèmes enfants par site et synchronisation de contenus entre les différents sites. Plateforme multilingue avec intégration de DeepL pour la traduction automatique directement depuis le back-office.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end sur l'ensemble de la plateforme : conception et développement des briques communes, modules personnalisés, intégration des thèmes enfants, migration des contenus existants et accompagnement lors des mises en production.",
         actions:[
             { icon:"fa-diagram-project",    color:"text-sky-600", text:"Architecture Drupal multisite : socle commun et thèmes enfants, avec un découpage fonctionnel permettant la réutilisation entre les 4 sites." },
@@ -90,7 +90,7 @@ const PROJECTS = [
     // --- Santé ---
     { id:"chu-grenoble", title:"CHU Grenoble (CHUGA)", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site institutionnel",
         context:"Site institutionnel du Centre Hospitalier Universitaire de Grenoble. Projet avec des exigences de stabilité, d'accessibilité et de richesse éditoriale propres au secteur de la santé.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, intégration, recette interne et maintenance du site.",
         actions:[
             { icon:"fa-shield",             color:"text-emerald-600", text:"Relectures techniques, recette interne et stabilisation avant mise en production." },
@@ -103,7 +103,7 @@ const PROJECTS = [
 
     { id:"ch-niort-web", title:"CH Niort · Site public", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site public • contenus partagés",
         context:"Site public du Centre Hospitalier de Niort, mené en binôme avec l'intranet de l'établissement. Une partie des contenus est commune aux deux environnements : elle est saisie une seule fois, puis partagée, plutôt que ressaisie de chaque côté.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end et maintenance du site.",
         actions:[
             { icon:"fa-share-nodes",        color:"text-emerald-600", text:"Partage des contenus communs avec l'intranet de l'établissement : une saisie unique alimente les deux environnements." },
@@ -117,7 +117,7 @@ const PROJECTS = [
 
     { id:"ch-niort-intranet", title:"CH Niort · Intranet", tech:"drupal", domain:"sante", format:["intranet"], subtitle:"Drupal • intranet • contenus partagés",
         context:"Intranet du Centre Hospitalier de Niort. Il partage une partie de ses contenus avec le site public de l'établissement : les informations communes aux deux environnements ne sont saisies qu'une fois.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, support et maintenance.",
         actions:[
             { icon:"fa-share-nodes",       color:"text-emerald-600", text:"Partage des contenus communs avec le site public : une saisie unique alimente les deux environnements." },
@@ -130,7 +130,7 @@ const PROJECTS = [
 
     { id:"ch-pgv", title:"CH Paul-Guiraud · Villejuif", tech:"drupal", domain:"sante", format:[], subtitle:"Drupal • site institutionnel",
         context:"Site institutionnel du Centre Hospitalier Paul-Guiraud de Villejuif. Projet structuré autour de la livraison des gabarits de contenus et de la maintenance.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, intégration des découpes front et recette interne.",
         actions:[
             { icon:"fa-code",              color:"text-emerald-600", text:"Intégration des découpes front en Twig." },
@@ -144,7 +144,7 @@ const PROJECTS = [
     // --- Recherche ---
     { id:"onera", title:"ONERA", tech:"drupal", domain:"recherche", format:[], subtitle:"Drupal • plateforme institutionnelle",
         context:"Plateforme web de l'ONERA (Office national d'études et de recherches aérospatiales), composée de plusieurs sites et sections avec un besoin d'harmonisation technique, d'évolutions continues et de mises à jour maîtrisées.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, contributions aux briques communes de la plateforme, accompagnement lors des mises en production et maintenance.",
         actions:[
             { icon:"fa-diagram-project",    color:"text-purple-600", text:"Harmonisation et mutualisation des composants techniques entre les différents sites de la plateforme." },
@@ -157,7 +157,7 @@ const PROJECTS = [
 
     { id:"onera-carriere", title:"ONERA · Carrières", tech:"drupal", domain:"recherche", format:["carriere"], subtitle:"Drupal • site carrières • one page",
         context:"Espace carrières de l'ONERA, présentant les offres et les métiers. Le client a retenu Drupal et un parti pris one page : tout le contenu tient sur une seule page, parcourue par ancres, alors que le CMS reste organisé en contenus distincts côté administration.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, intégration et maintenance de l'espace carrières.",
         actions:[
             { icon:"fa-file-lines",         color:"text-purple-600", text:"Mise en œuvre du parti pris one page retenu par le client : des contenus administrés séparément dans Drupal, restitués sur une page unique." },
@@ -171,7 +171,7 @@ const PROJECTS = [
 
     { id:"onera-iris", title:"ONERA · IRIS", tech:"drupal", domain:"recherche", format:["intranet"], subtitle:"Drupal • intranet • actualités transverses",
         context:"Intranet de l'ONERA : il centralise les actualités de tous les services de l'établissement en un point d'entrée unique, là où l'information circulait auparavant service par service.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, maintenance et support de l'intranet, au sein de la plateforme ONERA existante.",
         actions:[
             { icon:"fa-bullhorn",          color:"text-purple-600", text:"Remontée et centralisation des actualités publiées par les différents services de l'ONERA." },
@@ -198,7 +198,7 @@ const PROJECTS = [
     // --- Institutions ---
     { id:"epsf", title:"EPSF", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site institutionnel",
         context:"Site institutionnel de l'EPSF (Établissement public de sécurité ferroviaire). Projet avec un cycle long, des besoins d'évolutions régulières et un maintien en condition opérationnelle.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, accompagnement client et mises en production.",
         actions:[
             { icon:"fa-people-group",       color:"text-purple-600", text:"Échanges client et cadrage technique des évolutions." },
@@ -211,7 +211,7 @@ const PROJECTS = [
 
     { id:"asp-public", title:"ASP · Site public", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site public • DSFR • RGAA",
         context:"Site public de l'Agence de Services et de Paiement, opérateur de l'État. Le site devait adopter le DSFR, le système de design de l'État, dont l'usage s'impose aux sites publics : une charte, des composants et un niveau d'accessibilité RGAA imposés de l'extérieur, à concilier avec le fonctionnement de Drupal.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, intégration, recette interne et support.",
         actions:[
             { icon:"fa-palette",           color:"text-purple-600", text:"Intégration du DSFR (système de design de l'État) : composants officiels transposés en gabarits Drupal, sans s'écarter de la charte." },
@@ -226,7 +226,7 @@ const PROJECTS = [
 
     { id:"ihemi", title:"IHEMI", tech:"drupal", domain:"institutions", format:[], subtitle:"Drupal • site institutionnel",
         context:"Site institutionnel de l'Institut des Hautes Études du Ministère de l'Intérieur. Projet axé sur la structuration des contenus et la durabilité de la plateforme.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, intégration et recette interne.",
         actions:[
             { icon:"fa-cubes",             color:"text-purple-600", text:"Développement back-end Drupal : configuration et modules." },
@@ -240,7 +240,7 @@ const PROJECTS = [
     // --- Collectivités ---
     { id:"arb-cvl", title:"ARB Centre-Val de Loire", tech:"drupal", domain:"collectivites", format:[], subtitle:"Drupal • site institutionnel",
         context:"Site institutionnel de l'Agence Régionale de la Biodiversité Centre-Val de Loire. Projet avec des besoins d'évolutions régulières et de support.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, support client et maintenance.",
         actions:[
             { icon:"fa-screwdriver-wrench", color:"text-purple-600", text:"Évolutions fonctionnelles et maintenance du site." },
@@ -253,7 +253,7 @@ const PROJECTS = [
 
     { id:"cdg69", title:"CDG 69", tech:"drupal", domain:"collectivites", format:[], subtitle:"Drupal • site institutionnel",
         context:"Site institutionnel du Centre de Gestion de la Fonction Publique du Rhône. Projet axé sur le maintien en condition opérationnelle et les évolutions régulières.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, mises en production et support.",
         actions:[
             { icon:"fa-rocket",             color:"text-purple-600", text:"Accompagnement lors des mises en production et suivi des retours." },
@@ -294,7 +294,7 @@ const PROJECTS = [
     // --- Logement social ---
     { id:"ush-boutique", title:"USH · Boutique", tech:"drupal", domain:"logement_social", format:[], subtitle:"Drupal Commerce • boutique en ligne",
         context:"Boutique en ligne de l'Union Sociale pour l'Habitat : la fédération y vend ses ressources aux professionnels du logement social. La boutique s'inscrit dans l'écosystème Drupal existant de l'USH, dont elle réutilise les briques plutôt que de vivre à côté.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Développement back-end, évolutions fonctionnelles, maintenance et support.",
         actions:[
             { icon:"fa-cart-shopping",     color:"text-sky-600", text:"Évolutions du catalogue et du parcours d'achat des ressources mises en vente." },
@@ -321,7 +321,7 @@ const PROJECTS = [
     // --- Associatif ---
     { id:"unml", title:"UNML", tech:"wordpress", domain:"associatif", format:[], subtitle:"WordPress • Gutenberg • annuaire via API • espace adhérents",
         context:"Site de l'Union Nationale des Missions Locales. Site construit sur l'éditeur de blocs Gutenberg, pour que l'équipe éditoriale compose ses pages elle-même. Deux besoins structurants : afficher l'annuaire de toutes les missions locales sans le ressaisir, et réserver les ressources documentaires aux personnes qui y ont droit. L'annuaire est donc alimenté par l'API du réseau, et l'accès aux ressources dépend du profil de la personne connectée et de son adhésion.",
-        role:"Développeuse back-end PHP",
+        role:"Développeuse back-⁠end PHP",
         contribution:"Intégration de l'API du réseau, gestion des accès par profil et par adhésion, évolutions et support.",
         actions:[
             { icon:"fa-cubes",              color:"text-slate-700", text:"Contenus composés avec l'éditeur de blocs Gutenberg : mise en page par blocs, éditable par l'équipe sans passer par un page builder tiers ni par le développement." },

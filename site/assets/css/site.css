@@ -37,7 +37,8 @@ p{margin:0}
 .label{font:500 .72rem/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
 .lead{font-size:1.12rem;color:var(--muted);max-width:64ch}
 .body{color:var(--muted);font-size:.97rem;max-width:68ch}
-section{padding-block:72px;border-top:1px solid var(--line)}
+section{padding-block:96px}
+@media(max-width:620px){section{padding-block:64px}}
 .head{display:grid;gap:12px;margin-bottom:36px}
 .ic{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .tile{width:40px;height:40px;border-radius:8px;display:grid;place-items:center;background:var(--php-soft);color:var(--php);flex:none}
@@ -64,7 +65,7 @@ nav a[aria-current="page"]{color:var(--fg);background:var(--surface2)}
 .btn:hover{transform:translateY(-1px)}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
 
-.chip{font:500 .76rem/1 var(--f-mono);padding:8px 10px;min-height:30px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--fg);display:inline-flex;align-items:center;gap:6px}
+.chip{font:500 .76rem/1 var(--f-mono);padding:6px 10px;min-height:28px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--fg);display:inline-flex;align-items:center;gap:6px}
 .chip.php{background:var(--php-soft);border-color:transparent;color:var(--php)}
 .chip.ia{background:var(--ia-soft);border-color:transparent;color:var(--ia)}
 .chip.ok{color:var(--ok)}
@@ -104,7 +105,7 @@ button.card{cursor:pointer;transition:border-color .2s,transform .2s}
 button.card:hover{border-color:var(--php);transform:translateY(-2px)}
 .more{font:500 .78rem var(--f-mono);color:var(--php);display:inline-flex;align-items:center;gap:6px;margin-top:4px}
 
-.lvl{display:grid;grid-template-columns:230px 1fr;border-top:1px solid var(--line);padding-block:22px;gap:12px 32px}
+.lvl{display:grid;align-items:center;grid-template-columns:230px 1fr;border-top:1px solid var(--line);padding-block:22px;gap:12px 32px}
 .lvl:last-of-type{border-bottom:1px solid var(--line)}
 .lvl>*{min-width:0}
 .lvl h3 .label{display:block;margin-top:8px;font-weight:400;text-transform:none;letter-spacing:0;font-family:var(--f-body);font-size:.85rem}
@@ -166,19 +167,7 @@ footer{padding-block:32px 48px;border-top:1px solid var(--line);color:var(--mute
 .filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .filters input{min-width:200px;flex:1;max-width:320px}
 .count{font:400 .82rem var(--f-mono);color:var(--muted);margin-block:8px 18px}
-.pj{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:28px;align-items:start}
-@media(max-width:960px){.pj{grid-template-columns:1fr}}
-.plist{display:grid;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
-.pitem{display:flex;gap:12px;align-items:center;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;min-height:64px;width:100%}
-.pitem:last-child{border-bottom:0}
-.pitem:hover{background:var(--surface2)}
-.pitem[aria-current="true"]{background:var(--php-soft);box-shadow:inset 3px 0 0 var(--php)}
-.pitem b{display:block;font:700 .97rem var(--f-display);letter-spacing:-.01em}
-.pitem small{display:block;color:var(--muted);font-size:.82rem}
-.pitem[hidden]{display:none}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,32px);display:grid;gap:24px;min-width:0}
-@media(min-width:961px){.panel{position:sticky;top:calc(76px + env(safe-area-inset-top,0px))}}
-@media(max-width:960px){.panel{margin:0;border-radius:0;border-inline:0;border-top:2px solid var(--php)}}
 .panel header{display:grid;gap:10px}
 .panel .sec{display:grid;gap:10px}
 .act{display:grid;gap:14px;margin:0;padding:0;list-style:none}
@@ -258,6 +247,15 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 /* cartes d'appel à l'action et illustration qui comblent la dernière ligne */
 .card.cta{background:var(--php-soft);border-color:transparent}
 .card.cta .tile{background:var(--surface);}
-@media(min-width:961px){.cta2{grid-column:span 2}}
 .collage .icons{display:flex;flex-wrap:wrap;gap:8px}
 .collage .icons .tile{background:var(--surface)}
+
+/* fenêtre de projet : navigation précédent / suivant */
+.pnav{position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:var(--surface);border-top:1px solid var(--line);font:500 .85rem var(--f-mono);color:var(--muted)}
+.pnav:empty{display:none}
+.pnav button{min-height:44px;padding:0 16px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:500 .88rem var(--f-body);cursor:pointer}
+.pnav button:hover{border-color:var(--php)}
+.pnav button:first-child .ic{transform:scaleX(-1)}
+/* trois blocs « Ma recherche » de même gabarit, pastilles en pied */
+.rech .card p{font-size:.95rem}
+.rech .stackrow{margin-top:auto}
