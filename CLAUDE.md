@@ -98,6 +98,11 @@ change.
   personnels) ; `sh outils/generer-cv.sh` l'imprime avec Chrome headless dans
   `site/assets/cv/mylene-magny-cv.pdf`. Une modification des chiffres ou du
   titre sur le site se répercute à la main dans ce fichier.
+- **Les assets portent un numéro de version** (`site.css?v=20261031`) : nginx les
+  met en cache une heure en production, sans empreinte dans le nom. Sans ce
+  paramètre, un visiteur au cache chaud garde l'ancien `home.js` avec le nouveau
+  HTML, et la page casse (erreur constatée le 2026-10-31). Changer la date dans
+  les trois pages à chaque modification de `site/assets/js` ou `site/assets/css`.
 - **Le lien vers l'accueil est `/`, jamais `index.html`** : l'URL canonique est
   `https://mmagny.fr/`.
 
