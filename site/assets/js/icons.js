@@ -83,5 +83,5 @@ const $=s=>document.querySelector(s);
 
 /* icônes déclaratives, hydratées une fois le DOM lu */
 document.querySelectorAll('[data-ic]').forEach(e=>e.innerHTML=svg(e.dataset.ic));
-document.querySelectorAll('svg[data-i]').forEach(e=>{e.setAttribute('viewBox','0 0 24 24');e.innerHTML=ICONS[e.dataset.i]||''});
+document.querySelectorAll('svg[data-i]').forEach(e=>{e.setAttribute('viewBox','0 0 24 24');e.setAttribute('aria-hidden','true');e.setAttribute('focusable','false');e.innerHTML=ICONS[e.dataset.i]||''});
 

@@ -9,7 +9,7 @@ $('#pgrid').innerHTML=PROJECTS.map(p=>{const d=DOM[p.domain]||[];return `<articl
  <div class="top"><span class="tile">${svg(TECH[p.tech][1])}</span><div><h3>${p.title}</h3><span class="label">${TECH[p.tech][0]}</span></div></div>
  <p><b style="color:var(--fg);font-weight:600">${p.role}</b></p><p>${tx(p.highlight)}</p>
  <div class="stackrow">${d[0]?`<span class="chip php">${svg(d[1])}${d[0]}</span>`:''}${p.stack.slice(0,3).map(s=>`<span class="chip">${s}</span>`).join('')}</div>
- <button type="button" class="more" data-open="${p.id}">Voir le détail ${svg('arrow')}</button></article>`}).join('');
+ <button type="button" class="more" data-open="${p.id}">Voir le détail<span class="sr-only"> de ${p.title}</span> ${svg('arrow')}</button></article>`}).join('');
 function apply(){
   let n=0;
   PROJECTS.forEach(p=>{

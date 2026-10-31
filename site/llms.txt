@@ -1,0 +1,18 @@
+# Mylène Magny
+
+> Développeuse back-end PHP, 15 ans d'expérience en agence web (Net.Com), lead dev Drupal depuis 2017. Drupal, Symfony et WordPress pour des institutions, des universités et des musées. Basée dans l'Yonne, ouverte au télétravail. Ouverte aux opportunités : poste salarié en back-end PHP, en agence ou dans un service informatique.
+
+Ce site est le CV en ligne de Mylène Magny. Les informations ci-dessous sont celles du site, rédigées par elle.
+
+## Pages
+
+- [Accueil](https://mmagny.fr/): présentation, parcours, formations et certifications, usage de l'IA (Claude Code, agents et skills écrits par elle), projets personnels, ce qu'elle recherche, contact.
+- [Projets](https://mmagny.fr/projets.html): 27 projets détaillés (Drupal, WordPress, Symfony) avec contexte, rôle, livrables, stack et résultat. Plus de 100 projets livrés en 15 ans.
+- [Compétences](https://mmagny.fr/competences.html): compétences techniques et transverses, avec ancienneté et projets à l'appui.
+
+## En bref
+
+- Technologies : PHP, Drupal 8+, Symfony, WordPress (Elementor), SQL, Docker, Git, CI/CD, migrations et reprises de projets, usines à sites, montées de version.
+- Certifications Dyma : Git (2026), Docker (2023), Symfony (2023).
+- Contact : contact@mmagny.fr, https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/
+- Dépôts personnels : https://github.com/mmagny89

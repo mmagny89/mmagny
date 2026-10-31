@@ -86,7 +86,7 @@ const PHARES=['polytechnique','mnhn','ush-collab','unml','charot','quartiers-plu
 $('#featured').innerHTML=PHARES.map(byId).filter(Boolean).map(p=>`<article class="card link">
  <div class="top"><span class="tile">${svg(TECH[p.tech][1])}</span><div><h3>${p.title}</h3><span class="label">${TECH[p.tech][0]}</span></div></div>
  <p><b style="color:var(--fg);font-weight:600">${p.role}</b></p><p>${tx(p.highlight)}</p>
- <div class="stackrow">${p.stack.slice(0,4).map(s=>`<span class="chip">${s}</span>`).join('')}</div><button type="button" class="more" data-open="${p.id}">Voir le détail ${svg('arrow')}</button></article>`).join('');
+ <div class="stackrow">${p.stack.slice(0,4).map(s=>`<span class="chip">${s}</span>`).join('')}</div><button type="button" class="more" data-open="${p.id}">Voir le détail<span class="sr-only"> de ${p.title}</span> ${svg('arrow')}</button></article>`).join('');
 
 $('#featured').insertAdjacentHTML('beforeend',`<article class="card link cta"><div class="top"><span class="tile">${svg('layers')}</span><h3>${nbP} projets détaillés</h3></div><p>Drupal, WordPress, Symfony : filtres par technologie et par domaine, avec le contexte, mon rôle, les livrables et le résultat de chacun</p><div class="stackrow"><span class="chip">${PROJECTS.filter(p=>p.tech==='drupal').length} Drupal</span><span class="chip">${PROJECTS.filter(p=>p.tech==='symfony').length} Symfony</span><span class="chip">${PROJECTS.filter(p=>p.tech==='wordpress').length} WordPress</span></div><a class="more" href="./projets.html">Explorer tous les projets ${svg('arrow')}</a></article>`);
 
@@ -94,7 +94,7 @@ $('#featured').insertAdjacentHTML('beforeend',`<article class="card link cta"><d
 const ST={production:'En ligne',beta:'Bêta',wip:'En cours',local:'En local',staging:'En préproduction',calibrage:'En calibrage'};
 const pub=p=>[].concat(p.status??'wip').some(s=>s==='production'||s==='beta');
 const stat=p=>[].concat(p.status??'wip').map(s=>`<span class="status ${s}">${ST[s]||s}</span>`).join('')+(p.ai?`<span class="chip ia">${svg('sparkles')}IA</span>`:'')+(p.private?`<span class="status">${svg('lock')} Privé</span>`:'');
-const links=p=>`<div class="actions">${p.demo?`<a class="btn sm" href="${p.demo}" target="_blank" rel="noopener">${svg('ext')}Voir le site</a>`:''}${p.private?'':`<a class="btn sm" href="${p.url}" target="_blank" rel="noopener">${svg('github')}GitHub</a>`}</div>`;
+const links=p=>`<div class="actions">${p.demo?`<a class="btn sm" href="${p.demo}" target="_blank" rel="noopener">${svg('ext')}Voir le site<span class="sr-only"> ${p.title} (nouvel onglet)</span></a>`:''}${p.private?'':`<a class="btn sm" href="${p.url}" target="_blank" rel="noopener">${svg('github')}GitHub<span class="sr-only"> de ${p.title} (nouvel onglet)</span></a>`}</div>`;
 const IC={mmagny:'idcard',niout:'landmark','bg-tcg':'layers',edj:'users',chauffage:'thermo',aqoj:'dice','dnd-oracle':'dragon',vigil:'eye'};
 const pcard=p=>`<article class="card"><div class="top"><span class="tile ${p.ai?'ia':''}">${svg(IC[p.id]||'code')}</span><h3>${p.title}</h3></div><div class="tags">${stat(p)}</div><p>${tx(p.desc)}</p><div class="stackrow">${p.stack.slice(0,3).map(s=>`<span class="chip">${s}</span>`).join('')}</div>${links(p)}</article>`;
 $('#perso-pub').innerHTML=PERSONAL_PROJECTS.filter(pub).map(pcard).join('');

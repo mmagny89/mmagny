@@ -85,6 +85,17 @@ change.
   Elles sont volontairement absentes du `.env` et écrites `${VAR:?}` : le stack
   doit échouer bruyamment plutôt que produire des labels ignorés en silence.
 
+- **Les listes générées par JavaScript sont aussi écrites dans le HTML.**
+  Projets, compétences et blocs de l'accueil sont pré-rendus entre des
+  marqueurs `<!--prerender:ID-->`, pour les moteurs de recherche et les robots
+  d'IA qui n'exécutent pas de script. Après toute modification de
+  `projets-data.js`, `personal-projects.js`, `competences.js` ou du rendu de
+  `home.js`, rejouer `sh outils/prerendre.sh` (jsdom est installé en dossier
+  temporaire, rien n'entre dans le dépôt). Ne jamais éditer à la main ce qui
+  se trouve entre deux marqueurs.
+- **Le lien vers l'accueil est `/`, jamais `index.html`** : l'URL canonique est
+  `https://mmagny.fr/`.
+
 ## Déploiement
 
 `push` sur `main` → portes qualité → SSH vers le serveur, dont la forced

@@ -5,7 +5,7 @@
   --php:#4F5BA6; --php-soft:#E4E6F5;
   --ia:#A25205; --ia-soft:#F9E8D0;
   --ok:#2F7D4F;
-  --term:#12141A; --term-fg:#D6D9E0; --term-dim:#7C8393;
+  --term:#12141A; --term-fg:#D6D9E0; --term-dim:#7C8393; --ctl:#7A7F8A;
   --f-display:"Bricolage Grotesque",system-ui,sans-serif;
   --f-body:"IBM Plex Sans",system-ui,sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
@@ -14,12 +14,12 @@
   --bg:#0E1015; --surface:#151821; --surface2:#1B1F2A; --line:#272C39;
   --fg:#ECEDF1; --muted:#9AA0AE; --php:#9AA6F2; --php-soft:#1F2442;
   --ia:#F0A449; --ia-soft:#33260F; --ok:#6CCB92;
-  --term:#0A0B0F; --term-fg:#D6D9E0; --term-dim:#6D7485; color-scheme:dark}}
+  --term:#0A0B0F; --term-fg:#D6D9E0; --term-dim:#8A91A2; --ctl:#6B7385; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0E1015; --surface:#151821; --surface2:#1B1F2A; --line:#272C39;
   --fg:#ECEDF1; --muted:#9AA0AE; --php:#9AA6F2; --php-soft:#1F2442;
   --ia:#F0A449; --ia-soft:#33260F; --ok:#6CCB92;
-  --term:#0A0B0F; --term-fg:#D6D9E0; --term-dim:#6D7485; color-scheme:dark}
+  --term:#0A0B0F; --term-fg:#D6D9E0; --term-dim:#8A91A2; --ctl:#6B7385; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--f-body);padding-block:0;
@@ -56,7 +56,7 @@ nav{display:flex;gap:2px}
 nav a,.theme{font:500 .88rem var(--f-body);text-decoration:none;padding:0 12px;border-radius:6px;color:var(--muted);min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
 nav a:hover{color:var(--fg)}
 nav a[aria-current="page"]{color:var(--fg);background:var(--surface2)}
-.theme{border:1px solid var(--line);background:none;cursor:pointer;color:var(--fg)}
+.theme{border:1px solid var(--ctl);background:none;cursor:pointer;color:var(--fg)}
 @media(max-width:900px){.bar{flex-wrap:wrap;padding-block:4px}nav{order:3;width:100%;overflow-x:auto}}
 
 .btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 20px;border-radius:6px;font:600 .95rem var(--f-body);text-decoration:none;border:1px solid var(--fg);cursor:pointer;background:none;color:var(--fg)}
@@ -75,8 +75,8 @@ nav a[aria-current="page"]{color:var(--fg);background:var(--surface2)}
 .term .tb{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid #ffffff14;color:var(--term-dim);font-size:.74rem}
 .term .tb b{width:9px;height:9px;border-radius:50%;background:#ffffff25;display:inline-block}
 .term .tb span{margin-left:8px;flex:1}
-.term .tb button{background:none;border:1px solid #ffffff25;color:var(--term-dim);border-radius:5px;font:inherit;padding:0 10px;min-height:44px;cursor:pointer;margin-block:-8px}
-.term pre{margin:0;padding:16px 18px;overflow-x:auto;font:inherit;white-space:pre;min-height:11.5em}
+.term .tb button{background:none;border:1px solid #ffffff66;color:var(--term-dim);border-radius:5px;font:inherit;padding:0 10px;min-height:44px;cursor:pointer;margin-block:-8px}
+.term pre{margin:0;padding:16px 18px;font:inherit;white-space:pre-wrap;overflow-wrap:anywhere;min-height:11.5em}
 .tk{color:#9AA6F2}.ts{color:#8FD6A8}.tc{color:var(--term-dim)}.ta{color:#F0A449}
 
 .hero{padding-block:64px 56px;border:0;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
@@ -162,7 +162,7 @@ footer{padding-block:32px 48px;border-top:1px solid var(--line);color:var(--mute
 
 /* page projets : liste + panneau */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center}
-.filters button,.filters input{font:500 .84rem var(--f-mono);min-height:44px;padding:0 14px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.filters button,.filters input{font:500 .84rem var(--f-mono);min-height:44px;padding:0 14px;border-radius:6px;border:1px solid var(--ctl);background:var(--surface);color:var(--fg)}
 .filters button{cursor:pointer;display:inline-flex;align-items:center;gap:8px}
 .filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .filters input{min-width:200px;flex:1;max-width:320px}
@@ -184,7 +184,7 @@ footer{padding-block:32px 48px;border-top:1px solid var(--line);color:var(--mute
 
 dialog{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg);padding:0;width:min(760px,calc(100vw - 24px));max-height:calc(100vh - 32px);overflow:auto}
 dialog::backdrop{background:#000a}
-dialog .x{position:sticky;top:0;float:right;margin:10px;min-width:44px;min-height:44px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;z-index:2}
+dialog .x{position:sticky;top:0;float:right;margin:10px;min-width:44px;min-height:44px;border-radius:6px;border:1px solid var(--ctl);background:var(--surface);color:var(--fg);cursor:pointer;z-index:2}
 
 .view{display:none}.view.on{display:block}
 @media(prefers-reduced-motion:no-preference){.view.on{animation:in .35s ease both}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
@@ -223,7 +223,8 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 
 /* pastille « disponible » qui clignote, sauf si l'on préfère moins d'animation */
 @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 25%,transparent)}50%{opacity:.3;box-shadow:0 0 0 8px transparent}}
-@media(prefers-reduced-motion:no-preference){.avail::before{animation:blink 1.6s ease-in-out infinite}}
+/* RGAA 13.8 : un clignotement automatique s'arrête en moins de 5 s */
+@media(prefers-reduced-motion:no-preference){.avail::before{animation:blink 1.5s ease-in-out 3}}
 .nw,.facts b{white-space:nowrap}
 .theme{min-width:44px;justify-content:center;padding:0}
 .theme .ic{width:18px;height:18px}
@@ -237,7 +238,8 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 .frise li::after{content:"";position:absolute;top:2px;left:0;width:14px;height:14px;border-radius:50%;background:var(--php);box-shadow:0 0 0 4px var(--bg)}
 .frise .yr{display:block;font:500 .8rem var(--f-mono);color:var(--php);margin-bottom:6px}
 .frise p{color:var(--muted);font-size:.9rem;margin-top:4px}
-@media(max-width:760px){.frise{grid-template-columns:1fr;border-left:2px solid var(--line);margin-left:6px}.frise li{padding:0 0 26px 24px}.frise li:last-child{padding-bottom:0}.frise li::before{display:none}.frise li::after{top:4px;left:-8px}}
+/* mobile : frise verticale, du plus récent (en haut) au plus ancien */
+@media(max-width:760px){.frise{display:flex;flex-direction:column-reverse;border-left:2px solid var(--line);margin-left:6px}.frise li{padding:0 0 26px 24px}.frise li:first-child{padding-bottom:0}.frise li::before{display:none}.frise li::after{top:4px;left:-8px}}
 
 /* filigrane Claude dans le bloc IA */
 .ia-band{overflow:hidden}
@@ -253,9 +255,12 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 /* fenêtre de projet : navigation précédent / suivant */
 .pnav{position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:var(--surface);border-top:1px solid var(--line);font:500 .85rem var(--f-mono);color:var(--muted)}
 .pnav:empty{display:none}
-.pnav button{min-height:44px;padding:0 16px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:500 .88rem var(--f-body);cursor:pointer}
+.pnav button{min-height:44px;padding:0 16px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ctl);border-radius:6px;background:var(--surface);color:var(--fg);font:500 .88rem var(--f-body);cursor:pointer}
 .pnav button:hover{border-color:var(--php)}
 .pnav button:first-child .ic{transform:scaleX(-1)}
 /* trois blocs « Ma recherche » de même gabarit, pastilles en pied */
 .rech .card p{font-size:.95rem}
 .rech .stackrow{margin-top:auto}
+
+.sub{font:700 1.1rem/1.1 var(--f-display);letter-spacing:-.01em}
+.term .tb{color:var(--term-dim)}

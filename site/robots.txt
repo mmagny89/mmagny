@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Robots d'IA : le contenu est public et destiné à être lu.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://mmagny.fr/sitemap.xml
