@@ -240,11 +240,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 .theme .ic{width:18px;height:18px}
 /* grilles sans cellule vide : la dernière ligne s'étire */
 .grid2>:last-child:nth-child(odd){grid-column:1/-1}
-.g5{grid-template-columns:repeat(6,1fr)}.g5>*{grid-column:span 2}.g5>:nth-child(n+4){grid-column:span 3}
-.g7{grid-template-columns:repeat(12,1fr)}.g7>*{grid-column:span 3}.g7>:nth-child(n+5){grid-column:span 4}
-@media(max-width:960px){.g5,.g7{grid-template-columns:1fr 1fr}.g5>*,.g7>*,.g5>:nth-child(n+4),.g7>:nth-child(n+5){grid-column:auto}.g5>:last-child,.g7>:last-child{grid-column:1/-1}}
-@media(max-width:620px){.g5,.g7{grid-template-columns:1fr}.g5>:last-child,.g7>:last-child{grid-column:auto}}
-@media(min-width:621px) and (max-width:960px){.grid3:not(.g5):not(.g7)>:last-child:nth-child(odd){grid-column:1/-1}}
+@media(min-width:621px) and (max-width:960px){.grid3>:last-child:nth-child(odd){grid-column:1/-1}}
 /* frise chronologique des études */
 .frise{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
 .frise li{position:relative;padding:30px 20px 0 0;min-width:0}
@@ -253,3 +249,15 @@ footer a{display:inline-flex;align-items:center;min-height:44px}
 .frise .yr{display:block;font:500 .8rem var(--f-mono);color:var(--php);margin-bottom:6px}
 .frise p{color:var(--muted);font-size:.9rem;margin-top:4px}
 @media(max-width:760px){.frise{grid-template-columns:1fr;border-left:2px solid var(--line);margin-left:6px}.frise li{padding:0 0 26px 24px}.frise li:last-child{padding-bottom:0}.frise li::before{display:none}.frise li::after{top:4px;left:-8px}}
+
+/* filigrane Claude dans le bloc IA */
+.ia-band{overflow:hidden}
+.ia-wrap{position:relative}
+.ia-wrap>*{position:relative}
+.ia-wrap>.wm{position:absolute;right:-70px;top:-30px;width:min(440px,70vw);height:auto;stroke:var(--ia);stroke-width:15;stroke-linecap:round;fill:none;opacity:.06;pointer-events:none}
+/* cartes d'appel à l'action et illustration qui comblent la dernière ligne */
+.card.cta{background:var(--php-soft);border-color:transparent}
+.card.cta .tile{background:var(--surface);}
+@media(min-width:961px){.cta2{grid-column:span 2}}
+.collage .icons{display:flex;flex-wrap:wrap;gap:8px}
+.collage .icons .tile{background:var(--surface)}

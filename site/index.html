@@ -179,14 +179,14 @@
 
   <section id="apport">
     <div class="head"><span class="label">Ce que j’apporte à une équipe</span><h2>Une expertise éprouvée, projet après projet</h2></div>
-    <div class="grid3 g5" id="apports"></div>
+    <div class="grid3" id="apports"></div>
   </section>
 
   <section id="competences">
     <div class="head"><span class="label">Compétences</span><h2>Ce que j’utilise, et à quelle fréquence</h2></div>
     <div>
       <div class="lvl"><h3>Mon quotidien<span class="label">Architecture, arbitrages, transmission</span></h3><div class="tags">
-        <span class="chip php"><svg class="ic" data-i="code"></svg>PHP</span><span class="chip php"><svg class="ic" data-i="drop"></svg>Drupal 8+</span><span class="chip php"><svg class="ic" data-i="cubes"></svg>Symfony</span><span class="chip php"><svg class="ic" data-i="table"></svg>WordPress</span><span class="chip php"><svg class="ic" data-i="palette"></svg>Elementor</span><span class="chip php"><svg class="ic" data-i="db"></svg>SQL MySQL / PostgreSQL</span><span class="chip php"><svg class="ic" data-i="move"></svg>Migrations et reprises</span></div></div>
+        <span class="chip php"><svg class="ic" data-i="code"></svg>PHP</span><span class="chip php"><svg class="ic" data-i="drop"></svg>Drupal 8+</span><span class="chip php"><svg class="ic" data-i="cubes"></svg>Symfony</span><span class="chip php"><svg class="ic" data-i="table"></svg>WordPress</span><span class="chip php"><svg class="ic" data-i="palette"></svg>Elementor</span><span class="chip php"><svg class="ic" data-i="db"></svg>SQL MySQL / PostgreSQL</span><span class="chip php"><svg class="ic" data-i="move"></svg>Migrations et reprises</span><span class="chip php"><svg class="ic" data-i="repeat"></svg>Montées de version</span></div></div>
       <div class="lvl"><h3>Au fil des projets<span class="label">Outillage et front du quotidien</span></h3><div class="tags">
         <span class="chip">Git</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Composer</span><span class="chip">Drush</span><span class="chip">CLI / Bash</span><span class="chip">HTML</span><span class="chip">CSS / SCSS</span><span class="chip">JavaScript</span><span class="chip">Twig</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span><span class="chip">YAML</span><span class="chip">API REST</span><span class="chip">JSON / XML / CSV</span><span class="chip">PhpStorm</span></div></div>
       <div class="lvl"><h3>Déjà pratiquées<span class="label">En projet ou en formation, avec un temps de reprise</span></h3><div class="tags">
@@ -197,7 +197,7 @@
 
   <section id="projets-phares">
     <div class="head"><span class="label">Projets phares</span><h2>7 projets, 3 frameworks</h2><p class="body">Cliquez sur une carte pour le contexte, le rôle et la stack</p></div>
-    <div class="grid3 g7" id="featured"></div>
+    <div class="grid3" id="featured"></div>
     <div class="actions" style="margin-top:28px"><a class="btn" href="./projets.html" id="allp"><svg class="ic" data-i="arrow"></svg>Explorer tous les projets</a></div>
     <p class="note" style="margin-top:16px">Projets réalisés dans le cadre de mon poste à l’agence Net.Com</p>
   </section>
@@ -257,8 +257,9 @@
   </section>
 
   <section class="ia-band" id="ia" style="margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))">
-    <div class="wrap">
-      <div class="head"><span class="label ia">L’IA dans ma pratique</span><h2>Un collègue de plus, dont je relis le travail comme celui de n’importe qui</h2>
+    <div class="wrap ia-wrap">
+      <svg class="wm" viewBox="-120 -120 240 240" aria-hidden="true"><line x1="14.0" y1="0.0" x2="108.0" y2="0.0"/><line x1="12.1" y1="7.0" x2="64.1" y2="37.0"/><line x1="7.0" y1="12.1" x2="50.0" y2="86.6"/><line x1="0.0" y1="14.0" x2="0.0" y2="68.0"/><line x1="-7.0" y1="12.1" x2="-55.0" y2="95.3"/><line x1="-12.1" y1="7.0" x2="-67.5" y2="39.0"/><line x1="-14.0" y1="0.0" x2="-102.0" y2="0.0"/><line x1="-12.1" y1="-7.0" x2="-60.6" y2="-35.0"/><line x1="-7.0" y1="-12.1" x2="-53.0" y2="-91.8"/><line x1="-0.0" y1="-14.0" x2="-0.0" y2="-76.0"/><line x1="7.0" y1="-12.1" x2="49.0" y2="-84.9"/><line x1="12.1" y1="-7.0" x2="62.4" y2="-36.0"/></svg>
+      <div class="head"><span class="label ia">L’IA dans ma pratique</span><h2>Je pilote l’IA, et je relis tout ce qu’elle produit</h2>
         <p class="lead">Claude Code me sert à dégrossir, explorer une piste, relire un bout de code. Mistral AI, je ne m’en sers pas pour coder : je l’intègre dans mes projets, par exemple pour traduire et trier des articles dans Vigil. La décision technique, la compréhension du métier et la responsabilité de ce qui part en production restent de mon côté.</p></div>
       <div class="flow">
         <div class="h"><small>Moi</small><b><svg class="ic" data-i="compass"></svg>Je cadre</b><span>Le besoin, les contraintes, mes conventions d’infrastructure</span></div>
@@ -304,7 +305,7 @@
       <p class="quote" style="margin-top:36px">Une équipe qui voit l’IA de cette façon me parlera</p>
       <div class="sub" style="margin-bottom:14px"><span class="label ia">Là où je l’intègre dans mes projets</span></div>
       <div class="grid3" id="ia-projects"></div>
-      <div class="tags" style="margin-top:28px"><span class="chip ia">Claude Code</span><span class="chip ia">Agents sur-mesure</span><span class="chip ia">Skills de standards de code</span><span class="chip ia">Mistral AI</span><span class="chip ia">Intégration d’API IA</span></div>
+      <div class="tags" style="margin-top:28px"><span class="chip ia"><svg class="ic" data-i="claude"></svg>Claude Code</span><span class="chip ia">Agents sur-mesure</span><span class="chip ia">Skills de standards de code</span><span class="chip ia">Mistral AI</span><span class="chip ia">Intégration d’API IA</span></div>
     </div>
   </section>
 
@@ -316,7 +317,7 @@
 
     <h3 class="sub" style="margin-top:64px"><span class="tile sm" data-ic="heart"></span>En dehors du code</h3>
     <p class="body" style="margin-bottom:20px">Mes loisirs alimentent directement ce que je construis le soir, et ma façon de travailler le jour</p>
-    <div class="grid4" id="loisirs"></div>
+    <div class="grid3" id="loisirs"></div>
   </section>
 
   <section id="recherche">
@@ -331,7 +332,7 @@
         <p>J’y tiens, sans en faire un critère éliminatoire</p>
         <div class="stackrow tags" style="margin-top:auto"><span class="chip">Artisans</span><span class="chip">PME</span><span class="chip">Associations</span><span class="chip">Institutions locales</span></div></div>
       <div class="card" style="gap:16px"><div class="top"><span class="tile ia" data-ic="sparkles"></span><h3>L’IA en renfort de l’expertise, pas à sa place</h3></div>
-        <p>Je m’en sers tous les jours, comme d’un collègue à qui on confie le dégrossissage, à qui on demande un avis, et dont on relit le travail</p>
+        <p>Je m’en sers tous les jours, comme d’un assistant à qui on confie le dégrossissage, à qui on demande un avis, et dont on relit le travail</p>
         <p>Ce qu’elle ne remplace pas : comprendre le métier de quelqu’un, arbitrer, répondre de ce qui part en ligne. J’ai poussé la démarche jusqu’à écrire mes propres agents Claude Code pour amorcer un projet selon mes conventions</p>
         <p>Une équipe qui voit l’IA de cette façon me parlera</p></div>
     </div>

@@ -70,7 +70,8 @@ $('#snipnext').onclick=()=>{si=(si+1)%SNIPS.length;showSnip()};
 $('#facts').innerHTML=`<div><b>15 ans</b> en agence web</div><div><b>100+</b> projets livrés</div><div><b>2017</b> référente technique Drupal</div>`;
 $('#allp').innerHTML=`Explorer les ${nbP} projets ${svg('arrow')}`;
 const APPORTS=[['drop','Une expertise Drupal','Usines à sites, modules sur-mesure, arbitrages d’architecture'],['move','Les projets hérités','Migrations, reprises de code existant, montées de version'],['shield','Un filet avant la livraison','Relectures, recette, standards de code partagés'],['users','De la transmission','Revues de code, accompagnement des nouvelles recrues'],['chat','L’écoute avant le code','Comprendre le métier, puis choisir la technique']];
-$('#apports').innerHTML=APPORTS.map(a=>`<div class="card"><div class="top"><span class="tile">${svg(a[0])}</span><h3>${a[1]}</h3></div><p>${a[2]}</p></div>`).join('');
+$('#apports').innerHTML=APPORTS.map(a=>`<div class="card"><div class="top"><span class="tile">${svg(a[0])}</span><h3>${a[1]}</h3></div><p>${a[2]}</p></div>`).join('')
+$('#apports').insertAdjacentHTML('beforeend',`<article class="card link cta"><div class="top"><span class="tile">${svg('award')}</span><h3>Le détail, compétence par compétence</h3></div><p>Ancienneté, nombre de projets et exemples qui le prouvent</p><a class="more" href="./competences.html">Ouvrir le dossier de compétences ${svg('arrow')}</a></article>`);
 const L={
 resp:[['Référente Drupal 8+','une vingtaine de sites institutionnels livrés et maintenus : modules et thèmes sur-mesure, usines à sites'],['Développement et support Symfony','applications sur-mesure, reprise de projets existants'],['Développement et support WordPress','Gutenberg, Elementor, Genesis, thèmes enfants, extranets métier, API'],['Relectures techniques des cahiers fonctionnels','faisabilité, coût réel, alertes avant chiffrage'],['Recettes internes avant livraison','performance, accessibilité, sécurité, conformité au cahier']],
 transv:[['Accompagnement des nouvelles recrues','montée en autonomie, revues de code, transmission des pratiques Drupal'],['Pilote RSE de l’agence','conditions de travail, impact, engagement collectif'],['Culture qualité et sécurité côté serveur','standards de code, mises à jour, veille sur les failles'],['Industrialisation du démarrage de projets','socle Docker, conventions d’infrastructure et outillage communs à Symfony, Drupal et WordPress']],
@@ -86,6 +87,8 @@ $('#featured').innerHTML=PHARES.map(byId).filter(Boolean).map(p=>`<article class
  <div class="top"><span class="tile">${svg(TECH[p.tech][1])}</span><div><h3>${p.title}</h3><span class="label">${TECH[p.tech][0]}</span></div></div>
  <p><b style="color:var(--fg);font-weight:600">${p.role}</b></p><p>${t(p.highlight)}</p>
  <div class="stackrow">${p.stack.slice(0,4).map(s=>`<span class="chip">${s}</span>`).join('')}</div><button type="button" class="more" data-open="${p.id}">Voir le détail ${svg('arrow')}</button></article>`).join('');
+
+$('#featured').insertAdjacentHTML('beforeend',`<article class="card link cta cta2"><div class="top"><span class="tile">${svg('layers')}</span><h3>${nbP} projets détaillés</h3></div><p>Drupal, WordPress, Symfony : filtres par technologie et par domaine, avec le contexte, mon rôle, les livrables et le résultat de chacun</p><div class="stackrow"><span class="chip">${PROJECTS.filter(p=>p.tech==='drupal').length} Drupal</span><span class="chip">${PROJECTS.filter(p=>p.tech==='symfony').length} Symfony</span><span class="chip">${PROJECTS.filter(p=>p.tech==='wordpress').length} WordPress</span></div><a class="more" href="./projets.html">Explorer tous les projets ${svg('arrow')}</a></article>`);
 
 /* projets perso */
 const ST={production:'En ligne',beta:'Bêta',wip:'En cours',local:'En local',staging:'En préproduction',calibrage:'En calibrage'};
@@ -106,5 +109,6 @@ const LOIS=[
 ['rocket','Espace et exploration','Curiosité scientifique, technologies spatiales, prospective. J’aime les ordres de grandeur : distances, durées, contraintes d’ingénierie'],
 ['sprout','Jardinage et bricolage','On ne force pas une plante à pousser plus vite. Un projet non plus. Semer, attendre, tailler, et réparer plutôt que remplacer'],
 ['paw','Et bien sûr, les chats','Présents à chaque séance de code, de préférence sur le clavier ou juste à côté. Des relecteurs peu bavards, mais très attachés à ma présence']];
-$('#loisirs').innerHTML=LOIS.map(l=>`<div class="card"><div class="top"><span class="tile sm">${svg(l[0])}</span><h4>${l[1]}</h4></div>${l[2]?`<p>${l[2]}</p>`:''}</div>`).join('');
+$('#loisirs').innerHTML=LOIS.map(l=>`<div class="card"><div class="top"><span class="tile sm">${svg(l[0])}</span><h4>${l[1]}</h4></div>${l[2]?`<p>${l[2]}</p>`:''}</div>`).join('')
+$('#loisirs').insertAdjacentHTML('beforeend',`<article class="card link cta collage"><div class="icons" aria-hidden="true">${LOIS.map(l=>`<span class="tile sm">${svg(l[0])}</span>`).join('')}</div><h4>Tout ça finit dans un projet</h4><p>Une règle de jeu, une carte, un calendrier d’arrosage : l’idée part d’un loisir, le code suit</p><a class="more" href="./projets.html">Voir les projets ${svg('arrow')}</a></article>`);
 
