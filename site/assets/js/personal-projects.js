@@ -43,7 +43,7 @@ const PERSONAL_PROJECTS = [
     {
         id:    "chauffage",
         title: "Chauffage",
-        desc:  "Dit quand chauffer et quand couper le chauffage d'un foyer sur quinze jours, à partir de relevés de température chauffage éteint, des prévisions Open-Meteo et des températures visées.",
+        desc:  "Dit quand chauffer et quand couper le chauffage d'un foyer sur 15 jours, à partir de relevés de température chauffage éteint, des prévisions Open-Meteo et des températures visées.",
         stack: ["Symfony", "PostgreSQL", "FrankenPHP", "Tailwind CSS"],
         status: "production",
         url:   "https://github.com/mmagny89/chauffage",

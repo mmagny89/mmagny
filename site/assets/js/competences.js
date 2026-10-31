@@ -18,12 +18,12 @@ const mentionne = motif => p => motif.test(texteRealise(p));
 
 const COMPETENCES = {
     techniques: [
-        { nom: "Drupal", icon: "fa-brands fa-drupal", depuis: 2011,
-          detail: "Drupal 7 puis référente Drupal 8+ : modules et thèmes sur-mesure, usines à sites.",
-          preuve: p => p.tech === "drupal", vedettes: ["polytechnique", "ip-paris", "chu-grenoble"] },
         { nom: "PHP", icon: "fa-brands fa-php", depuis: 2011,
           detail: "Du legacy aux versions actuelles, typage strict et analyse statique.",
           preuve: aStack("PHP"), vedettes: ["polytechnique", "unml", "quartiers-plus"] },
+        { nom: "Drupal", icon: "fa-brands fa-drupal", depuis: 2011,
+          detail: "Drupal 7 puis référente Drupal 8+ : modules et thèmes sur-mesure, usines à sites.",
+          preuve: p => p.tech === "drupal", vedettes: ["polytechnique", "ip-paris", "chu-grenoble"] },
         { nom: "Symfony", icon: "fa-brands fa-symfony", depuis: 2017,
           detail: "Applications métier et Doctrine ; certifiée. Socle de mes projets personnels.",
           preuve: p => p.tech === "symfony" || aStack("Symfony")(p), vedettes: ["quartiers-plus"], perso: "Symfony" },

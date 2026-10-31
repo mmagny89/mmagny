@@ -58,6 +58,7 @@ repeat:'<path d="m17 2 4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3
 hammer:'<path d="m15 12-8.500 8.500a2.100 2.100 0 0 1-3-3L12 9M17.600 15 21 11.600a2 2 0 0 0 0-2.800l-1.500-1.500M13 7l4-4 4 4-4 4z"/>',
 github:'<path d="M9 19c-4 1.500-4-2-6-2.500M15 22v-3.500c0-1 .1-1.500-.5-2 3-.3 6-1.500 6-6.500a5 5 0 0 0-1.300-3.500 4.600 4.600 0 0 0-.1-3.500s-1.100-.4-3.600 1.300a12 12 0 0 0-6.400 0C6.600 2.600 5.500 3 5.500 3a4.600 4.600 0 0 0-.1 3.500A5 5 0 0 0 4 10c0 5 3 6.200 6 6.500-.6.500-.6 1.200-.5 2V22"/>',
 anchor:'<circle cx="12" cy="5" r="2.500"/><path d="M12 7.500V21M5 12H3a9 9 0 0 0 18 0h-2M8 12h8"/>',
+reload:'<path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/>',
 ext:'<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
 arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
 check:'<path d="m5 12 5 5L20 7"/>',
@@ -68,7 +69,7 @@ const fa=c=>svg(FA[(c||'').replace(/^fa-(solid |brands )?/,'').replace(/^fa-/,''
 const t=s=>(s||'').replace(/\s*\.\s*$/,'');
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const DOM={enseignement:['Enseignement','grad'],sante:['Santé','hospital'],recherche:['Recherche','flask'],institutions:['Institutions','landmark'],collectivites:['Collectivités','building'],logement_social:['Logement social','house'],associatif:['Associatif','users'],industrie:['Industrie','factory'],application_metier:['Application métier','gears'],restauration:['Restauration','utensils']};
-const TECH={drupal:['Drupal','drop'],wordpress:['WordPress','table'],symfony:['Symfony','cubes']};
+const TECH={drupal:['Drupal','drop'],symfony:['Symfony','cubes'],wordpress:['WordPress','table']};
 const FMT={usine:'Usine à sites',intranet:'Intranet',carriere:'Carrières'};
 const $=s=>document.querySelector(s);
 
