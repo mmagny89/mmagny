@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mylène Magny, développeuse back-end PHP, CV</title>
+<meta name="author" content="Mylène Magny">
+<meta name="description" content="CV de Mylène Magny, développeuse back-end PHP : Drupal, Symfony, WordPress.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+/* Même charte que le site : encre bleutée, violet PHP pour le back-end, ambre réservé à l'IA. */
+:root{
+  --bg:#FFFFFF; --soft:#F5F5F1; --line:#D9D9D0; --fg:#16181D; --muted:#4F5561;
+  --php:#4F5BA6; --php-soft:#E4E6F5; --ia:#A25205; --ia-soft:#F9E8D0;
+  --f-display:"Bricolage Grotesque",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;font:400 8.6pt/1.42 var(--f-body);color:var(--fg);background:var(--bg)}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,p,ul{margin:0}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.1;letter-spacing:-.015em}
+.page{width:210mm;height:297mm;overflow:hidden;position:relative;page-break-after:always;break-after:page;display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto;break-after:auto}
+.label{font:500 6.6pt/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--php)}
+.label.ia{color:var(--ia)}
+.chip{font:500 6.6pt/1 var(--f-mono);padding:2.4pt 5pt;border:.6pt solid var(--line);border-radius:2pt;display:inline-block;color:var(--fg);background:var(--bg)}
+.chip.php{background:var(--php-soft);border-color:transparent;color:var(--php)}
+.chip.ia{background:var(--ia-soft);border-color:transparent;color:var(--ia)}
+.tags{display:flex;flex-wrap:wrap;gap:3pt}
+ul.pl{list-style:none;padding:0;display:grid;gap:2.6pt}
+ul.pl li{padding-left:8pt;position:relative;color:var(--muted)}
+ul.pl li::before{content:"";position:absolute;left:0;top:.62em;width:3.4pt;height:3.4pt;border-radius:50%;background:var(--php)}
+ul.pl li b{color:var(--fg);font-weight:600}
+ul.pl.ia li::before{background:var(--ia)}
+
+/* page 1 */
+.head{display:grid;grid-template-columns:auto 1fr;gap:6mm;align-items:center;padding:12mm 14mm 8mm;background:var(--soft);border-bottom:.6pt solid var(--line)}
+.logo{width:26mm;height:auto;display:block}
+.head h1{font-size:25pt;font-weight:800}
+.head .job{font:700 12pt/1.2 var(--f-display);color:var(--php);margin:1.5mm 0 2.5mm}
+.head .pitch{color:var(--muted);font-size:8.8pt;max-width:128mm}
+.cols{display:grid;grid-template-columns:62mm 1fr;flex:1;min-height:0}
+.side{background:var(--soft);padding:7mm 6mm 8mm 14mm;display:flex;flex-direction:column;gap:4.4mm;border-right:.6pt solid var(--line)}
+.main{padding:7mm 14mm 8mm 8mm;display:flex;flex-direction:column;gap:5mm}
+.sec{display:grid;gap:2.4mm}
+.sec>h2{font-size:10.5pt;font-weight:700;display:flex;align-items:center;gap:2mm}
+.sec>h2::after{content:"";flex:1;height:.6pt;background:var(--line)}
+.contact{display:grid;gap:1.6mm;font-size:8.2pt}
+.contact span{display:block;font:500 6.2pt/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.6mm}
+.sk{display:grid;gap:1.4mm}
+.sk p{color:var(--muted);font-size:8.2pt;line-height:1.35}
+.job-block{display:grid;gap:1.6mm}
+.job-block .top{display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
+.job-block h3{font-size:9.6pt}
+.job-block .when{font:500 7pt/1 var(--f-mono);color:var(--php);white-space:nowrap}
+.job-block .org{font:500 7.2pt/1.2 var(--f-mono);color:var(--muted)}
+.edu{display:grid;grid-template-columns:20mm 1fr;gap:.6mm 3mm;padding-block:1.7mm;border-top:.6pt solid var(--line)}
+.edu .y{font:500 6.8pt/1.5 var(--f-mono);color:var(--muted)}
+.edu b{font-weight:600}
+.edu p{color:var(--muted);font-size:7.9pt}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4mm}
+.cert{border:.6pt solid var(--line);border-radius:2pt;padding:2.2mm 2.6mm}
+.cert b{display:block;font:700 9pt/1.1 var(--f-display)}
+.cert span{font:500 6.6pt/1.4 var(--f-mono);color:var(--muted)}
+
+/* page 2 */
+.p2head{padding:12mm 14mm 5mm;display:flex;justify-content:space-between;align-items:baseline}
+.p2head h2{font-size:15pt;font-weight:800}
+.p2head .note{font:500 7pt/1 var(--f-mono);color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:5mm;padding:0 14mm;flex:1;min-height:0}
+.grid ul.pl{font-size:9pt;gap:3.4pt}
+.grid .res{font-size:8.4pt}
+.grid .card h3{font-size:10.4pt}
+.card{border:.6pt solid var(--line);border-radius:3pt;padding:4.2mm 4.6mm;display:grid;gap:2.2mm;align-content:space-between;grid-template-rows:auto auto auto 1fr auto;min-width:0}
+.card h3{font-size:9.6pt}
+.card .role{font:500 6.8pt/1.35 var(--f-mono);color:var(--php)}
+.card.ia{background:var(--ia-soft);border-color:transparent}
+.card.ia .role{color:var(--ia)}
+.res{font-size:7.9pt;color:var(--fg);border-left:1.6pt solid var(--php);padding-left:2.4mm;line-height:1.35}
+.card.ia .res{border-left-color:var(--ia)}
+.card p{color:var(--muted)}
+.foot{margin:4.2mm 14mm 0;padding-block:3.4mm;border-top:.6pt solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.foot p{color:var(--muted);font-size:8pt}
+.sign{padding:3mm 14mm 8mm;display:flex;justify-content:space-between;font:500 7pt/1 var(--f-mono);color:var(--muted)}
+.sign b{color:var(--php);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- ───────── Page 1 ───────── -->
+<section class="page">
+  <header class="head">
+    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-label="Logo mM">
+      <g transform="translate(500,300)">
+        <rect x="-400" y="-200" width="800" height="400" rx="55" ry="55" fill="#0f172a"/>
+        <text x="-220" y="20" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="250" font-weight="600" font-family="JetBrains Mono, Menlo, monospace">{</text>
+        <text x="0" y="20" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="180" font-weight="600" font-family="JetBrains Mono, Menlo, monospace" letter-spacing="10">mM</text>
+        <text x="220" y="20" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="250" font-weight="600" font-family="JetBrains Mono, Menlo, monospace">}</text>
+      </g>
+    </svg>
+    <div>
+      <h1>Mylène Magny</h1>
+      <p class="job">Développeuse back-end PHP, lead dev Drupal 8+</p>
+      <p class="pitch">J’ai construit des sites qui ont duré, pour des institutions, des universités et des musées. Je cherche une équipe qui met l’humain au centre, et des projets menés au contact de celles et ceux qui s’en servent.</p>
+    </div>
+  </header>
+
+  <div class="cols">
+    <aside class="side">
+      <div class="sec">
+        <h2>Contact</h2>
+        <div class="contact">
+          <p><span>Courriel</span><a href="mailto:mylene.magny@gmail.com">mylene.magny@gmail.com</a></p>
+          <p><span>Téléphone</span><a href="tel:+33670491408">06 70 49 14 08</a></p>
+          <p><span>Site</span><a href="https://mmagny.fr/">mmagny.fr</a></p>
+          <p><span>LinkedIn</span><a href="https://www.linkedin.com/in/myl%C3%A8ne-magny-26943b146/">linkedin.com/in/mylène-magny</a></p>
+          <p><span>Où</span>Yonne ou télétravail</p>
+          <p><span>Langues</span>Français, anglais technique</p>
+        </div>
+      </div>
+      <div class="sec">
+        <h2>Compétences</h2>
+        <div class="sk">
+          <span class="label">Back-end</span>
+          <div class="tags"><span class="chip php">PHP</span><span class="chip php">Drupal 8+</span><span class="chip php">Symfony</span><span class="chip">WordPress</span><span class="chip">Elementor</span><span class="chip">Genesis</span><span class="chip">MySQL / MariaDB</span><span class="chip">PostgreSQL</span></div>
+        </div>
+        <div class="sk">
+          <span class="label">Front</span>
+          <div class="tags"><span class="chip">HTML</span><span class="chip">CSS / SCSS</span><span class="chip">JavaScript</span><span class="chip">Twig</span><span class="chip">Tailwind CSS</span></div>
+          <p>React et Node.js déjà pratiqués</p>
+        </div>
+        <div class="sk">
+          <span class="label">Outils et DevOps</span>
+          <div class="tags"><span class="chip">Git</span><span class="chip">GitHub / GitLab</span><span class="chip">CI/CD</span><span class="chip">Docker</span><span class="chip">Composer</span><span class="chip">Drush</span></div>
+        </div>
+        <div class="sk">
+          <span class="label ia">IA</span>
+          <div class="tags"><span class="chip ia">Claude Code</span><span class="chip ia">Agents et skills sur-mesure</span></div>
+        </div>
+        <div class="sk">
+          <span class="label">Projet et qualité</span>
+          <p>Agilité, Jira, Confluence, Notion, accessibilité, RGPD, SEO, Green IT</p>
+        </div>
+      </div>
+      <div class="sec">
+        <h2>Atouts</h2>
+        <p style="color:var(--muted);font-size:8.2pt">Analyse de problèmes, autonomie, travail en équipe, communication avec le métier, esprit critique</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="sec">
+        <h2>Expérience</h2>
+        <div class="job-block">
+          <div class="top"><h3>Développeuse back-end PHP, lead dev Drupal 8+</h3><span class="when">2017 à aujourd’hui</span></div>
+          <p class="org">Agence Net.Com, 100+ projets livrés en 15 ans</p>
+          <ul class="pl">
+            <li><b>Une vingtaine de sites institutionnels Drupal</b> livrés et maintenus : modules et thèmes sur-mesure, usines à sites</li>
+            <li><b>Symfony et WordPress</b> : applications sur-mesure, reprise de projets existants, Elementor, Genesis, extranets métier, API</li>
+            <li><b>Relectures techniques</b> des cahiers fonctionnels (faisabilité, coût réel) et recettes avant livraison (performance, accessibilité, sécurité)</li>
+            <li><b>Transmission</b> : accompagnement des nouvelles recrues, revues de code, pilote de la démarche RSE de l’agence</li>
+            <li><b>Industrialisation</b> du démarrage de projets : socle Docker, conventions communes à Symfony, Drupal et WordPress, agents Claude Code</li>
+          </ul>
+        </div>
+        <div class="job-block" style="margin-top:2mm">
+          <div class="top"><h3>Développeuse full-stack</h3><span class="when">2011 à 2017</span></div>
+          <p class="org">Agence Net.Com</p>
+          <ul class="pl">
+            <li>Joomla, WordPress, Drupal 7, CodeIgniter : sites vitrines, boutiques, applications métier</li>
+            <li>Intégration de maquettes, support et maintenance, recueil des besoins, cadrage et suivi de projets, formation des clients</li>
+          </ul>
+        </div>
+        <div class="job-block" style="margin-top:2mm">
+          <div class="top"><h3>Stages</h3><span class="when">2009 à 2011</span></div>
+          <ul class="pl">
+            <li><b>Éveil’O’Goût, Dijon (2011)</b> : premier site Joomla de bout en bout, refonte sous WordPress</li>
+            <li><b>Guernet, Joigny (2009 et 2010)</b> : support, amélioration intranet / extranet, intégration SAGE</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h2>Certifications</h2>
+        <div class="certs">
+          <div class="cert"><b>Git</b><span>Dyma, mai 2026</span></div>
+          <div class="cert"><b>Docker</b><span>Dyma, juil. 2023</span></div>
+          <div class="cert"><b>Symfony</b><span>Dyma, mai 2023</span></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h2>Formations</h2>
+        <div>
+          <div class="edu"><span class="y">En cours</span><div><b>Dyma</b><p>Consolidation : PHP, JavaScript. Élargissement : Node.js, React, Claude Code</p></div></div>
+          <div class="edu"><span class="y">2017</span><div><b>Drupal 8, développeur</b><p>Trained People</p></div></div>
+          <div class="edu"><span class="y">2013</span><div><b>Drupal 7 et Drupal Commerce</b><p>Dawan</p></div></div>
+          <div class="edu"><span class="y">2010 à 2011</span><div><b>Licence professionnelle</b><p>Activité et technique de communication, IUT Dijon-Auxerre-Nevers</p></div></div>
+          <div class="edu"><span class="y">2008 à 2010</span><div><b>BTS Informatique de gestion</b><p>Développeur d’application, lycée Le Castel, Dijon</p></div></div>
+          <div class="edu"><span class="y">2007 à 2008</span><div><b>Licence</b><p>Histoire de l’art et archéologie, université Bourgogne Europe, Dijon</p></div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- ───────── Page 2 ───────── -->
+<section class="page">
+  <div class="p2head"><h2>Projets notables</h2><span class="note">Détail de 27 projets sur mmagny.fr/projets</span></div>
+  <div class="grid">
+    <article class="card">
+      <span class="label">Drupal</span>
+      <h3>École Polytechnique</h3>
+      <p class="role">Référente technique · Développeuse principale</p>
+      <ul class="pl">
+        <li>Socle Drupal mutualisé pour 5 sites institutionnels, thème parent et thèmes enfants</li>
+        <li>Modules sur mesure (Paragraphs, Entity Share), recherche transverse Algolia</li>
+        <li>Scripts de migration et d’import massif de contenus hétérogènes</li>
+        <li>Page Builder sur mesure</li>
+      </ul>
+      <p class="res">Socle industrialisé et évolutif, ouvert vers l’usine à sites</p>
+    </article>
+    <article class="card">
+      <span class="label">Drupal, usine à sites</span>
+      <h3>Union sociale pour l’habitat, espaces collaboratifs</h3>
+      <p class="role">Référente technique · Développeuse principale</p>
+      <ul class="pl">
+        <li>Moteur d’usine à sites : création d’espaces métiers configurables (fonctionnalités, droits, identité visuelle)</li>
+        <li>Authentification unique (SSO) avec gestion des rôles et des permissions</li>
+        <li>Commentaires avec droits d’accès et modération</li>
+      </ul>
+      <p class="res">Création d’espaces automatisée, maintenance centralisée, équipes métiers autonomes</p>
+    </article>
+    <article class="card">
+      <span class="label">Drupal Commerce</span>
+      <h3>MNHN, publications scientifiques</h3>
+      <p class="role">Référente technique · Développeuse principale</p>
+      <ul class="pl">
+        <li>Plateforme e-commerce et éditoriale : catalogue, stocks, règles de vente</li>
+        <li>Flux OAI-PMH pour alimenter et synchroniser le catalogue</li>
+        <li>PDF à la volée (HTML2PDF) et Print on Demand avec couvertures personnalisées</li>
+        <li>Règles métier (TVA, frais de port) via le module Rules</li>
+      </ul>
+      <p class="res">En production 10 ans après sa mise en ligne, refonte confiée à la même équipe</p>
+    </article>
+    <article class="card">
+      <span class="label">WordPress</span>
+      <h3>Charot, site vitrine et extranet métier</h3>
+      <p class="role">Développeuse principale</p>
+      <ul class="pl">
+        <li>Refonte du site sur Genesis : thème enfant, hooks et filtres, thème parent intact</li>
+        <li>Extranet d’aide à la décision sur mesure, entités complexes avec Pods</li>
+        <li>Moteur de recommandation produit à base de questionnaires Gravity Forms</li>
+        <li>Imports et synchronisation quotidienne des données</li>
+      </ul>
+      <p class="res">Données produits fiabilisées, saisies manuelles fortement réduites</p>
+    </article>
+    <article class="card">
+      <span class="label">Symfony</span>
+      <h3>Quartiers Plus, outil métier</h3>
+      <p class="role">Développeuse · Interlocutrice technique</p>
+      <ul class="pl">
+        <li>Plateforme de gestion et d’analyse de données du parc immobilier social, architecture modulaire, Doctrine</li>
+        <li>Formulaires complexes, import / export CSV, Excel, PDF (PhpSpreadsheet, DomPDF)</li>
+        <li>Commandes console, tableaux de bord Chart.js</li>
+        <li>CI/CD, revues de code, tests automatisés, Agile avec le Product Owner</li>
+      </ul>
+      <p class="res">Évolution continue, livraisons mensuelles</p>
+    </article>
+    <article class="card ia">
+      <span class="label ia">L’IA dans ma pratique</span>
+      <h3>Je pilote, je relis tout</h3>
+      <p class="role">Claude Code au quotidien</p>
+      <ul class="pl ia">
+        <li>Je cadre, Claude dégrossit, je relis ligne à ligne, la CI tranche</li>
+        <li>Mes propres agents, règles et skills pour démarrer un projet Symfony, Drupal ou WordPress selon mes conventions</li>
+        <li>Le métier, l’arbitrage et la responsabilité de ce qui part en ligne restent de mon côté</li>
+      </ul>
+      <p class="res">Deux générations successives donnent la même arborescence, les mêmes noms, les mêmes ports</p>
+    </article>
+  </div>
+
+  <div class="foot">
+    <div class="sec">
+      <h2>Dans la vie</h2>
+      <p>Community manager dans une association de jeux de société, responsable de l’accueil lors de festivals ludiques</p>
+    </div>
+    <div class="sec">
+      <h2>Loisirs</h2>
+      <p>Jeux de société et de rôle, jeux vidéo, jardinage et bricolage, espace, Égypte et Grèce antiques, Thaïlande, cuisine d’Asie de l’Est, et les chats</p>
+    </div>
+  </div>
+  <div class="sign"><span>Mylène Magny, développeuse back-end PHP</span><b>mmagny.fr</b></div>
+</section>
+</body>
+</html>

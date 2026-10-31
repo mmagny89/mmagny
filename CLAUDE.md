@@ -93,6 +93,11 @@ change.
   `home.js`, rejouer `sh outils/prerendre.sh` (jsdom est installé en dossier
   temporaire, rien n'entre dans le dépôt). Ne jamais éditer à la main ce qui
   se trouve entre deux marqueurs.
+- **Le CV PDF est généré, pas édité.** Sa source est `outils/cv/cv.html` (charte
+  du site, hors de `site/` parce qu'elle porte un téléphone et un courriel
+  personnels) ; `sh outils/generer-cv.sh` l'imprime avec Chrome headless dans
+  `site/assets/cv/mylene-magny-cv.pdf`. Une modification des chiffres ou du
+  titre sur le site se répercute à la main dans ce fichier.
 - **Le lien vers l'accueil est `/`, jamais `index.html`** : l'URL canonique est
   `https://mmagny.fr/`.
 
