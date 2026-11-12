@@ -61,6 +61,15 @@ const PERSONAL_PROJECTS = [
         icon:  "fa-dice",
     },
     {
+        id:    "omraon",
+        title: "Omraon",
+        desc:  "Simulation N-corps et vue 3D du système d'un roman : relativité générale, éphémérides, population et lore, à la vraie échelle. Application statique, sans build ni ressource externe.",
+        stack: ["JavaScript", "Three.js", "Caddy"],
+        status: "local",
+        url:   "https://github.com/mmagny89/omraon",
+        icon:  "fa-globe",
+    },
+    {
         id:      "dnd-oracle",
         title:   "D&D Oracle",
         desc:    "Assistant de maître du jeu pour les jeux de rôle. Une IA générera les campagnes à partir d'un simple scénario de départ.",

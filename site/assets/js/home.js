@@ -95,7 +95,7 @@ const ST={production:'En ligne',beta:'Bêta',wip:'En cours',local:'En local',sta
 const pub=p=>[].concat(p.status??'wip').some(s=>s==='production'||s==='beta');
 const stat=p=>[].concat(p.status??'wip').map(s=>`<span class="status ${s}">${ST[s]||s}</span>`).join('')+(p.ai?`<span class="chip ia">${svg('sparkles')}IA</span>`:'')+(p.private?`<span class="status">${svg('lock')} Privé</span>`:'');
 const links=p=>`<div class="actions">${p.demo?`<a class="btn sm" href="${p.demo}" target="_blank" rel="noopener">${svg('ext')}Voir le site<span class="sr-only"> ${p.title} (nouvel onglet)</span></a>`:''}${p.private?'':`<a class="btn sm" href="${p.url}" target="_blank" rel="noopener">${svg('github')}GitHub<span class="sr-only"> de ${p.title} (nouvel onglet)</span></a>`}</div>`;
-const IC={mmagny:'idcard',niout:'landmark','bg-tcg':'layers',edj:'users',chauffage:'thermo',aqoj:'dice','dnd-oracle':'dragon',vigil:'eye'};
+const IC={mmagny:'idcard',niout:'landmark','bg-tcg':'layers',edj:'users',chauffage:'thermo',aqoj:'dice','dnd-oracle':'dragon',vigil:'eye',omraon:'orbit'};
 const pcard=p=>`<article class="card"><div class="top"><span class="tile ${p.ai?'ia':''}">${svg(IC[p.id]||'code')}</span><h3>${p.title}</h3></div><div class="tags">${stat(p)}</div><p>${tx(p.desc)}</p><div class="stackrow">${p.stack.slice(0,3).map(s=>`<span class="chip">${s}</span>`).join('')}</div>${links(p)}</article>`;
 $('#perso-pub').innerHTML=PERSONAL_PROJECTS.filter(pub).map(pcard).join('');
 $('#perso-wip').innerHTML=PERSONAL_PROJECTS.filter(p=>!pub(p)).map(p=>`<div class="card" style="background:var(--bg)"><div class="top"><span class="tile sm ${p.ai?'ia':''}">${svg(IC[p.id]||'code')}</span><h4>${p.title}</h4></div><div class="tags">${stat(p)}</div><p>${tx(p.desc)}</p></div>`).join('');

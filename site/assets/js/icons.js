@@ -44,6 +44,7 @@ sprout:'<path d="M12 21V11M12 11c0-4 3-6 7-6 0 4-3 6-7 6zM12 14c0-3-2-5-6-5 0 3 
 paw:'<circle cx="6" cy="10" r="1.800"/><circle cx="10" cy="6" r="1.800"/><circle cx="14" cy="6" r="1.800"/><circle cx="18" cy="10" r="1.800"/><path d="M12 12c-3 0-5 3-5 5.500 0 2 2 2.500 5 1.500 3 1 5 .5 5-1.500 0-2.500-2-5.500-5-5.500z"/>',
 thermo:'<path d="M14 14.800V4a2 2 0 0 0-4 0v10.800a4 4 0 1 0 4 0z"/>',
 idcard:'<rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M13 10h5M13 14h4"/>',
+orbit:'<circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(-30 12 12)"/><circle cx="19" cy="8" r="1"/>',
 eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
 dragon:'<path d="M14.500 3 21 9l-3 1-2 4-5 1-5 5-3-1 3-5 1-5 4-2z"/>',
 db:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.700 3.600 3 8 3s8-1.300 8-3V5M4 12c0 1.700 3.600 3 8 3s8-1.300 8-3"/>',
