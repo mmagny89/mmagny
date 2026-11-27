@@ -13,6 +13,7 @@ refonte visible par le visiteur, et non comme un changement d'API.
 
 - Statut : disponible dès maintenant (site, `llms.txt`, données structurées,
   CV PDF) ; le poste chez Net.Com est daté « 2017 à 2026 ».
+- Projet Envie de Jouer : en ligne sur enviedejouer89.fr.
 
 ## [2.0.0] - 2026-10-31
 

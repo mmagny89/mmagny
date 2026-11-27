@@ -36,8 +36,9 @@ const PERSONAL_PROJECTS = [
         title: "Envie de Jouer",
         desc:  "Site de l'association Envie de Jouer. Présentation, calendrier des événements et bulletin d'adhésion en ligne. Déploiement automatisé par GitHub Actions.",
         stack: ["Symfony", "Tailwind CSS"],
-        status: "staging",
+        status: "production",
         url:   "https://github.com/mmagny89/edj",
+        demo:  "https://enviedejouer89.fr/",
         icon:  "fa-people-group",
     },
     {
