@@ -45,6 +45,7 @@ WHERE r.nid IS NULL;`],
     public function __construct(
         public string $poste = 'Développeuse back-end PHP',
         public string $lieu = 'Yonne ou télétravail',
+        public string $disponibilite = 'immédiate',
         public bool $humainAuCentre = true,
     ) {}
 }`],

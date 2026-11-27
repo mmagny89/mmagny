@@ -9,6 +9,11 @@ refonte visible par le visiteur, et non comme un changement d'API.
 
 ## [Non publié]
 
+### Modifié
+
+- Statut : disponible dès maintenant (site, `llms.txt`, données structurées,
+  CV PDF) ; le poste chez Net.Com est daté « 2017 à 2026 ».
+
 ## [2.0.0] - 2026-10-31
 
 Refonte visuelle complète du site, du CV et de l'accessibilité, d'où le
